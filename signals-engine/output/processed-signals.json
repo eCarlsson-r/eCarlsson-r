@@ -1,0 +1,28 @@
+[
+  {
+    "id": "spa-ecosystem",
+    "scores": {
+      "execution": 51,
+      "complexity": 100,
+      "ownership": 30
+    },
+    "summary": {
+      "executionLevel": "Medium",
+      "complexityLevel": "High",
+      "ownershipLevel": "Low"
+    }
+  },
+  {
+    "id": "commerce-system",
+    "scores": {
+      "execution": 49,
+      "complexity": 100,
+      "ownership": 30
+    },
+    "summary": {
+      "executionLevel": "Low",
+      "complexityLevel": "High",
+      "ownershipLevel": "Low"
+    }
+  }
+]
