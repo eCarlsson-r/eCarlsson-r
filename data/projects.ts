@@ -193,7 +193,7 @@ export const projects = [
             "Real estate domain modeling"
         ],
 
-        featured: true,
+        featured: false,
         year: 2026
     }
 ] as Project[];

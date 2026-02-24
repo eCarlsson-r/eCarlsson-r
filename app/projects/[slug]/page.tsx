@@ -1,6 +1,7 @@
 import { getProject } from "@/data/projects";
 import { notFound } from "next/navigation";
 import SignalsSection from "./SignalsSection";
+import TechBadge from "@/components/project/TechBadge";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -20,9 +21,7 @@ export default async function ProjectPage({ params }: Props) {
       {/* Stack */}
       <div className="mt-6 flex gap-2 flex-wrap">
         {[...project.backend, ...project.frontend].map((tech) => (
-          <span key={tech} className="bg-gray-100 px-3 py-1 rounded-md text-sm">
-            {tech}
-          </span>
+          <TechBadge key={tech} name={tech} />
         ))}
       </div>
 

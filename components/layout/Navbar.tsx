@@ -20,6 +20,9 @@ export default function Navbar() {
           <Link href="/about" className="hover:text-blue-600">
             About
           </Link>
+          <Link href="/resume" className="hover:text-blue-600">
+            Resume
+          </Link>
           <Link href="/contact" className="hover:text-blue-600">
             Contact
           </Link>
