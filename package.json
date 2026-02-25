@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "eslint",
-    "generate-signals": "ts-node -P signals-engine/tsconfig.node.json signals-engine/index.ts"
+    "generate-signals": "ts-node -P signals-engine/tsconfig.node.json signals-engine/index.ts",
+    "generate-live-signals": "ts-node -P signals-engine/tsconfig.node.json signals-engine/liveSignalsRunner.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

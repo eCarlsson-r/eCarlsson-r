@@ -1,0 +1,24 @@
+import { getAllSignals } from "@/lib/signals/loadSignals";
+import { generateBadges } from "@/lib/signals/generateBadges";
+
+export default function ExecutionBadges() {
+  const signals = getAllSignals();
+  const badges = generateBadges(signals);
+
+  return (
+    <section className="space-y-6">
+      <h2 className="text-xl font-semibold">Performance Badges</h2>
+
+      <div className="flex flex-wrap gap-4">
+        {badges.map((badge) => (
+          <span
+            key={badge}
+            className="px-4 py-2 border rounded-full bg-indigo-50 text-indigo-700 text-sm"
+          >
+            🏆 {badge}
+          </span>
+        ))}
+      </div>
+    </section>
+  );
+}

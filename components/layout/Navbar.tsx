@@ -6,7 +6,7 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="text-lg font-semibold text-gray-900">
-          Carlsson.dev
+          Carlsson Studio
         </Link>
 
         {/* Navigation */}

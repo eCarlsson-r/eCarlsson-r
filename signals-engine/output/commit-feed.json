@@ -1,0 +1,62 @@
+[
+  {
+    "repo": "CommerceSystem-API",
+    "message": "feat: Implement event-driven notifications for order and sale creation, including WebPush support",
+    "date": "2026-02-22T15:35:43Z",
+    "url": "https://github.com/eCarlsson-r/CommerceSystem-API/commit/a64b221c6ac4947d8c9cc7ec64de98f18fd3ac5b"
+  },
+  {
+    "repo": "CommerceSystem-API",
+    "message": "feat: Add Wishlist functionality with controller, model, and migration",
+    "date": "2026-02-22T14:12:34Z",
+    "url": "https://github.com/eCarlsson-r/CommerceSystem-API/commit/3b4bfd8bcc8527c9ebd20349e1dfc5afb11f12ec"
+  },
+  {
+    "repo": "CommerceSystem-API",
+    "message": "feat: Implement cart functionality with index and store methods, update order handling, and enhance product resource with stock details",
+    "date": "2026-02-21T17:40:09Z",
+    "url": "https://github.com/eCarlsson-r/CommerceSystem-API/commit/8a26a4dff1406785c341ad64e500dff275f5e8d5"
+  },
+  {
+    "repo": "CommerceSystem-API",
+    "message": "feat: Enhance API with new public endpoints for branches, improve order validation, and update user response structure",
+    "date": "2026-02-20T19:15:37Z",
+    "url": "https://github.com/eCarlsson-r/CommerceSystem-API/commit/ae6a6682c12acf6e58f1189e83295950689416a1"
+  },
+  {
+    "repo": "CommerceSystem-API",
+    "message": "feat: Enhance API functionality with new endpoints, improve data handling, and add descriptions to banners and products",
+    "date": "2026-02-19T18:46:52Z",
+    "url": "https://github.com/eCarlsson-r/CommerceSystem-API/commit/89b731f9f84cdfea31f55a2bb59847945da3e2f3"
+  },
+  {
+    "repo": "SpaInformationSystem-API",
+    "message": "feat: Add `ext-pcntl` requirement and update `laravel/reverb` version constraint.",
+    "date": "2026-02-02T03:01:08Z",
+    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/eadf8b7c77af37984a14d03b722758a08bd3b59f"
+  },
+  {
+    "repo": "SpaInformationSystem-API",
+    "message": "refactor: remove hardcoded HTTPS prefix and default domains from CORS allowed origins.",
+    "date": "2026-01-31T10:34:28Z",
+    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/a498e15180ed1d3ce9e5dcc3beb8c3d99cdca991"
+  },
+  {
+    "repo": "SpaInformationSystem-API",
+    "message": "refactor: Replace hardcoded origin URLs with environment variables `STORE_URL` and `POS_URL`.",
+    "date": "2026-01-31T10:26:47Z",
+    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/b7757fa0ecda379b9abf0973ec1b6b517547af7f"
+  },
+  {
+    "repo": "SpaInformationSystem-API",
+    "message": "feat: Standardize primary and foreign keys to use auto-incrementing IDs and `foreignId` for relationships, and update voucher ID generation and treatment room field to JSON.",
+    "date": "2026-01-31T09:49:05Z",
+    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/d7fbc3c6e66d856398a44f6907fd1602b310efb6"
+  },
+  {
+    "repo": "SpaInformationSystem-API",
+    "message": "refactor: update web push notification class imports to `NotificationChannels\\WebPush` namespace",
+    "date": "2026-01-31T07:56:28Z",
+    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/39001622656c8599e3c8a06add4da00a33245710"
+  }
+]

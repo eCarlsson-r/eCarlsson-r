@@ -23,3 +23,18 @@ export async function fetchRepoData(owner: string, repo: string) {
     languages: Object.keys(languages.data)
   };
 }
+
+export async function fetchRecentCommits(owner: string, repo: string) {
+  const commits = await octokit.repos.listCommits({
+    owner,
+    repo,
+    per_page: 5
+  });
+
+  return commits.data.map(c => ({
+    repo,
+    message: c.commit.message.split("\n")[0],
+    date: c.commit.author?.date,
+    url: c.html_url
+  }));
+}

@@ -3,7 +3,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
-  title: "Carlsson | Full-Stack Engineer",
+  title: "Carlsson Studio | Full-Stack Engineer",
   description: "Portfolio of a full-stack software engineer",
 };
 

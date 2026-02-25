@@ -9,7 +9,7 @@ export default function TechMap() {
   ];
 
   return (
-    <section className="max-w-6xl mx-auto py-20">
+    <section className="max-w-6xl mx-auto">
       <h2 className="text-2xl font-semibold mb-8">Technology Map</h2>
 
       <div className="flex flex-wrap gap-4">

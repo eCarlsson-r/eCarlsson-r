@@ -1,19 +1,27 @@
-import { getProject } from "@/data/projects";
-import { notFound } from "next/navigation";
+import { getProject, projects } from "@/data/projects";
 import SignalsSection from "./SignalsSection";
 import TechBadge from "@/components/project/TechBadge";
 
+export function generateStaticParams() {
+  return projects.map(p => ({
+    slug: p.slug,
+  }));
+}
+  
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
+  console.info(slug);
   const project = getProject(slug);
-  if (!project) return notFound();
+  if (!project) {
+    throw new Error(`Project not found: ${slug}`);
+  }
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-24">
+    <div className="mx-auto max-w-6xl px-6 py-24">
       <h1 className="text-4xl font-bold">{project.title}</h1>
 
       <p className="mt-4 text-gray-600">{project.description}</p>
