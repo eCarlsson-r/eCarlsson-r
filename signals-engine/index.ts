@@ -18,6 +18,9 @@ async function run() {
   const commitFeed: FeedItem[] = [];
 
   for (const project of projects) {
+    let executionScore = 0;
+    let complexityScore = 0;
+    let ownershipScore = 0;
     for (const repo of project.repo) {
       const repoData = await fetchRepoData(
         project.githubOwner,
@@ -25,26 +28,40 @@ async function run() {
       );
       
       const normalized = normalizeSignals(repoData);
-      let scores = {};
+      let scores: { execution: number; complexity: number; ownership: number } = {
+        execution: 0,
+        complexity: 0,
+        ownership: 0
+      };
       if (project.mdxPath) {
         scores = calculateScores(normalized, loadManualSignals(project.mdxPath));
       } else {
         scores = calculateScores(normalized);
       }
-      const summary = generateSummary(scores);
+      executionScore += scores.execution;
+      complexityScore += scores.complexity;
+      ownershipScore += scores.ownership;
 
       const recentCommits = await fetchRecentCommits(
         project.githubOwner,
         repo
       );
       commitFeed.push(...recentCommits);
-
-      results.push({
-        id: project.id,
-        scores,
-        summary
-      });
     }
+
+    const scores = {
+      execution: executionScore / project.repo.length,
+      complexity: complexityScore / project.repo.length,
+      ownership: ownershipScore / project.repo.length
+    };
+
+    const summary = generateSummary(scores);
+
+    results.push({
+      id: project.id,
+      scores,
+      summary
+    });
   }
 
   fs.writeFileSync(
