@@ -38,6 +38,9 @@ jobs:
       - name: Generate Signals
         run: npm run generate-signals
 
+      - name: Generate Live Signals
+        run: npm run generate-live-signals
+
       - name: Build Next.js site
         run: npm run build
 
