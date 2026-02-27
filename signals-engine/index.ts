@@ -18,28 +18,33 @@ async function run() {
   const commitFeed: FeedItem[] = [];
 
   for (const project of projects) {
-    const repoData = await fetchRepoData(
-      project.githubOwner,
-      project.repo
-    );
+    for (const repo of project.repo) {
+      const repoData = await fetchRepoData(
+        project.githubOwner,
+        repo
+      );
+      
+      const normalized = normalizeSignals(repoData);
+      let scores = {};
+      if (project.mdxPath) {
+        scores = calculateScores(normalized, loadManualSignals(project.mdxPath));
+      } else {
+        scores = calculateScores(normalized);
+      }
+      const summary = generateSummary(scores);
 
-    const manual = loadManualSignals(project.mdxPath);
+      const recentCommits = await fetchRecentCommits(
+        project.githubOwner,
+        repo
+      );
+      commitFeed.push(...recentCommits);
 
-    const normalized = normalizeSignals(repoData);
-    const scores = calculateScores(normalized, manual);
-    const summary = generateSummary(scores);
-
-    const recentCommits = await fetchRecentCommits(
-      project.githubOwner,
-      project.repo
-    );
-    commitFeed.push(...recentCommits);
-
-    results.push({
-      id: project.id,
-      scores,
-      summary
-    });
+      results.push({
+        id: project.id,
+        scores,
+        summary
+      });
+    }
   }
 
   fs.writeFileSync(
