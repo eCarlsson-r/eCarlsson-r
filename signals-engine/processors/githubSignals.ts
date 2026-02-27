@@ -1,5 +1,5 @@
-export function generateGithubSignals(repoDataList: any[]) {
-  const allDates = repoDataList.flatMap(r => r.commitDates || []);
+export function generateGithubSignals(repoDataList: {commitCount: number, firstCommit: string, lastCommit: string, languages: string[]}[]) {
+  const allDates = repoDataList.flatMap(r => r.lastCommit);
   if (!allDates.length) return null;
 
   const now = new Date();
