@@ -33,7 +33,7 @@ export const projects = [
   },
   {
     id: "human-design",
-    repo: ["HumanDesign"],
+    repo: ["HumanDesign-API", "HumanDesign"],
     githubOwner: "eCarlsson-r"
   }
 ];

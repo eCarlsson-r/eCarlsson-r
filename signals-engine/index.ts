@@ -50,9 +50,9 @@ async function run() {
     }
 
     const scores = {
-      execution: executionScore / project.repo.length,
-      complexity: complexityScore / project.repo.length,
-      ownership: ownershipScore / project.repo.length
+      execution: Math.round(executionScore / project.repo.length),
+      complexity: Math.round(complexityScore / project.repo.length),
+      ownership: Math.round(ownershipScore / project.repo.length)
     };
 
     const summary = generateSummary(scores);
