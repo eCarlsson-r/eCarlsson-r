@@ -1,27 +1,118 @@
 [
   {
-    "id": "spa-ecosystem",
+    "id": "payroll-system",
     "scores": {
-      "execution": 51,
+      "execution": 36,
       "complexity": 100,
-      "ownership": 30
-    },
-    "summary": {
-      "executionLevel": "Medium",
-      "complexityLevel": "High",
-      "ownershipLevel": "Low"
-    }
-  },
-  {
-    "id": "commerce-system",
-    "scores": {
-      "execution": 49,
-      "complexity": 100,
-      "ownership": 30
+      "ownership": 100
     },
     "summary": {
       "executionLevel": "Low",
       "complexityLevel": "High",
+      "ownershipLevel": "High"
+    }
+  },
+  {
+    "id": "insurance-portal",
+    "scores": {
+      "execution": 51,
+      "complexity": 100,
+      "ownership": 100
+    },
+    "summary": {
+      "executionLevel": "Medium",
+      "complexityLevel": "High",
+      "ownershipLevel": "High"
+    }
+  },
+  {
+    "id": "spa-ecosystem",
+    "scores": {
+      "execution": 39,
+      "complexity": 92,
+      "ownership": 100
+    },
+    "summary": {
+      "executionLevel": "Low",
+      "complexityLevel": "High",
+      "ownershipLevel": "High"
+    }
+  },
+  {
+    "id": "commerce-ecosystem",
+    "scores": {
+      "execution": 35,
+      "complexity": 92,
+      "ownership": 100
+    },
+    "summary": {
+      "executionLevel": "Low",
+      "complexityLevel": "High",
+      "ownershipLevel": "High"
+    }
+  },
+  {
+    "id": "restaurant-ecosystem",
+    "scores": {
+      "execution": 0,
+      "complexity": 0,
+      "ownership": 0
+    },
+    "summary": {
+      "executionLevel": "Low",
+      "complexityLevel": "Low",
+      "ownershipLevel": "Low"
+    }
+  },
+  {
+    "id": "controlmoney",
+    "scores": {
+      "execution": 54,
+      "complexity": 50,
+      "ownership": 100
+    },
+    "summary": {
+      "executionLevel": "Medium",
+      "complexityLevel": "Low",
+      "ownershipLevel": "High"
+    }
+  },
+  {
+    "id": "quoteplot-agent",
+    "scores": {
+      "execution": 44,
+      "complexity": 100,
+      "ownership": 100
+    },
+    "summary": {
+      "executionLevel": "Low",
+      "complexityLevel": "High",
+      "ownershipLevel": "High"
+    }
+  },
+  {
+    "id": "human-design",
+    "scores": {
+      "execution": 63,
+      "complexity": 50,
+      "ownership": 100
+    },
+    "summary": {
+      "executionLevel": "Medium",
+      "complexityLevel": "Low",
+      "ownershipLevel": "High"
+    }
+  },
+  {
+    "id": "property-management",
+    "scores": {
+      "execution": 0,
+      "complexity": 0,
+      "ownership": 0
+    },
+    "summary": {
+      "executionLevel": "Low",
+      "complexityLevel": "Low",
       "ownershipLevel": "Low"
     }
   }

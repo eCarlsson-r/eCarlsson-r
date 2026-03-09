@@ -1,35 +1,39 @@
-import { projects } from "./config/projects";
+import { projects } from "../data/projects";
 import { fetchRepoData } from "./fetchers/githubFetcher";
 import { generateGithubSignals } from "./processors/githubSignals";
 import fs from "fs";
 
 async function run() {
-  const repoResults: {commitCount: number, firstCommit: string, lastCommit: string, languages: string[]}[] = [];
+  const repoResults: {
+    project: string;
+    commitCount: number; 
+    firstCommit: string; 
+    lastCommit: string; 
+    languages: string[];
+  }[] = [];
 
   for (const project of projects) {
-    if (!project.repo) continue;
+    if (!project.repositories) continue;
 
     let commitCount = 0;
     const firstCommits: Date[] = [];
     const lastCommits: Date[] = [];
-    const languages: string[] = [];
+    const languages = new Set<string>();
 
-    for (const repo of project.repo) {
-      const data = await fetchRepoData(
-        project.githubOwner,
-        repo
-      );
+    for (const repo of project.repositories) {
+      const data = await fetchRepoData(repo.owner, repo.name);
       commitCount += data.commitCount;
-      firstCommits.push(new Date(data.firstCommit!));
-      lastCommits.push(new Date(data.lastCommit!));
-      data.languages.forEach(language => (!languages.includes(language)) && languages.push(language));
+      if (data.firstCommit) firstCommits.push(new Date(data.firstCommit));
+      if (data.lastCommit) lastCommits.push(new Date(data.lastCommit));
+      data.languages.forEach(language => languages.add(language));
     }
 
     repoResults.push({
+      project: project.slug,
       commitCount: commitCount,
-      firstCommit: firstCommits.reduce((a, b) => (a < b ? a : b)).toISOString(),
+      firstCommit: firstCommits.length > 0 ? firstCommits.reduce((a, b) => (a < b ? a : b)).toISOString() : new Date().toISOString(),
       lastCommit: lastCommits.reduce((a, b) => (a > b ? a : b)).toISOString(),
-      languages: languages
+      languages: Array.from(languages)
     });
   }
 

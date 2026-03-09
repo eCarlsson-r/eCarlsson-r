@@ -1,5 +1,13 @@
 export type ProjectCategory = "signal" | "depth" | "edge";
 
+export interface Repository {
+  name: string;
+  owner: string;
+  url?: string;
+  type: "backend" | "frontend" | "mobile" | "api" | "service";
+  stack: string[];
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -7,6 +15,8 @@ export interface Project {
 
   summary: string;
   description: string;
+
+  repositories?: Repository[];
 
   backend: string[];
   frontend: string[];
@@ -29,6 +39,15 @@ export const projects = [
         backend: ["Laravel"],
         frontend: ["Blade"],
 
+        repositories: [
+            {
+                name: "PayrollManagementLaravel",
+                type: "backend",
+                owner: "eCarlsson-r",
+                stack: ["Laravel", "Blade"]
+            }
+        ],
+
         highlights: [
             "Role-based access control",
             "Complex business workflow",
@@ -49,6 +68,15 @@ export const projects = [
         backend: ["Laravel"],
         frontend: ["Inertia", "React"],
 
+        repositories: [
+            {
+                name: "InsurancePortal",
+                type: "backend",
+                owner: "eCarlsson-r",
+                stack: ["Laravel", "Inertia", "React"]
+            }
+        ],
+
         highlights: [
             "Business data modeling",
             "Structured admin workflows",
@@ -65,9 +93,31 @@ export const projects = [
 
         summary: "Full ecosystem with API, POS, and booking system.",
         description: "Micro-system architecture including API backend, cashier POS, and customer booking portal.",
+        mdxPath: "/projects/spa-ecosystem.mdx",
 
         backend: ["Laravel", "REST API"],
         frontend: ["Next.js", "Nuxt"],
+
+        repositories: [
+            {
+                name: "SpaInformationSystem-API",
+                type: "backend",
+                owner: "eCarlsson-r",
+                stack: ["Laravel", "REST API"]
+            },
+            {
+                name: "SpaCashier",
+                type: "frontend",
+                owner: "eCarlsson-r",
+                stack: ["Next.js"]
+            },
+            {
+                name: "SpaBooking",
+                type: "frontend",
+                owner: "eCarlsson-r",
+                stack: ["Nuxt"]
+            }
+        ],
 
         highlights: [
             "Multi-application architecture",
@@ -85,9 +135,31 @@ export const projects = [
 
         summary: "End-to-end commerce platform with POS and storefront.",
         description: "Integrated commerce system covering admin API, POS operations, and public online store.",
+        mdxPath: "/projects/commerce-ecosystem.mdx",
 
         backend: ["Laravel", "REST API"],
         frontend: ["Angular", "Next.js"],
+
+        repositories: [
+            {
+                name: "CommerceSystem-API",
+                type: "backend",
+                owner: "eCarlsson-r",
+                stack: ["Laravel", "REST API"]
+            },
+            {
+                name: "CommercePOS",
+                type: "frontend",
+                owner: "eCarlsson-r",
+                stack: ["Angular"]
+            },
+            {
+                name: "CommerceStore",
+                type: "frontend",
+                owner: "eCarlsson-r",
+                stack: ["Next.js"]
+            }
+        ],
 
         highlights: [
             "Multi-frontend ecosystem",
@@ -129,6 +201,15 @@ export const projects = [
         backend: [],
         frontend: ["React Native"],
 
+        repositories: [
+            {
+                name: "ControlMoney",
+                type: "frontend",
+                owner: "eCarlsson-r",
+                stack: ["React Native"]
+            }
+        ],
+
         highlights: [
             "Personal productivity tool",
             "Clean UI architecture"
@@ -148,6 +229,15 @@ export const projects = [
         backend: ["Python", "FastAPI"],
         frontend: ["Next.js"],
 
+        repositories: [
+            {
+                name: "QuotePlot-Agent",
+                type: "service",
+                owner: "eCarlsson-r",
+                stack: ["Python", "FastAPI", "Next.js"]
+            }
+        ],
+
         highlights: [
             "AI integration",
             "Experimental architecture"
@@ -166,6 +256,21 @@ export const projects = [
 
         backend: ["ASP.NET Core"],
         frontend: ["Angular"],
+
+        repositories: [
+            {
+                name: "HumanDesign-API",
+                type: "backend",
+                owner: "eCarlsson-r",
+                stack: ["ASP.NET Core", "MySQL"]
+            },
+            {
+                name: "HumanDesign",
+                type: "frontend",
+                owner: "eCarlsson-r",
+                stack: ["Angular", "AnalogJS"]
+            }
+        ],
 
         highlights: [
             "Complex domain logic",

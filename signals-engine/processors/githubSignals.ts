@@ -1,5 +1,5 @@
 export function generateGithubSignals(repoDataList: {commitCount: number, firstCommit: string, lastCommit: string, languages: string[]}[]) {
-  const allDates = repoDataList.flatMap(r => r.lastCommit);
+  const allDates = repoDataList.map(r => r.lastCommit);
   if (!allDates.length) return null;
 
   const now = new Date();
@@ -17,10 +17,7 @@ export function generateGithubSignals(repoDataList: {commitCount: number, firstC
   else if (daysSinceLast < 30) activityPulse = "Moderate";
 
   // ---------- VELOCITY ----------
-  const commitsLast30Days = timestamps.filter(ts => {
-    const diff = (now.getTime() - ts) / (1000 * 60 * 60 * 24);
-    return diff <= 30;
-  }).length;
+  const commitsLast30Days = repoDataList.reduce((sum, r) => sum + r.commitCount, 0);
 
   let executionVelocity = "Low";
   if (commitsLast30Days > 80) executionVelocity = "High";

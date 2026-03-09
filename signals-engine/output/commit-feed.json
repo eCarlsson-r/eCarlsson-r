@@ -1,9 +1,99 @@
 [
   {
+    "repo": "HumanDesign",
+    "message": "Update arrow",
+    "date": "2026-03-09T03:35:42Z",
+    "url": "https://github.com/eCarlsson-r/HumanDesign/commit/6041bcb6c95adb9b835d65b6a036c2e16ed7f53b"
+  },
+  {
+    "repo": "HumanDesign",
+    "message": "Update login.ts",
+    "date": "2026-03-09T03:21:56Z",
+    "url": "https://github.com/eCarlsson-r/HumanDesign/commit/8d305d2d321cab8d878717d593b5e5dded63579a"
+  },
+  {
+    "repo": "HumanDesign",
+    "message": "Update vite.config.ts",
+    "date": "2026-03-09T03:10:46Z",
+    "url": "https://github.com/eCarlsson-r/HumanDesign/commit/46d90362f97a130e312e5e8b0c97fe15277c62ad"
+  },
+  {
+    "repo": "HumanDesign",
+    "message": "Update vite.config.ts",
+    "date": "2026-03-09T03:01:30Z",
+    "url": "https://github.com/eCarlsson-r/HumanDesign/commit/99a49d26de90826c6a1e9743b28efe4851ddf4a0"
+  },
+  {
+    "repo": "HumanDesign-api",
+    "message": "Update Program.cs",
+    "date": "2026-03-09T02:43:07Z",
+    "url": "https://github.com/eCarlsson-r/HumanDesign-API/commit/892ebf55dcc3bc4ee40d3a5b5b55badeac9d8014"
+  },
+  {
+    "repo": "HumanDesign-api",
+    "message": "Update Program.cs",
+    "date": "2026-03-08T18:09:51Z",
+    "url": "https://github.com/eCarlsson-r/HumanDesign-API/commit/e0e200f81cd293f170b106b09e9eb467eb954822"
+  },
+  {
+    "repo": "HumanDesign",
+    "message": "feat: Implement prospect status to dynamically control report level tabs and disable the unlock summary button.",
+    "date": "2026-03-08T17:15:29Z",
+    "url": "https://github.com/eCarlsson-r/HumanDesign/commit/e3d23eeb947aba1516f8c7418be58290f5e1fc2d"
+  },
+  {
+    "repo": "HumanDesign-api",
+    "message": "feat: Refactor authentication logic into `AuthService`, include `prospect_status` in JWT claims, and expand report generation access to `FullUnlocked` prospects.",
+    "date": "2026-03-08T17:14:21Z",
+    "url": "https://github.com/eCarlsson-r/HumanDesign-API/commit/856073fd49b84ecb73c64c094a84927d8ad85909"
+  },
+  {
+    "repo": "HumanDesign-api",
+    "message": "feat: Implement pagination with total count for CMS attribute endpoints and add referral code generation to user registration and JWT.",
+    "date": "2026-03-08T11:56:17Z",
+    "url": "https://github.com/eCarlsson-r/HumanDesign-API/commit/7e1801ff9b7c6eaa2abee03b78a35ed1ea530db2"
+  },
+  {
+    "repo": "HumanDesign-api",
+    "message": "Update dotnet.yml",
+    "date": "2026-03-07T18:32:24Z",
+    "url": "https://github.com/eCarlsson-r/HumanDesign-API/commit/cd4c2698c2c003dec2d8e62e52e5ec716a520a97"
+  },
+  {
+    "repo": "CommerceStore",
+    "message": "fix: ensure baseURL uses environment variable for API endpoint",
+    "date": "2026-02-22T16:24:42Z",
+    "url": "https://github.com/eCarlsson-r/CommerceStore/commit/0f1dd167fbc5a9872a5c04b92a8da6b8bfe5204c"
+  },
+  {
+    "repo": "CommerceStore",
+    "message": "refactor: remove deprecated contact, privacy, terms pages, and related components",
+    "date": "2026-02-22T16:06:45Z",
+    "url": "https://github.com/eCarlsson-r/CommerceStore/commit/bcb038b4a0e3b9f615fb8e4e4e334688ef8d0c51"
+  },
+  {
+    "repo": "CommerceStore",
+    "message": "refactor: remove unused UI components including Dialog, DropdownMenu, Form, NavigationMenu, Popover, Select, Skeleton, Sonner, Table, Tabs, and Textarea",
+    "date": "2026-02-22T15:49:16Z",
+    "url": "https://github.com/eCarlsson-r/CommerceStore/commit/3a629c0883af54d239daf1bcfba6586ad9fcf4e1"
+  },
+  {
+    "repo": "CommerceStore",
+    "message": "feat: integrate PWA support and enhance image handling",
+    "date": "2026-02-22T15:38:24Z",
+    "url": "https://github.com/eCarlsson-r/CommerceStore/commit/76eb7cf3b81cec89fa4a24e859550d9407ae9739"
+  },
+  {
     "repo": "CommerceSystem-API",
     "message": "feat: Implement event-driven notifications for order and sale creation, including WebPush support",
     "date": "2026-02-22T15:35:43Z",
     "url": "https://github.com/eCarlsson-r/CommerceSystem-API/commit/a64b221c6ac4947d8c9cc7ec64de98f18fd3ac5b"
+  },
+  {
+    "repo": "CommerceStore",
+    "message": "Rename sidebar.tsx to Sidebar.tsx",
+    "date": "2026-02-22T14:25:47Z",
+    "url": "https://github.com/eCarlsson-r/CommerceStore/commit/4b8c1961be26d596d2f1c272bb47a368f7434e9c"
   },
   {
     "repo": "CommerceSystem-API",
@@ -28,35 +118,5 @@
     "message": "feat: Enhance API functionality with new endpoints, improve data handling, and add descriptions to banners and products",
     "date": "2026-02-19T18:46:52Z",
     "url": "https://github.com/eCarlsson-r/CommerceSystem-API/commit/89b731f9f84cdfea31f55a2bb59847945da3e2f3"
-  },
-  {
-    "repo": "SpaInformationSystem-API",
-    "message": "feat: Add `ext-pcntl` requirement and update `laravel/reverb` version constraint.",
-    "date": "2026-02-02T03:01:08Z",
-    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/eadf8b7c77af37984a14d03b722758a08bd3b59f"
-  },
-  {
-    "repo": "SpaInformationSystem-API",
-    "message": "refactor: remove hardcoded HTTPS prefix and default domains from CORS allowed origins.",
-    "date": "2026-01-31T10:34:28Z",
-    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/a498e15180ed1d3ce9e5dcc3beb8c3d99cdca991"
-  },
-  {
-    "repo": "SpaInformationSystem-API",
-    "message": "refactor: Replace hardcoded origin URLs with environment variables `STORE_URL` and `POS_URL`.",
-    "date": "2026-01-31T10:26:47Z",
-    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/b7757fa0ecda379b9abf0973ec1b6b517547af7f"
-  },
-  {
-    "repo": "SpaInformationSystem-API",
-    "message": "feat: Standardize primary and foreign keys to use auto-incrementing IDs and `foreignId` for relationships, and update voucher ID generation and treatment room field to JSON.",
-    "date": "2026-01-31T09:49:05Z",
-    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/d7fbc3c6e66d856398a44f6907fd1602b310efb6"
-  },
-  {
-    "repo": "SpaInformationSystem-API",
-    "message": "refactor: update web push notification class imports to `NotificationChannels\\WebPush` namespace",
-    "date": "2026-01-31T07:56:28Z",
-    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/39001622656c8599e3c8a06add4da00a33245710"
   }
 ]
