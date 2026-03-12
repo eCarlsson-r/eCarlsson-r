@@ -180,6 +180,26 @@ export const projects = [
 
         backend: ["Laravel", "REST API"],
         frontend: ["Nuxt", "AnalogJS"],
+repositories: [
+            {
+                name: "RestoSystem-API",
+                type: "backend",
+                owner: "eCarlsson-r",
+                stack: ["Laravel", "REST API"]
+            },
+            {
+                name: "RestoPOS",
+                type: "frontend",
+                owner: "eCarlsson-r",
+                stack: ["Nuxt"]
+            },
+            {
+                name: "RestoReserve",
+                type: "frontend",
+                owner: "eCarlsson-r",
+                stack: ["AnalogJS"]
+            }
+        ],
 
         highlights: [
             "POS architecture",
