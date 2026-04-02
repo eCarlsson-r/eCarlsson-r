@@ -10,10 +10,10 @@ export default function ExecutionHeatmap({ data }: { data: Point[] }) {
     const intensity = count / max;
 
     if (intensity === 0) return "bg-gray-100";
-    if (intensity < 0.25) return "bg-indigo-200";
-    if (intensity < 0.5) return "bg-indigo-400";
-    if (intensity < 0.75) return "bg-indigo-600";
-    return "bg-indigo-800";
+    if (intensity < 0.25) return "bg-primary-200";
+    if (intensity < 0.5) return "bg-primary-400";
+    if (intensity < 0.75) return "bg-primary-600";
+    return "bg-primary-800";
   }
 
   return (

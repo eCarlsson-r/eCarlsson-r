@@ -58,35 +58,6 @@ export const projects = [
         year: 2025
     },
     {
-        slug: "insurance-portal",
-        title: "Insurance Management Portal",
-        category: "signal",
-
-        summary: "Business workflow system for insurance operations.",
-        description: "Admin portal managing insurance policies, client records, and operational workflows.",
-
-        backend: ["Laravel"],
-        frontend: ["Inertia", "React"],
-
-        repositories: [
-            {
-                name: "InsurancePortal",
-                type: "backend",
-                owner: "eCarlsson-r",
-                stack: ["Laravel", "Inertia", "React"]
-            }
-        ],
-
-        highlights: [
-            "Business data modeling",
-            "Structured admin workflows",
-            "Scalable Laravel architecture"
-        ],
-
-        featured: false,
-        year: 2026
-    },
-    {
         slug: "spa-ecosystem",
         title: "Spa Management Ecosystem",
         category: "depth",
@@ -127,6 +98,91 @@ export const projects = [
 
         featured: true,
         year: 2025
+    },
+    {
+        slug: "controlmoney",
+        title: "ControlMoney Finance Tracker",
+        category: "edge",
+
+        summary: "Personal finance tracking application.",
+        description: "Application for managing expenses, income, and financial tracking.",
+
+        backend: [],
+        frontend: ["React Native"],
+
+        repositories: [
+            {
+                name: "ControlMoney",
+                type: "frontend",
+                owner: "eCarlsson-r",
+                stack: ["React Native"]
+            }
+        ],
+
+        highlights: [
+            "Personal productivity tool",
+            "Clean UI architecture"
+        ],
+
+        featured: false,
+        year: 2026
+    },
+    {
+        slug: "insurance-portal",
+        title: "Insurance Management Portal",
+        category: "signal",
+
+        summary: "Business workflow system for insurance operations.",
+        description: "Admin portal managing insurance policies, client records, and operational workflows.",
+
+        backend: ["Laravel"],
+        frontend: ["Inertia", "React"],
+
+        repositories: [
+            {
+                name: "InsurancePortal",
+                type: "backend",
+                owner: "eCarlsson-r",
+                stack: ["Laravel", "Inertia", "React"]
+            }
+        ],
+
+        highlights: [
+            "Business data modeling",
+            "Structured admin workflows",
+            "Scalable Laravel architecture"
+        ],
+
+        featured: false,
+        year: 2026
+    },
+    {
+        slug: "quoteplot-agent",
+        title: "QuotePlot AI Agent",
+        category: "edge",
+
+        summary: "AI-powered content analysis agent.",
+        description: "Experimentation project using AI pipelines and API integrations.",
+
+        backend: ["Python", "FastAPI"],
+        frontend: ["Next.js"],
+
+        repositories: [
+            {
+                name: "QuotePlot-Agent",
+                type: "service",
+                owner: "eCarlsson-r",
+                stack: ["Python", "FastAPI", "Next.js"]
+            }
+        ],
+
+        highlights: [
+            "AI integration",
+            "Experimental architecture"
+        ],
+
+        featured: false,
+        year: 2026
     },
     {
         slug: "commerce-ecosystem",
@@ -171,6 +227,41 @@ export const projects = [
         year: 2026
     },
     {
+        slug: "human-design",
+        title: "Human Design Analysis System",
+        category: "edge",
+
+        summary: "System for generating human design charts.",
+        description: "Application using complex calculation logic and visualization.",
+
+        backend: ["ASP.NET Core"],
+        frontend: ["Angular"],
+
+        repositories: [
+            {
+                name: "HumanDesign-API",
+                type: "backend",
+                owner: "eCarlsson-r",
+                stack: ["ASP.NET Core", "MySQL"]
+            },
+            {
+                name: "HumanDesign",
+                type: "frontend",
+                owner: "eCarlsson-r",
+                stack: ["Angular", "AnalogJS"]
+            }
+        ],
+
+        highlights: [
+            "Complex domain logic",
+            "Cross-platform architecture",
+            "Non-standard business domain"
+        ],
+
+        featured: false,
+        year: 2026
+    },
+    {
         slug: "restaurant-ecosystem",
         title: "Restaurant POS & Reservation System",
         category: "depth",
@@ -211,97 +302,6 @@ repositories: [
         year: 2026
     },
     {
-        slug: "controlmoney",
-        title: "ControlMoney Finance Tracker",
-        category: "edge",
-
-        summary: "Personal finance tracking application.",
-        description: "Application for managing expenses, income, and financial tracking.",
-
-        backend: [],
-        frontend: ["React Native"],
-
-        repositories: [
-            {
-                name: "ControlMoney",
-                type: "frontend",
-                owner: "eCarlsson-r",
-                stack: ["React Native"]
-            }
-        ],
-
-        highlights: [
-            "Personal productivity tool",
-            "Clean UI architecture"
-        ],
-
-        featured: false,
-        year: 2026
-    },
-    {
-        slug: "quoteplot-agent",
-        title: "QuotePlot AI Agent",
-        category: "edge",
-
-        summary: "AI-powered content analysis agent.",
-        description: "Experimentation project using AI pipelines and API integrations.",
-
-        backend: ["Python", "FastAPI"],
-        frontend: ["Next.js"],
-
-        repositories: [
-            {
-                name: "QuotePlot-Agent",
-                type: "service",
-                owner: "eCarlsson-r",
-                stack: ["Python", "FastAPI", "Next.js"]
-            }
-        ],
-
-        highlights: [
-            "AI integration",
-            "Experimental architecture"
-        ],
-
-        featured: false,
-        year: 2026
-    },
-    {
-        slug: "human-design",
-        title: "Human Design Analysis System",
-        category: "edge",
-
-        summary: "System for generating human design charts.",
-        description: "Application using complex calculation logic and visualization.",
-
-        backend: ["ASP.NET Core"],
-        frontend: ["Angular"],
-
-        repositories: [
-            {
-                name: "HumanDesign-API",
-                type: "backend",
-                owner: "eCarlsson-r",
-                stack: ["ASP.NET Core", "MySQL"]
-            },
-            {
-                name: "HumanDesign",
-                type: "frontend",
-                owner: "eCarlsson-r",
-                stack: ["Angular", "AnalogJS"]
-            }
-        ],
-
-        highlights: [
-            "Complex domain logic",
-            "Cross-platform architecture",
-            "Non-standard business domain"
-        ],
-
-        featured: false,
-        year: 2026
-    },
-    {
         slug: "property-management",
         title: "Property Management System",
         category: "signal",
@@ -311,6 +311,14 @@ repositories: [
 
         backend: ["Laravel"],
         frontend: ["Inertia", "Vue"],
+        repositories: [
+            {
+                name: "PropertyManagement",
+                type: "backend",
+                owner: "eCarlsson-r",
+                stack: ["Laravel", "Inertia", "Vue"]
+            }
+        ],
 
         highlights: [
             "Modern Laravel stack",

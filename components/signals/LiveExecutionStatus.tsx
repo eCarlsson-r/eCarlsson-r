@@ -15,7 +15,7 @@ export default function LiveExecutionStatus({
     .slice(0, 3);
 
   return (
-    <section className="p-8 border rounded-2xl bg-gradient-to-br from-indigo-50 to-white">
+    <section className="p-8 border rounded-2xl bg-linear-to-br from-chart-5 to-white">
       <h2 className="text-xl font-semibold mb-6">
         Live Execution Status
       </h2>
@@ -30,7 +30,7 @@ export default function LiveExecutionStatus({
             {topTech.map(([tech]) => (
               <span
                 key={tech}
-                className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs"
+                className="px-3 py-1 bg-chart-1 text-white rounded-full text-xs"
               >
                 {tech}
               </span>
@@ -42,7 +42,7 @@ export default function LiveExecutionStatus({
   );
 }
 
-function Stat({ label, value }: { label: string; value: any }) {
+function Stat({ label, value }: { label: string; value: number | string }) {
   return (
     <div>
       <p className="text-sm text-gray-500">{label}</p>

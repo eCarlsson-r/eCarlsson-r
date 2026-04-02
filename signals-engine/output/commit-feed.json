@@ -1,122 +1,122 @@
 [
   {
-    "repo": "HumanDesign",
-    "message": "Update arrow",
-    "date": "2026-03-09T03:35:42Z",
-    "url": "https://github.com/eCarlsson-r/HumanDesign/commit/6041bcb6c95adb9b835d65b6a036c2e16ed7f53b"
+    "repo": "PropertyManagement",
+    "message": "feat: implement AI-powered insights with vector embeddings and add comprehensive controller test coverage",
+    "date": "2026-04-02T10:54:14Z",
+    "url": "https://github.com/eCarlsson-r/PropertyManagement/commit/f718fa34307eecaf0de94d6c4cd512c0a55c7120"
   },
   {
-    "repo": "HumanDesign",
-    "message": "Update login.ts",
-    "date": "2026-03-09T03:21:56Z",
-    "url": "https://github.com/eCarlsson-r/HumanDesign/commit/8d305d2d321cab8d878717d593b5e5dded63579a"
+    "repo": "PropertyManagement",
+    "message": "feat: implement comprehensive reporting dashboard with occupancy, financial, and schedule analytics modules",
+    "date": "2026-04-01T17:01:11Z",
+    "url": "https://github.com/eCarlsson-r/PropertyManagement/commit/98d36da0a951424313f33ce4cd40f2b8dcfa09d2"
   },
   {
-    "repo": "HumanDesign",
+    "repo": "PropertyManagement",
+    "message": "refactor: downgrade to Laravel 12, convert database enums to strings, add Docker support, and update AI insights component.",
+    "date": "2026-03-29T16:45:17Z",
+    "url": "https://github.com/eCarlsson-r/PropertyManagement/commit/9023ab3ea5e84064f5c40056e9958cf7070f2191"
+  },
+  {
+    "repo": "PropertyManagement",
+    "message": "feat: localize UI to English, update navigation, and add expense and tenant management support",
+    "date": "2026-03-28T16:15:42Z",
+    "url": "https://github.com/eCarlsson-r/PropertyManagement/commit/4d13b4ff4308dfe18046c65c9b2ba75bf394198c"
+  },
+  {
+    "repo": "PropertyManagement",
+    "message": "feat: Refactor location management to be embedded within properties, removing standalone location pages and controllers.",
+    "date": "2026-03-27T18:42:52Z",
+    "url": "https://github.com/eCarlsson-r/PropertyManagement/commit/92081b65196932e0f040a147e8b8bccb1f44f4e4"
+  },
+  {
+    "repo": "RestoReserve",
     "message": "Update vite.config.ts",
-    "date": "2026-03-09T03:10:46Z",
-    "url": "https://github.com/eCarlsson-r/HumanDesign/commit/46d90362f97a130e312e5e8b0c97fe15277c62ad"
+    "date": "2026-03-26T11:27:48Z",
+    "url": "https://github.com/eCarlsson-r/RestoReserve/commit/2825791c31f79a02a37d81e8c6ce186e1cb97b47"
   },
   {
-    "repo": "HumanDesign",
-    "message": "Update vite.config.ts",
-    "date": "2026-03-09T03:01:30Z",
-    "url": "https://github.com/eCarlsson-r/HumanDesign/commit/99a49d26de90826c6a1e9743b28efe4851ddf4a0"
+    "repo": "RestoSystem-API",
+    "message": "Delete composer.lock",
+    "date": "2026-03-26T04:49:53Z",
+    "url": "https://github.com/eCarlsson-r/RestoSystem-API/commit/a80f66e7883bac8f1c641a16e775e8ed3242939b"
   },
   {
-    "repo": "HumanDesign-api",
-    "message": "Update Program.cs",
-    "date": "2026-03-09T02:43:07Z",
-    "url": "https://github.com/eCarlsson-r/HumanDesign-API/commit/892ebf55dcc3bc4ee40d3a5b5b55badeac9d8014"
+    "repo": "RestoPOS",
+    "message": "refactor: Update `USelect` and `URadioGroup` prop names from `records` to `items`, remove voucher menu items, and add `sales_id` parameter to product fetching.",
+    "date": "2026-03-26T04:47:39Z",
+    "url": "https://github.com/eCarlsson-r/RestoPOS/commit/ddd332a9660e47d74517fdbf30d9d6c492f37441"
   },
   {
-    "repo": "HumanDesign-api",
-    "message": "Update Program.cs",
-    "date": "2026-03-08T18:09:51Z",
-    "url": "https://github.com/eCarlsson-r/HumanDesign-API/commit/e0e200f81cd293f170b106b09e9eb467eb954822"
+    "repo": "RestoSystem-API",
+    "message": "feat: Filter products by sales ID and optimize stock item loading by removing unnecessary eager loads.",
+    "date": "2026-03-26T04:46:57Z",
+    "url": "https://github.com/eCarlsson-r/RestoSystem-API/commit/fee557f6500ff7cb2863b5bab26eef0f60ba1692"
   },
   {
-    "repo": "HumanDesign",
-    "message": "feat: Implement prospect status to dynamically control report level tabs and disable the unlock summary button.",
-    "date": "2026-03-08T17:15:29Z",
-    "url": "https://github.com/eCarlsson-r/HumanDesign/commit/e3d23eeb947aba1516f8c7418be58290f5e1fc2d"
+    "repo": "RestoPOS",
+    "message": "feat: Refactor real-time broadcasting to use Laravel Reverb, remove service worker, and add PDF export capabilities.",
+    "date": "2026-03-25T18:03:41Z",
+    "url": "https://github.com/eCarlsson-r/RestoPOS/commit/f6e3a098df1ad5650e6fe58816a4924b5eaaa7e7"
   },
   {
-    "repo": "HumanDesign-api",
-    "message": "feat: Refactor authentication logic into `AuthService`, include `prospect_status` in JWT claims, and expand report generation access to `FullUnlocked` prospects.",
-    "date": "2026-03-08T17:14:21Z",
-    "url": "https://github.com/eCarlsson-r/HumanDesign-API/commit/856073fd49b84ecb73c64c094a84927d8ad85909"
+    "repo": "RestoSystem-API",
+    "message": "feat: Refactor notification system to use web push and broadcast with a unified static method, standardize API responses, and remove explicit notification subscription model.",
+    "date": "2026-03-25T17:50:16Z",
+    "url": "https://github.com/eCarlsson-r/RestoSystem-API/commit/eb7d2d75e497fec765d86b371d7c81f4a20dc039"
   },
   {
-    "repo": "HumanDesign-api",
-    "message": "feat: Implement pagination with total count for CMS attribute endpoints and add referral code generation to user registration and JWT.",
-    "date": "2026-03-08T11:56:17Z",
-    "url": "https://github.com/eCarlsson-r/HumanDesign-API/commit/7e1801ff9b7c6eaa2abee03b78a35ed1ea530db2"
+    "repo": "RestoReserve",
+    "message": "feat: Update README, remove legacy reservation and scan pages and components, and refine session display.",
+    "date": "2026-03-25T10:54:57Z",
+    "url": "https://github.com/eCarlsson-r/RestoReserve/commit/0700a9a2f61808e7dd46f0baa9408ebe3bb54048"
   },
   {
-    "repo": "HumanDesign-api",
-    "message": "Update dotnet.yml",
-    "date": "2026-03-07T18:32:24Z",
-    "url": "https://github.com/eCarlsson-r/HumanDesign-API/commit/cd4c2698c2c003dec2d8e62e52e5ec716a520a97"
+    "repo": "RestoSystem-API",
+    "message": "feat: Implement customer loyalty points, refactor user-related foreign keys, enhance order processing with waiter calls and customer history, and establish buffet-branch relationships.",
+    "date": "2026-03-24T17:19:08Z",
+    "url": "https://github.com/eCarlsson-r/RestoSystem-API/commit/02c23da53a8df8dffb4d4fd668439066735e4eba"
   },
   {
-    "repo": "CommerceStore",
-    "message": "fix: ensure baseURL uses environment variable for API endpoint",
-    "date": "2026-02-22T16:24:42Z",
-    "url": "https://github.com/eCarlsson-r/CommerceStore/commit/0f1dd167fbc5a9872a5c04b92a8da6b8bfe5204c"
+    "repo": "RestoReserve",
+    "message": "feat: Refactor product and cart services, remove reservation page, update login UI, and adjust type definitions",
+    "date": "2026-03-24T17:16:51Z",
+    "url": "https://github.com/eCarlsson-r/RestoReserve/commit/d9c20dce17e9cfbcb5c837a512ed6d72d1c07d30"
   },
   {
-    "repo": "CommerceStore",
-    "message": "refactor: remove deprecated contact, privacy, terms pages, and related components",
-    "date": "2026-02-22T16:06:45Z",
-    "url": "https://github.com/eCarlsson-r/CommerceStore/commit/bcb038b4a0e3b9f615fb8e4e4e334688ef8d0c51"
+    "repo": "RestoSystem-API",
+    "message": "feat: Implement branch-specific product management, public API endpoints for branches and categories, and customer loyalty attributes.",
+    "date": "2026-03-23T17:14:22Z",
+    "url": "https://github.com/eCarlsson-r/RestoSystem-API/commit/49aec382c5bc155851f41e71e6cc3d556e4edc2b"
   },
   {
-    "repo": "CommerceStore",
-    "message": "refactor: remove unused UI components including Dialog, DropdownMenu, Form, NavigationMenu, Popover, Select, Skeleton, Sonner, Table, Tabs, and Textarea",
-    "date": "2026-02-22T15:49:16Z",
-    "url": "https://github.com/eCarlsson-r/CommerceStore/commit/3a629c0883af54d239daf1bcfba6586ad9fcf4e1"
+    "repo": "RestoReserve",
+    "message": "feat: refactor landing page to display branches and featured products, update guest guard redirect, and remove old API routes and pages",
+    "date": "2026-03-23T17:07:17Z",
+    "url": "https://github.com/eCarlsson-r/RestoReserve/commit/176ea8fac787edcc112fa40784ba9b050806c8c6"
   },
   {
-    "repo": "CommerceStore",
-    "message": "feat: integrate PWA support and enhance image handling",
-    "date": "2026-02-22T15:38:24Z",
-    "url": "https://github.com/eCarlsson-r/CommerceStore/commit/76eb7cf3b81cec89fa4a24e859550d9407ae9739"
+    "repo": "RestoReserve",
+    "message": "feat: Implement geo-location proximity checks, integrate new waiter and order submission services, and refactor cart management.",
+    "date": "2026-03-22T18:02:01Z",
+    "url": "https://github.com/eCarlsson-r/RestoReserve/commit/0c8ea8578b8aa61db1a1bc5c2da7b387c45b60d8"
   },
   {
-    "repo": "CommerceSystem-API",
-    "message": "feat: Implement event-driven notifications for order and sale creation, including WebPush support",
-    "date": "2026-02-22T15:35:43Z",
-    "url": "https://github.com/eCarlsson-r/CommerceSystem-API/commit/a64b221c6ac4947d8c9cc7ec64de98f18fd3ac5b"
+    "repo": "RestoPOS",
+    "message": "feat: Implement reservation management on the floor map and refactor numerous components and pages with TypeScript and the `useApi` composable.",
+    "date": "2026-03-21T17:06:49Z",
+    "url": "https://github.com/eCarlsson-r/RestoPOS/commit/294ce3dc06a49fac61ed91415bb20eb97fd149bd"
   },
   {
-    "repo": "CommerceStore",
-    "message": "Rename sidebar.tsx to Sidebar.tsx",
-    "date": "2026-02-22T14:25:47Z",
-    "url": "https://github.com/eCarlsson-r/CommerceStore/commit/4b8c1961be26d596d2f1c272bb47a368f7434e9c"
+    "repo": "RestoPOS",
+    "message": "feat: Implement global API error handling, refactor service worker, enhance kitchen and stock request forms, and expand reporting features.",
+    "date": "2026-03-20T17:05:40Z",
+    "url": "https://github.com/eCarlsson-r/RestoPOS/commit/4592419dd5b27f4b4b1b25bd756b52c9c6ee366e"
   },
   {
-    "repo": "CommerceSystem-API",
-    "message": "feat: Add Wishlist functionality with controller, model, and migration",
-    "date": "2026-02-22T14:12:34Z",
-    "url": "https://github.com/eCarlsson-r/CommerceSystem-API/commit/3b4bfd8bcc8527c9ebd20349e1dfc5afb11f12ec"
-  },
-  {
-    "repo": "CommerceSystem-API",
-    "message": "feat: Implement cart functionality with index and store methods, update order handling, and enhance product resource with stock details",
-    "date": "2026-02-21T17:40:09Z",
-    "url": "https://github.com/eCarlsson-r/CommerceSystem-API/commit/8a26a4dff1406785c341ad64e500dff275f5e8d5"
-  },
-  {
-    "repo": "CommerceSystem-API",
-    "message": "feat: Enhance API with new public endpoints for branches, improve order validation, and update user response structure",
-    "date": "2026-02-20T19:15:37Z",
-    "url": "https://github.com/eCarlsson-r/CommerceSystem-API/commit/ae6a6682c12acf6e58f1189e83295950689416a1"
-  },
-  {
-    "repo": "CommerceSystem-API",
-    "message": "feat: Enhance API functionality with new endpoints, improve data handling, and add descriptions to banners and products",
-    "date": "2026-02-19T18:46:52Z",
-    "url": "https://github.com/eCarlsson-r/CommerceSystem-API/commit/89b731f9f84cdfea31f55a2bb59847945da3e2f3"
+    "repo": "RestoPOS",
+    "message": "feat: Implement stock request and transfer management with improved forms, Echo integration, and UI updates.",
+    "date": "2026-03-19T18:01:31Z",
+    "url": "https://github.com/eCarlsson-r/RestoPOS/commit/62a9b3572f7b20ecc7292327ea3fa1e96da07376"
   }
 ]

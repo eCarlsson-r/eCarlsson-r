@@ -13,7 +13,7 @@ export default function ExecutionBadges() {
         {badges.map((badge) => (
           <span
             key={badge}
-            className="px-4 py-2 border rounded-full bg-indigo-50 text-indigo-700 text-sm"
+            className="px-4 py-2 border rounded-full bg-chart-1 text-white text-sm"
           >
             🏆 {badge}
           </span>

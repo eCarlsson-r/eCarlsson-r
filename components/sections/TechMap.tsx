@@ -14,7 +14,7 @@ export default function TechMap() {
 
       <div className="flex flex-wrap gap-4">
         {stacks.map((tech) => (
-          <span key={tech} className="px-4 py-2 border rounded-full text-sm">
+          <span key={tech} className="font-headline text-secondary text-xl italic text-on-surface-variant px-4 py-2 border rounded-full text-sm">
             {tech}
           </span>
         ))}

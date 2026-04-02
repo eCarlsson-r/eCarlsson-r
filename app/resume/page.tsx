@@ -13,7 +13,7 @@ export default function ResumePage() {
   const live = getLiveSignals()!;
 
   return (
-    <div className="mx-auto max-w-6xl py-24 space-y-24">
+    <div className="mx-auto max-w-6xl py-12 space-y-12">
 
       {/* Hero */}
       <section>
@@ -44,16 +44,6 @@ export default function ResumePage() {
       <ExecutionBadges />
 
       <ExecutionTimeline />
-
-      {/* CTA */}
-      <section className="text-center">
-        <a
-          href="/cv.pdf"
-          className="px-6 py-3 bg-black text-white rounded-lg"
-        >
-          Download Traditional CV
-        </a>
-      </section>
     </div>
   );
 }

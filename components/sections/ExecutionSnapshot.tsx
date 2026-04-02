@@ -9,19 +9,25 @@ export default function ExecutionSnapshot() {
     );
 
   return (
-    <div className="max-w-4xl mx-auto grid grid-cols-3 gap-6 mt-10">
-      <Stat label="Execution" value={avg("execution")} />
-      <Stat label="Complexity" value={avg("complexity")} />
-      <Stat label="Ownership" value={avg("ownership")} />
-    </div>
+    <section className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20">
+      <Stat label="Execution Score" value={avg("execution")} tone="low" />
+      <Stat label="System Complexity" value={avg("complexity")} tone="high" />
+      <Stat label="Operational Ownership" value={avg("ownership")} tone="highest" />
+    </section>
   );
 }
 
-function Stat({ label, value }: { label: string; value: number }) {
+function Stat({ label, value, tone }: { label: string; value: number; tone: 'low' | 'high' | 'highest' }) {
+  const bgClass = {
+    low: "bg-surface-container-low",
+    high: "bg-surface-container-high",
+    highest: "bg-surface-container-highest",
+  }[tone];
+
   return (
-    <div className="text-center">
-      <p className="text-sm text-gray-500">{label}</p>
-      <p className="text-3xl font-bold">{value}</p>
+    <div className={`${bgClass} p-10 flex flex-col items-center justify-center text-center rounded-md`}> 
+      <span className="text-5xl font-headline font-bold text-primary mb-2">{value}</span>
+      <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary">{label}</span>
     </div>
   );
 }

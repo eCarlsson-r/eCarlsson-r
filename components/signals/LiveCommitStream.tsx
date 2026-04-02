@@ -30,7 +30,7 @@ export default function LiveCommitStream() {
             <a
               href={c.url}
               target="_blank"
-              className="text-xs text-indigo-600 mt-1 inline-block"
+              className="text-xs text-chart-5 mt-1 inline-block"
             >
               View Commit →
             </a>

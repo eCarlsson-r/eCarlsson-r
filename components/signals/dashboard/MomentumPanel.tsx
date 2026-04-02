@@ -40,7 +40,7 @@ export default function MomentumPanel({
 
       <div className="w-full bg-gray-200 h-3 rounded">
         <div
-          className="bg-indigo-600 h-3 rounded"
+          className="bg-chart-1 h-3 rounded"
           style={{ width: `${consistencyScore}%` }}
         />
       </div>

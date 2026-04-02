@@ -54,14 +54,14 @@
   {
     "id": "restaurant-ecosystem",
     "scores": {
-      "execution": 0,
-      "complexity": 0,
-      "ownership": 0
+      "execution": 40,
+      "complexity": 92,
+      "ownership": 100
     },
     "summary": {
       "executionLevel": "Low",
-      "complexityLevel": "Low",
-      "ownershipLevel": "Low"
+      "complexityLevel": "High",
+      "ownershipLevel": "High"
     }
   },
   {
@@ -106,14 +106,14 @@
   {
     "id": "property-management",
     "scores": {
-      "execution": 0,
-      "complexity": 0,
-      "ownership": 0
+      "execution": 42,
+      "complexity": 100,
+      "ownership": 100
     },
     "summary": {
       "executionLevel": "Low",
-      "complexityLevel": "Low",
-      "ownershipLevel": "Low"
+      "complexityLevel": "High",
+      "ownershipLevel": "High"
     }
   }
 ]

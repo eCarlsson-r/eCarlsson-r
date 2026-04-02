@@ -9,7 +9,7 @@ export default function LiveSignalsPanel({ live }: { live: LiveSignals }) {
   const tech = Object.entries(live.techFocus).sort((a, b) => b[1] - a[1]);
 
   return (
-    <div className="p-6 border rounded-2xl bg-gradient-to-br from-indigo-50 to-white space-y-6">
+    <div className="p-6 border rounded-2xl bg-linear-to-br from-chart-5 to-white space-y-6">
       <h2 className="text-xl font-semibold">⚡ Live Execution Intelligence</h2>
 
       {/* Core Metrics */}
@@ -29,7 +29,7 @@ export default function LiveSignalsPanel({ live }: { live: LiveSignals }) {
           {tech.map(([name, score]) => (
             <span
               key={name}
-              className="px-3 py-1 rounded-full text-sm bg-indigo-100 text-indigo-700"
+              className="px-3 py-1 rounded-full text-sm bg-chart-1 text-white"
             >
               {name} ({score})
             </span>
@@ -40,7 +40,7 @@ export default function LiveSignalsPanel({ live }: { live: LiveSignals }) {
   );
 }
 
-function Stat({ title, value }: { title: string; value: any }) {
+function Stat({ title, value }: { title: string; value: number | string }) {
   return (
     <div className="p-4 border rounded-xl text-center bg-white">
       <p className="text-sm text-gray-500">{title}</p>

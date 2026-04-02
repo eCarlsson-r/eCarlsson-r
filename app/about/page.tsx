@@ -6,7 +6,7 @@ import CTA from "@/components/sections/CTA";
 export default function AboutPage() {
   return (
     <>
-      <div className="mx-auto max-w-6xl py-24 space-y-24">
+      <div className="mx-auto max-w-6xl py-12 space-y-12">
         
         {/* Hero */}
         <section className="space-y-6">
@@ -26,13 +26,13 @@ export default function AboutPage() {
             Execution Philosophy
           </h2>
           <div className="grid md:grid-cols-3 gap-6 text-gray-600">
-            <p>
+            <p className="bg-surface-container-low p-6 rounded-md">
               Signals over noise. Decisions must be data-anchored.
             </p>
-            <p>
+            <p className="bg-surface-container-low p-6 rounded-md">
               Systems over features. Architecture compounds value.
             </p>
-            <p>
+            <p className="bg-surface-container-low p-6 rounded-md">
               Execution over ideas. Delivery creates trust.
             </p>
           </div>
