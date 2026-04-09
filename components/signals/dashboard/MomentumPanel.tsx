@@ -1,3 +1,5 @@
+import ScoreBar from "@/components/project/ScoreBar";
+
 interface Props {
   momentum: string;
   consistencyScore: number;
@@ -16,7 +18,7 @@ export default function MomentumPanel({
 
   return (
     <div className="p-6 border rounded-2xl space-y-6">
-      <h2 className="text-xl font-semibold">
+      <h2 className="text-xl font-semibold text-secondary">
         Execution Momentum
       </h2>
 
@@ -38,12 +40,7 @@ export default function MomentumPanel({
         </div>
       </div>
 
-      <div className="w-full bg-gray-200 h-3 rounded">
-        <div
-          className="bg-chart-1 h-3 rounded"
-          style={{ width: `${consistencyScore}%` }}
-        />
-      </div>
+      <ScoreBar value={consistencyScore} height={3} />
     </div>
   );
 }

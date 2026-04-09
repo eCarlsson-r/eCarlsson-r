@@ -1,33 +1,6 @@
-export type ProjectCategory = "signal" | "depth" | "edge";
+import { Project } from "../core/types";
 
-export interface Repository {
-  name: string;
-  owner: string;
-  url?: string;
-  type: "backend" | "frontend" | "mobile" | "api" | "service";
-  stack: string[];
-}
-
-export interface Project {
-  slug: string;
-  title: string;
-  category: ProjectCategory;
-
-  summary: string;
-  description: string;
-
-  repositories?: Repository[];
-
-  backend: string[];
-  frontend: string[];
-
-  highlights: string[];
-
-  featured: boolean;
-  year: number;
-}
-
-export const projects = [
+export const projects: Project[] = [
     {
         slug: "payroll-system",
         title: "Payroll Management System",
@@ -64,7 +37,6 @@ export const projects = [
 
         summary: "Full ecosystem with API, POS, and booking system.",
         description: "Micro-system architecture including API backend, cashier POS, and customer booking portal.",
-        mdxPath: "/projects/spa-ecosystem.mdx",
 
         backend: ["Laravel", "REST API"],
         frontend: ["Next.js", "Nuxt"],
@@ -80,12 +52,14 @@ export const projects = [
                 name: "SpaCashier",
                 type: "frontend",
                 owner: "eCarlsson-r",
+                url: "https://carlsson-spa-cashier.vercel.app",
                 stack: ["Next.js"]
             },
             {
                 name: "SpaBooking",
                 type: "frontend",
                 owner: "eCarlsson-r",
+                url: "https://carlsson-spa-booking.vercel.app",
                 stack: ["Nuxt"]
             }
         ],
@@ -97,7 +71,8 @@ export const projects = [
         ],
 
         featured: true,
-        year: 2025
+        year: 2025,
+        mdxPath: "spa-ecosystem"
     },
     {
         slug: "controlmoney",
@@ -182,7 +157,8 @@ export const projects = [
         ],
 
         featured: false,
-        year: 2026
+        year: 2026,
+        mdxPath: "quoteplot-agent"
     },
     {
         slug: "commerce-ecosystem",
@@ -191,7 +167,6 @@ export const projects = [
 
         summary: "End-to-end commerce platform with POS and storefront.",
         description: "Integrated commerce system covering admin API, POS operations, and public online store.",
-        mdxPath: "/projects/commerce-ecosystem.mdx",
 
         backend: ["Laravel", "REST API"],
         frontend: ["Angular", "Next.js"],
@@ -207,12 +182,14 @@ export const projects = [
                 name: "CommercePOS",
                 type: "frontend",
                 owner: "eCarlsson-r",
+                url: "https://carlsson-commerce-pos.vercel.app",
                 stack: ["Angular"]
             },
             {
                 name: "CommerceStore",
                 type: "frontend",
                 owner: "eCarlsson-r",
+                url: "https://carlsson-commerce-store.vercel.app",
                 stack: ["Next.js"]
             }
         ],
@@ -224,7 +201,8 @@ export const projects = [
         ],
 
         featured: true,
-        year: 2026
+        year: 2026,
+        mdxPath: "commerce-system"
     },
     {
         slug: "human-design",
@@ -248,6 +226,7 @@ export const projects = [
                 name: "HumanDesign",
                 type: "frontend",
                 owner: "eCarlsson-r",
+                url: "https://carlsson-human-design.vercel.app",
                 stack: ["Angular", "AnalogJS"]
             }
         ],
@@ -258,12 +237,13 @@ export const projects = [
             "Non-standard business domain"
         ],
 
-        featured: false,
-        year: 2026
+        featured: true,
+        year: 2026,
+        mdxPath: "human-design"
     },
     {
         slug: "restaurant-ecosystem",
-        title: "Restaurant POS & Reservation System",
+        title: "Restaurant Management System",
         category: "depth",
 
         summary: "Integrated restaurant operations and reservation platform.",
@@ -271,7 +251,7 @@ export const projects = [
 
         backend: ["Laravel", "REST API"],
         frontend: ["Nuxt", "AnalogJS"],
-repositories: [
+        repositories: [
             {
                 name: "RestoSystem-API",
                 type: "backend",
@@ -282,12 +262,14 @@ repositories: [
                 name: "RestoPOS",
                 type: "frontend",
                 owner: "eCarlsson-r",
+                url: "https://carlsson-resto-pos.vercel.app",
                 stack: ["Nuxt"]
             },
             {
                 name: "RestoReserve",
                 type: "frontend",
                 owner: "eCarlsson-r",
+                url: "https://carlsson-resto-reserve.vercel.app",
                 stack: ["AnalogJS"]
             }
         ],
@@ -298,7 +280,8 @@ repositories: [
             "Real-world business workflows"
         ],
 
-        featured: true,
+        featured: false,
+        mdxPath: "restaurant-ecosystem",
         year: 2026
     },
     {
@@ -316,6 +299,7 @@ repositories: [
                 name: "PropertyManagement",
                 type: "backend",
                 owner: "eCarlsson-r",
+                url: "",
                 stack: ["Laravel", "Inertia", "Vue"]
             }
         ],
@@ -329,7 +313,7 @@ repositories: [
         featured: false,
         year: 2026
     }
-] as Project[];
+];
 
 export const featuredProjects = projects.filter(
   (p) => p.featured === true

@@ -1,4 +1,5 @@
-export function generateGithubSignals(repoDataList: {commitCount: number, firstCommit: string, lastCommit: string, languages: string[]}[]) {
+import { RepoData } from "../../core/types";
+export function generateGithubSignals(repoDataList: RepoData[]) {
   const allDates = repoDataList.map(r => r.lastCommit);
   if (!allDates.length) return null;
 

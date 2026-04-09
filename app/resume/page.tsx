@@ -1,19 +1,15 @@
-import { resumeSignals } from "@/data/resumeSignals";
-import ExecutionTimeline from "@/components/signals/ExecutionTimeline";
-import TechMap from "@/components/sections/TechMap";
 import { getLiveSignals } from "@/lib/signals/loadLiveSignals";
 
 import LiveExecutionStatus from "@/components/signals/LiveExecutionStatus";
 import ExecutionInsights from "@/components/signals/ExecutionInsights";
 import ExecutionBadges from "@/components/signals/ExecutionBadges";
-import LiveCommitStream from "@/components/signals/LiveCommitStream";
+import { projects } from "@/data/projects";
 
 export default function ResumePage() {
-  const { metrics } = resumeSignals;
   const live = getLiveSignals()!;
 
   return (
-    <div className="mx-auto max-w-6xl py-12 space-y-12">
+    <div className="mx-auto max-w-6xl py-12 space-y-12 p-8 lg:p-0">
 
       {/* Hero */}
       <section>
@@ -26,24 +22,18 @@ export default function ResumePage() {
       {/* NEW: Live Intelligence */}
       <LiveExecutionStatus live={live} />
 
-      <LiveCommitStream />
-
       {/* Metrics */}
       <section className="grid md:grid-cols-3 gap-8 text-center">
-        <Metric value={metrics.projects} label="Projects Delivered" />
-        <Metric value={metrics.systemsBuilt} label="Systems Built" />
-        <Metric value={metrics.avgDeliverySpeed} label="Avg Delivery Speed" />
+        <Metric value={projects.length} label="Projects Delivered" />
+        <Metric value={projects.filter((p) => p.category == "depth" || p.category == "edge").length} label="Systems Built" />
+        <Metric value="2 - 4 weeks" label="Typical Delivery Cycle" />
       </section>
 
       {/* NEW: AI Insights */}
       <ExecutionInsights />
 
-      <TechMap />
-
       {/* NEW: Badges */}
       <ExecutionBadges />
-
-      <ExecutionTimeline />
     </div>
   );
 }

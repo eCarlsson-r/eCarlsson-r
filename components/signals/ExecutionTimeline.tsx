@@ -5,7 +5,7 @@ export default function ExecutionTimeline() {
   const signals = getAllSignals();
 
   return (
-    <section className="max-w-6xl mx-auto py-20">
+    <section className="max-w-6xl mx-auto p-8 md:py-20">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-4">
         <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary tracking-tight">
           Execution Timeline
@@ -33,7 +33,7 @@ export default function ExecutionTimeline() {
                     <span className="px-3 py-1 bg-surface-container-highest text-tertiary rounded-md">{s.summary.ownershipLevel} Ownership</span>
                   </div>
                 </div>
-                <div className="flex justify-end text-right gap-8">
+                <div className="md:flex justify-end text-right gap-8">
                   <div>
                     <span className="block text-4xl font-headline font-black text-primary mb-1">
                       {s.scores.execution}

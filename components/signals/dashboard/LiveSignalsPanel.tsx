@@ -9,8 +9,8 @@ export default function LiveSignalsPanel({ live }: { live: LiveSignals }) {
   const tech = Object.entries(live.techFocus).sort((a, b) => b[1] - a[1]);
 
   return (
-    <div className="p-6 border rounded-2xl bg-linear-to-br from-chart-5 to-white space-y-6">
-      <h2 className="text-xl font-semibold">⚡ Live Execution Intelligence</h2>
+    <div className="p-6 border rounded-2xl bg-gradient-to-r from-red-500/10 to-blue-500/10 space-y-6">
+      <h2 className="text-xl font-semibold text-secondary">⚡ Live Execution Intelligence</h2>
 
       {/* Core Metrics */}
       <div className="grid md:grid-cols-3 gap-6">
@@ -44,7 +44,7 @@ function Stat({ title, value }: { title: string; value: number | string }) {
   return (
     <div className="p-4 border rounded-xl text-center bg-white">
       <p className="text-sm text-gray-500">{title}</p>
-      <p className="text-2xl font-bold">{value}</p>
+      <p className="text-2xl font-bold text-secondary">{value}</p>
     </div>
   );
 }

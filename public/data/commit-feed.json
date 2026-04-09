@@ -1,0 +1,122 @@
+[
+  {
+    "repo": "PayrollManagementLaravel",
+    "message": "Refactor boot method to enable HTTPS scheme in production environment",
+    "date": "2026-01-10T04:16:59Z",
+    "url": "https://github.com/eCarlsson-r/PayrollManagementLaravel/commit/22fc8d74acd2ace9839948c4ecc245bdabcad5d9"
+  },
+  {
+    "repo": "PayrollManagementLaravel",
+    "message": "Merge branch 'main' of https://github.com/eCarlsson-r/PayrollManagement",
+    "date": "2025-12-03T15:05:54Z",
+    "url": "https://github.com/eCarlsson-r/PayrollManagementLaravel/commit/eebbae58c4f37f7f65cef119bd91c37a5f4ee6b7"
+  },
+  {
+    "repo": "PayrollManagementLaravel",
+    "message": "Last fix for realtime notification and minor enhancements",
+    "date": "2025-12-03T15:05:08Z",
+    "url": "https://github.com/eCarlsson-r/PayrollManagementLaravel/commit/7091e8c1f32e033f4739d62a6dc06e92dcb1f36a"
+  },
+  {
+    "repo": "PayrollManagementLaravel",
+    "message": "Update README.md",
+    "date": "2025-11-24T14:10:43Z",
+    "url": "https://github.com/eCarlsson-r/PayrollManagementLaravel/commit/5be11dbe73d994bb57d914bfcb3519cd010795b2"
+  },
+  {
+    "repo": "PayrollManagementLaravel",
+    "message": "Update README.md",
+    "date": "2025-11-23T14:40:02Z",
+    "url": "https://github.com/eCarlsson-r/PayrollManagementLaravel/commit/da63f1b7d379ae3d58621d19afee807b631f22bd"
+  },
+  {
+    "repo": "SpaInformationSystem-API",
+    "message": "feat: Add `ext-pcntl` requirement and update `laravel/reverb` version constraint.",
+    "date": "2026-02-02T03:01:08Z",
+    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/eadf8b7c77af37984a14d03b722758a08bd3b59f"
+  },
+  {
+    "repo": "SpaInformationSystem-API",
+    "message": "refactor: remove hardcoded HTTPS prefix and default domains from CORS allowed origins.",
+    "date": "2026-01-31T10:34:28Z",
+    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/a498e15180ed1d3ce9e5dcc3beb8c3d99cdca991"
+  },
+  {
+    "repo": "SpaInformationSystem-API",
+    "message": "refactor: Replace hardcoded origin URLs with environment variables `STORE_URL` and `POS_URL`.",
+    "date": "2026-01-31T10:26:47Z",
+    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/b7757fa0ecda379b9abf0973ec1b6b517547af7f"
+  },
+  {
+    "repo": "SpaInformationSystem-API",
+    "message": "feat: Standardize primary and foreign keys to use auto-incrementing IDs and `foreignId` for relationships, and update voucher ID generation and treatment room field to JSON.",
+    "date": "2026-01-31T09:49:05Z",
+    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/d7fbc3c6e66d856398a44f6907fd1602b310efb6"
+  },
+  {
+    "repo": "SpaInformationSystem-API",
+    "message": "refactor: update web push notification class imports to `NotificationChannels\\WebPush` namespace",
+    "date": "2026-01-31T07:56:28Z",
+    "url": "https://github.com/eCarlsson-r/SpaInformationSystem-API/commit/39001622656c8599e3c8a06add4da00a33245710"
+  },
+  {
+    "repo": "SpaCashier",
+    "message": "refactor: Conditionally initialize Echo for SSR compatibility and add null checks in `useRealtimeSync`.",
+    "date": "2026-01-31T11:29:04Z",
+    "url": "https://github.com/eCarlsson-r/SpaCashier/commit/f6e195e46b4fb17c12e7fefc3e9b7bc4733848a9"
+  },
+  {
+    "repo": "SpaCashier",
+    "message": "refactor: remove PWAProvider from the root layout.",
+    "date": "2026-01-31T11:12:29Z",
+    "url": "https://github.com/eCarlsson-r/SpaCashier/commit/5c9ee8e454be8584170868867b00a4a84f194c6f"
+  },
+  {
+    "repo": "SpaCashier",
+    "message": "feat: Implement enhanced PWA push notifications with updated service worker logic, authenticated subscription to a new API endpoint, and improved notification click behavior.",
+    "date": "2026-01-31T11:04:20Z",
+    "url": "https://github.com/eCarlsson-r/SpaCashier/commit/c177a41f261ba9d6ec93e74cec4c2f78e2a41b4e"
+  },
+  {
+    "repo": "SpaCashier",
+    "message": "fix: Corrected background gradient CSS class and increased logo width on the login page.",
+    "date": "2026-01-25T10:52:26Z",
+    "url": "https://github.com/eCarlsson-r/SpaCashier/commit/f011e60a33d3987b6b6a5fb9eee4808051877a80"
+  },
+  {
+    "repo": "SpaCashier",
+    "message": "feat: Implement comprehensive reporting and form updates across various modules, including schema refinements and removal of permission guard.",
+    "date": "2026-01-25T10:46:18Z",
+    "url": "https://github.com/eCarlsson-r/SpaCashier/commit/6d364a36d265fb25b1363dbc859a540b1664dd2b"
+  },
+  {
+    "repo": "SpaBooking",
+    "message": "feat: update environment variables for Reverb integration and adjust runtime configuration",
+    "date": "2026-01-10T14:51:50Z",
+    "url": "https://github.com/eCarlsson-r/SpaBooking/commit/ecce2b5010b1c2a85ef42052b3c097d0b230400e"
+  },
+  {
+    "repo": "SpaBooking",
+    "message": "feat: update dependencies and remove unused assets",
+    "date": "2026-01-10T03:18:23Z",
+    "url": "https://github.com/eCarlsson-r/SpaBooking/commit/e063a776b7c161dab0654cd01ea1f6db55f24e5f"
+  },
+  {
+    "repo": "SpaBooking",
+    "message": "feat: Introduce new user pages (bookings, history, catalog), add components, update navigation, and enhance README.",
+    "date": "2026-01-02T18:21:24Z",
+    "url": "https://github.com/eCarlsson-r/SpaBooking/commit/942fa6f7f5844a7eea4d10d61cad2db4ecc58ec2"
+  },
+  {
+    "repo": "SpaBooking",
+    "message": "feat: Implement comprehensive cart functionality, user profile, bookings, and vouchers, alongside a significant refactor of treatment details and booking flow.",
+    "date": "2026-01-01T15:51:01Z",
+    "url": "https://github.com/eCarlsson-r/SpaBooking/commit/7389507751280076d88d73f4a6f80573b8979742"
+  },
+  {
+    "repo": "SpaBooking",
+    "message": "feat: Implement a multi-step booking drawer, add new UI components (Drawer, Dialog, Card, Button, Input), and introduce authentication and real-time sync.",
+    "date": "2025-12-31T17:47:22Z",
+    "url": "https://github.com/eCarlsson-r/SpaBooking/commit/1136f949c73e63e38cd808f05f23021136c4f0e6"
+  }
+]

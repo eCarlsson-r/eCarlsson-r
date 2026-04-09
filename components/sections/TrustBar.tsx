@@ -4,7 +4,7 @@ export default function TrustBar() {
   const signals = getAllSignals();
 
   return (
-    <div className="border-y py-6 mt-16 bg-gray-50">
+    <div className="border-y py-6 bg-gray-50">
       <div className="max-w-6xl mx-auto flex justify-around text-sm">
         <Stat label="Projects Analyzed" value={signals.length} />
         <Stat label="Avg Execution" value="High" />

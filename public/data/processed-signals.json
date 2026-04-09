@@ -13,48 +13,9 @@
     }
   },
   {
-    "id": "insurance-portal",
-    "scores": {
-      "execution": 51,
-      "complexity": 100,
-      "ownership": 100
-    },
-    "summary": {
-      "executionLevel": "Medium",
-      "complexityLevel": "High",
-      "ownershipLevel": "High"
-    }
-  },
-  {
     "id": "spa-ecosystem",
     "scores": {
       "execution": 39,
-      "complexity": 92,
-      "ownership": 100
-    },
-    "summary": {
-      "executionLevel": "Low",
-      "complexityLevel": "High",
-      "ownershipLevel": "High"
-    }
-  },
-  {
-    "id": "commerce-ecosystem",
-    "scores": {
-      "execution": 35,
-      "complexity": 92,
-      "ownership": 100
-    },
-    "summary": {
-      "executionLevel": "Low",
-      "complexityLevel": "High",
-      "ownershipLevel": "High"
-    }
-  },
-  {
-    "id": "restaurant-ecosystem",
-    "scores": {
-      "execution": 40,
       "complexity": 92,
       "ownership": 100
     },
@@ -78,10 +39,36 @@
     }
   },
   {
+    "id": "insurance-portal",
+    "scores": {
+      "execution": 51,
+      "complexity": 100,
+      "ownership": 100
+    },
+    "summary": {
+      "executionLevel": "Medium",
+      "complexityLevel": "High",
+      "ownershipLevel": "High"
+    }
+  },
+  {
     "id": "quoteplot-agent",
     "scores": {
       "execution": 44,
       "complexity": 100,
+      "ownership": 100
+    },
+    "summary": {
+      "executionLevel": "Low",
+      "complexityLevel": "High",
+      "ownershipLevel": "High"
+    }
+  },
+  {
+    "id": "commerce-ecosystem",
+    "scores": {
+      "execution": 35,
+      "complexity": 92,
       "ownership": 100
     },
     "summary": {
@@ -104,9 +91,22 @@
     }
   },
   {
+    "id": "restaurant-ecosystem",
+    "scores": {
+      "execution": 40,
+      "complexity": 92,
+      "ownership": 100
+    },
+    "summary": {
+      "executionLevel": "Low",
+      "complexityLevel": "High",
+      "ownershipLevel": "High"
+    }
+  },
+  {
     "id": "property-management",
     "scores": {
-      "execution": 42,
+      "execution": 35,
       "complexity": 100,
       "ownership": 100
     },

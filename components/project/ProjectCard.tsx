@@ -1,42 +1,86 @@
+"use client";
 import Link from "next/link";
-import Image from "next/image";
+import SignalBadge from "./SignalBadge";
+import ScoreBar from "./ScoreBar";
+import { motion } from "framer-motion";
 
-interface Props {
-  slug: string;
-  title: string;
-  summary: string;
-  backend: string[];
-  frontend: string[];
+function RankingBadge({ scores }: any) {
+  let label = "";
+  let color = "";
+
+  if (scores.execution > 85) {
+    label = "🔥 Top Execution";
+    color = "bg-red-500";
+  } else if (scores.complexity > 85) {
+    label = "🧠 High Complexity";
+    color = "bg-yellow-900";
+  } else if (scores.ownership > 85) {
+    label = "👑 Ownership";
+    color = "bg-blue-500";
+  }
+
+  if (!label) return null;
+
+  return (
+    <div className={`absolute top-4 right-4 text-xs px-2 py-1 rounded text-white ${color}`}>
+      {label}
+    </div>
+  );
 }
 
-export default function ProjectCard({
-  slug,
-  title,
-  summary,
-  backend,
-  frontend,
-}: Props) {
+export default function ProjectCard({ slug, title, summary, signals }: any) {
+
   return (
-    <div className="min-w-[90vw] md:min-w-[500px] snap-start group bg-surface-container-high p-6 border-b-2 border-transparent hover:border-primary transition-all">
-      <div className="aspect-video overflow-hidden mb-6">
-        <Image alt="" width="200" height="100" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-x4HCdpkGQrrpgkVwZYSBd1TmR9o06sEBosqJW6-lYwJbYd8XWSAjB2sp2NKPjh8gW2-k-7kYEz3mrDWY-4V8EcLhvCmLWS_ZNq7AuM2Wl-bDQplLHatQh4BNUX70ijXQoNhRVM_eHChGH_aayZjaaT9yPuNssGXxkLRO8fG9USNha3mdPLDYV6pxKkbPFUd83DD4v6nSPGXcL4nv3LAPVYPB92UAyLqLaHJz32nSZYfyRKu-QvSbr2-TbV1Kogn555ip89EtrZQ"/>
-      </div>
-      <h3 className="text-2xl font-headline font-bold mb-3 text-on-surface">{title}</h3>
-      <p className="text-on-surface-variant text-sm leading-relaxed mb-4">{summary}</p>
-      
-      <div className="flex justify-between items-center">
-        <div className="flex gap-2">
-          {[...backend, ...frontend].map((tech) => (
-          <span
-            key={tech}
-            className="px-3 py-1 bg-surface-container-highest font-label text-[10px] uppercase tracking-tighter text-secondary"
-          >
-            {tech}
-          </span>
-        ))}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      whileHover={{ scale: 1.02 }}
+      className="group relative rounded-2xl border border-gray-200 dark:border-white/10 
+                 bg-white/70 dark:bg-white/5 backdrop-blur-xl 
+                 p-6 shadow-sm hover:shadow-xl transition overflow-hidden"
+    >
+      {/* Glow effect */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition
+                      bg-gradient-to-r from-red-500/10 to-blue-500/10 blur-xl" />
+
+      {/* Ranking Badge */}
+      {signals && (
+        <RankingBadge scores={signals.scores} />
+      )}
+
+      {/* Title */}
+      <h3 className="text-lg font-semibold mb-2 relative z-10">
+        {title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 relative z-10">
+        {summary}
+      </p>
+
+      {/* Signals */}
+      {signals && (
+        <div className="flex flex-wrap gap-2 mb-4 relative z-10">
+          <SignalBadge label="Exec" value={signals.summary.executionLevel} />
+          <SignalBadge label="Comp" value={signals.summary.complexityLevel} />
+          <SignalBadge label="Own" value={signals.summary.ownershipLevel} />
         </div>
-        <Link href={`/projects/${slug}`} className="font-label text-xs uppercase tracking-widest text-primary font-bold border-b border-primary pb-1 hover:opacity-70 transition-opacity">View Case Study</Link>
-      </div>
-    </div>
+      )}
+
+      {/* Score bars */}
+      {signals && (
+        <div className="space-y-2 mb-4 relative z-10">
+          <ScoreBar label="Execution" value={signals.scores.execution} />
+          <ScoreBar label="Complexity" value={signals.scores.complexity} />
+          <ScoreBar label="Ownership" value={signals.scores.ownership} />
+        </div>
+      )}
+
+      {/* CTA */}
+      <Link href={`/projects/${slug}`} className="text-sm font-medium underline relative z-10">
+        View Project →
+      </Link>
+    </motion.div>
   );
 }

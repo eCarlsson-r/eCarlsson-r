@@ -1,4 +1,6 @@
-export function generateSummary(scores: any) {
+import { Summary } from "../../core/types";
+
+export function generateSummary(scores: any): Summary {
   const level = (score: number) =>
     score > 80 ? "High" : score > 50 ? "Medium" : "Low";
 

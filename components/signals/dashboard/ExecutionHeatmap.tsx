@@ -1,38 +1,73 @@
-interface Point {
-  date: string;
-  count: number;
-}
+"use client";
 
-export default function ExecutionHeatmap({ data }: { data: Point[] }) {
-  const max = Math.max(...data.map((d) => d.count), 1);
+import { useEffect, useState } from "react";
 
-  function getColor(count: number) {
-    const intensity = count / max;
+function generateLast365Days() {
+  const days: string[] = [];
+  const today = new Date();
 
-    if (intensity === 0) return "bg-gray-100";
-    if (intensity < 0.25) return "bg-primary-200";
-    if (intensity < 0.5) return "bg-primary-400";
-    if (intensity < 0.75) return "bg-primary-600";
-    return "bg-primary-800";
+  for (let i = 364; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(today.getDate() - i);
+    days.push(d.toISOString().split("T")[0]);
   }
 
+  return days;
+}
+
+function getColor(count: number) {
+  if (count === 0) return "bg-gray-200 dark:bg-gray-800";
+  if (count < 3) return "bg-green-200";
+  if (count < 6) return "bg-green-400";
+  if (count < 10) return "bg-green-600";
+  return "bg-green-800";
+}
+
+export default function ExecutionHeatmap() {
+  const [data, setData] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    fetch("/data/contributions.json")
+      .then(res => res.json())
+      .then(setData);
+  }, []);
+
+  const days = generateLast365Days();
+
   return (
-    <div className="p-6 border rounded-2xl space-y-6">
-      <h2 className="text-xl font-semibold">Execution Timeline</h2>
+    <section>
+      <h2 className="text-2xl font-semibold text-center text-primary mb-10">
+        Contribution Activity
+      </h2>
 
-      <div className="grid grid-cols-14 gap-1">
-        {data.map((d) => (
-          <div
-            key={d.date}
-            title={`${d.date}: ${d.count} executions`}
-            className={`w-4 h-4 rounded-sm ${getColor(d.count)}`}
-          />
-        ))}
+      <div className="overflow-x-auto">
+        <div className="grid grid-cols-52 gap-1 w-max mx-auto">
+          {days.map((date) => {
+            const count = data[date] || 0;
+
+            return (
+              <div
+                key={date}
+                title={`${date} — ${count} commits`}
+                className={`w-3 h-3 rounded-sm ${getColor(count)}`}
+                style={{animationDelay: `${Math.random() * 0.5}s`}}
+              />
+            );
+          })}
+        </div>
       </div>
-
-      <p className="text-sm text-gray-500">
-        Darker color indicates higher development activity.
-      </p>
-    </div>
+      
+      <div className="flex justify-center gap-2 mt-4 text-xs text-gray-500">
+        <span>Less</span>
+        <div className="flex gap-1">
+          <div className="w-3 h-3 bg-gray-200" />
+          <div className="w-3 h-3 bg-green-200" />
+          <div className="w-3 h-3 bg-green-400" />
+          <div className="w-3 h-3 bg-green-600" />
+          <div className="w-3 h-3 bg-green-800" />
+        </div>
+        <span>More</span>
+      </div>
+    </section>
   );
 }

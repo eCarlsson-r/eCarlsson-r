@@ -1,5 +1,5 @@
 import path from "path";
-import * as fs from "fs";
+import fs from "fs";
 
 export interface LiveEngineerSignals {
   lastCommit: string;
@@ -12,10 +12,7 @@ export interface LiveEngineerSignals {
 }
 
 const liveSignalsPath = path.join(
-  process.cwd(),
-  "signals-engine",
-  "output",
-  "live-engineer-signals.json"
+  process.cwd(), "public", "data", "live-signals.json"
 );
 
 export function getLiveSignals(): LiveEngineerSignals | null {

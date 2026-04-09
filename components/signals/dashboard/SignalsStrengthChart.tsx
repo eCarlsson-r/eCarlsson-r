@@ -1,3 +1,4 @@
+import ScoreBar from "@/components/project/ScoreBar";
 import { ProjectSignals } from "@/lib/signals/types";
 
 interface Props {
@@ -18,22 +19,10 @@ export default function SignalsStrengthChart({ signals }: Props) {
 
   return (
     <div className="p-6 border rounded-2xl space-y-6">
-      <h2 className="text-xl font-semibold">Core Strengths</h2>
+      <h2 className="text-xl font-semibold text-secondary">Core Strengths</h2>
 
       {data.map((d) => (
-        <div key={d.label}>
-          <div className="flex justify-between text-sm mb-1">
-            <span>{d.label}</span>
-            <span>{d.value}</span>
-          </div>
-
-          <div className="w-full bg-gray-200 h-3 rounded">
-            <div
-              className="bg-chart-1 h-3 rounded"
-              style={{ width: `${d.value}%` }}
-            />
-          </div>
-        </div>
+        <ScoreBar key={d.label} label={d.label} value={d.value} size="md" height={3} />
       ))}
     </div>
   );

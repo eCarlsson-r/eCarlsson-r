@@ -1,0 +1,114 @@
+# 🔷 Human Design Analysis System
+
+## 1. Project Overview
+
+**Human Design Analysis System**
+A full-stack system that generates personalized Human Design charts and reports based on birth data, combining complex calculation logic with a structured CRM and report delivery workflow.
+
+**Business Problem**
+Human Design analysis is typically manual, fragmented, and difficult to scale. Practitioners need a system to:
+
+* Accurately generate charts from birth data
+* Manage client (prospect) information
+* Deliver structured reports (preview → summary → detail)
+* Monetize insights through tiered access
+
+**Key Capabilities**
+
+* Automated chart generation from birth data
+* Multi-role CRM (Admin, Leader, Agent, User)
+* Tiered report system (Preview / Summary / Detail)
+* Referral and agent tracking system
+* CMS for managing interpretation content
+* Real-time visualization of bodygraph (SVG-based)
+
+---
+
+## 2. Architecture Overview
+
+**System Structure**
+* ASP.NET Core API → Core calculation logic + CRM + authentication
+* Angular (AnalogJS) → SSR frontend (public + dashboard + CMS)
+* MySQL → relational data storage
+
+**Frontend Distribution**
+* Public site (lead capture + preview generation)
+* Authenticated dashboard (reports, user access)
+* Admin CMS (content + CRM management)
+
+**Technology Stack**
+
+***Backend***
+
+* ASP.NET Core (Web API)
+* Entity Framework Core
+* MySQL
+* JWT Authentication
+* Layered architecture (Controller → Service → Domain)
+
+***Frontend***
+
+* Angular + AnalogJS (SSR)
+* TypeScript
+* TailwindCSS
+* SVG rendering engine for chart visualization
+
+***Infrastructure***
+
+* Railway (API deployment)
+* Vercel / Static hosting (frontend)
+* REST API integration
+
+---
+
+## 3. Domain Complexity
+
+* Complex transformation of birth data into structured chart outputs
+* Mapping abstract Human Design concepts (gates, channels, centers) into data models
+* Synchronizing calculated results with CMS-driven interpretation content
+* Multi-role data access (CRM hierarchy: Admin → Leader → Agent → User)
+
+---
+
+## 4. Key Engineering Challenges
+
+**Challenge:** Rendering dynamic bodygraph visualization
+**Solution:** Built a custom SVG rendering engine that maps gates, channels, and centers dynamically
+**Outcome:** Accurate and interactive chart visualization aligned with computed data
+
+**Challenge:** Managing tiered report access (Preview / Summary / Detail)
+**Solution:** Designed access control logic tied to purchase state and user role
+**Outcome:** Seamless upgrade flow without duplicating report data
+
+**Challenge:** Avoiding blocking queries in role-based filtering
+**Solution:** Refactored async role resolution to avoid .Result in LINQ queries
+**Outcome:** Eliminated deadlocks and improved API reliability
+
+---
+
+## 5. What Makes This Project Unique
+
+This project stands out due to its **non-standard domain combined with full system integration**. It merges:
+
+* Complex calculation logic
+* Real-time visualization
+* CRM workflows
+* CMS-driven content
+
+Unlike typical CRUD systems, this required **translating abstract metaphysical concepts into a structured, scalable software system**, making it both technically and conceptually challenging.
+
+---
+
+## 6. Key Design Decisions (Selected)
+
+* Used **SSR (AnalogJS)** to improve initial load and SEO for public pages
+* Chose **REST API architecture** for predictable integration across multiple frontend sections
+* Centralized report logic to avoid duplication between preview and paid versions
+
+---
+
+## 7. Lessons Learned
+
+* Domain modeling is critical for non-standard problem spaces
+* Separating calculation logic from presentation improves scalability
+* Role-based systems require careful query design to avoid performance issues

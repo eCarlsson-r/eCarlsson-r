@@ -1,39 +1,29 @@
-import { getProject, projects } from "@/data/projects";
-import SignalsSection from "./SignalsSection";
-import TechBadge from "@/components/project/TechBadge";
+import { notFound } from "next/navigation";
+import { projects } from "@/data/projects";
+import { loadProjectMdx } from "@/lib/hooks/loadProjectMdx";
+import { serialize } from "next-mdx-remote/serialize";
+import MDXRenderer from "@/components/mdx/MdxRenderer";
+import ProjectHeader from "@/components/project/ProjectHeader";
+import ProjectClient from "@/components/project/ProjectClient";
 
-export function generateStaticParams() {
-  return projects.map(p => ({
-    slug: p.slug,
-  }));
+export async function generateStaticParams() {
+  return projects.map(p => ({ slug: p.slug }));
 }
+
+export default async function ProjectPage({ params }: any) {
+  const projectInfo = await params;
+  const project = projects.find(p => p.slug === projectInfo.slug);
   
-interface Props {
-  params: Promise<{ slug: string }>;
-}
+  if (!project) return notFound();
 
-export default async function ProjectPage({ params }: Props) {
-  const { slug } = await params;
-  console.info(slug);
-  const project = getProject(slug);
-  if (!project) {
-    throw new Error(`Project not found: ${slug}`);
+  let mdxSource = null;
+
+  if (project.mdxPath) {
+    const mdx = loadProjectMdx(project.mdxPath);
+    if (mdx) mdxSource = await serialize(mdx.content);
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-24">
-      <h1 className="text-4xl font-bold">{project.title}</h1>
-
-      <p className="mt-4 text-gray-600">{project.description}</p>
-
-      {/* Stack */}
-      <div className="mt-6 flex gap-2 flex-wrap">
-        {[...project.backend, ...project.frontend].map((tech) => (
-          <TechBadge key={tech} name={tech} />
-        ))}
-      </div>
-
-      <SignalsSection projectId={project.slug} />
-    </div>
+    <ProjectClient project={project} mdxSource={mdxSource} />
   );
 }

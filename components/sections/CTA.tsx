@@ -1,4 +1,5 @@
-import Link from "next/link";
+"use client";
+import { motion } from "framer-motion";
 
 export default function CTA() {
   return (
@@ -9,12 +10,12 @@ export default function CTA() {
 
       <p className="mb-6 text-on-surface-variant">Open to full-stack and system architecture roles.</p>
 
-      <Link
-        href="/contact"
-        className="btn-primary px-6 py-3 rounded-none font-semibold inline-block"
+      <motion.a
+        whileHover={{ scale: 1.05 }} href="/contact"
+        className="px-6 py-3 bg-secondary text-white dark:bg-white dark:text-secondary rounded-xl shadow-lg transition"
       >
         Contact Me
-      </Link>
+      </motion.a>
     </section>
   );
 }

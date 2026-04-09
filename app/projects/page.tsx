@@ -3,7 +3,7 @@ import ProjectGroup from "@/components/project/ProjectGroup";
 
 export default function ProjectsPage() {
   return (
-    <div className="mx-auto max-w-6xl py-24">
+    <div className="mx-auto max-w-6xl p-8 md:py-24">
       <h1 className="text-4xl font-bold text-gray-900">Projects</h1>
 
       <p className="mt-4 text-gray-600">

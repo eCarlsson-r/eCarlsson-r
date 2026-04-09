@@ -15,10 +15,10 @@ export default function ExecutionFeed() {
 
   return (
     <section className="max-w-6xl mx-auto space-y-12">
-      <h2 className="text-3xl font-bold">Live Execution Intelligence</h2>
+      <h2 className="text-3xl font-bold text-secondary">Live Execution Intelligence</h2>
 
       {/* LIVE STATUS */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-px bg-outline-variant/20 rounded-lg overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 bg-outline-variant/20 rounded-lg overflow-hidden">
         <StatusCard
           label="Activity Pulse"
           value={live.activityPulse}
@@ -72,7 +72,7 @@ function StatusCard({
   value: string;
 }) {
   return (
-    <div className="bg-tertiary p-12">
+    <div className="bg-surface-container-low p-6 rounded-lg text-center">
       <span className="font-label text-[10px] uppercase tracking-[0.4em] text-secondary block mb-8">{label}</span>
       <p className="text-3xl font-headline font-bold text-primary">{value}</p>
     </div>

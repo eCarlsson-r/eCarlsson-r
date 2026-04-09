@@ -1,8 +1,10 @@
 import path from "path";
-import * as fs from "fs";
+import fs from "fs";
 import { ProjectSignals } from "./types";
 
-const signalsPath = path.join(process.cwd(), "signals-engine", "output", "processed-signals.json");
+const signalsPath = path.join(
+  process.cwd(), "public", "data", "processed-signals.json"
+);
 
 export function getAllSignals(): ProjectSignals[] {
     const file = fs.readFileSync(signalsPath, "utf-8");

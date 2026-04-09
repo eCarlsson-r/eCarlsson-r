@@ -1,10 +1,16 @@
 import { Octokit } from "@octokit/rest";
+require('dotenv').config();
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN
 });
 
-export async function fetchRepoData(owner: string, repo: string) {
+import { RepoData } from "../../core/types";
+
+export async function fetchRepoData(
+  owner: string,
+  repo: string
+): Promise<RepoData> {
   const commits = await octokit.repos.listCommits({
     owner,
     repo,
@@ -18,8 +24,8 @@ export async function fetchRepoData(owner: string, repo: string) {
 
   return {
     commitCount: commits.data.length,
-    firstCommit: commits.data[commits.data.length - 1]?.commit.author?.date,
-    lastCommit: commits.data[0]?.commit.author?.date,
+    firstCommit: commits.data[commits.data.length - 1]?.commit.author?.date || "",
+    lastCommit: commits.data[0]?.commit.author?.date || "",
     languages: Object.keys(languages.data)
   };
 }

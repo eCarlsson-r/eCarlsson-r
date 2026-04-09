@@ -1,54 +1,61 @@
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="py-32">
-      <div className="mx-auto max-w-4xl px-6 text-center">
+    <section className="max-w-5xl mx-auto px-6 py-24 text-center">
         {/* Title */}
-        <h1 className="text-5xl font-headline font-bold leading-tight text-primary">
-          Full-Stack Software Engineer
-        </h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-headline font-bold leading-tight text-primary mb-6"
+        >
+          Full-Stack Developer Building Scalable Systems & Modern Web Applications
+        </motion.h1>
 
         {/* Subtitle */}
-        <p className="mt-6 text-lg text-on-surface-variant leading-relaxed">
-          I build scalable business systems using Laravel, modern frontend
-          frameworks, and clean architecture. Specialized in POS, commerce, and
-          enterprise workflows.
-        </p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-lg text-on-surface-variant leading-relaxed max-w-2xl mx-auto mb-8"
+        >
+          I design and build production-grade systems—from CRM platforms and commerce ecosystems to AI-powered applications.
+        </motion.p>
 
         {/* CTA Buttons */}
-        <div className="mt-10 flex justify-center gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="flex justify-center gap-4 flex-wrap mt-10"
+        >
           <Link
             href="/projects"
             className="rounded-none bg-primary px-6 py-3 text-sm font-label text-on-primary hover:bg-primary-container transition-opacity duration-200"
           >
             View Projects
           </Link>
-
-          <a
-            href="/resume.pdf"
-            className="rounded-none border border-outline px-6 py-3 text-sm font-label text-on-surface hover:bg-surface-container-low transition-colors duration-200"
+          <Link
+            href="//github.com/eCarlsson-r"
+            className="rounded-none bg-secondary px-6 py-3 text-sm font-label text-on-primary hover:bg-primary-container transition-opacity duration-200"
           >
-            Download Resume
-          </a>
-        </div>
-
-        {/* Stack Badges */}
-        <div className="mt-10 flex flex-wrap justify-center gap-3 text-sm text-on-surface-variant">
-          {[
-            "Laravel",
-            "React / Next.js",
-            "Vue / Nuxt",
-            "Angular",
-            "REST APIs",
-            "System Architecture",
-          ].map((tech) => (
-            <span key={tech} className="rounded-md bg-surface-container-high px-3 py-1 text-tertiary">
-              {tech}
-            </span>
-          ))}
-        </div>
-      </div>
+            View GitHub
+          </Link>
+          <Link
+            href="//linkedin.com/in/albert-hartanto-b92036396/"
+            className="rounded-none bg-secondary px-6 py-3 text-sm font-label text-on-primary hover:bg-primary-container transition-opacity duration-200"
+          >
+            View LinkedIn
+          </Link>
+          <Link
+            href="/contact"
+            className="rounded-none bg-secondary px-6 py-3 text-sm font-label text-on-primary hover:bg-primary-container transition-opacity duration-200"
+          >
+            Contact Me
+          </Link>
+        </motion.div>
     </section>
   );
 }

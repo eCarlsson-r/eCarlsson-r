@@ -1,4 +1,6 @@
-export function calculateScores(normalized: any, manual?: any) {
+import { Scores } from "../../core/types";
+
+export function calculateScores(normalized: any, manual?: any): Scores {
   const executionScore =
     normalized.commitDensity * 40 +
     normalized.longevity * 0.3;
