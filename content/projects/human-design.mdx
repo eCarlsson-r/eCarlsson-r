@@ -2,12 +2,11 @@
 
 ## 1. Project Overview
 
-**Human Design Analysis System**
+**Human Design Analysis System**  
 A full-stack system that generates personalized Human Design charts and reports based on birth data, combining complex calculation logic with a structured CRM and report delivery workflow.
 
-**Business Problem**
+**Business Problem**  
 Human Design analysis is typically manual, fragmented, and difficult to scale. Practitioners need a system to:
-
 * Accurately generate charts from birth data
 * Manage client (prospect) information
 * Deliver structured reports (preview → summary → detail)
@@ -27,9 +26,11 @@ Human Design analysis is typically manual, fragmented, and difficult to scale. P
 ## 2. Architecture Overview
 
 **System Structure**
-* ASP.NET Core API → Core calculation logic + CRM + authentication
-* Angular (AnalogJS) → SSR frontend (public + dashboard + CMS)
-* MySQL → relational data storage
+```
+ASP.NET Core API → Core calculation logic + CRM + authentication
+Angular (AnalogJS) → SSR frontend (public + dashboard + CMS)
+MySQL → relational data storage
+```
 
 **Frontend Distribution**
 * Public site (lead capture + preview generation)
@@ -72,16 +73,16 @@ Human Design analysis is typically manual, fragmented, and difficult to scale. P
 
 ## 4. Key Engineering Challenges
 
-**Challenge:** Rendering dynamic bodygraph visualization
-**Solution:** Built a custom SVG rendering engine that maps gates, channels, and centers dynamically
+**Challenge:** Rendering dynamic bodygraph visualization  
+**Solution:** Built a custom SVG rendering engine that maps gates, channels, and centers dynamically  
 **Outcome:** Accurate and interactive chart visualization aligned with computed data
 
-**Challenge:** Managing tiered report access (Preview / Summary / Detail)
-**Solution:** Designed access control logic tied to purchase state and user role
+**Challenge:** Managing tiered report access (Preview / Summary / Detail)  
+**Solution:** Designed access control logic tied to purchase state and user role  
 **Outcome:** Seamless upgrade flow without duplicating report data
 
-**Challenge:** Avoiding blocking queries in role-based filtering
-**Solution:** Refactored async role resolution to avoid .Result in LINQ queries
+**Challenge:** Avoiding blocking queries in role-based filtering  
+**Solution:** Refactored async role resolution to avoid `.Result` in LINQ queries  
 **Outcome:** Eliminated deadlocks and improved API reliability
 
 ---

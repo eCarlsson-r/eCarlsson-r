@@ -2,10 +2,10 @@
 
 ## 1. Project Overview
 
-**Retail Management Ecosystem**
+**Retail Management Ecosystem**  
 An end-to-end commerce platform integrating admin operations, POS transactions, and an online storefront into a unified system.
 
-**Business Problem**
+**Business Problem**  
 Retail businesses often rely on disconnected tools for sales, inventory, and online presence, leading to:
 
 * Data inconsistency between physical and online sales
@@ -28,13 +28,13 @@ This system was designed to unify operations into a **single, scalable platform*
 ## 2. Architecture Overview
 
 **System Structure**
-
-* Laravel API → Core business logic + transaction handling
-* Admin Dashboard (Angular) → operational control
-* Online Storefront (Next.js) → customer-facing UI
-* POS Interface → real-time sales processing
-* MySQL → centralized data storage
-
+```
+Laravel API → Core business logic + transaction handling
+Admin Dashboard (Angular) → operational control
+Online Storefront (Next.js) → customer-facing UI
+POS Interface → real-time sales processing
+MySQL → centralized data storage
+```
 
 **Frontend Distribution**
 
@@ -77,24 +77,16 @@ This system was designed to unify operations into a **single, scalable platform*
 
 ## 4. Key Engineering Challenges
 
-**Challenge:** Inventory consistency across POS and online store
-
-**Solution:** Centralized inventory updates through API-based transaction flow
-
+**Challenge:** Inventory consistency across POS and online store  
+**Solution:** Centralized inventory updates through API-based transaction flow  
 **Outcome:** Eliminated stock mismatch between offline and online sales
 
-
-**Challenge:** Supporting multiple frontends with shared backend
-
-**Solution:** Designed API-first architecture decoupled from UI
-
+**Challenge:** Supporting multiple frontends with shared backend  
+**Solution:** Designed API-first architecture decoupled from UI  
 **Outcome:** Enabled independent scaling and development of each frontend
 
-
-**Challenge:** Handling real-time transaction flow in POS
-
-**Solution:** Optimized backend endpoints for fast write operations
-
+**Challenge:** Handling real-time transaction flow in POS  
+**Solution:** Optimized backend endpoints for fast write operations  
 **Outcome:** Smooth cashier experience without delays
 
 ---

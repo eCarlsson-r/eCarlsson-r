@@ -2,10 +2,10 @@
 
 ## 1. Project Overview
 
-**QuotePlot AI Agent**
+**QuotePlot AI Agent**  
 An AI-powered content analysis system that processes unstructured text and extracts structured insights using automated pipelines and API-driven architecture.
 
-**Business Problem**
+**Business Problem**  
 Analyzing large volumes of text (quotes, content, ideas) is time-consuming and inconsistent when done manually. There is a need for:
 
 * Automated extraction of meaningful insights
@@ -28,32 +28,33 @@ This project explores how AI can be integrated into a **practical, reusable anal
 ## 2. Architecture Overview
 
 **System Structure**
-
-* FastAPI backend → AI processing + orchestration
-* Next.js frontend → user interaction + visualization
-* External AI APIs → text analysis and transformation
-
+```
+FastAPI backend → AI processing + orchestration
+Next.js frontend → user interaction + visualization
+External AI APIs → text analysis and transformation
+```
 
 **Flow**
-
+```
 User Input → API Request → AI Processing → Structured Output → UI Display
+```
 
 **Technology Stack**
 
-**Backend**
+***Backend***
 
 * Python (FastAPI)
 * REST API architecture
 * Modular service design for AI pipeline
 * External AI API integration
 
-**Frontend**
+***Frontend***
 
 * Next.js
 * React
 * API-driven UI rendering
 
-**Infrastructure**
+***Infrastructure***
 
 * Stateless API design for scalability
 * External AI service integration
@@ -72,16 +73,16 @@ User Input → API Request → AI Processing → Structured Output → UI Displa
 
 ## 4. Key Engineering Challenges
 
-**Challenge:** Inconsistent AI output structure
-**Solution:** Introduced controlled prompt patterns and post-processing validation
+**Challenge:** Inconsistent AI output structure  
+**Solution:** Introduced controlled prompt patterns and post-processing validation  
 **Outcome:** Improved reliability and consistency of structured results
 
-**Challenge:** Integrating AI into a usable system (not just API calls)
-**Solution:** Designed a modular pipeline separating input, processing, and output stages
+**Challenge:** Integrating AI into a usable system (not just API calls)  
+**Solution:** Designed a modular pipeline separating input, processing, and output stages  
 **Outcome:** Created a reusable architecture for future AI features
 
-**Challenge:** Making AI output usable in UI
-**Solution:** Standardized JSON response format for frontend consumption
+**Challenge:** Making AI output usable in UI  
+**Solution:** Standardized JSON response format for frontend consumption  
 **Outcome:** Clean and predictable rendering in the frontend
 
 ---
