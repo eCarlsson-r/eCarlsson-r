@@ -12,8 +12,7 @@ export async function generateStaticParams() {
 
 export default async function ProjectPage({ params }: any) {
   const projects = await loadProjects();
-  const projectInfo = await params;
-  const project = projects.find((p: Project) => p.slug === projectInfo.slug);
+  const project = projects.find((p: Project) => p.slug === params.slug);
   
   if (!project) return notFound();
 
