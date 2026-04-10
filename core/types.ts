@@ -26,7 +26,15 @@ export interface Project {
   featured: boolean;
   year: number;
   signals?: ProcessedProject | null;
+  activity?: {
+    currentStreak: number,
+    longestStreak: number,
+    totalActiveDays: number,
+    score: number,
+    level: string
+  } | null;
   mdxPath?: string;
+  focusIndex?: number;
 }
 
 export interface RepoData {

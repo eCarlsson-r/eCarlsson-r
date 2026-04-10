@@ -1,21 +1,16 @@
 "use client";
 
-import { useProjectsWithSignals } from "@/lib/hooks/useProjectsWithSignals";
 import ProjectHeader from "./ProjectHeader";
 import MDXRenderer from "../mdx/MdxRenderer";
 
 export default function ProjectClient({project, mdxSource}: any) {
-    const [enriched] = useProjectsWithSignals([project]);
-
-    const finalProject = enriched || project;
-
     return (
         <div className="max-w-4xl mx-auto py-20 px-6">
             {/* Title */}
-            <ProjectHeader project={finalProject} />
+            <ProjectHeader project={project} />
             
             <div className="p-4 rounded-xl bg-sky-50 dark:bg-white/5 my-10 text-center text-sm">
-            High execution project with strong ownership and complex domain modelling.
+            This project accounts for <strong>{project.focusIndex * 100}%</strong> of total engineering activity
             </div>
 
             {/* 🔥 MDX CONTENT */}

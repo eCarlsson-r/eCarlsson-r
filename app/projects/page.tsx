@@ -1,7 +1,9 @@
-import { groupedProjects } from "@/data/projects";
-import ProjectGroup from "@/components/project/ProjectGroup";
 
-export default function ProjectsPage() {
+import ProjectGroup from "@/components/project/ProjectGroup";
+import { loadProjects } from "@/lib/signals/loadProjectSignals";
+
+export default async function ProjectsPage() {
+  const groupedProjects = await loadProjects(true);
   return (
     <div className="mx-auto max-w-6xl p-8 md:py-24">
       <h1 className="text-4xl font-bold text-gray-900">Projects</h1>
@@ -11,11 +13,11 @@ export default function ProjectsPage() {
         experimental engineering projects.
       </p>
 
-      <ProjectGroup title="Signal Projects" projects={groupedProjects.signal} />
+      <ProjectGroup className="mt-10" title="Signal Projects" projects={groupedProjects.signal} />
 
-      <ProjectGroup title="Depth Systems" projects={groupedProjects.depth} />
+      <ProjectGroup className="mt-10" title="Depth Systems" projects={groupedProjects.depth} />
 
-      <ProjectGroup title="Edge Experiments" projects={groupedProjects.edge} />
+      <ProjectGroup className="mt-10" title="Edge Experiments" projects={groupedProjects.edge} />
     </div>
   );
 }

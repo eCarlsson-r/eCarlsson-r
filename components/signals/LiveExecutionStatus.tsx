@@ -15,7 +15,7 @@ export default function LiveExecutionStatus({
     .slice(0, 3);
 
   return (
-    <section className="p-8 border rounded-2xl bg-linear-to-br from-chart-5 to-white">
+    <section className="p-8 border rounded-2xl bg-blur bg-gradient-to-r from-red-500/10 to-blue-500/10">
       <h2 className="text-xl font-semibold mb-6">
         Live Execution Status
       </h2>

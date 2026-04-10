@@ -1,8 +1,10 @@
+import { Project } from "@/core/types";
+import { loadProjects } from "@/lib/signals/loadProjectSignals";
 import { getAllSignals } from "@/lib/signals/loadSignals";
-import { projects } from "@/data/projects";
 
-export default function ExecutionTimeline() {
-  const signals = getAllSignals();
+export default async function ExecutionTimeline() {
+  const projects = await loadProjects();
+  const signals = await getAllSignals();
 
   return (
     <section className="max-w-6xl mx-auto p-8 md:py-20">
@@ -20,12 +22,12 @@ export default function ExecutionTimeline() {
           return (
             <article
               key={s.id}
-              className="bg-surface-container-low p-6 rounded-md border border-transparent hover:border-primary transition-all"
+              className=" bg-blur bg-gradient-to-r from-red-500/10 to-blue-500/10 p-6 rounded-md border border-transparent hover:border-primary transition-all"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h3 className="text-xl font-headline font-bold text-primary mb-2">
-                    {projects.find((p) => p.slug === s.id)?.title || s.id}
+                    {projects.find((p: Project) => p.slug === s.id)?.title || s.id}
                   </h3>
                   <div className="mt-4 flex flex-wrap gap-2 text-xs leading-relaxed max-w-2xl">
                     <span className="px-3 py-1 bg-surface-container-highest text-tertiary rounded-md">{s.summary.complexityLevel} Complexity</span>

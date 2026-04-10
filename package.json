@@ -9,8 +9,9 @@
     "start": "next start",
     "lint": "eslint",
     "signals:build": "ts-node -P signals-engine/tsconfig.node.json signals-engine/runners/buildSignals.ts",
+    "signals:projects": "ts-node -P signals-engine/tsconfig.node.json signals-engine/runners/buildEnrichedProjects.ts",
     "signals:live": "ts-node -P signals-engine/tsconfig.node.json signals-engine/runners/buildLiveSignals.ts",
-    "signals:all": "npm run signals:build && npm run signals:live"
+    "signals:all": "npm run signals:build && npm run signals:projects && npm run signals:live"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

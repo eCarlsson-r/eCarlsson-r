@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function CTA() {
   return (
@@ -10,12 +10,21 @@ export default function CTA() {
 
       <p className="mb-6 text-on-surface-variant">Open to full-stack and system architecture roles.</p>
 
-      <motion.a
-        whileHover={{ scale: 1.05 }} href="/contact"
-        className="px-6 py-3 bg-secondary text-white dark:bg-white dark:text-secondary rounded-xl shadow-lg transition"
-      >
-        Contact Me
-      </motion.a>
+      <div className="flex justify-center gap-4">
+        <motion.a
+          whileHover={{ scale: 1.05 }} href="/contact"
+          className="px-6 py-3 bg-secondary text-white dark:bg-white dark:text-secondary rounded-xl shadow-lg transition"
+        >
+          Contact Me
+        </motion.a>
+
+        <motion.a
+          whileHover={{ scale: 1.05 }} href="//linkedin.com/in/albert-hartanto-b92036396/" target="_blank"
+          className="px-6 py-3 bg-primary text-white dark:bg-white dark:text-secondary rounded-xl shadow-lg transition"
+        >
+          View LinkedIn
+        </motion.a>
+      </div>
     </section>
   );
 }

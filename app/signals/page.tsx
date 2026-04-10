@@ -5,15 +5,13 @@ import SignalsStrengthChart from "@/components/signals/dashboard/SignalsStrength
 import LiveSignalsPanel from "@/components/signals/dashboard/LiveSignalsPanel";
 import MomentumPanel from "@/components/signals/dashboard/MomentumPanel";
 import ExecutionHeatmap from "@/components/signals/dashboard/ExecutionHeatmap";
-import TopProjectsLeaderboard from "@/components/signals/dashboard/TopProjectsLeaderboard";
+import Leaderboard from "@/components/signals/dashboard/Leaderboard";
 import CommitFeed from "@/components/signals/dashboard/CommitFeed";
-import { useProjectsWithSignals } from "@/lib/hooks/useProjectsWithSignals";
-import { projects } from "@/data/projects";
 
-export default function SignalsPage() {
-  const signals = getAllSignals();
+export default async function SignalsPage() {
+  const signals = await getAllSignals();
 
-  const live = getLiveSignals() ?? {
+  const live = await getLiveSignals() ?? {
     activityPulse: "Inactive",
     executionVelocity: "Low",
     commitsLast30Days: 0,
@@ -36,7 +34,7 @@ export default function SignalsPage() {
       />
       <SignalsStrengthChart signals={signals} />
 
-      <TopProjectsLeaderboard projects={projects} />
+      <Leaderboard />
 
       <ExecutionHeatmap />
       

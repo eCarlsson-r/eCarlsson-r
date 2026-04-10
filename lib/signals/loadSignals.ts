@@ -1,17 +1,19 @@
+"use server";
+
 import path from "path";
 import fs from "fs";
-import { ProjectSignals } from "./types";
+import { ProcessedProject } from "@/core/types";
 
 const signalsPath = path.join(
   process.cwd(), "public", "data", "processed-signals.json"
 );
 
-export function getAllSignals(): ProjectSignals[] {
+export async function getAllSignals(): Promise<ProcessedProject[]> {
     const file = fs.readFileSync(signalsPath, "utf-8");
     return JSON.parse(file);
 }
 
-export function getSignalById(id: string): ProjectSignals | null {
-    const signals = getAllSignals();
+export async function getSignalById(id: string): Promise<ProcessedProject | null> {
+    const signals = await getAllSignals();
     return signals.find(signal => signal.id === id) || null;
-}   
+}

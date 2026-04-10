@@ -2,11 +2,13 @@ import { generateInsights } from "@/lib/signals/generateInsights";
 import { getAllSignals } from "@/lib/signals/loadSignals";
 import { getLiveSignals } from "@/lib/signals/loadLiveSignals";
 
-export default function ExecutionInsights() {
-  const signals = getAllSignals();
-  const live = getLiveSignals()!;
+export default async function ExecutionInsights() {
+  const signals = await getAllSignals();
+  const live = await getLiveSignals();
 
-  const insights = generateInsights(signals, live);
+  if (!live) return null;
+
+  const insights = await generateInsights(signals, live);
 
   return (
     <section className="p-8 border rounded-2xl bg-gray-50">

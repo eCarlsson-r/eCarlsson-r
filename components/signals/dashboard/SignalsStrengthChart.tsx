@@ -1,12 +1,12 @@
 import ScoreBar from "@/components/project/ScoreBar";
-import { ProjectSignals } from "@/lib/signals/types";
+import { ProcessedProject } from "@/core/types";
 
 interface Props {
-  signals: ProjectSignals[];
+  signals: ProcessedProject[];
 }
 
 export default function SignalsStrengthChart({ signals }: Props) {
-  const total = (key: keyof ProjectSignals["scores"]) =>
+  const total = (key: keyof ProcessedProject["scores"]) =>
     Math.round(
       signals.reduce((sum, s) => sum + s.scores[key], 0) / signals.length,
     );

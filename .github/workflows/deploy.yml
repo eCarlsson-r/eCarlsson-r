@@ -36,10 +36,7 @@ jobs:
         run: echo "GITHUB_TOKEN=${{ secrets.API_TOKEN }}" >> $GITHUB_ENV
 
       - name: Generate Signals
-        run: npm run generate-signals
-
-      - name: Generate Live Signals
-        run: npm run generate-live-signals
+        run: npm run signals:all
 
       - name: Build Next.js site
         run: npm run build

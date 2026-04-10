@@ -2,7 +2,7 @@
 import Link from "next/link";
 import SignalBadge from "./SignalBadge";
 import ScoreBar from "./ScoreBar";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 function RankingBadge({ scores }: any) {
   let label = "";
@@ -28,7 +28,20 @@ function RankingBadge({ scores }: any) {
   );
 }
 
-export default function ProjectCard({ slug, title, summary, signals }: any) {
+function FocusBadge({ value }: { value: number }) {
+  let label = "Distributed";
+
+  if (value > 0.4) label = "Deep Focus";
+  else if (value > 0.2) label = "Balanced";
+
+  return (
+    <div className="text-sm rounded-full bg-white/10 border-white/10">
+      Focus: {label} ({value*100}%)
+    </div>
+  );
+}
+
+export default function ProjectCard({ slug, title, summary, signals, focus }: { slug: string; title: string; summary: string; signals?: any; focus?: number }) {
 
   return (
     <motion.div
@@ -43,6 +56,12 @@ export default function ProjectCard({ slug, title, summary, signals }: any) {
       {/* Glow effect */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition
                       bg-gradient-to-r from-red-500/10 to-blue-500/10 blur-xl" />
+
+
+
+      {(focus !== undefined && focus > 0) && (
+        <FocusBadge value={focus} />
+      )}
 
       {/* Ranking Badge */}
       {signals && (

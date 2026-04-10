@@ -1,7 +1,7 @@
 import { getAllSignals } from "@/lib/signals/loadSignals";
 
-export default function TrustBar() {
-  const signals = getAllSignals();
+export default async function TrustBar() {
+  const signals = await getAllSignals();
 
   return (
     <div className="border-y py-6 bg-gray-50">

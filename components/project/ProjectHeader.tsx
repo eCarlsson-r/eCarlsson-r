@@ -2,11 +2,9 @@
 
 import Link from "next/link";
 import SignalBadge from "./SignalBadge";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function ProjectHeader({ project }: any) {
-  const signals = project.signals;
-
   return (
     <div className="mb-12">
       {/* Title */}
@@ -24,11 +22,11 @@ export default function ProjectHeader({ project }: any) {
       </p>
 
       {/* 🔥 SIGNALS */}
-      {signals && (
+      {project.signals && (
         <div className="flex flex-wrap gap-3 mb-6">
-          <SignalBadge label="Execution" value={signals.summary.executionLevel} />
-          <SignalBadge label="Complexity" value={signals.summary.complexityLevel} />
-          <SignalBadge label="Ownership" value={signals.summary.ownershipLevel} />
+          <SignalBadge label="Execution" value={project.signals.summary.executionLevel} />
+          <SignalBadge label="Complexity" value={project.signals.summary.complexityLevel} />
+          <SignalBadge label="Ownership" value={project.signals.summary.ownershipLevel} />
         </div>
       )}
 

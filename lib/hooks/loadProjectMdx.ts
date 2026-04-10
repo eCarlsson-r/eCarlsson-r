@@ -1,8 +1,10 @@
+"use server";
+
 import path from "path";
-import fs from "fs";
+import * as fs from "fs";
 import matter from "gray-matter";
 
-export function loadProjectMdx(slug: string) {
+export async function loadProjectMdx(slug: string) {
   const filePath = path.join(
     process.cwd(),
     "content/projects",

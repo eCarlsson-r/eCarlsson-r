@@ -1,21 +1,14 @@
-import path from "path";
-import fs from "fs";
+"use server";
 
-export interface LiveEngineerSignals {
-  lastCommit: string;
-  activityPulse: string;
-  executionVelocity: string;
-  commitsLast30Days: number;
-  momentum: string;
-  consistencyScore: number;
-  techFocus: Record<string, number>;
-}
+import path from "path";
+import * as fs from "fs";
+import { LiveSignals } from "@/core/types";
 
 const liveSignalsPath = path.join(
   process.cwd(), "public", "data", "live-signals.json"
 );
 
-export function getLiveSignals(): LiveEngineerSignals | null {
+export async function getLiveSignals(): Promise<LiveSignals | null> {
   if (!fs.existsSync(liveSignalsPath)) return null;
 
   const file = fs.readFileSync(liveSignalsPath, "utf-8");

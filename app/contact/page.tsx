@@ -3,7 +3,7 @@ export default function ContactPage() {
     <div className="mx-auto max-w-6xl py-24 space-y-16">
       
       <header className="space-y-4">
-        <h1 className="text-5xl font-bold">Let&apos;s Build Something</h1>
+        <h1 className="text-5xl font-bold text-primary">Let&apos;s Build Something</h1>
         <p className="text-gray-600">
           Open to high-impact projects and long-term collaborations.
         </p>
@@ -26,7 +26,7 @@ export default function ContactPage() {
       </section>
 
       {/* Form */}
-      <form className="space-y-6">
+      <form action="mailto:e.carlsson.r@gmail.com" method="POST" className="space-y-6">
         <input
           placeholder="Your Name"
           className="w-full border p-3 rounded-lg"
@@ -40,7 +40,7 @@ export default function ContactPage() {
           rows={5}
           className="w-full border p-3 rounded-lg"
         />
-        <button className="px-6 py-3 bg-black text-white rounded-lg">
+        <button className="px-6 py-3 bg-primary text-white rounded-lg">
           Send Message
         </button>
       </form>

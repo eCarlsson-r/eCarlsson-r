@@ -70,9 +70,8 @@ export const projects: Project[] = [
             "Cross-platform workflows"
         ],
 
-        featured: true,
-        year: 2025,
-        mdxPath: "spa-ecosystem"
+        featured: false,
+        year: 2025
     },
     {
         slug: "controlmoney",
@@ -156,7 +155,7 @@ export const projects: Project[] = [
             "Experimental architecture"
         ],
 
-        featured: false,
+        featured: true,
         year: 2026,
         mdxPath: "quoteplot-agent"
     },
@@ -281,7 +280,6 @@ export const projects: Project[] = [
         ],
 
         featured: false,
-        mdxPath: "restaurant-ecosystem",
         year: 2026
     },
     {

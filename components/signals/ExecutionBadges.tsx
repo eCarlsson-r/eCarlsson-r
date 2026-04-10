@@ -1,8 +1,8 @@
 import { getAllSignals } from "@/lib/signals/loadSignals";
 import { generateBadges } from "@/lib/signals/generateBadges";
 
-export default function ExecutionBadges() {
-  const signals = getAllSignals();
+export default async function ExecutionBadges() {
+  const signals = await getAllSignals();
   const badges = generateBadges(signals);
 
   return (

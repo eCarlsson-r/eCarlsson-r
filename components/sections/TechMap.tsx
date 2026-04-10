@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 export default function TechMap() {
   const stacks = {
     frontend: ["Next.js", "Nuxt.js", "Angular"],
@@ -6,7 +10,33 @@ export default function TechMap() {
   };
 
   return (
-    <section className="max-w-4xl mx-auto px-2 py-8 text-center">
+    <>
+      <section className="py-10 bg-gray-50 dark:bg-white/5">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-2xl font-semibold mb-10">
+            What I Do
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-6 text-gray-700 dark:text-gray-300">
+            {[
+              "Scalable backend systems",
+              "Modern frontend applications",
+              "Multi-role platforms",
+              "API-driven ecosystems",
+            ].map((item, i) => (
+              <motion.p
+                key={i}
+                whileHover={{ scale: 1.05 }}
+                className="p-4 rounded-xl bg-white dark:bg-white/5 border dark:border-white/10 transition"
+              >
+                {item}
+              </motion.p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-4xl mx-auto px-2 py-8 text-center">
         <h2 className="text-2xl font-semibold">
           Tech Stack
         </h2>
@@ -28,5 +58,6 @@ export default function TechMap() {
           ))}
         </div>
       </section>
+    </>
   );
 }

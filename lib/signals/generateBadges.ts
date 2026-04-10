@@ -1,6 +1,6 @@
-import { ProjectSignals } from "./types";
+import { ProcessedProject } from "@/core/types";
 
-export function generateBadges(signals: ProjectSignals[]) {
+export function generateBadges(signals: ProcessedProject[]) {
   const avgExec =
     signals.reduce((sum, s) => sum + s.scores.execution, 0) /
     signals.length;

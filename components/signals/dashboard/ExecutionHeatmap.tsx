@@ -50,7 +50,7 @@ export default function ExecutionHeatmap() {
                 key={date}
                 title={`${date} — ${count} commits`}
                 className={`w-3 h-3 rounded-sm ${getColor(count)}`}
-                style={{animationDelay: `${Math.random() * 0.5}s`}}
+                style={{animationDelay: "0.5s"}}
               />
             );
           })}

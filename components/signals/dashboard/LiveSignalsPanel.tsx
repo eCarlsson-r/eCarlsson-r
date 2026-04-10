@@ -9,7 +9,7 @@ export default function LiveSignalsPanel({ live }: { live: LiveSignals }) {
   const tech = Object.entries(live.techFocus).sort((a, b) => b[1] - a[1]);
 
   return (
-    <div className="p-6 border rounded-2xl bg-gradient-to-r from-red-500/10 to-blue-500/10 space-y-6">
+    <div className="p-6 border rounded-2xl bg-blur bg-gradient-to-r from-red-500/10 to-blue-500/10 space-y-6">
       <h2 className="text-xl font-semibold text-secondary">⚡ Live Execution Intelligence</h2>
 
       {/* Core Metrics */}

@@ -4,6 +4,8 @@ import { normalizeSignals } from "../processors/normalize.processor";
 import { calculateScores } from "../processors/scoring.processor";
 import { generateSummary } from "../processors/summary.processor";
 import { ProcessedProject } from "../../core/types";
+import { calculateStreaks } from "../processors/streak.processor";
+import { calculateActivityScore, activityLevel } from "../processors/activityScore.processor";
 
 export async function buildSignals() {
   const results: ProcessedProject[] = [];
@@ -48,9 +50,25 @@ export async function buildSignals() {
     contributions[date] = (contributions[date] || 0) + 1;
   });
 
+  const streaks = calculateStreaks(commitFeed);
+  const activityScore = calculateActivityScore(streaks);
+  const activity = {
+    ...streaks,
+    score: activityScore,
+    level: activityLevel(activityScore)
+  };
+
+  const resumeMetrics = {
+    projects: projects.length,
+    systemsBuilt: projects.filter(p => p.category === "depth" || p.category === "edge").length,
+    executionScore: Math.round(results.reduce((sum, p) => sum + p.scores.execution, 0) / results.length)
+  };
+
   return {
     processed: results,
     commits: commitFeed,
-    contributions: contributions
+    contributions: contributions,
+    resume: resumeMetrics,
+    activity: activity
   };
 }

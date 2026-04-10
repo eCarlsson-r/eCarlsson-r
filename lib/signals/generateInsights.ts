@@ -1,10 +1,9 @@
-import { LiveEngineerSignals } from "./loadLiveSignals";
-import { ProjectSignals } from "./types";
+import { LiveSignals, ProcessedProject } from "@/core/types";
 
-export function generateInsights(
-  signals: ProjectSignals[],
-  live: LiveEngineerSignals
-): string[] {
+export async function generateInsights(
+  signals: ProcessedProject[],
+  live: LiveSignals
+): Promise<string[]> {
   const insights: string[] = [];
 
   const avgExecution =
