@@ -5,9 +5,9 @@ import CTA from "@/components/sections/CTA";
 export default function AboutPage() {
   return (
     <>
-      <div className="mx-auto max-w-6xl py-12 space-y-12">     
+      <div className="py-12 lg:space-y-12">     
         {/* Hero */}
-        <section className="space-y-6 p-8 lg:p-0">
+        <section className="mx-auto max-w-6xl space-y-6 p-8 lg:p-0">
           <h1 className="text-5xl font-bold text-primary">
             How I Build Systems
           </h1>
@@ -27,7 +27,7 @@ export default function AboutPage() {
             </div>
         </section>
 
-        <section className="p-8 lg:p-0">
+        <section className="mx-auto max-w-6xl p-8 lg:p-0">
           <p className="text-lg text-gray-600 max-w-2xl">
             This portfolio includes a custom-built signals engine that analyzes:
           </p>
@@ -37,9 +37,10 @@ export default function AboutPage() {
             <li>development consistency</li>
           </ul>
         </section>
+        
+        <TrustBar />
+        <ExecutionTimeline />
       </div>
-      <TrustBar />
-      <ExecutionTimeline />
       <CTA />
     </>
   );

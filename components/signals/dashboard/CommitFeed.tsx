@@ -90,7 +90,7 @@ export default function CommitFeed() {
           <div className="absolute left-4 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-700" />
 
           <div className="space-y-8">
-            {feed.map((item, i) => (
+            {feed.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((item, i) => (
               <CommitItem key={i} item={item} index={i} />
             ))}
           </div>

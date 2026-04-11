@@ -7,8 +7,8 @@ export default async function ExecutionTimeline() {
   const signals = await getAllSignals();
 
   return (
-    <section className="max-w-6xl mx-auto p-8 md:py-20">
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-4">
+    <section className="max-w-6xl mx-auto">
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between px-8 lg:px-0 my-6 gap-4">
         <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary tracking-tight">
           Execution Timeline
         </h2>
