@@ -28,7 +28,8 @@ export const projects: Project[] = [
         ],
 
         featured: false,
-        year: 2025
+        year: 2025,
+        mdxPath: "payroll-system"
     },
     {
         slug: "spa-ecosystem",
@@ -70,8 +71,9 @@ export const projects: Project[] = [
             "Cross-platform workflows"
         ],
 
-        featured: false,
-        year: 2025
+        featured: true,
+        year: 2025,
+        mdxPath: "spa-ecosystem"
     },
     {
         slug: "controlmoney",
@@ -99,7 +101,8 @@ export const projects: Project[] = [
         ],
 
         featured: false,
-        year: 2026
+        year: 2026,
+        mdxPath: "control-money"
     },
     {
         slug: "insurance-portal",
@@ -128,7 +131,8 @@ export const projects: Project[] = [
         ],
 
         featured: false,
-        year: 2026
+        year: 2026,
+        mdxPath: "insurance-portal"
     },
     {
         slug: "quoteplot-agent",
@@ -155,7 +159,7 @@ export const projects: Project[] = [
             "Experimental architecture"
         ],
 
-        featured: true,
+        featured: false,
         year: 2026,
         mdxPath: "quoteplot-agent"
     },
@@ -280,7 +284,8 @@ export const projects: Project[] = [
         ],
 
         featured: false,
-        year: 2026
+        year: 2026,
+        mdxPath: "restaurant-ecosystem"
     },
     {
         slug: "property-management",
@@ -309,7 +314,8 @@ export const projects: Project[] = [
         ],
 
         featured: false,
-        year: 2026
+        year: 2026,
+        mdxPath: "property-management"
     }
 ];
 

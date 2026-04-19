@@ -32,10 +32,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`cursor-pointer transition-all ${
+                className={`cursor-pointer transition-all hover:no-underline ${
                   isActive
                     ? "text-primary border-b-2 border-primary"
-                    : "text-secondary hover:text-primary"
+                    : "text-secondary hover:border-b-2 border-primary hover:text-primary"
                 }`}
               >
                 {link.label}

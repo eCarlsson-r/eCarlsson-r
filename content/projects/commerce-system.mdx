@@ -1,118 +1,58 @@
-# 🔷 Retail Management Ecosystem
-
-## 1. Project Overview
-
-**Retail Management Ecosystem**  
-An end-to-end commerce platform integrating admin operations, POS transactions, and an online storefront into a unified system.
+## Project Overview
+An end-to-end retail system with admin, POS, and storefront applications.
 
 **Business Problem**  
-Retail businesses often rely on disconnected tools for sales, inventory, and online presence, leading to:
-
-* Data inconsistency between physical and online sales
-* Manual inventory tracking
-* Lack of centralized reporting
-
-This system was designed to unify operations into a **single, scalable platform**.
+Retail businesses need integrated systems for transactions, inventory, and customer-facing sales.
 
 **Key Capabilities**
-
-* Integrated POS system for in-store transactions
-* Online storefront with product catalog and ordering
-* Centralized inventory synchronization
-* Admin dashboard for product and order management
-* Real-time transaction handling across systems
-* Multi-frontend architecture (admin, POS, customer)
+- POS system
+- Inventory tracking
+- Storefront interface
+- Admin management
 
 ---
 
-## 2. Architecture Overview
-
+## Architecture Overview
 **System Structure**
-```
-Laravel API → Core business logic + transaction handling
-Admin Dashboard (Angular) → operational control
-Online Storefront (Next.js) → customer-facing UI
-POS Interface → real-time sales processing
-MySQL → centralized data storage
-```
-
-**Frontend Distribution**
-
-* Admin panel (inventory, orders, reporting)
-* POS interface (cashier transactions)
-* Customer-facing storefront (product browsing + checkout)
+- Backend API
+- POS interface
+- Storefront
 
 **Technology Stack**
-
-***Backend***
-
-* Laravel (REST API)
-* MySQL
-* MVC architecture
-* Authentication & role management
-
-***Frontend***
-
-* Angular (Admin dashboard)
-* Next.js (Storefront)
-* TypeScript
-* Responsive UI design
-
-***Infrastructure***
-
-* API-based architecture for multi-client support
-* Modular frontend separation
-* RESTful communication between services
+Backend: Laravel  
+Frontend: Angular, Next.js  
+Infrastructure: Multi-app  
 
 ---
 
-## 3. Domain Complexity
-
-* Synchronizing inventory between POS and online store in near real-time
-* Handling concurrent transactions without data inconsistency
-* Designing a system usable by both staff (POS/admin) and customers (storefront)
-* Maintaining data integrity across multiple entry points
+## Domain Complexity
+Handling transactional consistency, inventory updates, and multi-user operations.
 
 ---
 
-## 4. Key Engineering Challenges
-
-**Challenge:** Inventory consistency across POS and online store  
-**Solution:** Centralized inventory updates through API-based transaction flow  
-**Outcome:** Eliminated stock mismatch between offline and online sales
-
-**Challenge:** Supporting multiple frontends with shared backend  
-**Solution:** Designed API-first architecture decoupled from UI  
-**Outcome:** Enabled independent scaling and development of each frontend
-
-**Challenge:** Handling real-time transaction flow in POS  
-**Solution:** Optimized backend endpoints for fast write operations  
-**Outcome:** Smooth cashier experience without delays
+## Key Engineering Challenges
+**Challenge:** Managing transaction integrity  
+**Solution:** Structured backend workflows  
+**Outcome:** Reliable system operations  
 
 ---
 
-## 5. What Makes This Project Unique
-
-This project demonstrates a **true multi-application ecosystem**, not just a single app. It combines:
-
-* Operational systems (admin + POS)
-* Customer-facing commerce platform
-* Shared backend architecture
-
-The ability to design and coordinate multiple frontends over a unified API highlights **system-level thinking and scalability considerations**.
+## Design Decisions
+Multi-frontend architecture for role separation.
 
 ---
 
-## 6. Key Design Decisions (Selected)
-
-* Adopted **API-first architecture** to support multiple frontends
-* Used **Next.js for storefront** to improve performance and SEO
-* Separated admin and customer interfaces to reduce coupling
+## What Makes This Project Unique
+Full commerce ecosystem with multiple interfaces.
 
 ---
 
-## 7. Lessons Learned
+## Lessons Learned
+- Transaction handling complexity  
+- Multi-system coordination  
 
-* API design is critical when supporting multiple clients
-* Real-time systems require careful handling of data consistency
-* Separation of concerns improves maintainability at scale
+---
+
+## Future Improvements
+- Payment integration  
+- Scalability improvements  
