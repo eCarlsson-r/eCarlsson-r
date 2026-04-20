@@ -8,6 +8,12 @@ export interface Repository {
   stack: string[];
 }
 
+export type Slide = {
+  type: "image" | "video";
+  src: string;
+  alt?: string;
+};
+
 export interface Project {
   slug: string;
   title: string;
@@ -35,6 +41,7 @@ export interface Project {
   } | null;
   mdxPath?: string;
   focusIndex?: number;
+  slides?: Slide[];
 }
 
 export interface RepoData {

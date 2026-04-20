@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { compileMDX, CompileMDXResult } from "next-mdx-remote/rsc";
 import ProjectHeader from "./ProjectHeader";
 import MDXRenderer from "../mdx/MdxRenderer";
+import ProjectCarousel from "./ProjectCarousel";
 
 const mdxComponents = {
   h1: (props: any) => <h1 className="text-4xl font-bold my-5 mb-6" {...props} />,
@@ -53,6 +54,12 @@ export default function ProjectClient({project, mdxContent}: any) {
             <div className="p-4 rounded-xl bg-sky-50 dark:bg-white/5 my-10 text-center text-sm">
             This project accounts for <strong>{project.focusIndex * 100}%</strong> of total engineering activity
             </div>
+
+            {project.slides && project.slides.length > 0 && (
+              <div className="p-4 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
+                <ProjectCarousel slides={project.slides} />
+              </div>
+            )}
 
             {/* 🔥 MDX CONTENT */}
             {!loading ? (

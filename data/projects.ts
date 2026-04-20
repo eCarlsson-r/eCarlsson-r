@@ -71,6 +71,29 @@ export const projects: Project[] = [
             "Cross-platform workflows"
         ],
 
+        slides: [
+            {
+                type: "image",
+                src: "/images/screenshots/spa-ecosystem/spa1.png",
+                alt: "Public homepage of the spa booking site"
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/spa-ecosystem/spa2.png",
+                alt: "Customer area with chatbot once logged in"
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/spa-ecosystem/spa3.png",
+                alt: "Dashboard of spa POS"
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/spa-ecosystem/spa4.png",
+                alt: "Sales form of POS terminal"
+            }
+        ],
+
         featured: true,
         year: 2025,
         mdxPath: "spa-ecosystem"
