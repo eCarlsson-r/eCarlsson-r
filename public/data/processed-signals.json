@@ -15,12 +15,12 @@
   {
     "id": "spa-ecosystem",
     "scores": {
-      "execution": 39,
+      "execution": 52,
       "complexity": 92,
       "ownership": 100
     },
     "summary": {
-      "executionLevel": "Low",
+      "executionLevel": "Medium",
       "complexityLevel": "High",
       "ownershipLevel": "High"
     }
@@ -41,12 +41,12 @@
   {
     "id": "insurance-portal",
     "scores": {
-      "execution": 51,
+      "execution": 45,
       "complexity": 100,
       "ownership": 100
     },
     "summary": {
-      "executionLevel": "Medium",
+      "executionLevel": "Low",
       "complexityLevel": "High",
       "ownershipLevel": "High"
     }
@@ -54,7 +54,7 @@
   {
     "id": "quoteplot-agent",
     "scores": {
-      "execution": 44,
+      "execution": 34,
       "complexity": 100,
       "ownership": 100
     },
@@ -67,7 +67,7 @@
   {
     "id": "commerce-ecosystem",
     "scores": {
-      "execution": 35,
+      "execution": 37,
       "complexity": 92,
       "ownership": 100
     },
@@ -106,7 +106,7 @@
   {
     "id": "property-management",
     "scores": {
-      "execution": 35,
+      "execution": 26,
       "complexity": 100,
       "ownership": 100
     },

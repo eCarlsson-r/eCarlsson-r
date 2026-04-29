@@ -41,10 +41,12 @@ export default function Hero() {
               View Projects
             </Link>
             <Link
-              href="/contact"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-none bg-secondary px-6 py-3 text-sm font-label text-on-primary hover:bg-primary-container transition-opacity duration-200"
             >
-              Contact Me
+              View Resume
             </Link>
           </motion.div>
       </section>

@@ -29,6 +29,7 @@
     ],
     "featured": false,
     "year": 2025,
+    "mdxPath": "payroll-system",
     "signals": {
       "id": "payroll-system",
       "scores": {
@@ -99,28 +100,51 @@
       "API-first system design",
       "Cross-platform workflows"
     ],
-    "featured": false,
+    "slides": [
+      {
+        "type": "image",
+        "src": "/images/screenshots/spa-ecosystem/spa1.png",
+        "alt": "Public homepage of the spa booking site"
+      },
+      {
+        "type": "image",
+        "src": "/images/screenshots/spa-ecosystem/spa2.png",
+        "alt": "Customer area with chatbot once logged in"
+      },
+      {
+        "type": "image",
+        "src": "/images/screenshots/spa-ecosystem/spa3.png",
+        "alt": "Dashboard of spa POS"
+      },
+      {
+        "type": "image",
+        "src": "/images/screenshots/spa-ecosystem/spa4.png",
+        "alt": "Sales form of POS terminal"
+      }
+    ],
+    "featured": true,
     "year": 2025,
+    "mdxPath": "spa-ecosystem",
     "signals": {
       "id": "spa-ecosystem",
       "scores": {
-        "execution": 39,
+        "execution": 52,
         "complexity": 92,
         "ownership": 100
       },
       "summary": {
-        "executionLevel": "Low",
+        "executionLevel": "Medium",
         "complexityLevel": "High",
         "ownershipLevel": "High"
       }
     },
     "activity": {
       "commitCount": 15,
-      "activityScore": 25,
-      "lastActive": "2026-02-02T03:01:08Z"
+      "activityScore": 35,
+      "lastActive": "2026-04-19T15:26:59Z"
     },
     "focusIndex": 0.19,
-    "leaderboardScore": 58,
+    "leaderboardScore": 65,
     "explanation": "Ranked highly due to complex system design, strong ownership, and deep focus (19% of total work)."
   },
   {
@@ -149,6 +173,7 @@
     ],
     "featured": false,
     "year": 2026,
+    "mdxPath": "control-money",
     "signals": {
       "id": "controlmoney",
       "scores": {
@@ -203,26 +228,27 @@
     ],
     "featured": false,
     "year": 2026,
+    "mdxPath": "insurance-portal",
     "signals": {
       "id": "insurance-portal",
       "scores": {
-        "execution": 51,
+        "execution": 45,
         "complexity": 100,
         "ownership": 100
       },
       "summary": {
-        "executionLevel": "Medium",
+        "executionLevel": "Low",
         "complexityLevel": "High",
         "ownershipLevel": "High"
       }
     },
     "activity": {
       "commitCount": 5,
-      "activityScore": 15,
-      "lastActive": "2026-02-08T05:57:58Z"
+      "activityScore": 35,
+      "lastActive": "2026-04-24T08:52:37Z"
     },
     "focusIndex": 0.06,
-    "leaderboardScore": 63,
+    "leaderboardScore": 62,
     "explanation": "Ranked highly due to complex system design, strong ownership, and deep focus (6% of total work)."
   },
   {
@@ -254,13 +280,13 @@
       "AI integration",
       "Experimental architecture"
     ],
-    "featured": true,
+    "featured": false,
     "year": 2026,
     "mdxPath": "quoteplot-agent",
     "signals": {
       "id": "quoteplot-agent",
       "scores": {
-        "execution": 44,
+        "execution": 34,
         "complexity": 100,
         "ownership": 100
       },
@@ -272,11 +298,11 @@
     },
     "activity": {
       "commitCount": 5,
-      "activityScore": 15,
-      "lastActive": "2026-02-06T17:56:09Z"
+      "activityScore": 35,
+      "lastActive": "2026-04-25T05:04:51Z"
     },
     "focusIndex": 0.06,
-    "leaderboardScore": 60,
+    "leaderboardScore": 58,
     "explanation": "Ranked highly due to complex system design, strong ownership, and deep focus (6% of total work)."
   },
   {
@@ -333,7 +359,7 @@
     "signals": {
       "id": "commerce-ecosystem",
       "scores": {
-        "execution": 35,
+        "execution": 37,
         "complexity": 92,
         "ownership": 100
       },
@@ -345,12 +371,12 @@
     },
     "activity": {
       "commitCount": 15,
-      "activityScore": 25,
-      "lastActive": "2026-02-22T16:24:42Z"
+      "activityScore": 45,
+      "lastActive": "2026-04-24T14:03:04Z"
     },
     "focusIndex": 0.19,
-    "leaderboardScore": 57,
-    "explanation": "Ranked highly due to complex system design, strong ownership, and deep focus (19% of total work)."
+    "leaderboardScore": 60,
+    "explanation": "Ranked highly due to complex system design, strong ownership, deep focus (19% of total work), and consistent development activity."
   },
   {
     "slug": "human-design",
@@ -390,7 +416,7 @@
       "Cross-platform architecture",
       "Non-standard business domain"
     ],
-    "featured": true,
+    "featured": false,
     "year": 2026,
     "mdxPath": "human-design",
     "signals": {
@@ -465,6 +491,7 @@
     ],
     "featured": false,
     "year": 2026,
+    "mdxPath": "restaurant-ecosystem",
     "signals": {
       "id": "restaurant-ecosystem",
       "scores": {
@@ -480,11 +507,11 @@
     },
     "activity": {
       "commitCount": 15,
-      "activityScore": 35,
+      "activityScore": 25,
       "lastActive": "2026-03-26T11:27:48Z"
     },
     "focusIndex": 0.19,
-    "leaderboardScore": 60,
+    "leaderboardScore": 59,
     "explanation": "Ranked highly due to complex system design, strong ownership, and deep focus (19% of total work)."
   },
   {
@@ -518,12 +545,25 @@
       "SPA architecture",
       "Real estate domain modeling"
     ],
-    "featured": false,
+    "slides": [
+      {
+        "type": "image",
+        "src": "/images/screenshots/property/property1.png",
+        "alt": "Form for editing property details."
+      },
+      {
+        "type": "image",
+        "src": "/images/screenshots/property/property2.png",
+        "alt": "Place to enquire AI regarding status of the properties."
+      }
+    ],
+    "featured": true,
     "year": 2026,
+    "mdxPath": "property-management",
     "signals": {
       "id": "property-management",
       "scores": {
-        "execution": 35,
+        "execution": 26,
         "complexity": 100,
         "ownership": 100
       },
@@ -536,10 +576,10 @@
     "activity": {
       "commitCount": 5,
       "activityScore": 45,
-      "lastActive": "2026-04-08T08:42:01Z"
+      "lastActive": "2026-04-27T17:19:22Z"
     },
     "focusIndex": 0.06,
-    "leaderboardScore": 59,
+    "leaderboardScore": 56,
     "explanation": "Ranked highly due to complex system design, strong ownership, deep focus (6% of total work), and consistent development activity."
   }
 ]

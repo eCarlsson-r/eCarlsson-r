@@ -263,7 +263,7 @@ export const projects: Project[] = [
             "Non-standard business domain"
         ],
 
-        featured: true,
+        featured: false,
         year: 2026,
         mdxPath: "human-design"
     },
@@ -336,7 +336,20 @@ export const projects: Project[] = [
             "Real estate domain modeling"
         ],
 
-        featured: false,
+        slides: [
+            {
+                type: "image",
+                src: "/images/screenshots/property/property1.png",
+                alt: "Form for editing property details."
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/property/property2.png",
+                alt: "Place to enquire AI regarding status of the properties."
+            }
+        ],
+
+        featured: true,
         year: 2026,
         mdxPath: "property-management"
     }
