@@ -1,47 +1,20 @@
 "use client";
 import Link from "next/link";
-import SignalBadge from "./SignalBadge";
-import ScoreBar from "./ScoreBar";
+import Image from "next/image";
 import { motion } from "motion/react";
+import { Project, Repository } from "@/core/types";
+import { ExternalLink } from "lucide-react";
+import { useState } from "react";
 
-function RankingBadge({ scores }: any) {
-  let label = "";
-  let color = "";
-
-  if (scores.execution > 85) {
-    label = "🔥 Top Execution";
-    color = "bg-red-500";
-  } else if (scores.complexity > 85) {
-    label = "🧠 High Complexity";
-    color = "bg-yellow-900";
-  } else if (scores.ownership > 85) {
-    label = "👑 Ownership";
-    color = "bg-blue-500";
-  }
-
-  if (!label) return null;
-
-  return (
-    <div className={`absolute top-4 right-4 text-xs px-2 py-1 rounded text-white ${color}`}>
-      {label}
-    </div>
-  );
-}
-
-function FocusBadge({ value }: { value: number }) {
-  let label = "Distributed";
-
-  if (value > 0.4) label = "Deep Focus";
-  else if (value > 0.2) label = "Balanced";
-
-  return (
-    <div className="text-sm rounded-full bg-white/10 border-white/10">
-      Focus: {label} ({value*100}%)
-    </div>
-  );
-}
-
-export default function ProjectCard({ slug, title, summary, signals, focus }: { slug: string; title: string; summary: string; signals?: any; focus?: number }) {
+export default function ProjectCard({ project, action }: { project: Project; action: (project: Project) => void; }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleDropdown = () => {
+      setIsOpen(!isOpen);
+  };
+  const projectsDemo = project.repositories?.filter(p => p.url);
+  const clickProject = () => {
+    if (action) action(project);
+  };
 
   return (
     <motion.div
@@ -51,55 +24,105 @@ export default function ProjectCard({ slug, title, summary, signals, focus }: { 
       whileHover={{ scale: 1.02 }}
       className="group relative rounded-2xl border border-gray-200 dark:border-white/10 
                  bg-white/70 dark:bg-white/5 backdrop-blur-xl 
-                 p-6 shadow-sm hover:shadow-xl transition overflow-hidden"
+                 p-6 shadow-sm hover:shadow-xl transition"
     >
       {/* Glow effect */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition
-                      bg-gradient-to-r from-red-500/10 to-blue-500/10 blur-xl" />
+                      bg-linear-to-r from-red-500/10 to-blue-500/10 blur-xl" />
 
-
-
-      {(focus !== undefined && focus > 0) && (
-        <FocusBadge value={focus} />
+      {project.slides && project.slides.length > 0 && (
+        <div className="p-4 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
+          {project.slides[0].type === "image" ? (
+            <Image
+              src={project.slides[0].src}
+              alt={project.slides[0].alt || ""}
+              width={150} height={50}
+              loading="lazy"
+              className="w-full h-50 object-cover transition duration-500"
+            />
+          ) : (
+            <video
+              src={project.slides[0].src}
+              className="w-full h-50 object-cover"
+              controls
+            />
+          )}
+        </div>
       )}
 
-      {/* Ranking Badge */}
-      {signals && (
-        <RankingBadge scores={signals.scores} />
-      )}
-
-      {/* Title */}
       <h3 className="text-lg font-semibold mb-2 relative z-10">
-        {title}
+        {project.title}
       </h3>
 
       {/* Description */}
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 relative z-10">
-        {summary}
+        {project.summary}
       </p>
 
-      {/* Signals */}
-      {signals && (
-        <div className="flex flex-wrap gap-2 mb-4 relative z-10">
-          <SignalBadge label="Exec" value={signals.summary.executionLevel} />
-          <SignalBadge label="Comp" value={signals.summary.complexityLevel} />
-          <SignalBadge label="Own" value={signals.summary.ownershipLevel} />
-        </div>
-      )}
+      {/* 🔥 TECH STACK */}
+      <div className="flex flex-wrap gap-2 mb-3">
+        {[...(project.backend || []), ...(project.frontend || [])].map(
+          (tech: string) => (
+            <span
+              key={tech}
+              className="text-xs px-2 py-1 rounded-full 
+                         bg-gray-100 dark:bg-white/10"
+            >
+              {tech}
+            </span>
+          )
+        )}
+      </div>
 
-      {/* Score bars */}
-      {signals && (
-        <div className="space-y-2 mb-4 relative z-10">
-          <ScoreBar label="Execution" value={signals.scores.execution} />
-          <ScoreBar label="Complexity" value={signals.scores.complexity} />
-          <ScoreBar label="Ownership" value={signals.scores.ownership} />
-        </div>
-      )}
+      {/* 🔥 LINKS */}
+      <div className="flex flex-wrap gap-3 my-3">
+        {/* CTA */}
+        <button onClick={clickProject} className="px-4 py-2 text-sm font-label tracking-tight rounded-lg border bg-primary text-on-primary relative z-10">
+          See Case Study
+        </button>
+        {projectsDemo.length == 1 && projectsDemo[0].url && (
+          <Link href={projectsDemo[0].url} target="_blank" className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-label tracking-tight text-on-primary rounded-lg border bg-primary text-on-primary relative z-10">
+            <ExternalLink />Live Demo
+          </Link>
+        )}
 
-      {/* CTA */}
-      <Link href={`/projects/${slug}`} className="text-sm font-medium underline relative z-10">
-        View Project →
-      </Link>
+        {projectsDemo.length > 1 && (
+          <div className="flex justify-center">
+            <div className="relative inline-block text-left">
+                {/* Dropdown button */}
+                <button
+                    type="button"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-label tracking-tight rounded-lg border bg-primary text-on-primary relative z-10"
+                    onClick={toggleDropdown}
+                >
+                    <ExternalLink />Live Demo
+                </button>
+
+                {/* Dropdown menu */}
+                {isOpen && (
+                    <div className="origin-top-right absolute
+                                    right-0 mt-2 w-56 rounded-md
+                                    shadow-lg bg-white ring-1 ring-black
+                                    ring-opacity-5 focus:outline-none">
+                        <div className="py-1">
+                            {projectsDemo.map((repo: Repository) => repo.url && (
+                                <Link
+                                  key={repo.url}
+                                  href={repo.url}
+                                  onClick={toggleDropdown}
+                                  target="_blank"
+                                  className="block px-4 py-2 text-sm text-black hover:bg-gray-100"
+                                >
+                                  {repo.name}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+        )}
+      </div>
     </motion.div>
   );
 }

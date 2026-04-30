@@ -1,74 +1,58 @@
 "use client";
 
+import { ArrowRight, MessageSquare } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <>
-      <section className="max-w-5xl mx-auto px-6 py-24 text-center">
-          {/* Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-headline font-bold leading-tight text-primary mb-6"
-          >
-            Full-Stack Developer Building Scalable Systems & Modern Web Applications
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-on-surface-variant leading-relaxed max-w-2xl mx-auto mb-8"
-          >
-            I design and build production-grade systems—from CRM platforms and commerce ecosystems to AI-powered applications.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex justify-center gap-4 flex-wrap mt-10"
-          >
-            <Link
-              href="/projects"
-              className="rounded-none bg-primary px-6 py-3 text-sm font-label text-on-primary hover:bg-primary-container transition-opacity duration-200"
-            >
-              View Projects
-            </Link>
-            <Link
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-none bg-secondary px-6 py-3 text-sm font-label text-on-primary hover:bg-primary-container transition-opacity duration-200"
-            >
-              View Resume
-            </Link>
-          </motion.div>
-      </section>
-
-      <section className="py-16 bg-gray-50 dark:bg-white/5 backdrop-blur">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="max-w-4xl mx-auto px-6 text-center"
+    <section id="hero" className="w-full mx-auto px-6 py-24 text-center bg-linear-to-b md:bg-linear-to-r from-sky-500/30 via-yellow-800/30 to-red-500/30">
+      <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-xs font-medium text-muted-foreground">
+        <span className="h-2 w-2 rounded-full bg-primary"></span>Available for new projects
+      </div>
+        {/* Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-headline font-bold leading-tight text-primary mb-6"
         >
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-            Built 9+ real-world systems across CRM, commerce, AI, and SaaS platforms.
-          </p>
+          I build the <span className="text-tertiary">business systems</span> founders actually need.
+        </motion.h1>
 
-          <div className="grid md:grid-cols-2 gap-4 text-gray-600 dark:text-gray-400">
-            <p>• CRM Platforms</p>
-            <p>• Commerce Ecosystems</p>
-            <p>• AI-powered Applications</p>
-            <p>• Dashboard Systems</p>
-          </div>
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-lg text-on-surface-variant leading-relaxed max-w-2xl mx-auto mb-8"
+        >
+          Hi, I&apos;m Albert — a freelance full-stack developer. I design, build and ship custom software end-to-end: POS, CRM, payroll, internal tools and AI-powered workflows. One person, one point of accountability, real systems that run your business.
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="flex justify-center gap-4 flex-wrap mt-10"
+        >
+          <Link
+            href="#projects"
+            className="group inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary transition-opacity duration-200"
+          >
+            See My Work<ArrowRight />
+          </Link>
+
+          <Link
+            href="#contact"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label border border-primary hover:border-secondary transition-opacity duration-200"
+          >
+            <MessageSquare />Let&apos;s Discuss Your Project
+          </Link>
         </motion.div>
-      </section>
-    </>
+    </section>
   );
 }

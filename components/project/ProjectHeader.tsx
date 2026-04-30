@@ -3,8 +3,9 @@
 import Link from "next/link";
 import SignalBadge from "./SignalBadge";
 import { motion } from "motion/react";
+import { Project, Repository } from "@/core/types";
 
-export default function ProjectHeader({ project }: any) {
+export default function ProjectHeader({project}: {project: Project}) {
   return (
     <div className="mb-12">
       {/* Title */}
@@ -32,7 +33,7 @@ export default function ProjectHeader({ project }: any) {
 
       {/* 🔥 LINKS */}
       <div className="flex flex-wrap gap-3 mb-6">
-        {project.repositories?.map((repo: any) => repo.url && (
+        {project.repositories?.map((repo: Repository) => repo.url && (
           <Link
             key={repo.url}
             href={repo.url}

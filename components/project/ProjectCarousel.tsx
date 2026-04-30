@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Slide } from "@/core/types";
 
 interface Props {
@@ -17,9 +17,8 @@ export default function ProjectCarousel({
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const next = () => setIndex((prev) => (prev + 1) % slides.length);
-  const prev = () =>
-    setIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  const next = useCallback(() => setIndex((prev) => (prev + 1) % slides.length), [slides]);
+  const prev = useCallback(() => setIndex((prev) => (prev - 1 + slides.length) % slides.length), [slides]);
 
   // autoplay
   useEffect(() => {
@@ -28,7 +27,7 @@ export default function ProjectCarousel({
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [index, autoPlay, interval]);
+  }, [index, autoPlay, interval, next]);
 
   // keyboard support
   useEffect(() => {
@@ -38,7 +37,7 @@ export default function ProjectCarousel({
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, []);
+  }, [prev, next]);
 
   return (
     <div className="relative w-full max-w-5xl mx-auto">
@@ -49,12 +48,12 @@ export default function ProjectCarousel({
             src={slides[index].src}
             alt={slides[index].alt || ""}
             loading="lazy"
-            className="w-full h-[400px] object-cover transition duration-500"
+            className="w-full h-100 object-cover transition duration-500"
           />
         ) : (
           <video
             src={slides[index].src}
-            className="w-full h-[400px] object-cover"
+            className="w-full h-100 object-cover"
             controls
           />
         )}

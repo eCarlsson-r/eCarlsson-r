@@ -51,9 +51,9 @@ export default function ProjectClient({project, mdxContent}: any) {
             {/* Title */}
             <ProjectHeader project={project} />
             
-            <div className="p-4 rounded-xl bg-sky-50 dark:bg-white/5 my-10 text-center text-sm">
+            {project.focusIndex && (<div className="p-4 rounded-xl bg-sky-50 dark:bg-white/5 my-10 text-center text-sm">
             This project accounts for <strong>{project.focusIndex * 100}%</strong> of total engineering activity
-            </div>
+            </div>)}
 
             {project.slides && project.slides.length > 0 && (
               <div className="p-4 rounded-2xl bg-white/5 backdrop-blur border border-white/10">

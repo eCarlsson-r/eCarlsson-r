@@ -1,6 +1,6 @@
 import ExecutionTimeline from "@/components/signals/ExecutionTimeline";
 import TrustBar from "@/components/sections/TrustBar";
-import CTA from "@/components/sections/CTA";
+import CTA from "@/components/sections/Contact";
 
 export default function AboutPage() {
   return (
@@ -41,7 +41,6 @@ export default function AboutPage() {
         <TrustBar />
         <ExecutionTimeline />
       </div>
-      <CTA />
     </>
   );
 }

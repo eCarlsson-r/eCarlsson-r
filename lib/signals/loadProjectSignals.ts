@@ -1,5 +1,6 @@
 "use server";
 
+import { Project } from '@/core/types';
 import fs from 'fs';
 import path from 'path';
 
@@ -22,8 +23,8 @@ export async function loadProjects(grouped = false) {
     const data = fs.readFileSync(filePath, 'utf-8');
     const projects = JSON.parse(data);
     if (grouped) {
-      const groupedProjects: Record<string, any[]> = {};
-      projects.forEach((project: any) => {
+      const groupedProjects: Record<string, Project[]> = {};
+      projects.forEach((project: Project) => {
         const category = project.category || 'Uncategorized';
         if (!groupedProjects[category]) {
           groupedProjects[category] = [];

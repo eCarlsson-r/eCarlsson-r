@@ -1,20 +1,17 @@
-import CTA from "@/components/sections/CTA";
-import FeaturedProjects from "@/components/sections/FeaturedProjects";
+import Contact from "@/components/sections/Contact";
+import Projects from "@/components/sections/Projects";
 import Hero from "@/components/sections/Hero";
-import StreakCard from "@/components/sections/StreakCard";
-import TechMap from "@/components/sections/TechMap";
+import About from "@/components/sections/About";
+import TrustBar from "@/components/sections/TrustBar";
 
 export default function HomePage() {
   return (
     <main className="bg-white dark:bg-black text-gray-900 dark:text-gray-100 transition-colors duration-500">
       <Hero />
-
-      <FeaturedProjects />
-      
-      <StreakCard />
-
-      <TechMap />
-      <CTA />
+      <TrustBar />
+      <Projects />
+      <About />
+      <Contact />
     </main>
   );
 }

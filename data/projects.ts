@@ -17,6 +17,7 @@ export const projects: Project[] = [
                 name: "PayrollManagementLaravel",
                 type: "backend",
                 owner: "eCarlsson-r",
+                url: "https://payroll.carlssonstudio.com/",
                 stack: ["Laravel", "Blade"]
             }
         ],
@@ -114,6 +115,7 @@ export const projects: Project[] = [
                 name: "ControlMoney",
                 type: "frontend",
                 owner: "eCarlsson-r",
+                url: "exp://u.expo.dev/2d6ec2ba-0336-41e1-8a4d-5a9e3a7c00c3/group/d7e03244-1271-4938-a470-6ce74fe272fe",
                 stack: ["React Native"]
             }
         ],
@@ -143,6 +145,7 @@ export const projects: Project[] = [
                 name: "InsurancePortal",
                 type: "backend",
                 owner: "eCarlsson-r",
+                url: "https://insurance.carlssonstudio.com",
                 stack: ["Laravel", "Inertia", "React"]
             }
         ],
@@ -173,6 +176,7 @@ export const projects: Project[] = [
                 name: "QuotePlot-Agent",
                 type: "service",
                 owner: "eCarlsson-r",
+                url: "https://carlsson-quoteplot-agent.vercel.app",
                 stack: ["Python", "FastAPI", "Next.js"]
             }
         ],
@@ -325,7 +329,7 @@ export const projects: Project[] = [
                 name: "PropertyManagement",
                 type: "backend",
                 owner: "eCarlsson-r",
-                url: "",
+                url: "https://property-management-81090249533.asia-southeast1.run.app",
                 stack: ["Laravel", "Inertia", "Vue"]
             }
         ],
