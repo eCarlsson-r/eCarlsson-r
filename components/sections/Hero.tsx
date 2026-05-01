@@ -15,20 +15,22 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-headline font-bold leading-tight text-primary mb-6"
+          className="text-4xl md:text-5xl font-headline font-bold leading-tight text-primary mb-6 mx-auto max-w-6xl"
         >
           I build the <span className="text-tertiary">business systems</span> founders actually need.
         </motion.h1>
 
         {/* Subtitle */}
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-lg text-on-surface-variant leading-relaxed max-w-2xl mx-auto mb-8"
+          className="text-lg text-on-surface-variant leading-relaxed max-w-5xl mx-auto mb-8"
         >
-          Hi, I&apos;m Albert — a freelance full-stack developer. I design, build and ship custom software end-to-end: POS, CRM, payroll, internal tools and AI-powered workflows. One person, one point of accountability, real systems that run your business.
-        </motion.p>
+          <p>Hi, I&apos;m Albert — a freelance full-stack developer.</p>
+          <p>I design, build and ship custom software end-to-end: POS, CRM, payroll, internal tools and AI-powered workflows.</p>
+          <p>One person, one point of accountability, real systems that run your business.</p>
+        </motion.div>
 
         {/* CTA Buttons */}
         <motion.div

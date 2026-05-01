@@ -5,8 +5,9 @@ export const projects: Project[] = [
         slug: "payroll-system",
         title: "Payroll Management System",
         category: "signal",
+        domain: "Enterprise",
 
-        summary: "Full payroll processing platform with role-based workflows.",
+        summary: "An HR team was spending days each month on spreadsheet payroll calculations that were error-prone and hard to audit.",
         description: "Enterprise-style payroll system covering employee management, salary calculations, and reporting workflows.",
 
         backend: ["Laravel"],
@@ -28,6 +29,19 @@ export const projects: Project[] = [
             "Production-style CRUD architecture"
         ],
 
+        slides: [
+            {
+                type: "image",
+                src: "/images/screenshots/payroll/payroll1.png",
+                alt: "User gets to modify their own profile once logged in."
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/payroll/payroll2.png",
+                alt: "Managers get to organize their own team, who to recruit to team and terminate from team."
+            }
+        ],
+
         featured: false,
         year: 2025,
         mdxPath: "payroll-system"
@@ -36,8 +50,9 @@ export const projects: Project[] = [
         slug: "spa-ecosystem",
         title: "Spa Management Ecosystem",
         category: "depth",
+        domain: "Business Suite",
 
-        summary: "Full ecosystem with API, POS, and booking system.",
+        summary: "Spa owners were losing bookings to no-shows and double-bookings while staff manually tracked services across paper schedules.",
         description: "Micro-system architecture including API backend, cashier POS, and customer booking portal.",
 
         backend: ["Laravel", "REST API"],
@@ -86,7 +101,7 @@ export const projects: Project[] = [
             {
                 type: "image",
                 src: "/images/screenshots/spa-ecosystem/spa3.png",
-                alt: "Dashboard of spa POS"
+                alt: "Session management from POS side"
             },
             {
                 type: "image",
@@ -103,8 +118,9 @@ export const projects: Project[] = [
         slug: "controlmoney",
         title: "ControlMoney Finance Tracker",
         category: "edge",
+        domain: "SaaS",
 
-        summary: "Personal finance tracking application.",
+        summary: "People wanted a simple way to see where their money was actually going each month without giving an app access to their bank.",
         description: "Application for managing expenses, income, and financial tracking.",
 
         backend: [],
@@ -125,6 +141,14 @@ export const projects: Project[] = [
             "Clean UI architecture"
         ],
 
+        slides: [
+            {
+                type: "image",
+                src: "/images/screenshots/ControlMoney.png",
+                alt: "ControlMoney being used to track expenses."
+            }
+        ],
+
         featured: false,
         year: 2026,
         mdxPath: "control-money"
@@ -133,8 +157,9 @@ export const projects: Project[] = [
         slug: "insurance-portal",
         title: "Insurance Management Portal",
         category: "signal",
+        domain: "Enterprise",
 
-        summary: "Business workflow system for insurance operations.",
+        summary: "Brokers were drowning in policy paperwork and couldn't quickly answer client questions about coverage or renewals.",
         description: "Admin portal managing insurance policies, client records, and operational workflows.",
 
         backend: ["Laravel"],
@@ -156,6 +181,29 @@ export const projects: Project[] = [
             "Scalable Laravel architecture"
         ],
 
+        slides: [
+            {
+                type: "image",
+                src: "/images/screenshots/insurance/insurance1.png",
+                alt: "Get updated with the productions of the agent for the given month."
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/insurance/insurance2.png",
+                alt: "Get updated with the achievement of the team for bonuses."
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/insurance/insurance3.png",
+                alt: "Adding new policy only with uploading and AI will read the data."
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/insurance/insurance4.png",
+                alt: "Entering customer data becomes easier with collapsible subgroups of fields."
+            }
+        ],
+
         featured: false,
         year: 2026,
         mdxPath: "insurance-portal"
@@ -164,8 +212,9 @@ export const projects: Project[] = [
         slug: "quoteplot-agent",
         title: "QuotePlot AI Agent",
         category: "edge",
+        domain: "AI Agents",
 
-        summary: "AI-powered content analysis agent.",
+        summary: "Agent where users enquire about the status and condition of current Web3 stocks to, other than checking price and trends.",
         description: "Experimentation project using AI pipelines and API integrations.",
 
         backend: ["Python", "FastAPI"],
@@ -186,6 +235,14 @@ export const projects: Project[] = [
             "Experimental architecture"
         ],
 
+        slides: [
+            {
+                type: "image",
+                src: "/images/screenshots/quoteplot.png",
+                alt: "The QuotePlot Agent page featuring stock list, stock chart, and chat panel."
+            }
+        ],
+
         featured: false,
         year: 2026,
         mdxPath: "quoteplot-agent"
@@ -194,8 +251,9 @@ export const projects: Project[] = [
         slug: "commerce-ecosystem",
         title: "Retail Management Ecosystem",
         category: "depth",
+        domain: "Business Suite",
 
-        summary: "End-to-end commerce platform with POS and storefront.",
+        summary: "Independent retailers were juggling separate tools for in-store sales and their online storefront, leading to inventory drift and lost revenue.",
         description: "Integrated commerce system covering admin API, POS operations, and public online store.",
 
         backend: ["Laravel", "REST API"],
@@ -230,6 +288,29 @@ export const projects: Project[] = [
             "Scalable system modularization"
         ],
 
+        slides: [
+            {
+                type: "image",
+                src: "/images/screenshots/commerce-system/store1.png",
+                alt: "Public homepage of the store's e-commerce site"
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/commerce-system/store2.png",
+                alt: "Product detail page showing stock availability"
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/commerce-system/pos1.png",
+                alt: "Dashboard of the POS (for admin)"
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/commerce-system/pos2.png",
+                alt: "Sales form of POS terminal"
+            }
+        ],
+
         featured: true,
         year: 2026,
         mdxPath: "commerce-system"
@@ -238,8 +319,9 @@ export const projects: Project[] = [
         slug: "human-design",
         title: "Human Design Analysis System",
         category: "edge",
+        domain: "Enterprise",
 
-        summary: "System for generating human design charts.",
+        summary: "Practitioners needed personalised written analyses for every client but were producing them by hand from raw chart data.",
         description: "Application using complex calculation logic and visualization.",
 
         backend: ["ASP.NET Core"],
@@ -267,6 +349,29 @@ export const projects: Project[] = [
             "Non-standard business domain"
         ],
 
+        slides: [
+            {
+                type: "image",
+                src: "/images/screenshots/human-design/hd1.png",
+                alt: "Public homepage of Human Design app"
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/human-design/hd2.png",
+                alt: "Free preview of Human Design report of user as typed in homepage."
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/human-design/hd3.png",
+                alt: "Dashboard of the logged in member."
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/human-design/hd4.png",
+                alt: "Editing explanation of human design attributes."
+            }
+        ],
+
         featured: false,
         year: 2026,
         mdxPath: "human-design"
@@ -275,8 +380,9 @@ export const projects: Project[] = [
         slug: "restaurant-ecosystem",
         title: "Restaurant Management System",
         category: "depth",
+        domain: "Business Suite",
 
-        summary: "Integrated restaurant operations and reservation platform.",
+        summary: "Restaurant owners could not see what was happening across the floor, the kitchen and the reservation book without walking between tools.",
         description: "System covering POS operations, menu management, and customer reservation workflows.",
 
         backend: ["Laravel", "REST API"],
@@ -310,6 +416,29 @@ export const projects: Project[] = [
             "Real-world business workflows"
         ],
 
+        slides: [
+            {
+                type: "image",
+                src: "/images/screenshots/resto-system/resto1.png",
+                alt: "Public homepage of the restaurant's site below banner"
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/resto-system/resto2.png",
+                alt: "Category page for each branch"
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/commerce-system/pos1.png",
+                alt: "Dashboard of the POS (for admin)"
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/commerce-system/pos2.png",
+                alt: "Sales form of POS terminal"
+            }
+        ],
+
         featured: false,
         year: 2026,
         mdxPath: "restaurant-ecosystem"
@@ -318,8 +447,9 @@ export const projects: Project[] = [
         slug: "property-management",
         title: "Property Management System",
         category: "signal",
+        domain: "Enterprise",
 
-        summary: "Modern property management platform using Laravel + Inertia.",
+        summary: "Property managers were tracking leases, tenants and maintenance requests across spreadsheets and email threads.",
         description: "System for managing tenants, leases, payments, and property records with modern SPA architecture.",
 
         backend: ["Laravel"],
@@ -344,12 +474,17 @@ export const projects: Project[] = [
             {
                 type: "image",
                 src: "/images/screenshots/property/property1.png",
-                alt: "Form for editing property details."
+                alt: "Dashboard when user logged in."
             },
             {
                 type: "image",
                 src: "/images/screenshots/property/property2.png",
                 alt: "Place to enquire AI regarding status of the properties."
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/property/property3.png",
+                alt: "Form for editing property details."
             }
         ],
 

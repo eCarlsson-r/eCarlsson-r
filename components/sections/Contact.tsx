@@ -116,7 +116,7 @@ export default function CTA() {
           </motion.a>
 
           <motion.a
-            whileHover={{ scale: 1.05 }} href="https://github.com/eCarlsson-r" rel="noreferrer"
+            whileHover={{ scale: 1.05 }} href="resume.pdf" rel="noreferrer"
             className="w-full mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-opacity hover:opacity-90 disabled:opacity-60"
           >
             <FileDown className="h-4 w-4" />Download Resume (PDF)

@@ -6,6 +6,37 @@ import { Project, Repository } from "@/core/types";
 import { ExternalLink } from "lucide-react";
 import { useState } from "react";
 
+function DomainBadge({ domain }: {domain: string}) {
+  let symbol = "";
+  let color = "";
+
+  switch(domain) {
+    case "Business Suite":
+      symbol = "👑 ";
+      color = "bg-yellow-900";
+      break;
+    case "Enterprise":
+      color = "bg-blue-500";
+      break;
+    case "SaaS":
+      symbol = "🔥 ";
+      color = "bg-red-500";
+      break;
+    case "AI Agents":
+      symbol = "🧠 ";
+      color = "bg-emerald-700";
+      break;
+  }
+
+  if (!domain) return null;
+
+  return (
+    <span className={`text-xs px-2 py-1 mb-5 rounded text-white ${color}`}>
+      {symbol}{domain}
+    </span>
+  );
+}
+
 export default function ProjectCard({ project, action }: { project: Project; action: (project: Project) => void; }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
@@ -38,17 +69,19 @@ export default function ProjectCard({ project, action }: { project: Project; act
               alt={project.slides[0].alt || ""}
               width={150} height={50}
               loading="lazy"
-              className="w-full h-50 object-cover transition duration-500"
+              className="w-full transition duration-500"
             />
           ) : (
             <video
               src={project.slides[0].src}
-              className="w-full h-50 object-cover"
+              className="w-full object-fit"
               controls
             />
           )}
         </div>
       )}
+
+      <DomainBadge domain={project.domain} />
 
       <h3 className="text-lg font-semibold mb-2 relative z-10">
         {project.title}
@@ -101,17 +134,17 @@ export default function ProjectCard({ project, action }: { project: Project; act
                 {/* Dropdown menu */}
                 {isOpen && (
                     <div className="origin-top-right absolute
-                                    right-0 mt-2 w-56 rounded-md
-                                    shadow-lg bg-white ring-1 ring-black
-                                    ring-opacity-5 focus:outline-none">
-                        <div className="py-1">
+                                    right-0 mt-2 w-64 rounded-md
+                                    shadow-lg bg-white focus:outline-none ring-1 ring-black
+                                    ring-opacity-5">
+                        <div className={"py-1 grid grid-cols-"+projectsDemo.length}>
                             {projectsDemo.map((repo: Repository) => repo.url && (
                                 <Link
                                   key={repo.url}
                                   href={repo.url}
                                   onClick={toggleDropdown}
                                   target="_blank"
-                                  className="block px-4 py-2 text-sm text-black hover:bg-gray-100"
+                                  className="block px-4 py-2 text-sm text-center text-black hover:bg-gray-100"
                                 >
                                   {repo.name}
                                 </Link>

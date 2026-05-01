@@ -1,4 +1,5 @@
 export type ProjectCategory = "signal" | "depth" | "edge";
+export type ProjectDomain = "Business Suite" | "Enterprise" | "SaaS" | "AI Agents";
 
 export interface Repository {
   name: string;
@@ -18,6 +19,7 @@ export interface Project {
   slug: string;
   title: string;
   category: ProjectCategory;
+  domain: ProjectDomain;
 
   summary: string;
   description: string;

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { Slide } from "@/core/types";
 
 interface Props {
@@ -44,11 +45,12 @@ export default function ProjectCarousel({
       {/* Slide */}
       <div className="relative overflow-hidden rounded-2xl bg-slate-900 shadow-xl">
         {slides[index].type === "image" ? (
-          <img
+          <Image
             src={slides[index].src}
             alt={slides[index].alt || ""}
+            width={600} height={200}
             loading="lazy"
-            className="w-full h-100 object-cover transition duration-500"
+            className="w-full transition duration-500"
           />
         ) : (
           <video
@@ -98,9 +100,9 @@ export default function ProjectCarousel({
             }`}
           >
             {slide.type === "image" ? (
-              <img
-                src={slide.src} loading="lazy"
-                className="w-24 h-16 object-cover"
+              <Image
+                src={slide.src} loading="lazy" alt={slide.alt || ""}
+                width={24} height={16} className="w-24 h-16 object-cover"
               />
             ) : (
               <video

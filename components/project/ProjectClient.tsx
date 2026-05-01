@@ -55,12 +55,6 @@ export default function ProjectClient({project, mdxContent}: any) {
             This project accounts for <strong>{project.focusIndex * 100}%</strong> of total engineering activity
             </div>)}
 
-            {project.slides && project.slides.length > 0 && (
-              <div className="p-4 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
-                <ProjectCarousel slides={project.slides} />
-              </div>
-            )}
-
             {/* 🔥 MDX CONTENT */}
             {!loading ? (
                 mdxSource ? (
@@ -70,6 +64,12 @@ export default function ProjectClient({project, mdxContent}: any) {
                 )
             ) : (
                 <p className="text-gray-500">Loading documentation...</p>
+            )}
+
+            {project.slides && project.slides.length > 0 && (
+              <div className="p-4 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
+                <ProjectCarousel slides={project.slides} />
+              </div>
             )}
         </div>
     );
