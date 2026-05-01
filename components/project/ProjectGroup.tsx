@@ -2,7 +2,7 @@
 import { Project } from "@/core/types";
 import { motion } from "motion/react";
 import ProjectCard from "./ProjectCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProjectClient from "../project/ProjectClient";
 import { X } from "lucide-react";
 
@@ -14,14 +14,26 @@ interface Props {
   projects: Project[];
 }
 
+import { loadProjectMdx } from "@/lib/hooks/loadProjectMdx";
+
 function ProjectModal({project, hideModal}: {project: Project | undefined, hideModal: ()=>void;}) {
+  const [mdxContent, setMdxContent] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (project?.mdxPath) {
+      loadProjectMdx(project.mdxPath).then((mdx) => {
+        if (mdx) setMdxContent(mdx.content);
+      });
+    }
+  }, [project]);
+
   return (
     <div className="fixed inset-0 z-100 flex items-start justify-center overflow-y-auto bg-background/80 backdrop-blur-sm p-4 md:p-8">
       <div className="relative w-full max-w-3xl rounded-2xl border border-border bg-card shadow-2xl fade-in-up">
         <button aria-label="Close" onClick={hideModal} className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-md border border-border bg-background-elevated text-muted-foreground hover:text-foreground">
           <X className="h-4 w-4" />
         </button>
-        <ProjectClient project={project} close={hideModal} />
+        <ProjectClient project={project} close={hideModal} mdxContent={mdxContent} />
       </div>
     </div>
   )

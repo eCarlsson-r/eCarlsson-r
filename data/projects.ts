@@ -429,13 +429,13 @@ export const projects: Project[] = [
             },
             {
                 type: "image",
-                src: "/images/screenshots/commerce-system/pos1.png",
+                src: "/images/screenshots/resto-system/pos1.png",
                 alt: "Dashboard of the POS (for admin)"
             },
             {
                 type: "image",
-                src: "/images/screenshots/commerce-system/pos2.png",
-                alt: "Sales form of POS terminal"
+                src: "/images/screenshots/resto-system/pos2.png",
+                alt: "Table view on POS terminal"
             }
         ],
 
