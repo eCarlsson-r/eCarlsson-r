@@ -33,15 +33,15 @@ export default function About() {
             My focus is on outcomes: fewer errors, faster operations, clearer numbers. I handle the whole stack so there&apos;s one person to talk to, one person who owns it, and one person who ships. If you have a problem worth solving, I&apos;d rather understand it than pitch you a stack.
           </p>
 
-          <div className="grid grid-cols-3 gap-6 text-gray-700 dark:text-gray-300 mt-6">
+          <div className="grid md:grid-cols-3 gap-6 text-gray-700 dark:text-gray-300 mt-6">
             {Object.entries(stacks).map(([category, techList]) => (
               <motion.div
                 key={category}
                 whileHover={{ scale: 1.05 }}
-                className="p-4 rounded-xl bg-white dark:bg-white/5 border dark:border-white/10 transition"
+                className="p-4 rounded-xl text-center bg-white dark:bg-white/5 border dark:border-white/10 transition"
               >
                 <strong>{category.charAt(0).toUpperCase() + category.slice(1)}:</strong>
-                <ul>
+                <ul className="flex flex-wrap gap-x-4 gap-y-2">
                   {techList.map((tech) => (
                     <li key={tech}>
                       {tech}

@@ -28,8 +28,8 @@ function ProjectModal({project, hideModal}: {project: Project | undefined, hideM
   }, [project]);
 
   return (
-    <div className="fixed inset-0 z-100 flex items-start justify-center overflow-y-auto bg-background/80 backdrop-blur-sm p-4 md:p-8">
-      <div className="relative w-full max-w-3xl rounded-2xl border border-border bg-card shadow-2xl fade-in-up">
+    <div className="fixed inset-0 z-100 flex items-start justify-center overflow-y-scroll bg-background/80 backdrop-blur-sm p-4 md:p-8" onClick={hideModal}>
+      <div className="relative w-full max-w-5xl rounded-2xl border border-border bg-card shadow-2xl fade-in-up">
         <button aria-label="Close" onClick={hideModal} className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-md border border-border bg-background-elevated text-muted-foreground hover:text-foreground">
           <X className="h-4 w-4" />
         </button>
