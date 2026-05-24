@@ -90,27 +90,12 @@ export const projects: Project[] = [
         slides: [
             {
                 type: "image",
-                src: "/images/screenshots/spa-ecosystem/spa1.png",
-                alt: "Public homepage of the spa booking site"
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/spa-ecosystem/spa2.png",
-                alt: "Customer area with chatbot once logged in"
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/spa-ecosystem/spa3.png",
-                alt: "Session management from POS side"
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/spa-ecosystem/spa4.png",
-                alt: "Sales form of POS terminal"
+                src: "/images/SpaSystem.png",
+                alt: "SpaSystem ecosystem overview showing the cashier POS, and customer booking portal."
             }
         ],
 
-        featured: true,
+        featured: false,
         year: 2025,
         mdxPath: "spa-ecosystem"
     },
@@ -144,7 +129,7 @@ export const projects: Project[] = [
         slides: [
             {
                 type: "image",
-                src: "/images/screenshots/ControlMoney.png",
+                src: "/images/ControlMoney.png",
                 alt: "ControlMoney being used to track expenses."
             }
         ],
@@ -291,23 +276,8 @@ export const projects: Project[] = [
         slides: [
             {
                 type: "image",
-                src: "/images/screenshots/commerce-system/store1.png",
-                alt: "Public homepage of the store's e-commerce site"
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/commerce-system/store2.png",
-                alt: "Product detail page showing stock availability"
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/commerce-system/pos1.png",
-                alt: "Dashboard of the POS (for admin)"
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/commerce-system/pos2.png",
-                alt: "Sales form of POS terminal"
+                src: "/images/CommerceSystem.png",
+                alt: "CommerceSystem ecosystem overview showing the cashier POS, and e-commerce."
             }
         ],
 
@@ -352,27 +322,12 @@ export const projects: Project[] = [
         slides: [
             {
                 type: "image",
-                src: "/images/screenshots/human-design/hd1.png",
-                alt: "Public homepage of Human Design app"
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/human-design/hd2.png",
-                alt: "Free preview of Human Design report of user as typed in homepage."
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/human-design/hd3.png",
-                alt: "Dashboard of the logged in member."
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/human-design/hd4.png",
-                alt: "Editing explanation of human design attributes."
+                src: "/images/HumanDesign.png",
+                alt: "HumanDesign at a glance"
             }
         ],
 
-        featured: false,
+        featured: true,
         year: 2026,
         mdxPath: "human-design"
     },
@@ -473,18 +428,23 @@ export const projects: Project[] = [
         slides: [
             {
                 type: "image",
-                src: "/images/screenshots/property/property1.png",
-                alt: "Dashboard when user logged in."
+                src: "/images/UrusProperti.png",
+                alt: "UrusProperti at a glance."
             },
             {
                 type: "image",
-                src: "/images/screenshots/property/property2.png",
-                alt: "Place to enquire AI regarding status of the properties."
+                src: "/images/screenshots/property/dashboard.png",
+                alt: "Dashboard of user logged into UrusProperti showing overview of properties, tenants, and maintenance requests."
             },
             {
                 type: "image",
-                src: "/images/screenshots/property/property3.png",
-                alt: "Form for editing property details."
+                src: "/images/screenshots/property/edit-property.png",
+                alt: "Edit property page in UrusProperti."
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/property/ai-insight.png",
+                alt: "AI insights page in UrusProperti."
             }
         ],
 

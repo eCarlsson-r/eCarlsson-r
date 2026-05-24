@@ -1,36 +1,72 @@
 ## Project Overview
-A full-stack system that generates personalized Human Design charts and reports based on birth data, combining complex calculation logic with a structured CRM and report delivery workflow.
 
-**Business Problem**  
-Human Design analysis is typically manual, fragmented, and difficult to scale. Practitioners need a system to:
-* Accurately generate charts from birth data
-* Manage client (prospect) information
-* Deliver structured reports (preview → summary → detail)
-* Monetize insights through tiered access
+An AI-powered Human Design platform that automates chart generation, personalized report delivery, and client management through an integrated CRM and CMS ecosystem.
 
-**Key Capabilities**
+Selected as one of the **30 Karya Terpilih (Top 10 – Kategori 3: Innovation with AI)** in the AI Talent Challenge Nusantara by Elevate.
 
-* Automated chart generation from birth data
-* Multi-role CRM (Admin, Leader, Agent, User)
-* Tiered report system (Preview / Summary / Detail)
-* Referral and agent tracking system
-* CMS for managing interpretation content
-* Real-time visualization of bodygraph (SVG-based)
+The platform transforms complex Human Design calculations into scalable digital workflows for practitioners, agencies, and consultation businesses.
+
+---
+
+## Business Problem
+
+Human Design consultations are traditionally manual, difficult to scale, and heavily dependent on practitioner interpretation.
+
+Most practitioners struggle with:
+- Generating accurate charts consistently
+- Delivering structured client reports
+- Managing leads and consultations
+- Scaling personalized insight delivery
+- Monetizing premium interpretation workflows
+
+This project addresses those limitations by combining automated calculation logic, AI-assisted interpretation workflows, CRM management, and structured report delivery into a unified platform.
+
+---
+
+## Technical Highlights
+
+- SVG-based dynamic bodygraph rendering
+- SSR-enabled frontend for SEO optimization
+- Multi-role CRM hierarchy
+- CMS-managed interpretation system
+- Modular report pipeline (Preview → Summary → Detail)
+- Scalable REST API architecture
+
+---
+
+## AI Integration
+
+The platform integrates AI-assisted interpretation workflows to help generate structured Human Design insights from calculated chart data.
+
+AI is used to:
+- Assist interpretation generation
+- Accelerate report authoring workflows
+- Structure preview and summary content
+- Support scalable personalization
+
+This significantly reduces manual interpretation workload while maintaining structured domain consistency through CMS-managed content.
 
 ---
 
 ## Architecture Overview
 
-**System Structure**
-```
-ASP.NET Core API → Core calculation logic + CRM + authentication
-Angular (AnalogJS) → SSR frontend (public + dashboard + CMS)
-MySQL → relational data storage
-```
+### Backend
+- ASP.NET Core API
+- Human Design calculation engine
+- Authentication & authorization
+- CRM workflow management
+- Tiered report delivery logic
 
-**Technology Stack**
-Backend: ASP.NET Core  
-Frontend: Angular 
+### Frontend
+- Angular + AnalogJS (SSR)
+- Public landing pages
+- Interactive chart visualization
+- Admin dashboard & CMS
+
+### Infrastructure
+- MySQL relational database
+- SVG rendering engine for bodygraph visualization
+- Role-based access control system
 
 ---
 
@@ -69,14 +105,18 @@ Frontend: Angular
 
 ## What Makes This Project Unique
 
-This project stands out due to its **non-standard domain combined with full system integration**. It merges:
+This project combines several difficult engineering domains into a single production-oriented platform:
 
-* Complex calculation logic
-* Real-time visualization
-* CRM workflows
-* CMS-driven content
+- Non-standard metaphysical calculation systems
+- AI-assisted interpretation workflows
+- Dynamic SVG visualization rendering
+- CRM and referral management
+- CMS-driven content architecture
+- Tiered monetization flows
 
-Unlike typical CRUD systems, this required **translating abstract metaphysical concepts into a structured, scalable software system**, making it both technically and conceptually challenging.
+The biggest challenge was translating abstract Human Design concepts into deterministic software models that could be rendered visually, interpreted structurally, and managed commercially at scale.
+
+Unlike typical CRUD applications, this platform required custom domain modeling, visualization logic, and interpretation orchestration across multiple subsystems.
 
 ---
 
@@ -89,5 +129,10 @@ Unlike typical CRUD systems, this required **translating abstract metaphysical c
 ---
 
 ## Future Improvements
-- Visualization improvements  
-- Performance optimization  
+
+- AI-enhanced personalized interpretation generation
+- Advanced visualization interactivity
+- Payment gateway integration
+- Automated report export (PDF/email delivery)
+- Analytics dashboard for practitioners and agencies
+- Performance optimization for large-scale report generation
