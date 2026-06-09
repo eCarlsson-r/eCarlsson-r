@@ -169,6 +169,11 @@ export const projects: Project[] = [
         slides: [
             {
                 type: "image",
+                src: "/images/InsurancePortal.png",
+                alt: "Insurance Management Portal interface."
+            },
+            {
+                type: "image",
                 src: "/images/screenshots/insurance/insurance1.png",
                 alt: "Get updated with the productions of the agent for the given month."
             },
@@ -221,6 +226,11 @@ export const projects: Project[] = [
         ],
 
         slides: [
+            {
+                type: "image",
+                src: "/images/QuotePlot-Agent.png",
+                alt: "QuotePlot Agent product image."
+            },
             {
                 type: "image",
                 src: "/images/screenshots/quoteplot.png",
