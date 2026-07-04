@@ -32,6 +32,11 @@ export const projects: Project[] = [
         slides: [
             {
                 type: "image",
+                src: "/images/PayrollManagement.png",
+                alt: "PayrollManagement system overview showing the dashboard and AI workflow."
+            },
+            {
+                type: "image",
                 src: "/images/screenshots/payroll/payroll1.png",
                 alt: "User gets to modify their own profile once logged in."
             },
@@ -45,6 +50,50 @@ export const projects: Project[] = [
         featured: false,
         year: 2025,
         mdxPath: "payroll-system"
+    },
+    {
+        slug: "quoteplot-agent",
+        title: "QuotePlot AI Agent",
+        category: "edge",
+        domain: "AI Agents",
+
+        summary: "Agent where users enquire about the status and condition of current Web3 stocks to, other than checking price and trends.",
+        description: "Experimentation project using AI pipelines and API integrations.",
+
+        backend: ["Python", "FastAPI"],
+        frontend: ["Next.js"],
+
+        repositories: [
+            {
+                name: "QuotePlot-Agent",
+                type: "service",
+                owner: "eCarlsson-r",
+                url: "https://carlsson-quoteplot-agent.vercel.app",
+                stack: ["Python", "FastAPI", "Next.js"]
+            }
+        ],
+
+        highlights: [
+            "AI integration",
+            "Experimental architecture"
+        ],
+
+        slides: [
+            {
+                type: "image",
+                src: "/images/QuotePlot-Agent.png",
+                alt: "QuotePlot Agent product image."
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/quoteplot.png",
+                alt: "The QuotePlot Agent page featuring stock list, stock chart, and chat panel."
+            }
+        ],
+
+        featured: false,
+        year: 2026,
+        mdxPath: "quoteplot-agent"
     },
     {
         slug: "spa-ecosystem",
@@ -98,45 +147,6 @@ export const projects: Project[] = [
         featured: false,
         year: 2025,
         mdxPath: "spa-ecosystem"
-    },
-    {
-        slug: "controlmoney",
-        title: "ControlMoney Finance Tracker",
-        category: "edge",
-        domain: "SaaS",
-
-        summary: "People wanted a simple way to see where their money was actually going each month without giving an app access to their bank.",
-        description: "Application for managing expenses, income, and financial tracking.",
-
-        backend: [],
-        frontend: ["React Native"],
-
-        repositories: [
-            {
-                name: "ControlMoney",
-                type: "frontend",
-                owner: "eCarlsson-r",
-                url: "exp://u.expo.dev/2d6ec2ba-0336-41e1-8a4d-5a9e3a7c00c3/group/d7e03244-1271-4938-a470-6ce74fe272fe",
-                stack: ["React Native"]
-            }
-        ],
-
-        highlights: [
-            "Personal productivity tool",
-            "Clean UI architecture"
-        ],
-
-        slides: [
-            {
-                type: "image",
-                src: "/images/ControlMoney.png",
-                alt: "ControlMoney being used to track expenses."
-            }
-        ],
-
-        featured: false,
-        year: 2026,
-        mdxPath: "control-money"
     },
     {
         slug: "insurance-portal",
@@ -199,48 +209,43 @@ export const projects: Project[] = [
         mdxPath: "insurance-portal"
     },
     {
-        slug: "quoteplot-agent",
-        title: "QuotePlot AI Agent",
+        slug: "controlmoney",
+        title: "ControlMoney Finance Tracker",
         category: "edge",
-        domain: "AI Agents",
+        domain: "SaaS",
 
-        summary: "Agent where users enquire about the status and condition of current Web3 stocks to, other than checking price and trends.",
-        description: "Experimentation project using AI pipelines and API integrations.",
+        summary: "People wanted a simple way to see where their money was actually going each month without giving an app access to their bank.",
+        description: "Application for managing expenses, income, and financial tracking.",
 
-        backend: ["Python", "FastAPI"],
-        frontend: ["Next.js"],
+        backend: [],
+        frontend: ["React Native"],
 
         repositories: [
             {
-                name: "QuotePlot-Agent",
-                type: "service",
+                name: "ControlMoney",
+                type: "frontend",
                 owner: "eCarlsson-r",
-                url: "https://carlsson-quoteplot-agent.vercel.app",
-                stack: ["Python", "FastAPI", "Next.js"]
+                url: "exp://u.expo.dev/2d6ec2ba-0336-41e1-8a4d-5a9e3a7c00c3/group/d7e03244-1271-4938-a470-6ce74fe272fe",
+                stack: ["React Native"]
             }
         ],
 
         highlights: [
-            "AI integration",
-            "Experimental architecture"
+            "Personal productivity tool",
+            "Clean UI architecture"
         ],
 
         slides: [
             {
                 type: "image",
-                src: "/images/QuotePlot-Agent.png",
-                alt: "QuotePlot Agent product image."
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/quoteplot.png",
-                alt: "The QuotePlot Agent page featuring stock list, stock chart, and chat panel."
+                src: "/images/ControlMoney.png",
+                alt: "ControlMoney being used to track expenses."
             }
         ],
 
         featured: false,
         year: 2026,
-        mdxPath: "quoteplot-agent"
+        mdxPath: "control-money"
     },
     {
         slug: "commerce-ecosystem",
@@ -294,6 +299,60 @@ export const projects: Project[] = [
         featured: true,
         year: 2026,
         mdxPath: "commerce-system"
+    },
+    {
+        slug: "property-management",
+        title: "Property Management System",
+        category: "signal",
+        domain: "Enterprise",
+
+        summary: "Property managers were tracking leases, tenants and maintenance requests across spreadsheets and email threads.",
+        description: "System for managing tenants, leases, payments, and property records with modern SPA architecture.",
+
+        backend: ["Laravel"],
+        frontend: ["Inertia", "Vue"],
+        repositories: [
+            {
+                name: "PropertyManagement",
+                type: "backend",
+                owner: "eCarlsson-r",
+                url: "https://property-management-81090249533.asia-southeast1.run.app",
+                stack: ["Laravel", "Inertia", "Vue"]
+            }
+        ],
+
+        highlights: [
+            "Modern Laravel stack",
+            "SPA architecture",
+            "Real estate domain modeling"
+        ],
+
+        slides: [
+            {
+                type: "image",
+                src: "/images/UrusProperti.png",
+                alt: "UrusProperti at a glance."
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/property/dashboard.png",
+                alt: "Dashboard of user logged into UrusProperti showing overview of properties, tenants, and maintenance requests."
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/property/edit-property.png",
+                alt: "Edit property page in UrusProperti."
+            },
+            {
+                type: "image",
+                src: "/images/screenshots/property/ai-insight.png",
+                alt: "AI insights page in UrusProperti."
+            }
+        ],
+
+        featured: true,
+        year: 2026,
+        mdxPath: "property-management"
     },
     {
         slug: "human-design",
@@ -384,6 +443,11 @@ export const projects: Project[] = [
         slides: [
             {
                 type: "image",
+                src: "/images/RestoSystem.png",
+                alt: "RestoSystem ecosystem overview showing the cashier POS, and customer booking portal."
+            },
+            {
+                type: "image",
                 src: "/images/screenshots/resto-system/resto1.png",
                 alt: "Public homepage of the restaurant's site below banner"
             },
@@ -407,60 +471,6 @@ export const projects: Project[] = [
         featured: false,
         year: 2026,
         mdxPath: "restaurant-ecosystem"
-    },
-    {
-        slug: "property-management",
-        title: "Property Management System",
-        category: "signal",
-        domain: "Enterprise",
-
-        summary: "Property managers were tracking leases, tenants and maintenance requests across spreadsheets and email threads.",
-        description: "System for managing tenants, leases, payments, and property records with modern SPA architecture.",
-
-        backend: ["Laravel"],
-        frontend: ["Inertia", "Vue"],
-        repositories: [
-            {
-                name: "PropertyManagement",
-                type: "backend",
-                owner: "eCarlsson-r",
-                url: "https://property-management-81090249533.asia-southeast1.run.app",
-                stack: ["Laravel", "Inertia", "Vue"]
-            }
-        ],
-
-        highlights: [
-            "Modern Laravel stack",
-            "SPA architecture",
-            "Real estate domain modeling"
-        ],
-
-        slides: [
-            {
-                type: "image",
-                src: "/images/UrusProperti.png",
-                alt: "UrusProperti at a glance."
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/property/dashboard.png",
-                alt: "Dashboard of user logged into UrusProperti showing overview of properties, tenants, and maintenance requests."
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/property/edit-property.png",
-                alt: "Edit property page in UrusProperti."
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/property/ai-insight.png",
-                alt: "AI insights page in UrusProperti."
-            }
-        ],
-
-        featured: true,
-        year: 2026,
-        mdxPath: "property-management"
     }
 ];
 
