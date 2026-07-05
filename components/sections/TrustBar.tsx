@@ -6,10 +6,10 @@ export default async function TrustBar() {
   return (
     <div className="border-y py-6 bg-gray-50">
       <div className="max-w-6xl mx-auto flex justify-around text-sm">
-        <Stat label="Production Systems Built" value={signals.length} />
+        <Stat label="Production Systems" value={signals.length} />
         <Stat label="Frontend + Backend + API" value="Full-Stack" />
-        <Stat label="Enterprise · SaaS · AI" value="Business Suite" />
-        <Stat label="Project Ownership" value="100%" />
+        <Stat label="Retail · Property · F&B · AI + more" value="9 Business Domains" />
+        <Stat label="End-to-End Ownership" value="100%" />
       </div>
     </div>
   );

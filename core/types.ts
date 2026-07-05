@@ -1,5 +1,14 @@
 export type ProjectCategory = "signal" | "depth" | "edge";
-export type ProjectDomain = "Business Suite" | "Enterprise" | "SaaS" | "AI Agents";
+export type ProjectDomain =
+  | "Retail"
+  | "Property"
+  | "AI · Professional Services"
+  | "Insurance"
+  | "Restaurant"
+  | "Wellness · Spa"
+  | "AI · Finance"
+  | "HR · Payroll"
+  | "SaaS";
 
 export interface Repository {
   name: string;

@@ -5,7 +5,7 @@ export const projects: Project[] = [
         slug: "payroll-system",
         title: "Payroll Management System",
         category: "signal",
-        domain: "Enterprise",
+        domain: "HR · Payroll",
 
         summary: "An HR team was spending days each month on spreadsheet payroll calculations that were error-prone and hard to audit.",
         description: "Enterprise-style payroll system covering employee management, salary calculations, and reporting workflows.",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
         slug: "quoteplot-agent",
         title: "QuotePlot AI Agent",
         category: "edge",
-        domain: "AI Agents",
+        domain: "AI · Finance",
 
         summary: "Agent where users enquire about the status and condition of current Web3 stocks to, other than checking price and trends.",
         description: "Experimentation project using AI pipelines and API integrations.",
@@ -99,7 +99,7 @@ export const projects: Project[] = [
         slug: "spa-ecosystem",
         title: "Spa Management Ecosystem",
         category: "depth",
-        domain: "Business Suite",
+        domain: "Wellness · Spa",
 
         summary: "Spa owners were losing bookings to no-shows and double-bookings while staff manually tracked services across paper schedules.",
         description: "Micro-system architecture including API backend, cashier POS, and customer booking portal.",
@@ -152,7 +152,7 @@ export const projects: Project[] = [
         slug: "insurance-portal",
         title: "Insurance Management Portal",
         category: "signal",
-        domain: "Enterprise",
+        domain: "Insurance",
 
         summary: "Brokers were drowning in policy paperwork and couldn't quickly answer client questions about coverage or renewals.",
         description: "Admin portal managing insurance policies, client records, and operational workflows.",
@@ -251,7 +251,7 @@ export const projects: Project[] = [
         slug: "commerce-ecosystem",
         title: "Retail Management Ecosystem",
         category: "depth",
-        domain: "Business Suite",
+        domain: "Retail",
 
         summary: "Independent retailers were juggling separate tools for in-store sales and their online storefront, leading to inventory drift and lost revenue.",
         description: "Integrated commerce system covering admin API, POS operations, and public online store.",
@@ -304,7 +304,7 @@ export const projects: Project[] = [
         slug: "property-management",
         title: "Property Management System",
         category: "signal",
-        domain: "Enterprise",
+        domain: "Property",
 
         summary: "Property managers were tracking leases, tenants and maintenance requests across spreadsheets and email threads.",
         description: "System for managing tenants, leases, payments, and property records with modern SPA architecture.",
@@ -358,7 +358,7 @@ export const projects: Project[] = [
         slug: "human-design",
         title: "Human Design Analysis System",
         category: "edge",
-        domain: "Enterprise",
+        domain: "AI · Professional Services",
 
         summary: "Practitioners needed personalised written analyses for every client but were producing them by hand from raw chart data.",
         description: "Application using complex calculation logic and visualization.",
@@ -404,7 +404,7 @@ export const projects: Project[] = [
         slug: "restaurant-ecosystem",
         title: "Restaurant Management System",
         category: "depth",
-        domain: "Business Suite",
+        domain: "Restaurant",
 
         summary: "Restaurant owners could not see what was happening across the floor, the kitchen and the reservation book without walking between tools.",
         description: "System covering POS operations, menu management, and customer reservation workflows.",

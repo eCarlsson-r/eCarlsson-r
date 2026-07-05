@@ -3,8 +3,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
-  title: "Carlsson Studio | Full-Stack Engineer",
-  description: "Portfolio of a full-stack software engineer",
+  title: "Carlsson Studio | Business Software Studio",
+  description: "Custom business systems built end-to-end — POS, CRM, ERP, AI agents, and internal tools for founders and operators across Southeast Asia.",
 };
 
 export default function RootLayout({

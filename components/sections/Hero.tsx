@@ -17,7 +17,7 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-headline font-bold leading-tight text-primary mb-6 mx-auto max-w-6xl"
         >
-          I build the <span className="text-tertiary">business systems</span> founders actually need.
+          <span className="text-tertiary">Business Software</span> Built Around Your Operations.
         </motion.h1>
 
         {/* Subtitle */}
@@ -27,9 +27,8 @@ export default function Hero() {
           transition={{ delay: 0.2 }}
           className="text-lg text-on-surface-variant leading-relaxed max-w-5xl mx-auto mb-8"
         >
-          <p>Hi, I&apos;m Albert — a freelance full-stack developer.</p>
-          <p>I design, build and ship custom software end-to-end: POS, CRM, payroll, internal tools and AI-powered workflows.</p>
-          <p>One person, one point of accountability, real systems that run your business.</p>
+          <p>Custom internal systems, customer portals, AI tools, dashboards, and automation — designed, built and shipped end-to-end.</p>
+          <p>One developer. One point of accountability. Production systems that run your business.</p>
         </motion.div>
 
         {/* CTA Buttons */}
@@ -40,19 +39,17 @@ export default function Hero() {
           className="flex justify-center gap-4 flex-wrap mt-10"
         >
           <Link
-            href="#projects"
+            href="#solutions"
             className="group inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary transition-opacity duration-200"
           >
-            See My Work<ArrowRight />
+            See Solutions<ArrowRight />
           </Link>
 
           <Link
             href="#contact"
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label border border-primary hover:border-secondary transition-opacity duration-200"
           >
-            <MessageSquare />Let&apos;s Discuss Your Project
+            <MessageSquare />Start a Project
           </Link>
         </motion.div>
     </section>

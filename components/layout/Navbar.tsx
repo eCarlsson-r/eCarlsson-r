@@ -9,8 +9,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = [
-    { href: "#projects", label: "Work" },
-    { href: "#about", label: "About" },
+    { href: "#solutions", label: "Solutions" },
+    { href: "#studio", label: "Studio" },
     { href: "#contact", label: "Contact" }
   ];
 
@@ -46,7 +46,7 @@ export default function Navbar() {
             href="#contact"
             className="btn-primary text-on-primary px-6 py-2 font-label text-sm uppercase tracking-widest hover:opacity-80 transition-opacity duration-300"
           >
-            Hire Me
+            Start a Project
           </Link>
         </div>
 
@@ -85,11 +85,11 @@ export default function Navbar() {
               );
             })}
             <Link
-              href="/contact"
+              href="#contact"
               onClick={closeMenu}
               className="block btn-primary text-on-primary px-6 py-2 font-label text-sm uppercase tracking-widest hover:opacity-80 transition-opacity duration-300 w-fit"
             >
-              Contact
+              Start a Project
             </Link>
           </div>
         </div>

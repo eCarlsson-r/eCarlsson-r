@@ -1,4 +1,5 @@
 import Contact from "@/components/sections/Contact";
+import FooterCTA from "@/components/sections/FooterCTA";
 import Projects from "@/components/sections/Projects";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -12,6 +13,7 @@ export default function HomePage() {
       <Projects />
       <About />
       <Contact />
+      <FooterCTA />
     </main>
   );
 }

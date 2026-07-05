@@ -12,11 +12,11 @@ export default function FeaturedProjects() {
     if (!showProjects) setShowProjects(true);
   }
   return (
-    <section id="projects" className="max-w-6xl mx-auto px-6 py-12 md:py-24">
-      <ProjectGroup 
-        title="Real systems running real businesses." 
-        subtitle="Selected Work" 
-        description="Each project below is a custom system I designed, built and shipped end-to-end for a founder or operator. Click any card for the full case study."
+    <section id="solutions" className="max-w-6xl mx-auto px-6 py-12 md:py-24">
+      <ProjectGroup
+        title="Production-ready systems across 9 business domains."
+        subtitle="Solutions"
+        description="Every system below is live, real, and built end-to-end. Each one is a foundation — not a portfolio piece."
         projects={(showProjects) ? projects : projects.filter((p: Project) => p.featured)}
       />
 

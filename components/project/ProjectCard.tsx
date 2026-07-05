@@ -6,33 +6,24 @@ import { Project, Repository } from "@/core/types";
 import { ExternalLink } from "lucide-react";
 import { useState } from "react";
 
+const domainColors: Record<string, string> = {
+  "Retail": "bg-blue-600",
+  "Property": "bg-teal-600",
+  "AI · Professional Services": "bg-emerald-700",
+  "Insurance": "bg-indigo-600",
+  "Restaurant": "bg-orange-600",
+  "Wellness · Spa": "bg-pink-600",
+  "AI · Finance": "bg-violet-600",
+  "HR · Payroll": "bg-sky-700",
+  "SaaS": "bg-red-500",
+};
+
 function DomainBadge({ domain }: {domain: string}) {
-  let symbol = "";
-  let color = "";
-
-  switch(domain) {
-    case "Business Suite":
-      symbol = "👑 ";
-      color = "bg-yellow-900";
-      break;
-    case "Enterprise":
-      color = "bg-blue-500";
-      break;
-    case "SaaS":
-      symbol = "🔥 ";
-      color = "bg-red-500";
-      break;
-    case "AI Agents":
-      symbol = "🧠 ";
-      color = "bg-emerald-700";
-      break;
-  }
-
   if (!domain) return null;
 
   return (
-    <span className={`text-xs px-2 py-1 mb-5 rounded text-white ${color}`}>
-      {symbol}{domain}
+    <span className={`text-xs px-2 py-1 mb-5 rounded text-white ${domainColors[domain] ?? "bg-gray-600"}`}>
+      {domain}
     </span>
   );
 }
