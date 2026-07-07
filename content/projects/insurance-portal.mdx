@@ -6,15 +6,16 @@ Insurance agencies were drowning in policy paperwork. Client records, policy doc
 
 InsurancePortal centralizes policy, claim, and customer management for insurance agencies. Agents see their monthly production and team bonus progress on a bilingual AI dashboard powered by IBM Granite, new policies can be added by uploading a document that AI reads and extracts, and the whole portal works offline as an installable PWA for agents in the field.
 
+## Workflow
+
+<WorkflowDiagram />
+
 ## Features
 
-- Policy management with AI-assisted data entry from uploaded documents
-- Customer records with collapsible, structured data entry
-- Agent production tracking per month
-- Team achievement and bonus progress tracking
-- Bilingual AI dashboard powered by IBM Granite
-- Offline-capable progressive web app (PWA)
+<FeatureCards />
 
 ## Architecture
 
 A Laravel backend with Inertia and React delivers a single-page experience with server-owned business rules. Document ingestion routes uploads through an AI extraction step (IBM Granite) that pre-fills policy data for review instead of manual retyping. The PWA layer caches the application shell and key data so agents can consult records without a connection, syncing when back online.
+
+<ArchitectureDiagram />

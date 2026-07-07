@@ -9,9 +9,9 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = [
-    { href: "#solutions", label: "Solutions" },
-    { href: "#studio", label: "Studio" },
-    { href: "#contact", label: "Contact" }
+    { href: "/projects", label: "Solutions" },
+    { href: "/about", label: "Studio" },
+    { href: "/contact", label: "Contact" }
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -20,13 +20,13 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 glass-navbar">
       <nav className="mx-auto flex justify-between items-center px-8 py-4 max-w-7xl">
-        <Link href="#hero" className="font-headline font-bold text-2xl tracking-tighter text-primary cursor-pointer active:scale-95 transition-transform">
+        <Link href="/" className="font-headline font-bold text-2xl tracking-tighter text-primary cursor-pointer active:scale-95 transition-transform">
           Carlsson Studio
         </Link>
 
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
               <Link
                 key={link.href}
@@ -43,7 +43,7 @@ export default function Navbar() {
           })}
 
           <Link
-            href="#contact"
+            href="/contact"
             className="btn-primary text-on-primary px-6 py-2 font-label text-sm uppercase tracking-widest hover:opacity-80 transition-opacity duration-300"
           >
             Start a Project
@@ -68,7 +68,7 @@ export default function Navbar() {
         <div className="md:hidden bg-surface-container-low border-t border-surface-container-high">
           <div className="px-8 py-4 space-y-4">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
               return (
                 <Link
                   key={link.href}
@@ -85,7 +85,7 @@ export default function Navbar() {
               );
             })}
             <Link
-              href="#contact"
+              href="/contact"
               onClick={closeMenu}
               className="block btn-primary text-on-primary px-6 py-2 font-label text-sm uppercase tracking-widest hover:opacity-80 transition-opacity duration-300 w-fit"
             >

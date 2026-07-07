@@ -26,7 +26,7 @@ function MetaCard() {
         We build custom systems for any business domain.
       </p>
       <Link
-        href="/#contact"
+        href="/contact"
         className="mt-4 inline-flex items-center justify-center gap-1.5 text-sm font-medium text-primary hover:text-secondary transition"
       >
         Let&apos;s talk about your project<ArrowRight className="h-4 w-4" />
@@ -45,7 +45,7 @@ export default function FeaturedProjects() {
   return (
     <section id="solutions" className="max-w-7xl mx-auto px-6 py-12 xl:py-24">
       <span className="text-xs font-semibold uppercase tracking-widest text-primary">Solutions</span>
-      <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Production-ready systems across 9 business domains.</h2>
+      <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Production-ready systems across business domains.</h2>
       <p className="mt-4 text-muted-foreground">
         Every project represents a real business workflow, designed from the database to deployment.
         These are production systems — not UI concepts or tutorial applications.

@@ -8,7 +8,7 @@ export default async function TrustBar() {
       <div className="max-w-6xl mx-auto flex justify-around text-sm">
         <Stat label="Production Systems" value={signals.length} />
         <Stat label="Frontend + Backend + API" value="Full-Stack" />
-        <Stat label="Retail · Property · F&B · AI + more" value="9 Business Domains" />
+        <Stat label="Retail · Property · F&B · AI + more" value="Business Domains" />
         <Stat label="End-to-End Ownership" value="100%" />
       </div>
     </div>

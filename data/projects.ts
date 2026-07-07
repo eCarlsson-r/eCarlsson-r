@@ -174,7 +174,7 @@ export const projects: Project[] = [
             }
         ],
 
-        featured: false,
+        featured: true,
         year: 2026,
         mdxPath: "restaurant-ecosystem"
     },

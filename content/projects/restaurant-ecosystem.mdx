@@ -6,16 +6,16 @@ Restaurant owners had no single view of their operation. Orders lived in the POS
 
 RestoSystem combines POS, reservations, kitchen workflow, and analytics into one platform. Staff run tables and orders from the POS, customers book through a public reservation site, and the owner gets an analytics layer on top: a 14-day demand forecast, menu clustering that surfaces which dishes drive the business, and natural-language Q&A over operational data.
 
+## Workflow
+
+<WorkflowDiagram />
+
 ## Features
 
-- POS terminal with table view, order management, and menu administration
-- Public reservation portal for customers, per branch
-- Kitchen workflow from order placement to serving
-- 14-day demand forecasting to plan staffing and purchasing
-- Menu clustering analytics to identify stars and underperformers
-- Natural-language Q&A over sales and reservation data
-- Multi-branch support with per-branch menus and categories
+<FeatureCards />
 
 ## Architecture
 
 A Laravel REST API backs the entire ecosystem and owns orders, tables, reservations, menus, and analytics data. The POS is a Nuxt application built for speed on the floor; the customer-facing reservation site is an AnalogJS application optimized for public browsing. The forecasting and clustering pipelines run against the accumulated transaction history, and the natural-language layer translates owner questions into queries over the same data — so every answer reflects live operations.
+
+<ArchitectureDiagram />

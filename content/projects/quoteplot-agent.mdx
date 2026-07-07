@@ -6,14 +6,16 @@ Retail investors tracking volatile stocks had to bounce between charting tools, 
 
 QuotePlot Agent delivers real-time stock intelligence through natural language queries. Users ask about a stock's status, condition, or trend in plain language and get grounded answers alongside live charts. Under the hood, an SVM classification pipeline evaluates market signals with 86% accuracy to back the agent's assessments with a real model rather than generic text.
 
+## Workflow
+
+<WorkflowDiagram />
+
 ## Features
 
-- Natural-language Q&A about stock status, condition, and trends
-- Live stock list and interactive price charts
-- SVM-based signal classification pipeline (86% accuracy)
-- Chat panel integrated beside the chart view
-- Real-time data through API integrations
+<FeatureCards />
 
 ## Architecture
 
 A Python FastAPI service hosts the intelligence layer: data ingestion from market APIs, the SVM classification pipeline, and the agent that translates natural-language questions into analyses. A Next.js frontend provides the stock list, charting, and chat interface. Separating the model service from the UI keeps the ML pipeline independently deployable and testable against historical data.
+
+<ArchitectureDiagram />

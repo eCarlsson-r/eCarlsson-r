@@ -6,14 +6,16 @@ Human Design practitioners needed personalized written analyses for every client
 
 HumanDesign generates personality analysis and business compatibility reports using AI. The system computes the client's full chart from birth data using precise calculation logic, then an AI layer turns the computed chart into a readable, personalized written analysis — including business compatibility insights. The project placed Top 30 in the Nusantara Elevate AI Talent Challenge.
 
+## Workflow
+
+<WorkflowDiagram />
+
 ## Features
 
-- Chart calculation from birth data with complex domain logic
-- Interactive chart visualization
-- AI-generated personality analysis reports
-- Business compatibility reporting between profiles
-- Client record management for practitioners
+<FeatureCards />
 
 ## Architecture
 
 An ASP.NET Core API with MySQL performs the deterministic chart calculations — the non-negotiable, precision-critical core of the domain — while an Angular frontend (with AnalogJS) renders the interactive chart and reports. The AI generation layer consumes the computed chart data, not raw user input, so written analyses stay grounded in the calculated results.
+
+<ArchitectureDiagram />

@@ -57,7 +57,13 @@ export default function ArchitectureDiagram({ architecture }: { architecture: Ar
       const x2 = b.left + b.width / 2 - crect.left;
       const y2 = b.top - crect.top;
       const midY = (y1 + y2) / 2;
-      next.push({ ...edge, d: `M ${x1} ${y1} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${y2 - 4}` });
+      // bow near-vertical edges sideways (alternating) so stacked
+      // connections don't merge into one straight line on mobile
+      const bow = Math.abs(x1 - x2) < 24 ? (next.length % 2 === 0 ? 48 : -48) : 0;
+      next.push({
+        ...edge,
+        d: `M ${x1} ${y1} C ${x1 + bow} ${midY}, ${x2 + bow} ${midY}, ${x2} ${y2 - 4}`,
+      });
     }
     setPaths(next);
   }, [edges]);

@@ -6,15 +6,16 @@ Property managers were tracking listings, leases, tenants, and maintenance reque
 
 UrusProperti manages property listings, tenant records, and lease tracking end-to-end. Properties, units, tenants, leases, payments, and maintenance requests live in one system with a dashboard that shows occupancy and income at a glance — plus an AI insights layer that summarizes portfolio health. The project placed Top 100 in the Google Cloud GenAI Academy APAC Cohort 1 hackathon.
 
+## Workflow
+
+<WorkflowDiagram />
+
 ## Features
 
-- Property and unit management with full listing details
-- Tenant records with lease history
-- Lease tracking with terms, renewals, and payment status
-- Maintenance request intake and resolution tracking
-- Dashboard overview of occupancy, income, and open requests
-- AI-generated insights over the property portfolio
+<FeatureCards />
 
 ## Architecture
 
 Built on a modern Laravel stack with Inertia and Vue, UrusProperti runs as a single-page application backed by server-side domain logic — no separate API layer to maintain. The real-estate domain model (properties, units, leases, tenants, payments, maintenance) is enforced at the database level, and the AI insight layer reads from the same models to generate portfolio summaries. Deployed on Google Cloud Run.
+
+<ArchitectureDiagram />

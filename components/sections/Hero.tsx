@@ -38,14 +38,14 @@ export default function Hero() {
           className="flex justify-center gap-4 flex-wrap mt-10"
         >
           <Link
-            href="#solutions"
+            href="/projects"
             className="group inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary transition-opacity duration-200"
           >
             See Solutions<ArrowRight />
           </Link>
 
           <Link
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label border border-primary hover:border-secondary transition-opacity duration-200"
           >
             <MessageSquare />Start a Project

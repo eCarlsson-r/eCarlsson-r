@@ -6,16 +6,16 @@ An HR team was spending days every month calculating payroll in spreadsheets —
 
 Payroll Agent automates payroll calculation, tax compliance, and salary disbursement. Employee data, salary components, and statutory rules live in one system; a pipeline of four specialized agents validates inputs, computes PPh 21, BPJS, and UMR-compliant salaries, and produces disbursement-ready output — a full payroll run in about 13 seconds instead of days.
 
+## Workflow
+
+<WorkflowDiagram />
+
 ## Features
 
-- Employee management with roles, teams, and salary components
-- Automated PPh 21 income tax calculation
-- BPJS (health and employment) contribution handling
-- UMR minimum-wage compliance checks
-- Four-agent pipeline: validation, calculation, compliance, disbursement
-- Payroll reports and per-employee payslips
-- Role-based access for HR, managers, and employees
+<FeatureCards />
 
 ## Architecture
 
 Built on Laravel with Blade views, the system models the full payroll domain — employees, components, deductions, statutory rules — as first-class records rather than spreadsheet formulas. The payroll run is a staged pipeline where each agent owns one concern (input validation, gross-to-net calculation, statutory compliance, disbursement preparation), which keeps the tax logic auditable and each stage independently testable.
+
+<ArchitectureDiagram />

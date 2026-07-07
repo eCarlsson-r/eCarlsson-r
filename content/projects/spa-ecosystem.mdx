@@ -6,15 +6,16 @@ Spa owners were losing revenue to no-shows and double-bookings while staff track
 
 SpaSystem covers bookings, staff scheduling, inventory, and payments for wellness businesses in one ecosystem: a customer-facing booking portal, a cashier POS for front-desk operations, and a central API that keeps every branch's schedule, staff, and stock consistent — eliminating double-bookings by design.
 
+## Workflow
+
+<WorkflowDiagram />
+
 ## Features
 
-- Online customer booking portal with real-time availability
-- Cashier POS for walk-ins, payments, and service checkout
-- Staff scheduling with per-branch rosters
-- Service and treatment catalog management
-- Inventory tracking for products and consumables
-- Multi-branch support with a consolidated view for owners
+<FeatureCards />
 
 ## Architecture
 
 A micro-system architecture: a Laravel REST API is the core, with two purpose-built frontends — a Next.js cashier POS for the front desk and a Nuxt booking portal for customers. Availability is computed centrally from staff schedules and existing bookings, so both frontends always see the same truth. Each application deploys independently, letting the booking site iterate without touching POS operations.
+
+<ArchitectureDiagram />
