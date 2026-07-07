@@ -57,7 +57,7 @@ export const projects: Project[] = [
 
         summary: "Property managers were tracking leases, tenants and maintenance requests across spreadsheets and email threads.",
         description: "Manages property listings, tenant records, and lease tracking end-to-end.",
-        outcome: "Top 100 · Google Cloud Gen AI Academy APAC Cohort 1",
+        outcome: "Top 100 · Google Gen AI Academy APAC Cohort 1",
         certificateFile: "/certificates/apac-genai-top100.pdf",
 
         backend: ["Laravel"],

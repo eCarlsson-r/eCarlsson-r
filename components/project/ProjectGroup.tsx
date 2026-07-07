@@ -20,7 +20,7 @@ export default function ProjectGroup({ className, title, subtitle, description, 
       {title && <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{title}</h2>}
       {description && <p className="mt-4 text-muted-foreground">{description}</p>}
 
-      <div className="grid grid-cols-2 xl:grid-cols-4 pt-8 gap-8 no-scrollbar snap-x">
+      <div className="grid md:grid-cols-2 xl:grid-cols-4 pt-8 gap-8 no-scrollbar snap-x">
         {projects.map((project, i) => (
             <motion.div
               key={project.slug}
