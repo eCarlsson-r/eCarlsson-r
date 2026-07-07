@@ -1,57 +1,21 @@
-## Project Overview
-A full payroll processing system handling employee records, salary calculations, and reporting workflows.
+## Problem
 
-**Business Problem**  
-Businesses need accurate payroll processing with role-based access and structured workflows to avoid errors and ensure compliance.
+An HR team was spending days every month calculating payroll in spreadsheets — applying Indonesian PPh 21 income tax rules, BPJS contributions, and UMR minimum-wage compliance by hand. The process was error-prone, impossible to audit, and had to be redone whenever a rule or salary component changed.
 
-**Key Capabilities**
-- Employee management system
-- Salary calculation logic
-- Role-based access control
-- Payroll reporting workflows
+## Solution
 
----
+Payroll Agent automates payroll calculation, tax compliance, and salary disbursement. Employee data, salary components, and statutory rules live in one system; a pipeline of four specialized agents validates inputs, computes PPh 21, BPJS, and UMR-compliant salaries, and produces disbursement-ready output — a full payroll run in about 13 seconds instead of days.
 
-## Architecture Overview
-**System Structure**
-- Backend: Laravel monolith handling business logic
-- Admin Panel: Blade-based UI for operations
+## Features
 
-**Technology Stack**
-Backend: Laravel, MySQL  
-Frontend: Blade  
-Infrastructure: Local deployment  
+- Employee management with roles, teams, and salary components
+- Automated PPh 21 income tax calculation
+- BPJS (health and employment) contribution handling
+- UMR minimum-wage compliance checks
+- Four-agent pipeline: validation, calculation, compliance, disbursement
+- Payroll reports and per-employee payslips
+- Role-based access for HR, managers, and employees
 
----
+## Architecture
 
-## Domain Complexity
-Payroll involves structured financial calculations, validation rules, and role-based operations that must remain consistent and auditable.
-
----
-
-## Key Engineering Challenges
-**Challenge:** Managing accurate salary calculations  
-**Solution:** Structured calculation logic with validation  
-**Outcome:** Consistent and reliable payroll processing  
-
----
-
-## Design Decisions
-Chose Laravel monolith for rapid development and structured business logic handling.
-
----
-
-## What Makes This Project Unique
-Focus on business workflow accuracy rather than simple CRUD operations.
-
----
-
-## Lessons Learned
-- Importance of validation in financial systems  
-- Structuring business logic clearly  
-
----
-
-## Future Improvements
-- Add automated tax calculations  
-- Expand reporting capabilities  
+Built on Laravel with Blade views, the system models the full payroll domain — employees, components, deductions, statutory rules — as first-class records rather than spreadsheet formulas. The payroll run is a staged pipeline where each agent owns one concern (input validation, gross-to-net calculation, statutory compliance, disbursement preparation), which keeps the tax logic auditable and each stage independently testable.

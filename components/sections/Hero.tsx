@@ -17,7 +17,7 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-headline font-bold leading-tight text-primary mb-6 mx-auto max-w-6xl"
         >
-          <span className="text-tertiary">Business Software</span> Built Around Your Operations.
+          Replace spreadsheets, disconnected tools, and manual workflows with <span className="text-tertiary">software built specifically for your business</span>.
         </motion.h1>
 
         {/* Subtitle */}
@@ -27,8 +27,7 @@ export default function Hero() {
           transition={{ delay: 0.2 }}
           className="text-lg text-on-surface-variant leading-relaxed max-w-5xl mx-auto mb-8"
         >
-          <p>Custom internal systems, customer portals, AI tools, dashboards, and automation — designed, built and shipped end-to-end.</p>
-          <p>One developer. One point of accountability. Production systems that run your business.</p>
+          <p>Carlsson Studio designs and develops internal business systems — from management platforms and customer portals to AI-powered applications — based on how your team actually works.</p>
         </motion.div>
 
         {/* CTA Buttons */}

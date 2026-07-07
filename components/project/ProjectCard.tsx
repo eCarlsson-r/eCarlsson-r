@@ -1,42 +1,21 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import { Project, Repository } from "@/core/types";
-import { ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import DomainBadge from "./DomainBadge";
 
-const domainColors: Record<string, string> = {
-  "Retail": "bg-blue-600",
-  "Property": "bg-teal-600",
-  "AI · Professional Services": "bg-emerald-700",
-  "Insurance": "bg-indigo-600",
-  "Restaurant": "bg-orange-600",
-  "Wellness · Spa": "bg-pink-600",
-  "AI · Finance": "bg-violet-600",
-  "HR · Payroll": "bg-sky-700",
-  "SaaS": "bg-red-500",
-};
-
-function DomainBadge({ domain }: {domain: string}) {
-  if (!domain) return null;
-
-  return (
-    <span className={`text-xs px-2 py-1 mb-5 rounded text-white ${domainColors[domain] ?? "bg-gray-600"}`}>
-      {domain}
-    </span>
-  );
-}
-
-export default function ProjectCard({ project, action }: { project: Project; action: (project: Project) => void; }) {
+export default function ProjectCard({ project }: { project: Project }) {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
       setIsOpen(!isOpen);
   };
-  const projectsDemo = project.repositories?.filter(p => p.url);
-  const clickProject = () => {
-    if (action) action(project);
-  };
+  const projectsDemo = project.repositories?.filter(p => p.url) ?? [];
+  const openCaseStudy = () => router.push(`/projects/${project.slug}`);
 
   return (
     <motion.div
@@ -44,16 +23,17 @@ export default function ProjectCard({ project, action }: { project: Project; act
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
       whileHover={{ scale: 1.02 }}
-      className="group relative rounded-2xl border border-gray-200 dark:border-white/10 
-                 bg-white/70 dark:bg-white/5 backdrop-blur-xl 
-                 p-6 shadow-sm hover:shadow-xl transition"
+      onClick={openCaseStudy}
+      className="group relative flex flex-col rounded-2xl border border-gray-200 dark:border-white/10
+                 bg-white/70 dark:bg-white/5 backdrop-blur-xl
+                 p-6 shadow-sm hover:shadow-xl transition cursor-pointer"
     >
       {/* Glow effect */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition
                       bg-linear-to-r from-red-500/10 to-blue-500/10 blur-xl" />
 
       {project.slides && project.slides.length > 0 && (
-        <div className="p-4 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
+        <div className="pb-4 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
           {project.slides[0].type === "image" ? (
             <Image
               src={project.slides[0].src}
@@ -74,13 +54,18 @@ export default function ProjectCard({ project, action }: { project: Project; act
 
       <DomainBadge domain={project.domain} />
 
-      <h3 className="text-lg font-semibold mb-2 relative z-10">
+      <h3 className="text-lg font-semibold mt-4 mb-2 relative z-10">
         {project.title}
       </h3>
 
       {/* Description */}
-      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 relative z-10">
-        {project.summary}
+      <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 relative z-10">
+        {project.description}
+      </p>
+
+      {/* Outcome stat */}
+      <p className="text-xs text-muted-foreground mb-4 relative z-10">
+        {project.outcome}
       </p>
 
       {/* 🔥 TECH STACK */}
@@ -89,7 +74,7 @@ export default function ProjectCard({ project, action }: { project: Project; act
           (tech: string) => (
             <span
               key={tech}
-              className="text-xs px-2 py-1 rounded-full 
+              className="text-xs px-2 py-1 rounded-full
                          bg-gray-100 dark:bg-white/10"
             >
               {tech}
@@ -101,11 +86,15 @@ export default function ProjectCard({ project, action }: { project: Project; act
       {/* 🔥 LINKS */}
       <div className="flex flex-wrap gap-3 my-3">
         {/* CTA */}
-        <button onClick={clickProject} className="p-2 text-xs md:px-4 md:py-2 md:text-sm font-label tracking-tight rounded-lg border bg-primary text-on-primary relative z-10">
+        <Link
+          href={`/projects/${project.slug}`}
+          onClick={(e) => e.stopPropagation()}
+          className="p-2 text-xs md:px-4 md:py-2 md:text-sm font-label tracking-tight rounded-lg border bg-primary text-on-primary relative z-10"
+        >
           See Case Study
-        </button>
+        </Link>
         {projectsDemo.length == 1 && projectsDemo[0].url && (
-          <Link href={projectsDemo[0].url} target="_blank" className="inline-flex items-center gap-1.5 p-2 text-xs md:px-4 md:py-2 md:text-sm font-label tracking-tight text-on-primary rounded-lg border bg-primary text-on-primary relative z-10">
+          <Link href={projectsDemo[0].url} target="_blank" onClick={(e) => e.stopPropagation()} className="inline-flex items-center gap-1.5 p-2 text-xs md:px-4 md:py-2 md:text-sm font-label tracking-tight text-on-primary rounded-lg border bg-primary text-on-primary relative z-10">
             <ExternalLink className="h-3 w-3 md:w-4 md:h-4" />Live Demo
           </Link>
         )}
@@ -117,7 +106,7 @@ export default function ProjectCard({ project, action }: { project: Project; act
                 <button
                     type="button"
                     className="inline-flex items-center gap-1.5 p-2 text-xs md:px-4 md:py-2 md:text-sm font-label tracking-tight rounded-lg border bg-primary text-on-primary relative z-10"
-                    onClick={toggleDropdown}
+                    onClick={(e) => { e.stopPropagation(); toggleDropdown(); }}
                 >
                     <ExternalLink className="h-3 w-3 md:w-4 md:h-4" />Live Demo
                 </button>
@@ -127,13 +116,13 @@ export default function ProjectCard({ project, action }: { project: Project; act
                     <div className="origin-top-right absolute
                                     right-0 mt-2 w-48 rounded-md
                                     shadow-lg bg-white focus:outline-none ring-1 ring-black
-                                    ring-opacity-5">
+                                    ring-opacity-5 z-20">
                         <div className={"grid grid-cols-"+projectsDemo.length}>
                             {projectsDemo.map((repo: Repository) => repo.url && (
                                 <Link
                                   key={repo.url}
                                   href={repo.url}
-                                  onClick={toggleDropdown}
+                                  onClick={(e) => { e.stopPropagation(); toggleDropdown(); }}
                                   target="_blank"
                                   className="p-2 text-xs md:px-4 md:py-2 md:text-sm text-center text-black hover:bg-gray-100"
                                 >
@@ -147,6 +136,14 @@ export default function ProjectCard({ project, action }: { project: Project; act
         </div>
         )}
       </div>
+
+      <Link
+        href="/#contact"
+        onClick={(e) => e.stopPropagation()}
+        className="mt-auto inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-secondary transition relative z-10"
+      >
+        Request this for your business<ArrowRight className="h-3 w-3" />
+      </Link>
     </motion.div>
   );
 }

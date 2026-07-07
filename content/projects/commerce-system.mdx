@@ -1,58 +1,20 @@
-## Project Overview
-An end-to-end retail system with admin, POS, and storefront applications.
+## Problem
 
-**Business Problem**  
-Retail businesses need integrated systems for transactions, inventory, and customer-facing sales.
+Independent retailers were running their business on disconnected tools: a cash register or spreadsheet for in-store sales, a marketplace storefront that charged commission on every order, and manual stock counts to keep the two in sync. Inventory drifted apart daily — products sold out online while sitting on shelves, and in-store sales never reached the online catalog. Every marketplace sale also gave away margin in commission fees.
 
-**Key Capabilities**
-- POS system
-- Inventory tracking
-- Storefront interface
-- Admin management
+## Solution
 
----
+CommerceSystem replaces that patchwork with one integrated retail platform: a central Laravel API that owns products, stock, and transactions, an Angular POS for in-store cashier operations, and a Next.js storefront the business owns outright — no marketplace, no commission. Every sale, whether at the counter or online, updates the same inventory in real time.
 
-## Architecture Overview
-**System Structure**
-- Backend API
-- POS interface
-- Storefront
+## Features
 
-**Technology Stack**
-Backend: Laravel  
-Frontend: Angular, Next.js  
-Infrastructure: Multi-app  
+- Point-of-sale interface for cashier operations with fast product lookup
+- Commission-free online storefront with the full product catalog
+- Real-time inventory synchronization across POS and storefront
+- Central product, pricing, and stock administration
+- Transaction history and sales reporting across all channels
+- Role-based access for owners, admins, and cashiers
 
----
+## Architecture
 
-## Domain Complexity
-Handling transactional consistency, inventory updates, and multi-user operations.
-
----
-
-## Key Engineering Challenges
-**Challenge:** Managing transaction integrity  
-**Solution:** Structured backend workflows  
-**Outcome:** Reliable system operations  
-
----
-
-## Design Decisions
-Multi-frontend architecture for role separation.
-
----
-
-## What Makes This Project Unique
-Full commerce ecosystem with multiple interfaces.
-
----
-
-## Lessons Learned
-- Transaction handling complexity  
-- Multi-system coordination  
-
----
-
-## Future Improvements
-- Payment integration  
-- Scalability improvements  
+The system follows an API-first design. A Laravel REST API is the single source of truth for products, inventory, and transactions. Two independent frontends consume it: an Angular single-page application optimized for POS speed at the counter, and a Next.js storefront optimized for SEO and customer browsing. Because all writes flow through one backend, transactional consistency and inventory integrity are enforced in a single place, and additional channels can be added without touching the core.

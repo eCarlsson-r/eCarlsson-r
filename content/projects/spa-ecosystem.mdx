@@ -1,59 +1,20 @@
-## Project Overview
-A multi-application ecosystem covering booking, POS, and operational management.
+## Problem
 
-**Business Problem**  
-Spa businesses require integrated systems for booking, transactions, and customer management across multiple touchpoints.
+Spa owners were losing revenue to no-shows and double-bookings while staff tracked services, schedules, and product stock across paper books and chat threads. Multi-branch operators had it worst: no shared view of bookings, staff availability, or inventory across locations.
 
-**Key Capabilities**
-- Booking system
-- POS system with dashboard
-- Real-time notifications
-- Customer management
-- Multi-interface support with language translation
+## Solution
 
----
+SpaSystem covers bookings, staff scheduling, inventory, and payments for wellness businesses in one ecosystem: a customer-facing booking portal, a cashier POS for front-desk operations, and a central API that keeps every branch's schedule, staff, and stock consistent — eliminating double-bookings by design.
 
-## Architecture Overview
-**System Structure**
-- Backend API
-- POS interface
-- Customer booking frontend
+## Features
 
-**Technology Stack**
-Backend: Laravel, REST API  
-Frontend: Next.js, Nuxt  
-Infrastructure: Multi-app deployment  
+- Online customer booking portal with real-time availability
+- Cashier POS for walk-ins, payments, and service checkout
+- Staff scheduling with per-branch rosters
+- Service and treatment catalog management
+- Inventory tracking for products and consumables
+- Multi-branch support with a consolidated view for owners
 
----
+## Architecture
 
-## Domain Complexity
-Requires coordination between booking schedules, real-time transactions, and customer data.
-
----
-
-## Key Engineering Challenges
-**Challenge:** Synchronizing booking and transactions  
-**Solution:** API-first architecture  
-**Outcome:** Consistent cross-platform workflows  
-
----
-
-## Design Decisions
-Separated frontend applications for flexibility and scalability.
-
----
-
-## What Makes This Project Unique
-Multi-application ecosystem rather than single app.
-
----
-
-## Lessons Learned
-- API-first design importance  
-- Managing multiple frontends
-
----
-
-## Future Improvements
-- Payment integration  
-- Scalability improvements  
+A micro-system architecture: a Laravel REST API is the core, with two purpose-built frontends — a Next.js cashier POS for the front desk and a Nuxt booking portal for customers. Availability is computed centrally from staff schedules and existing bookings, so both frontends always see the same truth. Each application deploys independently, letting the booking site iterate without touching POS operations.

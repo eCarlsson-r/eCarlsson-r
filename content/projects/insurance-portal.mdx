@@ -1,57 +1,20 @@
-## Project Overview
-An admin portal for managing insurance policies, client records, and operational workflows.
+## Problem
 
-**Business Problem**  
-Insurance operations require structured data handling, policy tracking, and scalable administrative workflows.
+Insurance agencies were drowning in policy paperwork. Client records, policy documents, production numbers, and team bonus achievements were scattered across binders and spreadsheets — so answering a client's question about coverage or renewals, or an agent's question about their monthly production, took real digging.
 
-**Key Capabilities**
-- Policy management
-- Client records system
-- Role-based workflows
-- Admin dashboard
+## Solution
 
----
+InsurancePortal centralizes policy, claim, and customer management for insurance agencies. Agents see their monthly production and team bonus progress on a bilingual AI dashboard powered by IBM Granite, new policies can be added by uploading a document that AI reads and extracts, and the whole portal works offline as an installable PWA for agents in the field.
 
-## Architecture Overview
-**System Structure**
-- Backend: Laravel API
-- Frontend: React via Inertia
+## Features
 
-**Technology Stack**
-Backend: Laravel, MySQL  
-Frontend: Inertia, React  
-Infrastructure: Web deployment  
+- Policy management with AI-assisted data entry from uploaded documents
+- Customer records with collapsible, structured data entry
+- Agent production tracking per month
+- Team achievement and bonus progress tracking
+- Bilingual AI dashboard powered by IBM Granite
+- Offline-capable progressive web app (PWA)
 
----
+## Architecture
 
-## Domain Complexity
-Insurance systems involve relational data, lifecycle tracking, and structured workflows across multiple entities.
-
----
-
-## Key Engineering Challenges
-**Challenge:** Managing structured policy relationships  
-**Solution:** Clear relational modeling  
-**Outcome:** Scalable and maintainable data structure  
-
----
-
-## Design Decisions
-Used Inertia to balance SPA experience with Laravel backend simplicity.
-
----
-
-## What Makes This Project Unique
-Focus on structured business workflows rather than generic admin CRUD.
-
----
-
-## Lessons Learned
-- Importance of data modeling  
-- Managing workflow states  
-
----
-
-## Future Improvements
-- Add claim record storage  
-- Integrate reporting analytics
+A Laravel backend with Inertia and React delivers a single-page experience with server-owned business rules. Document ingestion routes uploads through an AI extraction step (IBM Granite) that pre-fills policy data for review instead of manual retyping. The PWA layer caches the application shell and key data so agents can consult records without a connection, syncing when back online.

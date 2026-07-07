@@ -1,188 +1,20 @@
-# Project Overview
+## Problem
 
-UrusProperti is an AI-powered property management platform designed to help property owners and managers streamline tenant operations, rental payments, financial tracking, and portfolio analytics through a centralized modern dashboard.
+Property managers were tracking listings, leases, tenants, and maintenance requests across spreadsheets and email threads. Renewal dates slipped, maintenance requests got lost, and answering "which units are vacant and what do they earn" required assembling data by hand.
 
-The platform combines operational management with AI-driven insights to improve decision making, reduce manual administration, and increase visibility across properties and tenants.
+## Solution
 
-**Recognition**
-Top 100 Winner — Hack2Skill GenAI Academy APAC Cohort 1
+UrusProperti manages property listings, tenant records, and lease tracking end-to-end. Properties, units, tenants, leases, payments, and maintenance requests live in one system with a dashboard that shows occupancy and income at a glance — plus an AI insights layer that summarizes portfolio health. The project placed Top 100 in the Google Cloud GenAI Academy APAC Cohort 1 hackathon.
 
----
+## Features
 
-# Business Problem
+- Property and unit management with full listing details
+- Tenant records with lease history
+- Lease tracking with terms, renewals, and payment status
+- Maintenance request intake and resolution tracking
+- Dashboard overview of occupancy, income, and open requests
+- AI-generated insights over the property portfolio
 
-Property management workflows are often fragmented across spreadsheets, chat applications, and manual bookkeeping systems. This creates operational inefficiencies such as:
+## Architecture
 
-* Difficult tenant tracking
-* Inconsistent payment monitoring
-* Poor financial visibility
-* Delayed operational reporting
-* Limited data-driven decision making
-
-UrusProperti addresses these issues through an integrated AI-enabled management platform.
-
----
-
-# Key Capabilities
-
-### Tenant Management
-
-* Centralized tenant database
-* Contact and occupancy tracking
-* Tenant lifecycle management
-
-### Property & Unit Management
-
-* Multi-property administration
-* Unit availability tracking
-* Property rules and operational configuration
-
-### Financial Operations
-
-* Rental payment tracking
-* Receipt generation
-* Expense management
-* Outstanding debt monitoring
-
-### Statistical Reporting
-
-* Revenue analytics
-* Expense analysis
-* Occupancy monitoring
-* Operational performance dashboards
-
-### AI-Powered Insights
-
-* Late payment risk analysis
-* Unusual expense detection
-* Property issue identification
-* Natural language operational queries
-
----
-
-# Architecture Overview
-
-The platform uses a modern SPA architecture optimized for scalability, responsiveness, and maintainability.
-
-### Frontend
-
-* Inertia.js
-* Vue.js
-* Responsive dashboard-driven UI
-
-### Backend
-
-* Laravel API
-* Relational domain modeling
-* Financial transaction processing
-
-### Infrastructure
-
-* Google Cloud Platform
-* AlloyDB
-* Cloud-native deployment architecture
-
----
-
-# Domain Complexity
-
-The system manages interconnected operational and financial entities across multiple business domains:
-
-* Tenants
-* Properties
-* Rental units
-* Lease periods
-* Receipts
-* Expenses
-* Financial reporting
-
-Additional complexity comes from maintaining accurate financial aggregation, reporting consistency, and operational traceability.
-
----
-
-# Key Engineering Challenges
-
-## Challenge: Complex Relational Data Management
-
-Property operations require deeply related entities across tenants, units, receipts, and expenses.
-
-### Solution
-
-Designed a normalized relational schema with scalable entity relationships and structured financial aggregation workflows.
-
-### Outcome
-
-* Maintainable domain architecture
-* Reliable reporting pipeline
-* Scalable multi-property support
-
----
-
-## Challenge: Actionable Operational Analytics
-
-Raw property data alone does not provide meaningful operational insights.
-
-### Solution
-
-Implemented AI-assisted insight generation and analytics workflows for anomaly detection and operational recommendations.
-
-### Outcome
-
-* Faster operational decisions
-* Improved financial visibility
-* Reduced manual analysis effort
-
----
-
-# Design Decisions
-
-### Laravel + Inertia SPA Architecture
-
-Chosen to balance:
-
-* backend productivity
-* SPA user experience
-* rapid iteration
-* maintainable full-stack development
-
-### Google Cloud + AlloyDB
-
-Selected for:
-
-* scalability
-* managed infrastructure
-* relational performance
-* operational reliability
-
----
-
-# What Makes This Project Unique
-
-* AI-powered property operations platform
-* Combines financial tracking with operational intelligence
-* Modern dashboard-first UX
-* Multi-domain proptech architecture
-* Built with scalable cloud-native infrastructure
-* Recognized as Top 100 in Hack2Skill GenAI Academy APAC
-
----
-
-# Lessons Learned
-
-* Designing scalable relational financial systems
-* Structuring multi-entity operational workflows
-* Building analytics-focused SaaS dashboards
-* Integrating AI-assisted operational insights
-* Balancing UX simplicity with domain complexity
-
----
-
-# Future Improvements
-
-* Predictive rental forecasting
-* Automated tenant reminders
-* AI-generated financial summaries
-* Advanced occupancy analytics
-* Mobile application support
-* Multi-role access management
-* Real-time notification system
+Built on a modern Laravel stack with Inertia and Vue, UrusProperti runs as a single-page application backed by server-side domain logic — no separate API layer to maintain. The real-estate domain model (properties, units, leases, tenants, payments, maintenance) is enforced at the database level, and the AI insight layer reads from the same models to generate portfolio summaries. Deployed on Google Cloud Run.

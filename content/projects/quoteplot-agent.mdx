@@ -1,118 +1,19 @@
-## Project Overview
-An AI-powered content analysis system that processes unstructured text and extracts structured insights using automated pipelines and API-driven architecture.
+## Problem
 
-**Business Problem**  
-Analyzing large volumes of text (quotes, content, ideas) is time-consuming and inconsistent when done manually. There is a need for:
+Retail investors tracking volatile stocks had to bounce between charting tools, news feeds, and forums to answer one question: what is this stock doing right now, and does the movement matter? Price charts alone don't explain condition or trend — and most analysis tools assume you already speak their language.
 
-* Automated extraction of meaningful insights
-* Consistent structuring of unorganized content
-* Scalable processing for repeated analysis tasks
+## Solution
 
-This project explores how AI can be integrated into a **practical, reusable analysis workflow**.
+QuotePlot Agent delivers real-time stock intelligence through natural language queries. Users ask about a stock's status, condition, or trend in plain language and get grounded answers alongside live charts. Under the hood, an SVM classification pipeline evaluates market signals with 86% accuracy to back the agent's assessments with a real model rather than generic text.
 
-**Key Capabilities**
+## Features
 
-* AI-driven content parsing and analysis
-* Structured output generation from unstructured input
-* API-based processing pipeline
-* Modular backend for extensible AI workflows
-* Frontend interface for input and result visualization
-* Experimentation with prompt-based processing
+- Natural-language Q&A about stock status, condition, and trends
+- Live stock list and interactive price charts
+- SVM-based signal classification pipeline (86% accuracy)
+- Chat panel integrated beside the chart view
+- Real-time data through API integrations
 
----
+## Architecture
 
-## Architecture Overview
-
-**System Structure**
-```
-FastAPI backend → AI processing + orchestration
-Next.js frontend → user interaction + visualization
-External AI APIs → text analysis and transformation
-```
-
-**Flow**
-```
-User Input → API Request → AI Processing → Structured Output → UI Display
-```
-
-**Technology Stack**
-
-***Backend***
-
-* Python (FastAPI)
-* REST API architecture
-* Modular service design for AI pipeline
-* External AI API integration
-
-***Frontend***
-
-* Next.js
-* React
-* API-driven UI rendering
-
-***Infrastructure***
-
-* Stateless API design for scalability
-* External AI service integration
-* JSON-based structured data output
-
----
-
-## Domain Complexity
-
-* Transforming unstructured natural language into structured data
-* Handling variability and inconsistency in AI-generated responses
-* Designing reusable pipelines for different analysis scenarios
-* Balancing flexibility (prompting) with predictable output structure
-
----
-
-## Key Engineering Challenges
-
-**Challenge:** Inconsistent AI output structure  
-**Solution:** Introduced controlled prompt patterns and post-processing validation  
-**Outcome:** Improved reliability and consistency of structured results
-
-**Challenge:** Integrating AI into a usable system (not just API calls)  
-**Solution:** Designed a modular pipeline separating input, processing, and output stages  
-**Outcome:** Created a reusable architecture for future AI features
-
-**Challenge:** Making AI output usable in UI  
-**Solution:** Standardized JSON response format for frontend consumption  
-**Outcome:** Clean and predictable rendering in the frontend
-
----
-
-## Key Design Decisions (Selected)
-
-* Used **FastAPI** for rapid development and clean API structure
-* Chose **Next.js** for flexible UI and fast iteration
-* Implemented **structured output formatting** to reduce frontend complexity
----
-
-## What Makes This Project Unique
-
-This project is not just an AI demo — it focuses on **turning AI into a usable system component**.
-
-Instead of treating AI as a one-off feature, it introduces:
-
-* Structured pipelines
-* Consistent output contracts
-* Integration into a real application flow
-
-It demonstrates the ability to **bridge AI capabilities with practical software engineering**, which is still a rare skill in many applications.
-
-
----
-
-## Lessons Learned
-
-* AI output must be controlled to be production-usable
-* Prompt design is as important as code in AI systems
-* Separation of pipeline stages improves flexibility and scalability
-
----
-
-## Future Improvements
-- Model improvements  
-- UI enhancements  
+A Python FastAPI service hosts the intelligence layer: data ingestion from market APIs, the SVM classification pipeline, and the agent that translates natural-language questions into analyses. A Next.js frontend provides the stock list, charting, and chat interface. Separating the model service from the UI keeps the ML pipeline independently deployable and testable against historical data.

@@ -2,9 +2,7 @@
 import { Project } from "@/core/types";
 import { motion } from "motion/react";
 import ProjectCard from "./ProjectCard";
-import { useState, useEffect } from "react";
-import ProjectClient from "../project/ProjectClient";
-import { X } from "lucide-react";
+import { ReactNode } from "react";
 
 interface Props {
   className?: string;
@@ -12,49 +10,17 @@ interface Props {
   subtitle?: string;
   description?: string;
   projects: Project[];
+  footerCard?: ReactNode;
 }
 
-import { loadProjectMdx } from "@/lib/hooks/loadProjectMdx";
-
-function ProjectModal({project, hideModal}: {project: Project | undefined, hideModal: ()=>void;}) {
-  const [mdxContent, setMdxContent] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (project?.mdxPath) {
-      loadProjectMdx(project.mdxPath).then((mdx) => {
-        if (mdx) setMdxContent(mdx.content);
-      });
-    }
-  }, [project]);
-
-  return (
-    <div className="fixed inset-0 z-100 flex items-start justify-center overflow-y-scroll bg-background/80 backdrop-blur-sm p-4 md:p-8" onClick={hideModal}>
-      <div className="relative w-full max-w-5xl rounded-2xl border border-border bg-card shadow-2xl fade-in-up">
-        <button aria-label="Close" onClick={hideModal} className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-md border border-border bg-background-elevated text-muted-foreground hover:text-foreground">
-          <X className="h-4 w-4" />
-        </button>
-        <ProjectClient project={project} close={hideModal} mdxContent={mdxContent} />
-      </div>
-    </div>
-  )
-}
-
-export default function ProjectGroup({ className, title, subtitle, description, projects }: Props) {
-  const [showingProject, setShowingProject] = useState<Project>();
-  const openProjectModal = (project: Project) => {
-    setShowingProject(project);
-  }
-
-  const closeProjectModal = () => {
-    setShowingProject(undefined);
-  }
+export default function ProjectGroup({ className, title, subtitle, description, projects, footerCard }: Props) {
   return (
     <section className={className}>
-      <span className="text-xs font-semibold uppercase tracking-widest text-primary">{subtitle}</span>
-      <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{title}</h2>
-      <p className="mt-4 text-muted-foreground">{description}</p>
+      {subtitle && <span className="text-xs font-semibold uppercase tracking-widest text-primary">{subtitle}</span>}
+      {title && <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{title}</h2>}
+      {description && <p className="mt-4 text-muted-foreground">{description}</p>}
 
-      <div className="grid md:grid-cols-3 pt-8 gap-8 no-scrollbar snap-x">
+      <div className="grid grid-cols-2 xl:grid-cols-4 pt-8 gap-8 no-scrollbar snap-x">
         {projects.map((project, i) => (
             <motion.div
               key={project.slug}
@@ -66,12 +32,11 @@ export default function ProjectGroup({ className, title, subtitle, description, 
               {/* Glow effect */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-linear-to-r from-purple-500/10 to-blue-500/10 blur-xl" />
 
-              <ProjectCard project={project} action={openProjectModal} />
+              <ProjectCard project={project} />
             </motion.div>
           ))}
+        {footerCard}
       </div>
-
-      {showingProject && <ProjectModal project={showingProject} hideModal={closeProjectModal} />}
     </section>
   );
 }

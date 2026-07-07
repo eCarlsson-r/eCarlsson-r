@@ -1,11 +1,10 @@
 
 import ProjectGroup from "@/components/project/ProjectGroup";
-import { loadProjects } from "@/lib/signals/loadProjectSignals";
+import { groupedProjects } from "@/data/projects";
 
-export default async function ProjectsPage() {
-  const groupedProjects = await loadProjects(true);
+export default function ProjectsPage() {
   return (
-    <div className="mx-auto max-w-6xl p-8 md:py-24">
+    <div className="mx-auto max-w-7xl p-8 md:py-24">
       <h1 className="text-4xl font-bold text-gray-900">Projects</h1>
 
       <p className="mt-4 text-gray-600">

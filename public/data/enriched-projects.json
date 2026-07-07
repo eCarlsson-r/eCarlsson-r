@@ -59,8 +59,7 @@
     "summary": "Full ecosystem with API, POS, and booking system.",
     "description": "Micro-system architecture including API backend, cashier POS, and customer booking portal.",
     "backend": [
-      "Laravel",
-      "REST API"
+      "Laravel"
     ],
     "frontend": [
       "Next.js",
@@ -198,7 +197,7 @@
   },
   {
     "slug": "insurance-portal",
-    "title": "Insurance Management Portal",
+    "title": "Insurance Portal",
     "category": "signal",
     "summary": "Business workflow system for insurance operations.",
     "description": "Admin portal managing insurance policies, client records, and operational workflows.",
@@ -312,8 +311,7 @@
     "summary": "End-to-end commerce platform with POS and storefront.",
     "description": "Integrated commerce system covering admin API, POS operations, and public online store.",
     "backend": [
-      "Laravel",
-      "REST API"
+      "Laravel"
     ],
     "frontend": [
       "Angular",
@@ -448,8 +446,7 @@
     "summary": "Integrated restaurant operations and reservation platform.",
     "description": "System covering POS operations, menu management, and customer reservation workflows.",
     "backend": [
-      "Laravel",
-      "REST API"
+      "Laravel"
     ],
     "frontend": [
       "Nuxt",

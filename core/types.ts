@@ -1,14 +1,12 @@
 export type ProjectCategory = "signal" | "depth" | "edge";
 export type ProjectDomain =
   | "Retail"
-  | "Property"
-  | "AI · Professional Services"
-  | "Insurance"
   | "Restaurant"
-  | "Wellness · Spa"
-  | "AI · Finance"
-  | "HR · Payroll"
-  | "SaaS";
+  | "Property"
+  | "Insurance"
+  | "Wellness"
+  | "HR & Payroll"
+  | "AI";
 
 export interface Repository {
   name: string;
@@ -32,6 +30,9 @@ export interface Project {
 
   summary: string;
   description: string;
+  outcome: string;
+  certificateFile?: string;
+  certificatePending?: boolean;
 
   repositories: Repository[];
 

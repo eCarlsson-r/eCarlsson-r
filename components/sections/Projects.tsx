@@ -1,30 +1,78 @@
 "use client";
 import { projects } from "@/data/projects";
 import ProjectGroup from "../project/ProjectGroup";
-import { Project } from "@/core/types";
+import { ProjectDomain } from "@/core/types";
 import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+
+const domains: ProjectDomain[] = [
+  "Retail",
+  "Restaurant",
+  "Property",
+  "Insurance",
+  "Wellness",
+  "HR & Payroll",
+  "AI",
+];
+
+type Tab = "All" | ProjectDomain;
+
+function MetaCard() {
+  return (
+    <div className="flex flex-col col-span-full justify-center rounded-2xl border border-dashed border-primary/40 bg-card/50 p-6 text-center">
+      <h3 className="text-lg font-semibold">Don&apos;t see your industry?</h3>
+      <p className="mt-2 text-sm text-muted-foreground">
+        We build custom systems for any business domain.
+      </p>
+      <Link
+        href="/#contact"
+        className="mt-4 inline-flex items-center justify-center gap-1.5 text-sm font-medium text-primary hover:text-secondary transition"
+      >
+        Let&apos;s talk about your project<ArrowRight className="h-4 w-4" />
+      </Link>
+    </div>
+  );
+}
 
 export default function FeaturedProjects() {
-  const [showProjects, setShowProjects] = useState(false);
+  const [activeTab, setActiveTab] = useState<Tab>("All");
 
-  const showFullProject = function() {
-    if (!showProjects) setShowProjects(true);
-  }
+  const filtered = activeTab === "All"
+    ? projects
+    : projects.filter((p) => p.domain === activeTab);
+
   return (
-    <section id="solutions" className="max-w-6xl mx-auto px-6 py-12 md:py-24">
-      <ProjectGroup
-        title="Production-ready systems across 9 business domains."
-        subtitle="Solutions"
-        description="Every system below is live, real, and built end-to-end. Each one is a foundation — not a portfolio piece."
-        projects={(showProjects) ? projects : projects.filter((p: Project) => p.featured)}
-      />
+    <section id="solutions" className="max-w-7xl mx-auto px-6 py-12 xl:py-24">
+      <span className="text-xs font-semibold uppercase tracking-widest text-primary">Solutions</span>
+      <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Production-ready systems across 9 business domains.</h2>
+      <p className="mt-4 text-muted-foreground">
+        Every project represents a real business workflow, designed from the database to deployment.
+        These are production systems — not UI concepts or tutorial applications.
+      </p>
 
-      {!showProjects && (<div className="flex w-full mt-10 justify-center"><button onClick={showFullProject}
-        className="group inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary transition-opacity duration-200"
-      >
-        Load More Projects<ArrowUpRight />
-      </button></div>)}
+      {/* Industry tabs */}
+      <div className="mt-8 flex flex-wrap gap-2">
+        {(["All", ...domains] as Tab[]).map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`rounded-full px-4 py-1.5 text-sm font-label transition ${
+              activeTab === tab
+                ? "bg-primary text-on-primary"
+                : "border border-border text-muted-foreground hover:border-primary hover:text-primary"
+            }`}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      <ProjectGroup
+        title=""
+        projects={filtered}
+        footerCard={activeTab === "All" ? <MetaCard /> : undefined}
+      />
     </section>
   );
 }
