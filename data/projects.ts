@@ -166,7 +166,7 @@ export const projects: Project[] = [
             }
         ],
 
-        featured: true,
+        featured: false,
         year: 2026,
         mdxPath: "restaurant-ecosystem"
     },
@@ -283,7 +283,7 @@ export const projects: Project[] = [
             }
         ],
 
-        featured: true,
+        featured: false,
         year: 2026,
         mdxPath: "carlsson-studio"
     },
