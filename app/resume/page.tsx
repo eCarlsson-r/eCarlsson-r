@@ -53,7 +53,7 @@ export default async function ResumePage() {
 
 function Metric({ value, label }: { value: string | number; label: string }) {
   return (
-    <div className="p-4 rounded-xl bg-blur bg-gradient-to-r from-red-500/10 to-blue-500/10 text-center">
+    <div className="p-4 rounded-xl bg-blur bg-linear-to-r from-red-500/10 to-blue-500/10 text-center">
       <p className="text-4xl font-bold">{value}</p>
       <p className="text-gray-500">{label}</p>
     </div>
