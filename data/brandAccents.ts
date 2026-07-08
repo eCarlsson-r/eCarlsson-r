@@ -11,6 +11,7 @@ export const projectAccents: Record<string, string> = {
   "payroll-system": "#147A5F",
   "quoteplot-agent": "#4A37A8",
   "human-design": "#2F6E75",
+  "carlsson-studio": "#D4AF37",
 };
 
 export const domainAccents: Record<ProjectDomain, string> = {
@@ -21,6 +22,7 @@ export const domainAccents: Record<ProjectDomain, string> = {
   "Insurance": projectAccents["insurance-portal"],
   "HR & Payroll": projectAccents["payroll-system"],
   "AI": projectAccents["quoteplot-agent"],
+  "Software Platform": projectAccents["carlsson-studio"],
 };
 
 // The "Carlsson Studio ribbon" — all eight foundations side by side.
