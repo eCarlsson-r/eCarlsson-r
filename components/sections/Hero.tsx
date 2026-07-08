@@ -3,10 +3,17 @@
 import { ArrowRight, MessageSquare } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { ribbonAccents } from "@/data/brandAccents";
+
+const heroWash = `linear-gradient(105deg, ${ribbonAccents.map((c) => `${c}33`).join(", ")})`;
 
 export default function Hero() {
   return (
-    <section id="hero" className="w-full mx-auto px-6 py-24 text-center bg-linear-to-b md:bg-linear-to-r from-sky-500/30 via-yellow-800/30 to-red-500/30">
+    <section
+      id="hero"
+      className="relative w-full mx-auto px-6 pt-24 pb-28 text-center overflow-hidden"
+      style={{ background: heroWash }}
+    >
       <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-xs font-medium text-muted-foreground">
         <span className="h-2 w-2 rounded-full bg-primary"></span>Available for new projects
       </div>
@@ -45,11 +52,24 @@ export default function Hero() {
           </Link>
 
           <Link
-            href="/contact"
+            href="/start"
             className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label border border-primary hover:border-secondary transition-opacity duration-200"
           >
             <MessageSquare />Start a Project
           </Link>
+        </motion.div>
+
+        {/* Carlsson Studio ribbon — one segment per foundation, closing the hero */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="absolute bottom-0 inset-x-0 flex h-1.5"
+          aria-hidden
+        >
+          {ribbonAccents.map((color) => (
+            <div key={color} className="flex-1" style={{ backgroundColor: color }} />
+          ))}
         </motion.div>
     </section>
   );

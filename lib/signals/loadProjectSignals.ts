@@ -9,7 +9,7 @@ export async function loadProjectSignals(projectSlug: string) {
     const filePath = path.join(process.cwd(), 'public', 'data', 'processed-signals.json');
     const data = fs.readFileSync(filePath, 'utf-8');
     const signals = JSON.parse(data);
-    const signal = signals.find((s: any) => s.id === projectSlug);
+    const signal = signals.find((s: { id: string }) => s.id === projectSlug);
     return signal || null;
   } catch (error) {
     console.error('Error loading project signals:', error);

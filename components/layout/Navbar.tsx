@@ -4,14 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = [
     { href: "/projects", label: "Solutions" },
-    { href: "/about", label: "Studio" },
-    { href: "/contact", label: "Contact" }
+    { href: "/about", label: "Studio" }
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -43,25 +43,30 @@ export default function Navbar() {
           })}
 
           <Link
-            href="/contact"
+            href="/start"
             className="btn-primary text-on-primary px-6 py-2 font-label text-sm uppercase tracking-widest hover:opacity-80 transition-opacity duration-300"
           >
             Start a Project
           </Link>
+
+          <ThemeToggle />
         </div>
 
-        <button
-          onClick={toggleMenu}
-          className="md:hidden focus:outline-none focus:ring-2 focus:ring-primary rounded p-1"
-          aria-expanded={isMenuOpen}
-          aria-label="Toggle navigation menu"
-        >
-          {isMenuOpen ? (
-            <X className="h-6 w-6 text-primary" />
-          ) : (
-            <Menu className="h-6 w-6 text-primary" />
-          )}
-        </button>
+        <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle />
+          <button
+            onClick={toggleMenu}
+            className="focus:outline-none focus:ring-2 focus:ring-primary rounded p-1"
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle navigation menu"
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6 text-primary" />
+            ) : (
+              <Menu className="h-6 w-6 text-primary" />
+            )}
+          </button>
+        </div>
       </nav>
 
       {isMenuOpen && (
@@ -85,7 +90,7 @@ export default function Navbar() {
               );
             })}
             <Link
-              href="/contact"
+              href="/start"
               onClick={closeMenu}
               className="block btn-primary text-on-primary px-6 py-2 font-label text-sm uppercase tracking-widest hover:opacity-80 transition-opacity duration-300 w-fit"
             >

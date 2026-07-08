@@ -50,50 +50,55 @@
 :root {
   --radius: 0.25rem;
 
-  --surface: #f7faf5;
+  --surface: #f7f9f9;
   --surface-container-lowest: rgba(255, 255, 255, 0.8);
-  --surface-container-low: #f1f4ef;
-  --surface-container-high: #e6e9e4;
-  --surface-container-highest: #e0e3df;
+  --surface-container-low: #f0f3f3;
+  --surface-container-high: #e5e9e9;
+  --surface-container-highest: #dfe3e3;
 
   --background: var(--surface);
-  --foreground: #191c1a;
-  --on-surface: #191c1a;
+  --foreground: #1a1c1c;
+  --on-surface: #1a1c1c;
 
-  --primary: #1f8bf0;
+  --primary: #146c7c;
   --primary-foreground: #ffffff;
-  --primary-container: #51a7f3;
+  --primary-container: #1f8496;
   --primary-container-foreground: #ffffff;
+  --primary-fixed: #a8dbe3;
+  --on-primary-fixed: #06333c;
 
-  --secondary: #735045;
+  --secondary: #4b6a70;
   --secondary-foreground: #ffffff;
 
-  --tertiary: #d11212;
+  --tertiary: #9a4d1f;
   --tertiary-foreground: #ffffff;
 
-  --neutral: #e2fdf3;
-  --neutral-foreground: #0f4d3c;
+  --neutral: #e3f1f0;
+  --neutral-foreground: #0d4a45;
+
+  --muted: #e9eeee;
+  --muted-foreground: #5d6f73;
 
   --destructive: #d11212;
 
-  --border: rgba(116, 119, 129, 0.2);
-  --input: rgba(116, 119, 129, 0.3);
-  --ring: rgba(25, 28, 26, 0.16);
+  --border: rgba(116, 125, 127, 0.2);
+  --input: rgba(116, 125, 127, 0.3);
+  --ring: rgba(20, 108, 124, 0.2);
 
   --card: var(--surface-container-low);
   --card-foreground: var(--on-surface);
   --popover: var(--surface-container-lowest);
   --popover-foreground: var(--on-surface);
 
-  --code-background: #001a42;
-  --code-foreground: #d8e2ff;
+  --code-background: #04333c;
+  --code-foreground: #d3eef2;
   --code-string: #ffb3ad;
 
-  --chart-1: #8d5c4b;
-  --chart-2: #3d70ad;
-  --chart-3: #2f477a;
-  --chart-4: #81a06e;
-  --chart-5: #a08b6f;
+  --chart-1: #146c7c;
+  --chart-2: #1d64ad;
+  --chart-3: #9a4d1f;
+  --chart-4: #147a5f;
+  --chart-5: #4a37a8;
 
   --sidebar: var(--surface);
   --sidebar-foreground: var(--on-surface);
@@ -106,30 +111,43 @@
 }
 
 .dark {
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: #2998ff;
-  --primary-foreground: #ffffff;
-  --secondary: #735045;
-  --secondary-foreground: #ffffff;
-  --muted: #735045;
-  --muted-foreground: #ffffff;
-  --accent: #735045;
-  --accent-foreground: #ffffff;
-  --destructive: #d11212;
-  --neutral: #e2fdf3;
+  --background: #101415;
+  --foreground: #e8ecec;
+  --on-surface: #e8ecec;
+  --surface: #101415;
+  --surface-container-lowest: rgba(16, 20, 21, 0.8);
+  --surface-container-low: #171d1e;
+  --surface-container-high: #1f2728;
+  --surface-container-highest: #263031;
+  --card: #171d1e;
+  --card-foreground: #e8ecec;
+  --popover: #171d1e;
+  --popover-foreground: #e8ecec;
+  --primary: #4fb3c5;
+  --primary-foreground: #06333c;
+  --primary-container: #63bfd0;
+  --primary-container-foreground: #06333c;
+  --primary-fixed: #a8dbe3;
+  --on-primary-fixed: #06333c;
+  --secondary: #9fbcc2;
+  --secondary-foreground: #0f2e33;
+  --tertiary: #e8965a;
+  --tertiary-foreground: #3a1c08;
+  --muted: #22484f;
+  --muted-foreground: #a9bcc0;
+  --accent: #22484f;
+  --accent-foreground: #d3eef2;
+  --destructive: #ff5449;
+  --neutral: #10393d;
+  --neutral-foreground: #cdeef2;
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.15);
-  --ring: rgba(255, 255, 255, 0.22);
-  --chart-1: #735045;
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  --ring: rgba(79, 179, 197, 0.3);
+  --chart-1: #4fb3c5;
+  --chart-2: #6ea8e8;
+  --chart-3: #e8965a;
+  --chart-4: #5dbfa5;
+  --chart-5: #9d8ae0;
   --sidebar: oklch(0.21 0.006 285.885);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: var(--primary);
@@ -201,7 +219,7 @@
 
   input:focus, textarea:focus, select:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 0.2rem rgba(1, 43, 100, 0.15);
+    box-shadow: 0 0 0 0.2rem var(--ring);
   }
 
   code, pre {
@@ -300,7 +318,8 @@
   .bg-neutral { background: var(--neutral); }
 
   .text-on-surface { color: var(--on-surface); }
-  .text-on-surface-variant { color: #6f776c; }
+  .text-on-surface-variant { color: #62777c; }
+  .dark .text-on-surface-variant { color: #9fb3b8; }
   .text-on-primary { color: var(--primary-foreground); }
   .text-primary { color: var(--primary); }
   .text-secondary { color: var(--secondary); }

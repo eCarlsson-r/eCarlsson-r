@@ -30,7 +30,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     >
       {/* Glow effect */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition
-                      bg-linear-to-r from-red-500/10 to-blue-500/10 blur-xl" />
+                      bg-linear-to-r from-primary/10 to-primary/5 blur-xl" />
 
       {project.slides && project.slides.length > 0 && (
         <div className="pb-4 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
@@ -138,7 +138,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <Link
-        href="/contact"
+        href="/start"
         onClick={(e) => e.stopPropagation()}
         className="mt-auto inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-secondary transition relative z-10"
       >

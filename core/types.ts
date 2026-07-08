@@ -6,6 +6,7 @@ export type ProjectDomain =
   | "Insurance"
   | "Wellness"
   | "HR & Payroll"
+  | "Software Platform"
   | "AI";
 
 export interface Repository {

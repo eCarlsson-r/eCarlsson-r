@@ -3,6 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { domainAccents } from "@/data/brandAccents";
 
 const foundations = [
   { domain: "HR & Payroll", systems: [{ name: "Payroll Agent", slug: "payroll-system" }] },
@@ -41,7 +42,14 @@ export default function ProvenFoundation() {
               transition={{ delay: i * 0.05 }}
               className="flex items-center justify-between gap-4 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-5 py-4"
             >
-              <span className="text-sm font-medium text-muted-foreground">{item.domain}</span>
+              <span className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+                <span
+                  className="h-2.5 w-2.5 shrink-0 rounded-full"
+                  style={{ backgroundColor: domainAccents[item.domain as keyof typeof domainAccents] }}
+                  aria-hidden
+                />
+                {item.domain}
+              </span>
               <span className="flex flex-wrap items-center justify-end gap-x-3 gap-y-1">
                 {item.systems.map((system) => (
                   <Link

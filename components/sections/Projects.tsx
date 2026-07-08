@@ -1,5 +1,6 @@
 "use client";
 import { projects } from "@/data/projects";
+import { domainAccents } from "@/data/brandAccents";
 import ProjectGroup from "../project/ProjectGroup";
 import { ProjectDomain } from "@/core/types";
 import { useState } from "react";
@@ -26,7 +27,7 @@ function MetaCard() {
         We build custom systems for any business domain.
       </p>
       <Link
-        href="/contact"
+        href="/start"
         className="mt-4 inline-flex items-center justify-center gap-1.5 text-sm font-medium text-primary hover:text-secondary transition"
       >
         Let&apos;s talk about your project<ArrowRight className="h-4 w-4" />
@@ -51,21 +52,26 @@ export default function FeaturedProjects() {
         These are production systems — not UI concepts or tutorial applications.
       </p>
 
-      {/* Industry tabs */}
+      {/* Industry tabs — active domain tab takes its foundation's accent */}
       <div className="mt-8 flex flex-wrap gap-2">
-        {(["All", ...domains] as Tab[]).map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`rounded-full px-4 py-1.5 text-sm font-label transition ${
-              activeTab === tab
-                ? "bg-primary text-on-primary"
-                : "border border-border text-muted-foreground hover:border-primary hover:text-primary"
-            }`}
-          >
-            {tab}
-          </button>
-        ))}
+        {(["All", ...domains] as Tab[]).map((tab) => {
+          const isActive = activeTab === tab;
+          const accent = tab !== "All" ? domainAccents[tab] : undefined;
+          return (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              style={isActive && accent ? { backgroundColor: accent } : undefined}
+              className={`rounded-full px-4 py-1.5 text-sm font-label transition ${
+                isActive
+                  ? tab === "All" ? "bg-primary text-on-primary" : "text-white"
+                  : "border border-border text-muted-foreground hover:border-primary hover:text-primary"
+              }`}
+            >
+              {tab}
+            </button>
+          );
+        })}
       </div>
 
       <ProjectGroup

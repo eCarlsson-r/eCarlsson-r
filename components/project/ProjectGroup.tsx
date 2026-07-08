@@ -20,7 +20,7 @@ export default function ProjectGroup({ className, title, subtitle, description, 
       {title && <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{title}</h2>}
       {description && <p className="mt-4 text-muted-foreground">{description}</p>}
 
-      <div className="grid md:grid-cols-2 xl:grid-cols-4 pt-8 gap-8 no-scrollbar snap-x">
+      <div className="grid md:grid-cols-3 pt-8 gap-8 no-scrollbar snap-x">
         {projects.map((project, i) => (
             <motion.div
               key={project.slug}
@@ -30,7 +30,7 @@ export default function ProjectGroup({ className, title, subtitle, description, 
               className="group relative rounded-2xl backdrop-blur hover:shadow-xl hover:-translate-y-1 transition"
             >
               {/* Glow effect */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-linear-to-r from-purple-500/10 to-blue-500/10 blur-xl" />
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-linear-to-r from-primary/10 to-primary/5 blur-xl" />
 
               <ProjectCard project={project} />
             </motion.div>
