@@ -27,7 +27,7 @@ function MetaCard() {
         We build custom systems for any business domain.
       </p>
       <Link
-        href="/start"
+        href="/start-a-project"
         className="mt-4 inline-flex items-center justify-center gap-1.5 text-sm font-medium text-primary hover:text-secondary transition"
       >
         Let&apos;s talk about your project<ArrowRight className="h-4 w-4" />

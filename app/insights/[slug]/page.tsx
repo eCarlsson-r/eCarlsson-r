@@ -47,7 +47,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
           Two minutes of questions, one concrete recommendation.
         </p>
         <Link
-          href="/start"
+          href="/start-a-project"
           className="mt-5 inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary hover:opacity-80 transition-opacity"
         >
           Start a Project<ArrowRight className="h-4 w-4" />

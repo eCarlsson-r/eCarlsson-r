@@ -1,0 +1,75 @@
+/**
+ * Client for the Carlsson Studio Spring Boot API.
+ * All endpoints wrap responses in a { success, message, data } envelope.
+ */
+
+const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? "https://api.carlssonstudio.com").replace(/\/$/, "");
+
+export interface QuestionnaireConfig {
+  industries: string[];
+  buildTypes: string[];
+  problems: string[];
+  features: string[];
+  companySizes: string[];
+}
+
+export interface LeadPayload {
+  name: string;
+  email: string;
+  company?: string;
+  companySize: string;
+  industry: string;
+  buildType: string;
+  problems: string[];
+  features: string[];
+}
+
+export interface Recommendation {
+  foundationSlug: string;
+  foundationName: string;
+  matchScore: number;
+  matchReason: string;
+}
+
+export interface LeadResult {
+  id: number;
+  name: string;
+  recommendations: Recommendation[];
+}
+
+interface Envelope<T> {
+  success: boolean;
+  message?: string;
+  data: T;
+}
+
+async function unwrap<T>(res: Response): Promise<T> {
+  let body: Envelope<T> | null = null;
+  try {
+    body = (await res.json()) as Envelope<T>;
+  } catch {
+    throw new Error(`The server returned an unexpected response (${res.status}).`);
+  }
+  if (!res.ok || !body?.success) {
+    throw new Error(body?.message || `Request failed (${res.status}).`);
+  }
+  return body.data;
+}
+
+export async function fetchQuestionnaireConfig(signal?: AbortSignal): Promise<QuestionnaireConfig> {
+  const res = await fetch(`${API_URL}/api/config/questionnaire`, {
+    method: "GET",
+    headers: { Accept: "application/json" },
+    signal,
+  });
+  return unwrap<QuestionnaireConfig>(res);
+}
+
+export async function submitLead(payload: LeadPayload): Promise<LeadResult> {
+  const res = await fetch(`${API_URL}/api/leads`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify(payload),
+  });
+  return unwrap<LeadResult>(res);
+}

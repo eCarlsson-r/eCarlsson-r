@@ -23,7 +23,7 @@ export default function StartProjectCTA() {
           We start from battle-tested business systems — then customize them for your operations.
         </p>
         <Link
-          href="/start"
+          href="/start-a-project"
           className="mt-8 inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary transition-opacity duration-200 hover:opacity-80"
         >
           Start a Project<ArrowRight />

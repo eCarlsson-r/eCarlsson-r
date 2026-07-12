@@ -4,7 +4,7 @@ const footerLinks = [
   { href: "/projects", label: "Solutions" },
   { href: "/about", label: "Studio" },
   { href: "/insights", label: "Insights" },
-  { href: "/start", label: "Start a Project" },
+  { href: "/start-a-project", label: "Start a Project" },
 ];
 
 export default function Footer() {

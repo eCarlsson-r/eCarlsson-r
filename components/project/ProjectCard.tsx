@@ -138,7 +138,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <Link
-        href="/start"
+        href={`/start-a-project?industry=${encodeURIComponent(project.domain)}`}
         onClick={(e) => e.stopPropagation()}
         className="mt-auto inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-secondary transition relative z-10"
       >

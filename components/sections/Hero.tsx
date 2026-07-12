@@ -52,7 +52,7 @@ export default function Hero() {
           </Link>
 
           <Link
-            href="/start"
+            href="/start-a-project"
             className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label border border-primary hover:border-secondary transition-opacity duration-200"
           >
             <MessageSquare />Start a Project

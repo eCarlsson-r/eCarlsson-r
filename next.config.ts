@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
         destination: "/insights",
         permanent: true,
       },
+      {
+        source: "/start",
+        destination: "/start-a-project",
+        permanent: true,
+      },
     ];
   }
 };

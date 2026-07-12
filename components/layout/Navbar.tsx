@@ -43,7 +43,7 @@ export default function Navbar() {
           })}
 
           <Link
-            href="/start"
+            href="/start-a-project"
             className="btn-primary text-on-primary px-6 py-2 font-label text-sm uppercase tracking-widest hover:opacity-80 transition-opacity duration-300"
           >
             Start a Project
@@ -90,7 +90,7 @@ export default function Navbar() {
               );
             })}
             <Link
-              href="/start"
+              href="/start-a-project"
               onClick={closeMenu}
               className="block btn-primary text-on-primary px-6 py-2 font-label text-sm uppercase tracking-widest hover:opacity-80 transition-opacity duration-300 w-fit"
             >
