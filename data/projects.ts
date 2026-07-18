@@ -273,13 +273,8 @@ export const projects: Project[] = [
         slides: [
             {
                 type: "image",
-                src: "/images/Carlsson-Studio.png",
+                src: "/images/CarlssonStudio.png",
                 alt: "Carlsson Studio homepage."
-            },
-            {
-                type: "image",
-                src: "/images/screenshots/carlsson-studio.png",
-                alt: "Interactive Start a Project experience recommending business software foundations."
             }
         ],
 
