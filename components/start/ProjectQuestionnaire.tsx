@@ -13,6 +13,7 @@ import {
 } from "@/lib/api";
 import { resolveProjectSlug } from "@/lib/foundationSlug";
 import { projectAccents } from "@/data/brandAccents";
+import { generateEventId, getFbc, getFbp, trackLead } from "@/lib/metaPixel";
 
 const TOTAL_STEPS = 6;
 
@@ -34,6 +35,8 @@ interface Answers {
   companySize: string;
   name: string;
   email: string;
+  phone: string;
+  whatsappOptIn: boolean;
 }
 
 const emptyAnswers: Answers = {
@@ -45,9 +48,13 @@ const emptyAnswers: Answers = {
   companySize: "",
   name: "",
   email: "",
+  phone: "",
+  whatsappOptIn: false,
 };
 
 const emailValid = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+// Mirrors the backend's LeadRequest#phone pattern.
+const phoneValid = (phone: string) => /^[+0-9 ().-]+$/.test(phone.trim());
 
 function toggle(list: string[], value: string) {
   return list.includes(value) ? list.filter((v) => v !== value) : [...list, value];
@@ -158,7 +165,14 @@ export default function ProjectQuestionnaire() {
       case 3: return answers.problems.length >= 1;
       case 4: return answers.features.length >= 1;
       case 5: return answers.companySize !== "";
-      case 6: return answers.name.trim() !== "" && emailValid(answers.email);
+      case 6: {
+        const email = answers.email.trim();
+        const phone = answers.phone.trim();
+        const emailOk = email === "" || emailValid(email);
+        const phoneOk = phone === "" || phoneValid(phone);
+        const hasContact = (email !== "" && emailValid(email)) || (phone !== "" && phoneValid(phone));
+        return answers.name.trim() !== "" && emailOk && phoneOk && hasContact;
+      }
       default: return false;
     }
   }, [step, answers]);
@@ -166,17 +180,27 @@ export default function ProjectQuestionnaire() {
   const submit = useCallback(async () => {
     setSubmitting(true);
     setSubmitError(null);
+    // Generated once per attempt and shared with the Pixel event below so
+    // Meta dedupes the client + server pair instead of double-counting.
+    const fbEventId = generateEventId();
     try {
       const data = await submitLead({
         name: answers.name.trim(),
-        email: answers.email.trim(),
+        ...(answers.email.trim() ? { email: answers.email.trim() } : {}),
+        ...(answers.phone.trim()
+          ? { phone: answers.phone.trim(), whatsappOptIn: answers.whatsappOptIn }
+          : {}),
         ...(answers.company.trim() ? { company: answers.company.trim() } : {}),
         companySize: answers.companySize,
         industry: answers.industry,
         buildType: answers.buildType,
         problems: answers.problems,
         features: answers.features,
+        fbEventId,
+        fbp: getFbp(),
+        fbc: getFbc(),
       });
+      trackLead(fbEventId);
       setResult(data);
     } catch (err: any) {
       setSubmitError(err?.message || "Something went wrong submitting your answers. Please try again.");
@@ -215,7 +239,10 @@ export default function ProjectQuestionnaire() {
 
   if (!config) return <Skeleton />;
 
-  if (result) return <Results result={result} email={answers.email.trim()} />;
+  if (result) {
+    const contact = answers.email.trim() || answers.phone.trim();
+    return <Results result={result} contact={contact} />;
+  }
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-16 md:py-20" onKeyDown={onKeyDown}>
@@ -307,8 +334,11 @@ export default function ProjectQuestionnaire() {
                 className="w-full rounded-lg"
               />
             </label>
+            <p className="text-sm text-muted-foreground -mt-2">
+              Provide an email, a WhatsApp number, or both — we need at least one way to reach you.
+            </p>
             <label className="block">
-              <span className="mb-2 block text-sm font-medium">Email <span className="text-primary">*</span></span>
+              <span className="mb-2 block text-sm font-medium">Email</span>
               <input
                 type="email"
                 maxLength={150}
@@ -322,6 +352,41 @@ export default function ProjectQuestionnaire() {
                 <span className="mt-1 block text-xs text-destructive">Enter a valid email address.</span>
               )}
             </label>
+            <label className="block">
+              <span className="mb-2 block text-sm font-medium">WhatsApp number</span>
+              <input
+                type="tel"
+                maxLength={25}
+                value={answers.phone}
+                onChange={(e) => set("phone", e.target.value)}
+                placeholder="0812 3456 7890"
+                className="w-full rounded-lg"
+                aria-invalid={answers.phone !== "" && !phoneValid(answers.phone)}
+              />
+              {answers.phone !== "" && !phoneValid(answers.phone) && (
+                <span className="mt-1 block text-xs text-destructive">Enter a valid phone number.</span>
+              )}
+            </label>
+            {answers.phone.trim() !== "" && phoneValid(answers.phone) && (
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={answers.whatsappOptIn}
+                  onChange={(e) => set("whatsappOptIn", e.target.checked)}
+                  className="mt-1 h-4 w-4 accent-[var(--primary)]"
+                />
+                <span className="text-sm text-muted-foreground">
+                  Send my recommendation and follow-up via WhatsApp. We only message you about this project.
+                </span>
+              </label>
+            )}
+            {answers.name.trim() !== "" &&
+              answers.email.trim() === "" &&
+              answers.phone.trim() === "" && (
+                <p className="text-xs text-destructive">
+                  Add an email or a WhatsApp number so we can reach you.
+                </p>
+            )}
             {submitError && (
               <p className="rounded-lg border border-destructive/40 bg-destructive/5 px-4 py-3 text-sm text-destructive">
                 {submitError}
@@ -357,7 +422,7 @@ export default function ProjectQuestionnaire() {
   );
 }
 
-function Results({ result, email }: { result: LeadResult; email: string }) {
+function Results({ result, contact }: { result: LeadResult; contact: string }) {
   const [top, ...rest] = result.recommendations ?? [];
   const others = rest.slice(0, 2);
 
@@ -366,7 +431,7 @@ function Results({ result, email }: { result: LeadResult; email: string }) {
       <div className="mx-auto max-w-3xl px-6 py-24 text-center">
         <h1 className="text-3xl font-bold tracking-tight">Thank you, {result.name}.</h1>
         <p className="mt-4 text-muted-foreground">
-          We&apos;ve received your submission and will be in touch within 24 hours at {email}.
+          We&apos;ve received your submission and will be in touch within 24 hours at {contact}.
         </p>
       </div>
     );
@@ -428,7 +493,7 @@ function Results({ result, email }: { result: LeadResult; email: string }) {
       )}
 
       <p className="mt-8 text-muted-foreground">
-        We&apos;ll be in touch within 24 hours at <span className="font-medium text-on-surface">{email}</span>.
+        We&apos;ll be in touch within 24 hours at <span className="font-medium text-on-surface">{contact}</span>.
       </p>
 
       {topSlug && (

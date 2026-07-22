@@ -15,13 +15,23 @@ export interface QuestionnaireConfig {
 
 export interface LeadPayload {
   name: string;
-  email: string;
+  // At least one of email/phone must be present — enforced by the UI
+  // and re-checked by the backend (LeadRequest#isContactProvided).
+  email?: string;
+  phone?: string;
+  whatsappOptIn?: boolean;
   company?: string;
   companySize: string;
   industry: string;
   buildType: string;
   problems: string[];
   features: string[];
+  // Meta ad-tracking metadata — see lib/metaPixel.ts. Absent when the
+  // Pixel is blocked or unconfigured; the backend treats all three as
+  // optional.
+  fbEventId?: string;
+  fbp?: string;
+  fbc?: string;
 }
 
 export interface Recommendation {

@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import MetaPixel from "@/components/analytics/MetaPixel";
 
 export const metadata = {
   title: "Carlsson Studio | Business Software Studio",
@@ -28,6 +29,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-foreground antialiased">
+        <MetaPixel />
         <Navbar />
         <main>{children}</main>
         <Footer />
