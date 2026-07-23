@@ -5,6 +5,13 @@
 
 const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? "https://api.carlssonstudio.com").replace(/\/$/, "");
 
+// The /start-a-project questionnaire is Bahasa Indonesia-only today (see
+// components/start/ProjectQuestionnaire.tsx), so every request asks the
+// backend for Indonesian copy — validation messages, envelope messages,
+// and the recommendation match reason. The backend falls back to English
+// for any locale it doesn't ship, so this is safe even if unset.
+const ACCEPT_LANGUAGE = "id";
+
 export interface QuestionnaireConfig {
   industries: string[];
   buildTypes: string[];
@@ -19,7 +26,6 @@ export interface LeadPayload {
   // and re-checked by the backend (LeadRequest#isContactProvided).
   email?: string;
   phone?: string;
-  whatsappOptIn?: boolean;
   company?: string;
   companySize: string;
   industry: string;
@@ -69,7 +75,7 @@ async function unwrap<T>(res: Response): Promise<T> {
 export async function fetchQuestionnaireConfig(signal?: AbortSignal): Promise<QuestionnaireConfig> {
   const res = await fetch(`${API_URL}/api/config/questionnaire`, {
     method: "GET",
-    headers: { Accept: "application/json" },
+    headers: { Accept: "application/json", "Accept-Language": ACCEPT_LANGUAGE },
     signal,
   });
   return unwrap<QuestionnaireConfig>(res);
@@ -78,7 +84,11 @@ export async function fetchQuestionnaireConfig(signal?: AbortSignal): Promise<Qu
 export async function submitLead(payload: LeadPayload): Promise<LeadResult> {
   const res = await fetch(`${API_URL}/api/leads`, {
     method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "Accept-Language": ACCEPT_LANGUAGE,
+    },
     body: JSON.stringify(payload),
   });
   return unwrap<LeadResult>(res);

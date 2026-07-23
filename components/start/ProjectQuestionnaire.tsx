@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { motion } from "motion/react";
-import { ArrowLeft, ArrowRight, Check, RotateCw, Star } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, MessageCircle, RotateCw, Star } from "lucide-react";
 import {
   fetchQuestionnaireConfig,
   submitLead,
@@ -14,16 +14,29 @@ import {
 import { resolveProjectSlug } from "@/lib/foundationSlug";
 import { projectAccents } from "@/data/brandAccents";
 import { generateEventId, getFbc, getFbp, trackLead } from "@/lib/metaPixel";
+import {
+  translateOption,
+  industryLabels,
+  buildTypeLabels,
+  problemLabels,
+  featureLabels,
+  companySizeLabels,
+} from "@/lib/id/questionnaireOptions";
+import { buildLeadWhatsAppMessage, getStudioWhatsAppLink } from "@/lib/whatsapp";
 
 const TOTAL_STEPS = 6;
 
+// Display copy is Bahasa Indonesia — most visitors arrive from Indonesian-
+// language ads. The option VALUES stored in `answers` and sent to
+// submitLead() stay in English throughout; only translateOption() output
+// (labels) is Indonesian. See lib/id/questionnaireOptions.ts.
 const stepTitles = [
-  "What industry is your business in?",
-  "What type of system do you need?",
-  "What problems are you trying to solve?",
-  "Which features do you need?",
-  "About your company",
-  "Your contact details",
+  "Bisnis Anda bergerak di bidang apa?",
+  "Sistem seperti apa yang Anda butuhkan?",
+  "Masalah apa yang ingin Anda selesaikan?",
+  "Fitur apa saja yang Anda butuhkan?",
+  "Tentang Bisnis Anda",
+  "Detail Kontak Anda",
 ];
 
 interface Answers {
@@ -36,7 +49,6 @@ interface Answers {
   name: string;
   email: string;
   phone: string;
-  whatsappOptIn: boolean;
 }
 
 const emptyAnswers: Answers = {
@@ -49,7 +61,6 @@ const emptyAnswers: Answers = {
   name: "",
   email: "",
   phone: "",
-  whatsappOptIn: false,
 };
 
 const emailValid = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
@@ -143,7 +154,7 @@ export default function ProjectQuestionnaire() {
         }
       })
       .catch((err) => {
-        if (err?.name !== "AbortError") setLoadError(err?.message || "Could not load the questionnaire.");
+        if (err?.name !== "AbortError") setLoadError(err?.message || "Gagal memuat kuesioner.");
       });
 
     return () => controller.abort();
@@ -187,9 +198,7 @@ export default function ProjectQuestionnaire() {
       const data = await submitLead({
         name: answers.name.trim(),
         ...(answers.email.trim() ? { email: answers.email.trim() } : {}),
-        ...(answers.phone.trim()
-          ? { phone: answers.phone.trim(), whatsappOptIn: answers.whatsappOptIn }
-          : {}),
+        ...(answers.phone.trim() ? { phone: answers.phone.trim() } : {}),
         ...(answers.company.trim() ? { company: answers.company.trim() } : {}),
         companySize: answers.companySize,
         industry: answers.industry,
@@ -203,7 +212,7 @@ export default function ProjectQuestionnaire() {
       trackLead(fbEventId);
       setResult(data);
     } catch (err: any) {
-      setSubmitError(err?.message || "Something went wrong submitting your answers. Please try again.");
+      setSubmitError(err?.message || "Terjadi kesalahan saat mengirim jawaban Anda. Silakan coba lagi.");
     } finally {
       setSubmitting(false);
     }
@@ -225,13 +234,13 @@ export default function ProjectQuestionnaire() {
   if (loadError) {
     return (
       <div className="mx-auto max-w-3xl px-6 py-24 text-center">
-        <h1 className="text-2xl font-bold tracking-tight">We couldn&apos;t load the questionnaire</h1>
+        <h1 className="text-2xl font-bold tracking-tight">Kuesioner gagal dimuat</h1>
         <p className="mt-3 text-muted-foreground">{loadError}</p>
         <button
           onClick={() => setReloadKey((k) => k + 1)}
           className="mt-6 inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary hover:opacity-80 transition-opacity"
         >
-          <RotateCw className="h-4 w-4" />Try again
+          <RotateCw className="h-4 w-4" />Coba Lagi
         </button>
       </div>
     );
@@ -241,14 +250,14 @@ export default function ProjectQuestionnaire() {
 
   if (result) {
     const contact = answers.email.trim() || answers.phone.trim();
-    return <Results result={result} contact={contact} />;
+    return <Results result={result} contact={contact} answers={answers} />;
   }
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-16 md:py-20" onKeyDown={onKeyDown}>
       <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-        <span>Start a Project</span>
-        <span>Step {step} of {TOTAL_STEPS}</span>
+        <span>Mulai Proyek</span>
+        <span>Langkah {step} dari {TOTAL_STEPS}</span>
       </div>
       <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-white/10">
         <div
@@ -262,7 +271,7 @@ export default function ProjectQuestionnaire() {
         {step === 1 && (
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {config.industries.map((option) => (
-              <Option key={option} label={option} selected={answers.industry === option} onClick={() => set("industry", option)} />
+              <Option key={option} label={translateOption(industryLabels, option)} selected={answers.industry === option} onClick={() => set("industry", option)} />
             ))}
           </div>
         )}
@@ -270,17 +279,17 @@ export default function ProjectQuestionnaire() {
         {step === 2 && (
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {config.buildTypes.map((option) => (
-              <Option key={option} label={option} selected={answers.buildType === option} onClick={() => set("buildType", option)} />
+              <Option key={option} label={translateOption(buildTypeLabels, option)} selected={answers.buildType === option} onClick={() => set("buildType", option)} />
             ))}
           </div>
         )}
 
         {step === 3 && (
           <>
-            <p className="mb-4 text-sm text-muted-foreground">Select everything that applies.</p>
+            <p className="mb-4 text-sm text-muted-foreground">Pilih semua yang sesuai dengan bisnis Anda.</p>
             <div className="grid gap-3 sm:grid-cols-2">
               {config.problems.map((option) => (
-                <Option key={option} multi label={option} selected={answers.problems.includes(option)} onClick={() => toggleField("problems", option)} />
+                <Option key={option} multi label={translateOption(problemLabels, option)} selected={answers.problems.includes(option)} onClick={() => toggleField("problems", option)} />
               ))}
             </div>
           </>
@@ -288,10 +297,10 @@ export default function ProjectQuestionnaire() {
 
         {step === 4 && (
           <>
-            <p className="mb-4 text-sm text-muted-foreground">Select everything you expect the system to handle.</p>
+            <p className="mb-4 text-sm text-muted-foreground">Pilih semua fitur yang Anda butuhkan dari sistem ini.</p>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {config.features.map((option) => (
-                <Option key={option} multi label={option} selected={answers.features.includes(option)} onClick={() => toggleField("features", option)} />
+                <Option key={option} multi label={translateOption(featureLabels, option)} selected={answers.features.includes(option)} onClick={() => toggleField("features", option)} />
               ))}
             </div>
           </>
@@ -300,21 +309,21 @@ export default function ProjectQuestionnaire() {
         {step === 5 && (
           <div className="space-y-6">
             <label className="block">
-              <span className="mb-2 block text-sm font-medium">Company name <span className="text-muted-foreground">(optional)</span></span>
+              <span className="mb-2 block text-sm font-medium">Nama Bisnis <span className="text-muted-foreground">(opsional)</span></span>
               <input
                 type="text"
                 maxLength={100}
                 value={answers.company}
                 onChange={(e) => set("company", e.target.value)}
-                placeholder="Acme Retail"
+                placeholder="Toko Maju Jaya"
                 className="w-full rounded-lg"
               />
             </label>
             <div>
-              <span className="mb-2 block text-sm font-medium">Company size</span>
+              <span className="mb-2 block text-sm font-medium">Jumlah Karyawan</span>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {config.companySizes.map((option) => (
-                  <Option key={option} label={option} selected={answers.companySize === option} onClick={() => set("companySize", option)} />
+                  <Option key={option} label={translateOption(companySizeLabels, option)} selected={answers.companySize === option} onClick={() => set("companySize", option)} />
                 ))}
               </div>
             </div>
@@ -324,18 +333,18 @@ export default function ProjectQuestionnaire() {
         {step === 6 && (
           <div className="space-y-6">
             <label className="block">
-              <span className="mb-2 block text-sm font-medium">Name <span className="text-primary">*</span></span>
+              <span className="mb-2 block text-sm font-medium">Nama <span className="text-primary">*</span></span>
               <input
                 type="text"
                 maxLength={100}
                 value={answers.name}
                 onChange={(e) => set("name", e.target.value)}
-                placeholder="Jane Doe"
+                placeholder="Budi Santoso"
                 className="w-full rounded-lg"
               />
             </label>
             <p className="text-sm text-muted-foreground -mt-2">
-              Provide an email, a WhatsApp number, or both — we need at least one way to reach you.
+              Isi email, nomor WhatsApp, atau keduanya — kami butuh minimal satu cara untuk menghubungi Anda.
             </p>
             <label className="block">
               <span className="mb-2 block text-sm font-medium">Email</span>
@@ -344,16 +353,16 @@ export default function ProjectQuestionnaire() {
                 maxLength={150}
                 value={answers.email}
                 onChange={(e) => set("email", e.target.value)}
-                placeholder="jane@company.com"
+                placeholder="nama@usaha.com"
                 className="w-full rounded-lg"
                 aria-invalid={answers.email !== "" && !emailValid(answers.email)}
               />
               {answers.email !== "" && !emailValid(answers.email) && (
-                <span className="mt-1 block text-xs text-destructive">Enter a valid email address.</span>
+                <span className="mt-1 block text-xs text-destructive">Masukkan alamat email yang valid.</span>
               )}
             </label>
             <label className="block">
-              <span className="mb-2 block text-sm font-medium">WhatsApp number</span>
+              <span className="mb-2 block text-sm font-medium">Nomor WhatsApp</span>
               <input
                 type="tel"
                 maxLength={25}
@@ -364,27 +373,14 @@ export default function ProjectQuestionnaire() {
                 aria-invalid={answers.phone !== "" && !phoneValid(answers.phone)}
               />
               {answers.phone !== "" && !phoneValid(answers.phone) && (
-                <span className="mt-1 block text-xs text-destructive">Enter a valid phone number.</span>
+                <span className="mt-1 block text-xs text-destructive">Masukkan nomor telepon yang valid.</span>
               )}
             </label>
-            {answers.phone.trim() !== "" && phoneValid(answers.phone) && (
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={answers.whatsappOptIn}
-                  onChange={(e) => set("whatsappOptIn", e.target.checked)}
-                  className="mt-1 h-4 w-4 accent-[var(--primary)]"
-                />
-                <span className="text-sm text-muted-foreground">
-                  Send my recommendation and follow-up via WhatsApp. We only message you about this project.
-                </span>
-              </label>
-            )}
             {answers.name.trim() !== "" &&
               answers.email.trim() === "" &&
               answers.phone.trim() === "" && (
                 <p className="text-xs text-destructive">
-                  Add an email or a WhatsApp number so we can reach you.
+                  Tambahkan email atau nomor WhatsApp agar kami bisa menghubungi Anda.
                 </p>
             )}
             {submitError && (
@@ -403,7 +399,7 @@ export default function ProjectQuestionnaire() {
             onClick={() => setStep((s) => s - 1)}
             className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition"
           >
-            <ArrowLeft className="h-4 w-4" />Back
+            <ArrowLeft className="h-4 w-4" />Kembali
           </button>
         ) : (
           <span />
@@ -414,7 +410,7 @@ export default function ProjectQuestionnaire() {
           disabled={!canAdvance || submitting}
           className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary hover:opacity-80 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          {step === TOTAL_STEPS ? (submitting ? "Submitting…" : "Get My Recommendation") : "Continue"}
+          {step === TOTAL_STEPS ? (submitting ? "Mengirim…" : "Lihat Rekomendasi Saya") : "Lanjut"}
           {!submitting && <ArrowRight className="h-4 w-4" />}
         </button>
       </div>
@@ -422,16 +418,28 @@ export default function ProjectQuestionnaire() {
   );
 }
 
-function Results({ result, contact }: { result: LeadResult; contact: string }) {
+function Results({ result, contact, answers }: { result: LeadResult; contact: string; answers: Answers }) {
   const [top, ...rest] = result.recommendations ?? [];
   const others = rest.slice(0, 2);
+
+  const whatsappLink = top
+    ? getStudioWhatsAppLink(
+        buildLeadWhatsAppMessage(answers, top, {
+          industry: (v) => translateOption(industryLabels, v),
+          buildType: (v) => translateOption(buildTypeLabels, v),
+          problem: (v) => translateOption(problemLabels, v),
+          feature: (v) => translateOption(featureLabels, v),
+          companySize: (v) => translateOption(companySizeLabels, v),
+        })
+      )
+    : null;
 
   if (!top) {
     return (
       <div className="mx-auto max-w-3xl px-6 py-24 text-center">
-        <h1 className="text-3xl font-bold tracking-tight">Thank you, {result.name}.</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Terima kasih, {result.name}.</h1>
         <p className="mt-4 text-muted-foreground">
-          We&apos;ve received your submission and will be in touch within 24 hours at {contact}.
+          Jawaban Anda sudah kami terima. Kami akan menghubungi Anda dalam 24 jam melalui {contact}.
         </p>
       </div>
     );
@@ -442,8 +450,8 @@ function Results({ result, contact }: { result: LeadResult; contact: string }) {
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-16 md:py-20">
-      <span className="text-xs font-semibold uppercase tracking-widest text-primary">Your match</span>
-      <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Your Recommended Foundation</h1>
+      <span className="text-xs font-semibold uppercase tracking-widest text-primary">Rekomendasi Anda</span>
+      <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Fondasi Sistem yang Direkomendasikan</h1>
 
       {/* Top match */}
       <div className="mt-8 rounded-2xl border bg-card/50 p-6 md:p-8" style={{ borderColor: topAccent ?? undefined }}>
@@ -455,12 +463,15 @@ function Results({ result, contact }: { result: LeadResult; contact: string }) {
         <div className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
           <h2 className="text-2xl md:text-3xl font-bold">{top.foundationName}</h2>
           <span className="text-3xl font-bold" style={{ color: topAccent }}>{Math.round(top.matchScore)}%</span>
-          <span className="text-sm text-muted-foreground">match</span>
+          <span className="text-sm text-muted-foreground">kecocokan</span>
         </div>
-        <p className="mt-4 text-muted-foreground">{top.matchReason}</p>
+        <p className="mt-4 text-muted-foreground">
+          <span className="font-medium text-on-surface">Alasan: </span>
+          {top.matchReason}
+        </p>
         {topSlug && (
           <Link href={`/projects/${topSlug}`} className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-secondary transition">
-            See the full case study<ArrowRight className="h-4 w-4" />
+            Lihat studi kasus lengkap<ArrowRight className="h-4 w-4" />
           </Link>
         )}
       </div>
@@ -493,17 +504,30 @@ function Results({ result, contact }: { result: LeadResult; contact: string }) {
       )}
 
       <p className="mt-8 text-muted-foreground">
-        We&apos;ll be in touch within 24 hours at <span className="font-medium text-on-surface">{contact}</span>.
+        Kami akan menghubungi Anda dalam 24 jam melalui <span className="font-medium text-on-surface">{contact}</span>.
       </p>
 
-      {topSlug && (
-        <Link
-          href={`/projects/${topSlug}`}
-          className="mt-6 inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary hover:opacity-80 transition-opacity"
-        >
-          Explore the case study<ArrowRight className="h-4 w-4" />
-        </Link>
-      )}
+      <div className="mt-6 flex flex-wrap gap-3">
+        {whatsappLink && (
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary hover:opacity-80 transition-opacity"
+          >
+            <MessageCircle className="h-4 w-4" />
+            Kirim Pesan WhatsApp
+          </a>
+        )}
+        {topSlug && (
+          <Link
+            href={`/projects/${topSlug}`}
+            className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary hover:opacity-80 transition-opacity"
+          >
+            Jelajahi studi kasus<ArrowRight className="h-4 w-4" />
+          </Link>
+        )}
+      </div>
     </div>
   );
 }
