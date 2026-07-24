@@ -2,31 +2,21 @@
 
 import { Layers, Target, Workflow } from "lucide-react";
 import { motion } from "motion/react";
-
-const pillars = [
-  {
-    icon: Target,
-    title: "Business-first",
-    body: "Every workflow starts from your operations — not a template.",
-  },
-  {
-    icon: Layers,
-    title: "End-to-end delivery",
-    body: "Database. Backend. Frontend. Deployment. Maintenance.",
-  },
-  {
-    icon: Workflow,
-    title: "Proven foundations",
-    body: "Most projects begin from production-tested architectures instead of rebuilding from scratch.",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function About() {
+  const t = useTranslations("about");
+  const pillars = [
+    { icon: Target, title: t("pillar1Title"), body: t("pillar1Body") },
+    { icon: Layers, title: t("pillar2Title"), body: t("pillar2Body") },
+    { icon: Workflow, title: t("pillar3Title"), body: t("pillar3Body") },
+  ];
+
   return (
     <section id="studio" className="bg-gray-50 dark:bg-white/5 mx-auto px-6 py-12 md:py-24">
       <div className="max-w-6xl mx-auto">
-        <span className="text-xs font-semibold uppercase tracking-widest text-primary">Studio</span>
-        <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Why Carlsson Studio</h2>
+        <span className="text-xs font-semibold uppercase tracking-widest text-primary">{t("subtitle")}</span>
+        <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{t("title")}</h2>
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {pillars.map((pillar, i) => (

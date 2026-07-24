@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "title": "Carlsson Studio | Studio Software Bisnis",
+    "description": "Sistem bisnis kustom yang dibangun end-to-end — POS, CRM, ERP, AI agent, dan tools internal untuk pemilik dan operator bisnis di Asia Tenggara."
+  },
+  "nav": {
+    "solutions": "Solusi",
+    "studio": "Studio",
+    "startProject": "Mulai Proyek",
+    "toggleMenu": "Buka/tutup menu navigasi",
+    "switchToDark": "Beralih ke mode gelap",
+    "switchToLight": "Beralih ke mode terang",
+    "toggleTheme": "Ganti tema",
+    "switchToEnglish": "Ganti ke Bahasa Inggris",
+    "switchToIndonesian": "Ganti ke Bahasa Indonesia"
+  },
+  "footer": {
+    "solutions": "Solusi",
+    "studio": "Studio",
+    "insights": "Wawasan",
+    "startProject": "Mulai Proyek",
+    "copyright": "© {year} Carlsson Studio. Software Bisnis Kustom.",
+    "tagline": "Studio Software Independen yang berbasis di Indonesia."
+  },
+  "hero": {
+    "badge": "Menerima proyek baru",
+    "headline": "Ganti spreadsheet, alat yang terpisah-pisah, dan proses manual dengan <highlight>software yang dibuat khusus untuk bisnis Anda</highlight>.",
+    "subhead": "Carlsson Studio merancang dan membangun sistem bisnis internal — mulai dari platform manajemen dan portal pelanggan hingga aplikasi berbasis AI — sesuai dengan cara kerja tim Anda yang sebenarnya.",
+    "seeSolutions": "Lihat Solusi",
+    "startProject": "Mulai Proyek"
+  },
+  "featuredSolutions": {
+    "subtitle": "Solusi",
+    "title": "Sistem siap produksi di berbagai bidang bisnis.",
+    "description": "Setiap proyek mewakili alur kerja bisnis nyata, dirancang dari database hingga deployment. Ini sistem produksi yang sesungguhnya — bukan konsep UI atau aplikasi tutorial.",
+    "viewAll": "Lihat Semua Solusi"
+  },
+  "startCta": {
+    "title": "Mulai dari Fondasi yang Sudah Teruji.",
+    "line1": "Kami tidak memulai setiap proyek dari nol.",
+    "line2": "Kami mulai dari sistem bisnis yang sudah teruji di lapangan — lalu menyesuaikannya dengan operasional Anda.",
+    "button": "Mulai Proyek"
+  },
+  "socialProof": {
+    "heading": "Dibangun Lewat Tantangan Nyata",
+    "resultPending": "Hasil menyusul"
+  },
+  "about": {
+    "subtitle": "Studio",
+    "title": "Kenapa Carlsson Studio",
+    "pillar1Title": "Bisnis dulu",
+    "pillar1Body": "Setiap alur kerja dimulai dari operasional Anda — bukan dari template.",
+    "pillar2Title": "Pengerjaan end-to-end",
+    "pillar2Body": "Database. Backend. Frontend. Deployment. Perawatan.",
+    "pillar3Title": "Fondasi yang teruji",
+    "pillar3Body": "Sebagian besar proyek dimulai dari arsitektur yang sudah teruji di produksi, bukan membangun ulang dari nol."
+  },
+  "provenFoundation": {
+    "title": "Mulai dari software yang sudah teruji — bukan dari halaman kosong.",
+    "description": "Daripada menghabiskan berbulan-bulan membangun ulang fitur bisnis yang umum, Carlsson Studio mulai dari sistem yang sudah teruji di produksi, lalu menyesuaikannya dengan alur kerja Anda."
+  },
+  "domains": {
+    "HR & Payroll": "SDM & Penggajian",
+    "Restaurant": "Restoran",
+    "Retail": "Retail",
+    "Property": "Properti",
+    "Wellness": "Wellness",
+    "Insurance": "Asuransi",
+    "AI": "AI"
+  },
+  "startPage": {
+    "metaTitle": "Mulai Proyek | Carlsson Studio",
+    "metaDescription": "Jawab beberapa pertanyaan tentang bisnis Anda dan dapatkan rekomendasi fondasi sistem yang sesuai dengan operasional Anda."
+  },
+  "questionnaire": {
+    "progressLabel": "Mulai Proyek",
+    "stepCounter": "Langkah {step} dari {total}",
+    "step1Title": "Bisnis Anda bergerak di bidang apa?",
+    "step2Title": "Sistem seperti apa yang Anda butuhkan?",
+    "step3Title": "Masalah apa yang ingin Anda selesaikan?",
+    "step4Title": "Fitur apa saja yang Anda butuhkan?",
+    "step5Title": "Tentang Bisnis Anda",
+    "step6Title": "Detail Kontak Anda",
+    "step3Help": "Pilih semua yang sesuai dengan bisnis Anda.",
+    "step4Help": "Pilih semua fitur yang Anda butuhkan dari sistem ini.",
+    "companyNameLabel": "Nama Bisnis",
+    "optional": "(opsional)",
+    "companyNamePlaceholder": "Toko Maju Jaya",
+    "companySizeLabel": "Jumlah Karyawan",
+    "nameLabel": "Nama",
+    "namePlaceholder": "Budi Santoso",
+    "contactHelp": "Isi email, nomor WhatsApp, atau keduanya — kami butuh minimal satu cara untuk menghubungi Anda.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "nama@usaha.com",
+    "emailInvalid": "Masukkan alamat email yang valid.",
+    "phoneLabel": "Nomor WhatsApp",
+    "phonePlaceholder": "0812 3456 7890",
+    "phoneInvalid": "Masukkan nomor telepon yang valid.",
+    "contactRequired": "Tambahkan email atau nomor WhatsApp agar kami bisa menghubungi Anda.",
+    "back": "Kembali",
+    "next": "Lanjut",
+    "submit": "Lihat Rekomendasi Saya",
+    "submitting": "Mengirim…",
+    "loadErrorTitle": "Kuesioner gagal dimuat",
+    "loadErrorFallback": "Gagal memuat kuesioner.",
+    "retry": "Coba Lagi",
+    "submitErrorFallback": "Terjadi kesalahan saat mengirim jawaban Anda. Silakan coba lagi.",
+    "thankYouTitle": "Terima kasih, {name}.",
+    "thankYouBody": "Jawaban Anda sudah kami terima. Kami akan menghubungi Anda dalam 24 jam melalui {contact}.",
+    "resultsEyebrow": "Rekomendasi Anda",
+    "resultsTitle": "Fondasi Sistem yang Direkomendasikan",
+    "matchWord": "kecocokan",
+    "reasonLabel": "Alasan: ",
+    "seeCaseStudy": "Lihat studi kasus lengkap",
+    "contactWithin": "Kami akan menghubungi Anda dalam 24 jam melalui <b>{contact}</b>.",
+    "whatsappBtn": "Kirim Pesan WhatsApp",
+    "exploreCaseStudy": "Jelajahi studi kasus"
+  }
+}

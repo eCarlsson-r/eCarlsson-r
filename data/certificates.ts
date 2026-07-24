@@ -11,6 +11,5 @@ export const certificates: Certificate[] = [
   { label: "IBM watsonx Hackathon", emoji: "🤖", file: "/certificates/ibm-watsonx-hackathon.pdf", available: true },
   { label: "Bright Data AI Agents Hackathon", emoji: "🌐", file: "/certificates/bright-data-hackathon.pdf", available: true },
   { label: "TechEx — Transforming Enterprise Through AI", emoji: "🛒", file: "/certificates/techex-enterprise-ai.pdf", available: true },
-  { label: "Band of Agents — lablab.ai", emoji: "🤝", file: null, available: false },
-  { label: "APAC GenAI Academy Cohort 2", emoji: "☁️", file: null, available: false },
+  { label: "Band of Agents — lablab.ai", emoji: "🤝", file: "/certificates/band-of-agents.pdf", available: true }
 ];

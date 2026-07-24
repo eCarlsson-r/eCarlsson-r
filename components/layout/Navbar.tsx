@@ -1,17 +1,19 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
+import { Link, usePathname } from "@/i18n/navigation";
 import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const t = useTranslations("nav");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = [
-    { href: "/projects", label: "Solutions" },
-    { href: "/about", label: "Studio" }
+    { href: "/projects", label: t("solutions") },
+    { href: "/about", label: t("studio") },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -46,19 +48,21 @@ export default function Navbar() {
             href="/start-a-project"
             className="btn-primary text-on-primary px-6 py-2 font-label text-sm uppercase tracking-widest hover:opacity-80 transition-opacity duration-300"
           >
-            Start a Project
+            {t("startProject")}
           </Link>
 
+          <LanguageToggle />
           <ThemeToggle />
         </div>
 
         <div className="flex items-center gap-1 md:hidden">
+          <LanguageToggle />
           <ThemeToggle />
           <button
             onClick={toggleMenu}
             className="focus:outline-none focus:ring-2 focus:ring-primary rounded p-1"
             aria-expanded={isMenuOpen}
-            aria-label="Toggle navigation menu"
+            aria-label={t("toggleMenu")}
           >
             {isMenuOpen ? (
               <X className="h-6 w-6 text-primary" />
@@ -94,7 +98,7 @@ export default function Navbar() {
               onClick={closeMenu}
               className="block btn-primary text-on-primary px-6 py-2 font-label text-sm uppercase tracking-widest hover:opacity-80 transition-opacity duration-300 w-fit"
             >
-              Start a Project
+              {t("startProject")}
             </Link>
           </div>
         </div>

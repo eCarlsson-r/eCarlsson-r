@@ -14,9 +14,23 @@ export interface Highlight {
   items: string[];
 }
 
+/**
+ * A module entry is either a plain name (the original placeholder format,
+ * still used by foundations without a real modules-export.json yet) or a
+ * ModuleItem carrying the real name/description/portability extracted
+ * from that project's own codebase. See the per-repo modules-export.json
+ * files and CarlssonStudio-API's V6 migration for the backend-facing
+ * counterpart of this same data.
+ */
+export interface ModuleItem {
+  name: string;
+  description: string;
+  portability?: "high" | "medium";
+}
+
 export interface FoundationGroup {
   group: string;
-  modules: string[];
+  modules: (string | ModuleItem)[];
 }
 
 export interface CaseStudy {
@@ -135,8 +149,58 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     foundation: [
       { group: "Foundation Modules", modules: foundationModules },
-      { group: "Insurance Modules", modules: ["Policies", "Customers", "Productions", "Achievements", "Renewals"] },
-      { group: "AI Modules", modules: ["Document Extraction", "Bilingual Insights"] },
+      {
+        group: "AI & Automation",
+        modules: [
+          {
+            name: "AI Policy Document OCR Extraction",
+            description: "Extracts structured customer and financial data from uploaded policy PDFs/images via OCR and LLM parsing.",
+          },
+          {
+            name: "AI KPI Dashboard Narrative Summaries",
+            description: "Generates natural-language dashboard insights in multiple languages using IBM Watsonx Granite.",
+            portability: "high",
+          },
+        ],
+      },
+      {
+        group: "Reporting",
+        modules: [
+          {
+            name: "Multi-Level Sales Agency Performance Dashboard",
+            description: "Aggregates sales hierarchy metrics and agency performance into monthly and annual production reports.",
+          },
+          {
+            name: "Claims Processing & Review Workflow",
+            description: "Full claims lifecycle — submission, evaluation, approval or rejection, and payout tracking.",
+            portability: "high",
+          },
+        ],
+      },
+      {
+        group: "Payments",
+        modules: [
+          {
+            name: "Premium Billing & Receipt Tracking",
+            description: "Records historical premium payments, currency rates, and payment methods.",
+            portability: "high",
+          },
+          {
+            name: "Recurring Billing Due-Date Forecasting",
+            description: "Computes future premium due dates and dynamic amounts across payment frequencies.",
+            portability: "high",
+          },
+        ],
+      },
+      {
+        group: "HR",
+        modules: [
+          {
+            name: "Career Onboarding & Allowance Program Manager",
+            description: "Enrolls sales reps in onboarding programs with performance-based allowance calculations.",
+          },
+        ],
+      },
     ],
     idealFor: [
       "Insurance agencies",
@@ -241,8 +305,65 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     foundation: [
       { group: "Foundation Modules", modules: foundationModules },
-      { group: "Retail Modules", modules: ["Products", "Inventory", "Sales", "Customers", "Channels"] },
-      { group: "Analytics Modules", modules: ["Cross-channel Reporting"] },
+      {
+        group: "Inventory & Stock",
+        modules: [
+          {
+            name: "Multi-Branch Stock Ledger & Transfers",
+            description: "Atomic multi-branch stock management with immutable audit logging and inter-branch transfer workflows.",
+            portability: "high",
+          },
+        ],
+      },
+      {
+        group: "AI & Automation",
+        modules: [
+          {
+            name: "Visual AI Search & Recommendation Engine",
+            description: "Collaborative filtering and Vertex AI vector embeddings power visual search and product recommendations.",
+            portability: "high",
+          },
+          {
+            name: "Generative Product Content & Image Studio",
+            description: "Automated SEO product descriptions and image generation/editing using Gemini and Imagen.",
+            portability: "high",
+          },
+        ],
+      },
+      {
+        group: "Payments",
+        modules: [
+          {
+            name: "Multi-Channel POS Checkout & Split Payments",
+            description: "Rapid POS transactions with split payments, loyalty redemptions, and real-time inventory decrements.",
+          },
+        ],
+      },
+      {
+        group: "Procurement",
+        modules: [
+          {
+            name: "Supplier Procurement & Purchase Orders",
+            description: "Vendor PO creation, approval, and receiving workflows that automatically update branch inventory.",
+            portability: "high",
+          },
+        ],
+      },
+      {
+        group: "Analytics & HR",
+        modules: [
+          {
+            name: "Business & AI Operational KPI Analytics",
+            description: "Commercial and AI operational metrics — conversion uplift, AOV, latency, cost per order.",
+            portability: "high",
+          },
+          {
+            name: "Multi-Branch Staff Performance Assignment",
+            description: "Ties sales, transfers, and audits to individual staff for accountability across branches.",
+            portability: "high",
+          },
+        ],
+      },
     ],
     idealFor: [
       "Retail stores",
@@ -294,7 +415,74 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     foundation: [
       { group: "Foundation Modules", modules: foundationModules },
-      { group: "Wellness Modules", modules: ["Bookings", "Services", "Staff Rosters", "Inventory", "Branches"] },
+      {
+        group: "Scheduling",
+        modules: [
+          {
+            name: "Multi-Resource Session Scheduling",
+            description: "Appointment bookings with simultaneous bed/room/therapist constraints and real-time status transitions.",
+            portability: "high",
+          },
+          {
+            name: "Interactive Facility & Bed Occupancy Map",
+            description: "Real-time treatment room and bed status grid for staff to start sessions and monitor live timers.",
+            portability: "high",
+          },
+        ],
+      },
+      {
+        group: "AI & Automation",
+        modules: [
+          {
+            name: "AI Booking Conflict Resolution",
+            description: "Detects booking overlaps, computes alternative time slots, and supports one-click rescheduling.",
+            portability: "high",
+          },
+          {
+            name: "AI Customer Concierge Assistant",
+            description: "Conversational booking assistant embedded in the storefront, guiding treatment inquiries and scheduling.",
+            portability: "high",
+          },
+        ],
+      },
+      {
+        group: "Payments & Inventory",
+        modules: [
+          {
+            name: "Multi-Method POS Sales Checkout",
+            description: "Split-payment checkout across cash, EDC, e-wallets, QR, and pre-purchased vouchers.",
+          },
+          {
+            name: "Digital Customer Voucher Wallet",
+            description: "Customers view purchased vouchers, track redemption status, and apply them directly to bookings.",
+            portability: "high",
+          },
+        ],
+      },
+      {
+        group: "HR & Analytics",
+        modules: [
+          {
+            name: "Tier & Grade Employee Compensation Engine",
+            description: "Multi-tier compensation with grade bonuses, attendance deductions, and commission splits.",
+          },
+          {
+            name: "AI Feedback Sentiment & NLP Analytics",
+            description: "Post-session feedback triggers async sentiment scoring with negative-feedback alerts and executive summaries.",
+            portability: "high",
+          },
+        ],
+      },
+      {
+        group: "Booking & Discovery",
+        modules: [
+          {
+            name: "Customer Self-Service Booking Wizard",
+            description: "Multi-step online booking — select treatments, preferred therapist/bed, and time slot.",
+            portability: "high",
+          },
+        ],
+      },
     ],
     idealFor: [
       "Spas & massage studios",
@@ -346,8 +534,68 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     foundation: [
       { group: "Foundation Modules", modules: foundationModules },
-      { group: "Payroll Modules", modules: ["Employees", "Salary Components", "Deductions", "Statutory Rules", "Payslips"] },
-      { group: "Agent Modules", modules: ["Validation", "Calculation", "Compliance", "Disbursement"] },
+      {
+        group: "Accounts & Access",
+        modules: [
+          {
+            name: "Employee-Bound Account Provisioning",
+            description: "Self-registration gated on an existing employee record; role-based route access for Admin/Manager/Employee.",
+            portability: "high",
+          },
+        ],
+      },
+      {
+        group: "HR",
+        modules: [
+          {
+            name: "Employee Directory & Career Lifecycle",
+            description: "Master employee data, per-manager team rosters, and position history tracking.",
+          },
+        ],
+      },
+      {
+        group: "Payments",
+        modules: [
+          {
+            name: "Multi-Scheme Wage Calculation Engine",
+            description: "Computes gross pay for hourly, monthly, and commission schemes with overtime and late-arrival rules.",
+          },
+          {
+            name: "Indonesian PPh 21 & BPJS Tax Calculator",
+            description: "Progressive income tax and BPJS deduction engine across five annual tax brackets.",
+            portability: "high",
+          },
+          {
+            name: "Employee Payment Ledger",
+            description: "Persists finalized payment records with an admin creation flow and per-employee history.",
+            portability: "high",
+          },
+        ],
+      },
+      {
+        group: "Reporting",
+        modules: [
+          {
+            name: "PDF Payslip Generation",
+            description: "Per-employee, per-period payslips with idempotent re-runs and ownership-scoped downloads.",
+            portability: "high",
+          },
+        ],
+      },
+      {
+        group: "AI & Automation",
+        modules: [
+          {
+            name: "Four-Stage Multi-Agent Pipeline",
+            description: "Autonomous agents for data collection, tax calculation, compliance review, and reporting, handed off via chat.",
+          },
+          {
+            name: "Human-in-the-Loop Approval Gate",
+            description: "Automated compliance checks with a human approve, reject, or correct workflow before payroll runs.",
+            portability: "high",
+          },
+        ],
+      },
     ],
     idealFor: [
       "SMEs running Indonesian payroll",

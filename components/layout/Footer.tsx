@@ -1,13 +1,15 @@
-import Link from "next/link";
-
-const footerLinks = [
-  { href: "/projects", label: "Solutions" },
-  { href: "/about", label: "Studio" },
-  { href: "/insights", label: "Insights" },
-  { href: "/start-a-project", label: "Start a Project" },
-];
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+  const footerLinks = [
+    { href: "/projects", label: t("solutions") },
+    { href: "/about", label: t("studio") },
+    { href: "/insights", label: t("insights") },
+    { href: "/start-a-project", label: t("startProject") },
+  ];
+
   return (
     <footer className="bg-surface-container-low p-6">
       <div className="mx-auto max-w-6xl flex flex-col gap-4">
@@ -19,8 +21,8 @@ export default function Footer() {
           ))}
         </nav>
         <div className="flex flex-col gap-2 md:flex-row justify-between text-sm text-center text-slate-600 dark:text-slate-400">
-          <p>© {new Date().getFullYear()} Carlsson Studio. Custom Business Software.</p>
-          <p>Independent Software Studio based in Indonesia.</p>
+          <p>{t("copyright", { year: new Date().getFullYear() })}</p>
+          <p>{t("tagline")}</p>
         </div>
       </div>
     </footer>

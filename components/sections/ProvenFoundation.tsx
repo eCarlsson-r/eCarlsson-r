@@ -2,7 +2,8 @@
 
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { domainAccents } from "@/data/brandAccents";
 
 const foundations = [
@@ -22,15 +23,16 @@ const foundations = [
 ];
 
 export default function ProvenFoundation() {
+  const t = useTranslations("provenFoundation");
+  const td = useTranslations("domains");
   return (
     <section id="foundation" className="px-6 py-12 md:py-24">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-          Start from proven software — not a blank page.
+          {t("title")}
         </h2>
         <p className="mt-4 max-w-3xl text-muted-foreground">
-          Instead of spending months rebuilding common business features, Carlsson Studio begins
-          from production-tested systems that are then adapted to your workflow.
+          {t("description")}
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -48,7 +50,7 @@ export default function ProvenFoundation() {
                   style={{ backgroundColor: domainAccents[item.domain as keyof typeof domainAccents] }}
                   aria-hidden
                 />
-                {item.domain}
+                {td(item.domain)}
               </span>
               <span className="flex flex-wrap items-center justify-end gap-x-3 gap-y-1">
                 {item.systems.map((system) => (

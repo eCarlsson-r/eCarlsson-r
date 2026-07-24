@@ -2,12 +2,14 @@
 
 import { ArrowRight, MessageSquare } from "lucide-react";
 import { motion } from "motion/react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { ribbonAccents } from "@/data/brandAccents";
 
 const heroWash = `linear-gradient(105deg, ${ribbonAccents.map((c) => `${c}33`).join(", ")})`;
 
 export default function Hero() {
+  const t = useTranslations("hero");
   return (
     <section
       id="hero"
@@ -15,7 +17,7 @@ export default function Hero() {
       style={{ background: heroWash }}
     >
       <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-xs font-medium text-muted-foreground">
-        <span className="h-2 w-2 rounded-full bg-primary"></span>Available for new projects
+        <span className="h-2 w-2 rounded-full bg-primary"></span>{t("badge")}
       </div>
         {/* Title */}
         <motion.h1
@@ -24,7 +26,9 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-headline font-bold leading-tight text-primary mb-6 mx-auto max-w-6xl"
         >
-          Replace spreadsheets, disconnected tools, and manual workflows with <span className="text-tertiary">software built specifically for your business</span>.
+          {t.rich("headline", {
+            highlight: (chunks) => <span className="text-tertiary">{chunks}</span>,
+          })}
         </motion.h1>
 
         {/* Subtitle */}
@@ -34,7 +38,7 @@ export default function Hero() {
           transition={{ delay: 0.2 }}
           className="text-lg text-on-surface-variant leading-relaxed max-w-5xl mx-auto mb-8"
         >
-          <p>Carlsson Studio designs and develops internal business systems — from management platforms and customer portals to AI-powered applications — based on how your team actually works.</p>
+          <p>{t("subhead")}</p>
         </motion.div>
 
         {/* CTA Buttons */}
@@ -48,14 +52,14 @@ export default function Hero() {
             href="/projects"
             className="group inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary transition-opacity duration-200"
           >
-            See Solutions<ArrowRight />
+            {t("seeSolutions")}<ArrowRight />
           </Link>
 
           <Link
             href="/start-a-project"
             className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label border border-primary hover:border-secondary transition-opacity duration-200"
           >
-            <MessageSquare />Start a Project
+            <MessageSquare />{t("startProject")}
           </Link>
         </motion.div>
 

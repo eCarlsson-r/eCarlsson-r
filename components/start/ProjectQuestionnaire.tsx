@@ -1,10 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { ArrowLeft, ArrowRight, Check, MessageCircle, RotateCw, Star } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import {
   fetchQuestionnaireConfig,
   submitLead,
@@ -14,6 +15,7 @@ import {
 import { resolveProjectSlug } from "@/lib/foundationSlug";
 import { projectAccents } from "@/data/brandAccents";
 import { generateEventId, getFbc, getFbp, trackLead } from "@/lib/metaPixel";
+import { pushGenerateLeadEvent } from "@/lib/gtm";
 import {
   translateOption,
   industryLabels,
@@ -26,18 +28,10 @@ import { buildLeadWhatsAppMessage, getStudioWhatsAppLink } from "@/lib/whatsapp"
 
 const TOTAL_STEPS = 6;
 
-// Display copy is Bahasa Indonesia — most visitors arrive from Indonesian-
-// language ads. The option VALUES stored in `answers` and sent to
-// submitLead() stay in English throughout; only translateOption() output
-// (labels) is Indonesian. See lib/id/questionnaireOptions.ts.
-const stepTitles = [
-  "Bisnis Anda bergerak di bidang apa?",
-  "Sistem seperti apa yang Anda butuhkan?",
-  "Masalah apa yang ingin Anda selesaikan?",
-  "Fitur apa saja yang Anda butuhkan?",
-  "Tentang Bisnis Anda",
-  "Detail Kontak Anda",
-];
+// The option VALUES stored in `answers` and sent to submitLead() stay in
+// English (the canonical values the backend matches on) in every locale.
+// For Bahasa Indonesia we swap only the DISPLAY label via translateOption;
+// for English the raw value already reads correctly, so it passes through.
 
 interface Answers {
   industry: string;
@@ -120,6 +114,24 @@ function Skeleton() {
 
 export default function ProjectQuestionnaire() {
   const searchParams = useSearchParams();
+  const locale = useLocale();
+  const t = useTranslations("questionnaire");
+
+  // Bahasa Indonesia swaps the display label; English shows the raw value.
+  const labelOf = useCallback(
+    (dict: Record<string, string>, value: string) =>
+      locale === "id" ? translateOption(dict, value) : value,
+    [locale]
+  );
+
+  const stepTitles = [
+    t("step1Title"),
+    t("step2Title"),
+    t("step3Title"),
+    t("step4Title"),
+    t("step5Title"),
+    t("step6Title"),
+  ];
 
   const [config, setConfig] = useState<QuestionnaireConfig | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -132,13 +144,13 @@ export default function ProjectQuestionnaire() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [result, setResult] = useState<LeadResult | null>(null);
 
-  // Fetch config once (re-run on retry).
+  // Fetch config once (re-run on retry or locale change).
   useEffect(() => {
     const controller = new AbortController();
     setConfig(null);
     setLoadError(null);
 
-    fetchQuestionnaireConfig(controller.signal)
+    fetchQuestionnaireConfig(locale, controller.signal)
       .then((data) => {
         setConfig(data);
         // Pre-select industry from ?industry= when it matches a known option.
@@ -154,13 +166,13 @@ export default function ProjectQuestionnaire() {
         }
       })
       .catch((err) => {
-        if (err?.name !== "AbortError") setLoadError(err?.message || "Gagal memuat kuesioner.");
+        if (err?.name !== "AbortError") setLoadError(err?.message || t("loadErrorFallback"));
       });
 
     return () => controller.abort();
     // searchParams intentionally read once at mount / retry
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [reloadKey]);
+  }, [reloadKey, locale]);
 
   const set = <K extends keyof Answers>(key: K, value: Answers[K]) =>
     setAnswers((a) => ({ ...a, [key]: value }));
@@ -195,28 +207,36 @@ export default function ProjectQuestionnaire() {
     // Meta dedupes the client + server pair instead of double-counting.
     const fbEventId = generateEventId();
     try {
-      const data = await submitLead({
-        name: answers.name.trim(),
-        ...(answers.email.trim() ? { email: answers.email.trim() } : {}),
-        ...(answers.phone.trim() ? { phone: answers.phone.trim() } : {}),
-        ...(answers.company.trim() ? { company: answers.company.trim() } : {}),
-        companySize: answers.companySize,
+      const data = await submitLead(
+        {
+          name: answers.name.trim(),
+          ...(answers.email.trim() ? { email: answers.email.trim() } : {}),
+          ...(answers.phone.trim() ? { phone: answers.phone.trim() } : {}),
+          ...(answers.company.trim() ? { company: answers.company.trim() } : {}),
+          companySize: answers.companySize,
+          industry: answers.industry,
+          buildType: answers.buildType,
+          problems: answers.problems,
+          features: answers.features,
+          fbEventId,
+          fbp: getFbp(),
+          fbc: getFbc(),
+        },
+        locale
+      );
+      trackLead(fbEventId);
+      pushGenerateLeadEvent({
+        leadId: data.id,
         industry: answers.industry,
         buildType: answers.buildType,
-        problems: answers.problems,
-        features: answers.features,
-        fbEventId,
-        fbp: getFbp(),
-        fbc: getFbc(),
       });
-      trackLead(fbEventId);
       setResult(data);
     } catch (err: any) {
-      setSubmitError(err?.message || "Terjadi kesalahan saat mengirim jawaban Anda. Silakan coba lagi.");
+      setSubmitError(err?.message || t("submitErrorFallback"));
     } finally {
       setSubmitting(false);
     }
-  }, [answers]);
+  }, [answers, locale, t]);
 
   const advance = useCallback(() => {
     if (!canAdvance || submitting) return;
@@ -234,13 +254,13 @@ export default function ProjectQuestionnaire() {
   if (loadError) {
     return (
       <div className="mx-auto max-w-3xl px-6 py-24 text-center">
-        <h1 className="text-2xl font-bold tracking-tight">Kuesioner gagal dimuat</h1>
+        <h1 className="text-2xl font-bold tracking-tight">{t("loadErrorTitle")}</h1>
         <p className="mt-3 text-muted-foreground">{loadError}</p>
         <button
           onClick={() => setReloadKey((k) => k + 1)}
           className="mt-6 inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary hover:opacity-80 transition-opacity"
         >
-          <RotateCw className="h-4 w-4" />Coba Lagi
+          <RotateCw className="h-4 w-4" />{t("retry")}
         </button>
       </div>
     );
@@ -256,8 +276,8 @@ export default function ProjectQuestionnaire() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16 md:py-20" onKeyDown={onKeyDown}>
       <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-        <span>Mulai Proyek</span>
-        <span>Langkah {step} dari {TOTAL_STEPS}</span>
+        <span>{t("progressLabel")}</span>
+        <span>{t("stepCounter", { step, total: TOTAL_STEPS })}</span>
       </div>
       <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-white/10">
         <div
@@ -271,7 +291,7 @@ export default function ProjectQuestionnaire() {
         {step === 1 && (
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {config.industries.map((option) => (
-              <Option key={option} label={translateOption(industryLabels, option)} selected={answers.industry === option} onClick={() => set("industry", option)} />
+              <Option key={option} label={labelOf(industryLabels, option)} selected={answers.industry === option} onClick={() => set("industry", option)} />
             ))}
           </div>
         )}
@@ -279,17 +299,17 @@ export default function ProjectQuestionnaire() {
         {step === 2 && (
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {config.buildTypes.map((option) => (
-              <Option key={option} label={translateOption(buildTypeLabels, option)} selected={answers.buildType === option} onClick={() => set("buildType", option)} />
+              <Option key={option} label={labelOf(buildTypeLabels, option)} selected={answers.buildType === option} onClick={() => set("buildType", option)} />
             ))}
           </div>
         )}
 
         {step === 3 && (
           <>
-            <p className="mb-4 text-sm text-muted-foreground">Pilih semua yang sesuai dengan bisnis Anda.</p>
+            <p className="mb-4 text-sm text-muted-foreground">{t("step3Help")}</p>
             <div className="grid gap-3 sm:grid-cols-2">
               {config.problems.map((option) => (
-                <Option key={option} multi label={translateOption(problemLabels, option)} selected={answers.problems.includes(option)} onClick={() => toggleField("problems", option)} />
+                <Option key={option} multi label={labelOf(problemLabels, option)} selected={answers.problems.includes(option)} onClick={() => toggleField("problems", option)} />
               ))}
             </div>
           </>
@@ -297,10 +317,10 @@ export default function ProjectQuestionnaire() {
 
         {step === 4 && (
           <>
-            <p className="mb-4 text-sm text-muted-foreground">Pilih semua fitur yang Anda butuhkan dari sistem ini.</p>
+            <p className="mb-4 text-sm text-muted-foreground">{t("step4Help")}</p>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {config.features.map((option) => (
-                <Option key={option} multi label={translateOption(featureLabels, option)} selected={answers.features.includes(option)} onClick={() => toggleField("features", option)} />
+                <Option key={option} multi label={labelOf(featureLabels, option)} selected={answers.features.includes(option)} onClick={() => toggleField("features", option)} />
               ))}
             </div>
           </>
@@ -309,21 +329,21 @@ export default function ProjectQuestionnaire() {
         {step === 5 && (
           <div className="space-y-6">
             <label className="block">
-              <span className="mb-2 block text-sm font-medium">Nama Bisnis <span className="text-muted-foreground">(opsional)</span></span>
+              <span className="mb-2 block text-sm font-medium">{t("companyNameLabel")} <span className="text-muted-foreground">{t("optional")}</span></span>
               <input
                 type="text"
                 maxLength={100}
                 value={answers.company}
                 onChange={(e) => set("company", e.target.value)}
-                placeholder="Toko Maju Jaya"
+                placeholder={t("companyNamePlaceholder")}
                 className="w-full rounded-lg"
               />
             </label>
             <div>
-              <span className="mb-2 block text-sm font-medium">Jumlah Karyawan</span>
+              <span className="mb-2 block text-sm font-medium">{t("companySizeLabel")}</span>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {config.companySizes.map((option) => (
-                  <Option key={option} label={translateOption(companySizeLabels, option)} selected={answers.companySize === option} onClick={() => set("companySize", option)} />
+                  <Option key={option} label={labelOf(companySizeLabels, option)} selected={answers.companySize === option} onClick={() => set("companySize", option)} />
                 ))}
               </div>
             </div>
@@ -333,54 +353,54 @@ export default function ProjectQuestionnaire() {
         {step === 6 && (
           <div className="space-y-6">
             <label className="block">
-              <span className="mb-2 block text-sm font-medium">Nama <span className="text-primary">*</span></span>
+              <span className="mb-2 block text-sm font-medium">{t("nameLabel")} <span className="text-primary">*</span></span>
               <input
                 type="text"
                 maxLength={100}
                 value={answers.name}
                 onChange={(e) => set("name", e.target.value)}
-                placeholder="Budi Santoso"
+                placeholder={t("namePlaceholder")}
                 className="w-full rounded-lg"
               />
             </label>
             <p className="text-sm text-muted-foreground -mt-2">
-              Isi email, nomor WhatsApp, atau keduanya — kami butuh minimal satu cara untuk menghubungi Anda.
+              {t("contactHelp")}
             </p>
             <label className="block">
-              <span className="mb-2 block text-sm font-medium">Email</span>
+              <span className="mb-2 block text-sm font-medium">{t("emailLabel")}</span>
               <input
                 type="email"
                 maxLength={150}
                 value={answers.email}
                 onChange={(e) => set("email", e.target.value)}
-                placeholder="nama@usaha.com"
+                placeholder={t("emailPlaceholder")}
                 className="w-full rounded-lg"
                 aria-invalid={answers.email !== "" && !emailValid(answers.email)}
               />
               {answers.email !== "" && !emailValid(answers.email) && (
-                <span className="mt-1 block text-xs text-destructive">Masukkan alamat email yang valid.</span>
+                <span className="mt-1 block text-xs text-destructive">{t("emailInvalid")}</span>
               )}
             </label>
             <label className="block">
-              <span className="mb-2 block text-sm font-medium">Nomor WhatsApp</span>
+              <span className="mb-2 block text-sm font-medium">{t("phoneLabel")}</span>
               <input
                 type="tel"
                 maxLength={25}
                 value={answers.phone}
                 onChange={(e) => set("phone", e.target.value)}
-                placeholder="0812 3456 7890"
+                placeholder={t("phonePlaceholder")}
                 className="w-full rounded-lg"
                 aria-invalid={answers.phone !== "" && !phoneValid(answers.phone)}
               />
               {answers.phone !== "" && !phoneValid(answers.phone) && (
-                <span className="mt-1 block text-xs text-destructive">Masukkan nomor telepon yang valid.</span>
+                <span className="mt-1 block text-xs text-destructive">{t("phoneInvalid")}</span>
               )}
             </label>
             {answers.name.trim() !== "" &&
               answers.email.trim() === "" &&
               answers.phone.trim() === "" && (
                 <p className="text-xs text-destructive">
-                  Tambahkan email atau nomor WhatsApp agar kami bisa menghubungi Anda.
+                  {t("contactRequired")}
                 </p>
             )}
             {submitError && (
@@ -399,7 +419,7 @@ export default function ProjectQuestionnaire() {
             onClick={() => setStep((s) => s - 1)}
             className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition"
           >
-            <ArrowLeft className="h-4 w-4" />Kembali
+            <ArrowLeft className="h-4 w-4" />{t("back")}
           </button>
         ) : (
           <span />
@@ -410,7 +430,7 @@ export default function ProjectQuestionnaire() {
           disabled={!canAdvance || submitting}
           className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary hover:opacity-80 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          {step === TOTAL_STEPS ? (submitting ? "Mengirim…" : "Lihat Rekomendasi Saya") : "Lanjut"}
+          {step === TOTAL_STEPS ? (submitting ? t("submitting") : t("submit")) : t("next")}
           {!submitting && <ArrowRight className="h-4 w-4" />}
         </button>
       </div>
@@ -419,27 +439,44 @@ export default function ProjectQuestionnaire() {
 }
 
 function Results({ result, contact, answers }: { result: LeadResult; contact: string; answers: Answers }) {
+  const locale = useLocale();
+  const t = useTranslations("questionnaire");
   const [top, ...rest] = result.recommendations ?? [];
   const others = rest.slice(0, 2);
 
+  // WhatsApp message mirrors the on-screen language: Indonesian labels for
+  // id, raw English values for en.
+  const idn = <T extends string>(v: T) => v;
   const whatsappLink = top
     ? getStudioWhatsAppLink(
-        buildLeadWhatsAppMessage(answers, top, {
-          industry: (v) => translateOption(industryLabels, v),
-          buildType: (v) => translateOption(buildTypeLabels, v),
-          problem: (v) => translateOption(problemLabels, v),
-          feature: (v) => translateOption(featureLabels, v),
-          companySize: (v) => translateOption(companySizeLabels, v),
-        })
+        buildLeadWhatsAppMessage(
+          answers,
+          top,
+          locale === "id"
+            ? {
+                industry: (v) => translateOption(industryLabels, v),
+                buildType: (v) => translateOption(buildTypeLabels, v),
+                problem: (v) => translateOption(problemLabels, v),
+                feature: (v) => translateOption(featureLabels, v),
+                companySize: (v) => translateOption(companySizeLabels, v),
+              }
+            : {
+                industry: idn,
+                buildType: idn,
+                problem: idn,
+                feature: idn,
+                companySize: idn,
+              }
+        )
       )
     : null;
 
   if (!top) {
     return (
       <div className="mx-auto max-w-3xl px-6 py-24 text-center">
-        <h1 className="text-3xl font-bold tracking-tight">Terima kasih, {result.name}.</h1>
+        <h1 className="text-3xl font-bold tracking-tight">{t("thankYouTitle", { name: result.name })}</h1>
         <p className="mt-4 text-muted-foreground">
-          Jawaban Anda sudah kami terima. Kami akan menghubungi Anda dalam 24 jam melalui {contact}.
+          {t("thankYouBody", { contact })}
         </p>
       </div>
     );
@@ -450,8 +487,8 @@ function Results({ result, contact, answers }: { result: LeadResult; contact: st
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-16 md:py-20">
-      <span className="text-xs font-semibold uppercase tracking-widest text-primary">Rekomendasi Anda</span>
-      <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Fondasi Sistem yang Direkomendasikan</h1>
+      <span className="text-xs font-semibold uppercase tracking-widest text-primary">{t("resultsEyebrow")}</span>
+      <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{t("resultsTitle")}</h1>
 
       {/* Top match */}
       <div className="mt-8 rounded-2xl border bg-card/50 p-6 md:p-8" style={{ borderColor: topAccent ?? undefined }}>
@@ -463,15 +500,15 @@ function Results({ result, contact, answers }: { result: LeadResult; contact: st
         <div className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
           <h2 className="text-2xl md:text-3xl font-bold">{top.foundationName}</h2>
           <span className="text-3xl font-bold" style={{ color: topAccent }}>{Math.round(top.matchScore)}%</span>
-          <span className="text-sm text-muted-foreground">kecocokan</span>
+          <span className="text-sm text-muted-foreground">{t("matchWord")}</span>
         </div>
         <p className="mt-4 text-muted-foreground">
-          <span className="font-medium text-on-surface">Alasan: </span>
+          <span className="font-medium text-on-surface">{t("reasonLabel")}</span>
           {top.matchReason}
         </p>
         {topSlug && (
           <Link href={`/projects/${topSlug}`} className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-secondary transition">
-            Lihat studi kasus lengkap<ArrowRight className="h-4 w-4" />
+            {t("seeCaseStudy")}<ArrowRight className="h-4 w-4" />
           </Link>
         )}
       </div>
@@ -504,7 +541,10 @@ function Results({ result, contact, answers }: { result: LeadResult; contact: st
       )}
 
       <p className="mt-8 text-muted-foreground">
-        Kami akan menghubungi Anda dalam 24 jam melalui <span className="font-medium text-on-surface">{contact}</span>.
+        {t.rich("contactWithin", {
+          contact,
+          b: (chunks) => <span className="font-medium text-on-surface">{chunks}</span>,
+        })}
       </p>
 
       <div className="mt-6 flex flex-wrap gap-3">
@@ -516,7 +556,7 @@ function Results({ result, contact, answers }: { result: LeadResult; contact: st
             className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary hover:opacity-80 transition-opacity"
           >
             <MessageCircle className="h-4 w-4" />
-            Kirim Pesan WhatsApp
+            {t("whatsappBtn")}
           </a>
         )}
         {topSlug && (
@@ -524,7 +564,7 @@ function Results({ result, contact, answers }: { result: LeadResult; contact: st
             href={`/projects/${topSlug}`}
             className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary hover:opacity-80 transition-opacity"
           >
-            Jelajahi studi kasus<ArrowRight className="h-4 w-4" />
+            {t("exploreCaseStudy")}<ArrowRight className="h-4 w-4" />
           </Link>
         )}
       </div>

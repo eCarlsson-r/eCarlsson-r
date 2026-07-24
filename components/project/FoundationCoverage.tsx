@@ -30,12 +30,25 @@ export default function FoundationCoverage({ groups }: { groups: FoundationGroup
             <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
               {group.group}
             </p>
-            <ul className="mt-3 space-y-2">
-              {group.modules.map((module) => (
-                <li key={module} className="flex items-center gap-2 text-sm font-medium">
-                  <Check className="h-4 w-4 shrink-0 text-primary" />{module}
-                </li>
-              ))}
+            <ul className="mt-3 space-y-3">
+              {group.modules.map((module) => {
+                const isRich = typeof module !== "string";
+                const name = isRich ? module.name : module;
+                return (
+                  <li key={name} className="flex items-start gap-2 text-sm">
+                    <Check className="h-4 w-4 shrink-0 text-primary mt-0.5" />
+                    <span>
+                      <span className="font-medium">{name}</span>
+                      {isRich && (
+                        <span className="block text-xs text-muted-foreground mt-0.5">
+                          {module.description}
+                          {module.portability === "high" && " — highly portable"}
+                        </span>
+                      )}
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           </motion.div>
         ))}

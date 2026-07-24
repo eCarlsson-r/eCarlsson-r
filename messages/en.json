@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "title": "Carlsson Studio | Business Software Studio",
+    "description": "Custom business systems built end-to-end — POS, CRM, ERP, AI agents, and internal tools for founders and operators across Southeast Asia."
+  },
+  "nav": {
+    "solutions": "Solutions",
+    "studio": "Studio",
+    "startProject": "Start a Project",
+    "toggleMenu": "Toggle navigation menu",
+    "switchToDark": "Switch to dark mode",
+    "switchToLight": "Switch to light mode",
+    "toggleTheme": "Toggle theme",
+    "switchToEnglish": "Switch to English",
+    "switchToIndonesian": "Switch to Indonesian"
+  },
+  "footer": {
+    "solutions": "Solutions",
+    "studio": "Studio",
+    "insights": "Insights",
+    "startProject": "Start a Project",
+    "copyright": "© {year} Carlsson Studio. Custom Business Software.",
+    "tagline": "Independent Software Studio based in Indonesia."
+  },
+  "hero": {
+    "badge": "Available for new projects",
+    "headline": "Replace spreadsheets, disconnected tools, and manual workflows with <highlight>software built specifically for your business</highlight>.",
+    "subhead": "Carlsson Studio designs and develops internal business systems — from management platforms and customer portals to AI-powered applications — based on how your team actually works.",
+    "seeSolutions": "See Solutions",
+    "startProject": "Start a Project"
+  },
+  "featuredSolutions": {
+    "subtitle": "Solutions",
+    "title": "Production-ready systems across business domains.",
+    "description": "Every project represents a real business workflow, designed from the database to deployment. These are production systems — not UI concepts or tutorial applications.",
+    "viewAll": "View All Solutions"
+  },
+  "startCta": {
+    "title": "Start With a Proven Foundation.",
+    "line1": "We don't start every project from scratch.",
+    "line2": "We start from battle-tested business systems — then customize them for your operations.",
+    "button": "Start a Project"
+  },
+  "socialProof": {
+    "heading": "Built Through Real Challenges",
+    "resultPending": "Result pending"
+  },
+  "about": {
+    "subtitle": "Studio",
+    "title": "Why Carlsson Studio",
+    "pillar1Title": "Business-first",
+    "pillar1Body": "Every workflow starts from your operations — not a template.",
+    "pillar2Title": "End-to-end delivery",
+    "pillar2Body": "Database. Backend. Frontend. Deployment. Maintenance.",
+    "pillar3Title": "Proven foundations",
+    "pillar3Body": "Most projects begin from production-tested architectures instead of rebuilding from scratch."
+  },
+  "provenFoundation": {
+    "title": "Start from proven software — not a blank page.",
+    "description": "Instead of spending months rebuilding common business features, Carlsson Studio begins from production-tested systems that are then adapted to your workflow."
+  },
+  "domains": {
+    "HR & Payroll": "HR & Payroll",
+    "Restaurant": "Restaurant",
+    "Retail": "Retail",
+    "Property": "Property",
+    "Wellness": "Wellness",
+    "Insurance": "Insurance",
+    "AI": "AI"
+  },
+  "startPage": {
+    "metaTitle": "Start a Project | Carlsson Studio",
+    "metaDescription": "Answer a few questions about your business and get a recommended foundation matched to your operations."
+  },
+  "questionnaire": {
+    "progressLabel": "Start a Project",
+    "stepCounter": "Step {step} of {total}",
+    "step1Title": "What industry is your business in?",
+    "step2Title": "What kind of system do you need?",
+    "step3Title": "What problems are you trying to solve?",
+    "step4Title": "Which features do you need?",
+    "step5Title": "About Your Business",
+    "step6Title": "Your Contact Details",
+    "step3Help": "Select everything that applies to your business.",
+    "step4Help": "Select all the features you need from this system.",
+    "companyNameLabel": "Business Name",
+    "optional": "(optional)",
+    "companyNamePlaceholder": "Acme Retail",
+    "companySizeLabel": "Number of Employees",
+    "nameLabel": "Name",
+    "namePlaceholder": "Jane Doe",
+    "contactHelp": "Enter an email, a WhatsApp number, or both — we need at least one way to reach you.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@company.com",
+    "emailInvalid": "Enter a valid email address.",
+    "phoneLabel": "WhatsApp Number",
+    "phonePlaceholder": "0812 3456 7890",
+    "phoneInvalid": "Enter a valid phone number.",
+    "contactRequired": "Add an email or WhatsApp number so we can reach you.",
+    "back": "Back",
+    "next": "Continue",
+    "submit": "See My Recommendation",
+    "submitting": "Submitting…",
+    "loadErrorTitle": "Couldn't load the questionnaire",
+    "loadErrorFallback": "Couldn't load the questionnaire.",
+    "retry": "Try Again",
+    "submitErrorFallback": "Something went wrong submitting your answers. Please try again.",
+    "thankYouTitle": "Thank you, {name}.",
+    "thankYouBody": "We've received your answers. We'll be in touch within 24 hours at {contact}.",
+    "resultsEyebrow": "Your Recommendation",
+    "resultsTitle": "Your Recommended Foundation",
+    "matchWord": "match",
+    "reasonLabel": "Reason: ",
+    "seeCaseStudy": "See the full case study",
+    "contactWithin": "We'll be in touch within 24 hours at <b>{contact}</b>.",
+    "whatsappBtn": "Send a WhatsApp Message",
+    "exploreCaseStudy": "Explore the case study"
+  }
+}
