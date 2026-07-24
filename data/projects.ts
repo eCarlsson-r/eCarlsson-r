@@ -7,9 +7,9 @@ export const projects: Project[] = [
         category: "signal",
         domain: "HR & Payroll",
 
-        summary: "An HR team was spending days each month on spreadsheet payroll calculations that were error-prone and hard to audit.",
-        description: "Automates payroll calculation, tax compliance, and salary disbursement.",
-        outcome: "PPh 21 + BPJS + UMR compliance. 4 agents. 13-second pipeline.",
+        summary: "HR teams were losing hours to spreadsheet payroll calculations that were error-prone, manual, and impossible to audit accurately.",
+        description: "Automates payroll calculation, tax compliance, and salary disbursement globally.",
+        outcome: "PPh 21 + BPJS + UMR compliance. 4 AI agents. 13-second pipeline.",
 
         backend: ["Laravel"],
         frontend: ["Blade"],
@@ -58,9 +58,9 @@ export const projects: Project[] = [
         category: "edge",
         domain: "AI",
 
-        summary: "Agent where users enquire about the status and condition of current Web3 stocks to, other than checking price and trends.",
+        summary: "Users needed quick answers about Web3 stock status and conditions beyond price checks, but lacked real-time intelligent research tools.",
         description: "Delivers real-time stock intelligence through natural language queries.",
-        outcome: "SVM pipeline, 86% accuracy. Real-time stock intelligence.",
+        outcome: "SVM-powered pipeline with 86% accuracy on stock predictions and insights.",
 
         backend: ["Python", "FastAPI"],
         frontend: ["Next.js"],
@@ -103,9 +103,9 @@ export const projects: Project[] = [
         category: "depth",
         domain: "Restaurant",
 
-        summary: "Restaurant owners could not see what was happening across the floor, the kitchen and the reservation book without walking between tools.",
-        description: "Combine POS, reservations, kitchen workflow & analytics into 1 platform.",
-        outcome: "14-day demand forecast. Menu clustering. Natural language Q&A.",
+        summary: "Restaurant operators juggled separate tools for POS, kitchen orders, and reservations, losing visibility and operational efficiency daily.",
+        description: "Combines POS, reservations, kitchen workflow, and analytics into one platform.",
+        outcome: "14-day demand forecast, menu clustering, and natural language Q&A capabilities.",
 
         backend: ["Laravel"],
         frontend: ["Nuxt", "AnalogJS"],
@@ -176,9 +176,9 @@ export const projects: Project[] = [
         category: "signal",
         domain: "Insurance",
 
-        summary: "Brokers were drowning in policy paperwork and couldn't quickly answer client questions about coverage or renewals.",
+        summary: "Insurance brokers drowned in policy paperwork and couldn't quickly answer client questions about coverage, renewals, or claims.",
         description: "Centralizes policy, claim, and customer management for insurance agencies.",
-        outcome: "IBM Granite bilingual AI dashboard. Offline PWA.",
+        outcome: "IBM Granite bilingual AI dashboard with offline PWA capabilities enabled.",
 
         backend: ["Laravel"],
         frontend: ["Inertia", "React"],
@@ -237,11 +237,11 @@ export const projects: Project[] = [
         category: "edge",
         domain: "Software Platform",
 
-        summary: "AI-assisted software studio that recommends, configures, and customizes proven business system foundations based on a company's operational needs.",
+        summary: "Companies couldn't easily discover which proven business systems matched their needs, leading to wasted time and misaligned software decisions.",
 
-        description: "Transforms business requirements into tailored software solutions by matching them against a growing library of production-tested business system foundations.",
+        description: "Matches company needs to proven business foundations through AI-powered discovery and recommendation engine.",
 
-        outcome: "Interactive project discovery, AI-powered foundation recommendation, proposal generation, and reusable business platform ecosystem.",
+        outcome: "AI recommendation engine, interactive discovery, and proposal generation system built.",
 
         backend: ["Java", "Spring Boot"],
         frontend: ["Next.js"],
@@ -288,9 +288,9 @@ export const projects: Project[] = [
         category: "depth",
         domain: "Wellness",
 
-        summary: "Spa owners were losing bookings to no-shows and double-bookings while staff manually tracked services across paper schedules.",
-        description: "Covers bookings, staff scheduling, and payments for wellness businesses.",
-        outcome: "Multi-branch booking, staff scheduling, and inventory in one system.",
+        summary: "Spa operators lost bookings to no-shows and double-bookings, with staff manually tracking services across paper and disconnected systems.",
+        description: "Covers bookings, staff scheduling, and payments for multi-location wellness businesses.",
+        outcome: "Multi-branch booking, staff scheduling, inventory system in one platform.",
 
         backend: ["Laravel"],
         frontend: ["Next.js", "Nuxt"],
@@ -342,9 +342,9 @@ export const projects: Project[] = [
         category: "signal",
         domain: "Property",
 
-        summary: "Property managers were tracking leases, tenants and maintenance requests across spreadsheets and email threads.",
-        description: "Manages property listings, tenant records, and lease tracking end-to-end.",
-        outcome: "Top 100 · Google Gen AI Academy APAC Cohort 1",
+        summary: "Property managers tracked leases, tenants, and maintenance across spreadsheets and email threads with no unified system or visibility.",
+        description: "Manages property listings, tenant records, and lease tracking end-to-end efficiently.",
+        outcome: "Top 100 · Google Gen AI Academy APAC Cohort 1 finalist and award winner.",
         certificateFile: "/certificates/apac-genai-top100.pdf",
 
         backend: ["Laravel"],
@@ -398,9 +398,9 @@ export const projects: Project[] = [
         category: "edge",
         domain: "AI",
 
-        summary: "Practitioners needed personalised written analyses for every client but were producing them by hand from raw chart data.",
-        description: "Generates personality analysis and business compatibility reports using AI.",
-        outcome: "Top 30 · Nusantara Elevate AI Talent Challenge",
+        summary: "Human Design practitioners manually created personalized analyses for each client from raw chart data, a time-consuming manual process.",
+        description: "Generates personalized analysis and business compatibility reports using AI-powered insights.",
+        outcome: "Top 30 · Nusantara Elevate AI Talent Challenge finalist and recognized winner.",
         certificatePending: true,
 
         backend: ["ASP.NET Core"],
@@ -446,9 +446,9 @@ export const projects: Project[] = [
         category: "depth",
         domain: "Retail",
 
-        summary: "Independent retailers were juggling separate tools for in-store sales and their online storefront, leading to inventory drift and lost revenue.",
-        description: "Automates retail sales, inventory, and storefront across multiple channels.",
-        outcome: "Zero commission. Full inventory sync across POS and storefront.",
+        summary: "Retailers juggled separate tools for POS and e-commerce, causing inventory drift, double-selling, and lost revenue from channel conflicts.",
+        description: "Automates retail sales, inventory management, and storefront across multiple channels.",
+        outcome: "Zero commission model with full real-time inventory sync across channels.",
 
         backend: ["Laravel"],
         frontend: ["Angular", "Next.js"],

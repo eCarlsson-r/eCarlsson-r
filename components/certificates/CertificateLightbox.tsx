@@ -46,7 +46,7 @@ export default function CertificateLightbox({ pdfUrl, label, onClose }: Props) {
         </div>
 
         {/* Browser-native PDF rendering; mobile browsers often can't render inline */}
-        <iframe src={pdfUrl} title={label} className="hidden md:block h-full w-full" />
+        <iframe src={pdfUrl+"#toolbar=0&navpanes=0&scrollbar=0"} title={label} className="hidden md:block h-full w-full" width="100%" height="100%" />
 
         <div className="flex h-full flex-col items-center justify-center gap-4 px-6 text-center md:hidden">
           <p className="text-sm text-gray-600">
