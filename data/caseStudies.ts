@@ -375,6 +375,53 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
   },
 
+  "carlsson-studio": {
+    snapshot: [
+      { label: "Industry", values: ["Software Platform"] },
+      { label: "Users", values: ["Business Owners", "Operations Teams"] },
+      { label: "Platform", values: ["Discovery Platform", "Proposal Engine"] },
+      { label: "Tech", values: ["Next.js", "Java", "Spring Boot"] },
+      { label: "Deployment", values: ["Web Application"] },
+    ],
+    workflow: [
+      "Business describes their operations",
+      "Platform maps requirements to foundations",
+      "Recommendation engine scores options",
+      "Proposal and roadmap generated",
+      "Client reviews and validates next steps",
+    ],
+    features: [
+      { emoji: "🧭", title: "Discovery Journey", description: "Guided questionnaire for business needs" },
+      { emoji: "🤖", title: "Recommendation Engine", description: "Matches needs to proven foundations" },
+      { emoji: "🧩", title: "Architecture Preview", description: "Shows how the right foundation fits together" },
+      { emoji: "📄", title: "Proposal Generation", description: "Turns discovery into a tailored roadmap" },
+      { emoji: "♻️", title: "Reusable Foundations", description: "Builds from a library of proven systems" },
+    ],
+    highlights: [
+      { label: "Pattern", items: ["AI-assisted discovery", "Composable foundations"] },
+      { label: "Frontend", items: ["Next.js"] },
+      { label: "Backend", items: ["Java", "Spring Boot"] },
+      { label: "Data", items: ["Structured business metadata"] },
+    ],
+    extensions: [
+      "Client CRM",
+      "Implementation planning",
+      "Project estimation",
+      "Automated handoff",
+    ],
+    foundation: [
+      { group: "Foundation Modules", modules: foundationModules },
+      { group: "Discovery", modules: ["Questionnaire", "Business Mapping", "Recommendation Scoring"] },
+      { group: "Delivery", modules: ["Proposal Builder", "Roadmap Generator", "Client Handoff"] },
+    ],
+    idealFor: [
+      "Consulting firms",
+      "Software agencies",
+      "Business operators planning digital transformation",
+      "Teams exploring reusable foundations",
+    ],
+  },
+
   "spa-ecosystem": {
     snapshot: [
       { label: "Industry", values: ["Wellness / Spa"] },

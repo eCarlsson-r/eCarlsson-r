@@ -239,7 +239,7 @@ export const projects: Project[] = [
 
         summary: "Companies couldn't easily discover which proven business systems matched their needs, leading to wasted time and misaligned software decisions.",
 
-        description: "Matches company needs to proven business foundations through AI-powered discovery and recommendation engine.",
+        description: "Matches company needs to proven business foundations through discovery and recommendation engine.",
 
         outcome: "AI recommendation engine, interactive discovery, and proposal generation system built.",
 
