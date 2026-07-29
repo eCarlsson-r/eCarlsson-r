@@ -146,9 +146,8 @@
   "project": {
     "foundationCoverage": {
       "title": "Foundation Coverage",
-      "description": "Reusable modules from the Carlsson Studio foundation, combined with logic built for this domain."
-        ,
-        "highlyPortable": "highly portable"
+      "description": "Reusable modules from the Carlsson Studio foundation, combined with logic built for this domain.",
+      "highlyPortable": "highly portable"
     },
     "futureExtensions": {
       "title": "Available Customizations"
@@ -159,7 +158,10 @@
     },
     "technicalHighlights": {
       "title": "Technical Highlights"
-    }
+    },
+    "seeCaseStudy": "See the full case study",
+    "liveDemo": "Live Demo",
+    "requestThis": "Request this for your business"
   }
   ,
   "contact": {
