@@ -362,7 +362,6 @@
       "trend": "Trend",
       "consistencyScore": "Consistency Score"
     },
-    "strengths": { "title": "Core Strengths" },
     "strengths": { "title": "Core Strengths", "execution": "Execution", "complexity": "Complexity", "ownership": "Ownership" },
     "badges": { "title": "Performance Badges" },
     "liveStatus": {
@@ -375,7 +374,6 @@
     ,
     "leaderboard": { "title": "Top Projects Leaderboard" },
     "commitFeed": { "title": "Live Development Activity", "view": "View →", "justNow": "just now" },
-    "badges": { "title": "Performance Badges" },
     "timeline": {
       "title": "Execution Timeline",
       "signalsTracked": "{count} Signals Tracked",
@@ -410,8 +408,5 @@
     "title": "Live Development Activity",
     "view": "View →",
     "justNow": "just now"
-  },
-  "badges": {
-    "title": "Performance Badges"
   }
 }

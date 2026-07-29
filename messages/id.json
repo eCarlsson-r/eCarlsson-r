@@ -294,9 +294,6 @@
       "strengths": {
         "title": "Kekuatan Inti"
       },
-      "badges": {
-        "title": "Lencana Kinerja"
-      },
       "liveStatus": {
         "title": "Status Eksekusi Langsung",
         "activityPulse": "Puls Aktivitas",
@@ -342,9 +339,6 @@
       "view": "Lihat →",
       "justNow": "baru saja"
     },
-    "badges": {
-      "title": "Lencana Kinerja"
-    },
     "certificates": {
       "pdfPreviewUnavailable": "Pratinjau PDF tidak tersedia di ponsel.",
       "downloadCertificate": "Unduh sertifikat",
@@ -354,6 +348,6 @@
       "seeCaseStudy": "Lihat Studi Kasus",
       "liveDemo": "Demo Langsung",
       "requestThis": "Minta ini untuk bisnis Anda"
-    },
+    }
   }
 }
