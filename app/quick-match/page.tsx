@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
+export const dynamic = "force-dynamic";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { fetchQuestionnaireConfig } from "@/lib/api";

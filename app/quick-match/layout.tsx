@@ -1,21 +1,27 @@
 import "../globals.css";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
 
 // A second root layout (the localized pages use app/[locale]/layout.tsx).
-// This one is intentionally bare — no nav, no footer, no i18n provider — so
-// the ad-landing page stays fast and distraction-free. It still renders the
-// <html>/<body> shell + the theme init script so it matches the dark theme.
+// This one is intentionally bare — no nav, no footer — so the ad-landing page
+// stays fast and distraction-free. It still renders the <html>/<body> shell +
+// the theme init script so it matches the dark theme.
 export const metadata = {
   title: "Find Your Business System | Carlsson Studio",
   description: "Tell us your name and industry — we'll continue on WhatsApp.",
 };
 
-export default function QuickMatchLayout({
+export default async function QuickMatchLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = "id";
+  setRequestLocale(locale);
+  const messages = await getMessages({ locale });
+
   return (
-    <html lang="id" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -30,7 +36,9 @@ export default function QuickMatchLayout({
         />
       </head>
       <body className="bg-background text-foreground antialiased">
-        {children}
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );
