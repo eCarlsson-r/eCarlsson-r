@@ -5,25 +5,26 @@ interface LiveSignals {
   techFocus: Record<string, number>;
 }
 
+import { useTranslations } from "next-intl";
+
 export default function LiveSignalsPanel({ live }: { live: LiveSignals }) {
+  const t = useTranslations("signals");
   const tech = Object.entries(live.techFocus).sort((a, b) => b[1] - a[1]);
 
   return (
-    <div className="p-6 border rounded-2xl bg-blur bg-gradient-to-r from-red-500/10 to-blue-500/10 space-y-6">
-      <h2 className="text-xl font-semibold text-secondary">⚡ Live Execution Intelligence</h2>
+    <div className="p-6 border rounded-2xl bg-blur bg-linear-to-r from-red-500/10 to-blue-500/10 space-y-6">
+      <h2 className="text-xl font-semibold text-secondary">{t("livePanel.title")}</h2>
 
       {/* Core Metrics */}
       <div className="grid md:grid-cols-3 gap-6">
-        <Stat title="Activity Pulse" value={live.activityPulse} />
-        <Stat title="Execution Velocity" value={live.executionVelocity} />
-        <Stat title="Commits (30 Days)" value={live.commitsLast30Days} />
+        <Stat title={t("livePanel.activityPulse")} value={live.activityPulse} />
+        <Stat title={t("livePanel.executionVelocity")} value={live.executionVelocity} />
+        <Stat title={t("livePanel.commits30")} value={live.commitsLast30Days} />
       </div>
 
       {/* Tech Focus */}
       <div>
-        <h3 className="text-sm font-semibold text-gray-600 mb-3">
-          Current Technical Focus
-        </h3>
+        <h3 className="text-sm font-semibold text-gray-600 mb-3">{t("livePanel.currentFocus")}</h3>
 
         <div className="flex flex-wrap gap-2">
           {tech.map(([name, score]) => (

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { listInsights } from "@/lib/hooks/loadInsights";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export const metadata = {
   title: "Insights | Carlsson Studio",
@@ -14,18 +15,17 @@ const upcoming = [
   "Architecture decisions behind Carlsson Studio",
 ];
 
-export default function InsightsPage() {
+export default async function InsightsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "insights" });
   const insights = listInsights();
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-16 md:py-24">
-      <span className="text-xs font-semibold uppercase tracking-widest text-primary">Insights</span>
-      <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">
-        Notes from building business software.
-      </h1>
-      <p className="mt-4 text-muted-foreground">
-        What we learn designing, shipping, and running production systems for founders and operators.
-      </p>
+      <span className="text-xs font-semibold uppercase tracking-widest text-primary">{t("allInsights")}</span>
+      <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{t("title")}</h1>
+      <p className="mt-4 text-muted-foreground">{t("description")}</p>
 
       <div className="mt-12 space-y-6">
         {insights.map((insight) => (
@@ -41,15 +41,13 @@ export default function InsightsPage() {
               {insight.title}
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">{insight.description}</p>
-            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-              Read article<ArrowRight className="h-4 w-4" />
-            </span>
+            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary">{t("readArticle")}<ArrowRight className="h-4 w-4" /></span>
           </Link>
         ))}
       </div>
 
       <div className="mt-16">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Coming next</h2>
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{t("comingNext")}</h2>
         <ul className="mt-4 space-y-3">
           {upcoming.map((topic) => (
             <li key={topic} className="flex items-center gap-3 text-sm text-muted-foreground">

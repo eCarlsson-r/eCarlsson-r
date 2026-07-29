@@ -1,4 +1,5 @@
 import ScoreBar from "@/components/project/ScoreBar";
+import { useTranslations } from "next-intl";
 
 interface Props {
   momentum: string;
@@ -9,6 +10,7 @@ export default function MomentumPanel({
   momentum,
   consistencyScore
 }: Props) {
+  const t = useTranslations("signals");
   const color =
     momentum === "Accelerating"
       ? "text-green-600"
@@ -18,22 +20,18 @@ export default function MomentumPanel({
 
   return (
     <div className="p-6 border rounded-2xl space-y-6">
-      <h2 className="text-xl font-semibold text-secondary">
-        Execution Momentum
-      </h2>
+      <h2 className="text-xl font-semibold text-secondary">{t("momentum.title")}</h2>
 
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm text-gray-500">Trend</p>
+          <p className="text-sm text-gray-500">{t("momentum.trend")}</p>
           <p className={`text-2xl font-bold ${color}`}>
             {momentum}
           </p>
         </div>
 
         <div>
-          <p className="text-sm text-gray-500">
-            Consistency Score
-          </p>
+          <p className="text-sm text-gray-500">{t("momentum.consistencyScore")}</p>
           <p className="text-2xl font-bold">
             {consistencyScore}/100
           </p>

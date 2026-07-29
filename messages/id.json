@@ -33,7 +33,10 @@
     "subtitle": "Solusi",
     "title": "Sistem siap produksi di berbagai bidang bisnis.",
     "description": "Setiap proyek mewakili alur kerja bisnis nyata, dirancang dari database hingga deployment. Ini sistem produksi yang sesungguhnya — bukan konsep UI atau aplikasi tutorial.",
-    "viewAll": "Lihat Semua Solusi"
+    "viewAll": "Lihat Semua Solusi",
+    "noIndustry": "Tidak melihat industri Anda?",
+    "weBuild": "Kami membangun sistem kustom untuk berbagai bidang bisnis.",
+    "talkProject": "Mari bicarakan proyek Anda"
   },
   "startCta": {
     "title": "Mulai dari Fondasi yang Sudah Teruji.",
@@ -115,5 +118,242 @@
     "contactWithin": "Kami akan menghubungi Anda dalam 24 jam melalui <b>{contact}</b>.",
     "whatsappBtn": "Kirim Pesan WhatsApp",
     "exploreCaseStudy": "Jelajahi studi kasus"
+  }
+  ,
+  "quickMatch": {
+    "metaTitle": "Temukan Sistem Bisnis Anda | Carlsson Studio",
+    "metaDescription": "Beritahu nama dan industri Anda — kami lanjut di WhatsApp.",
+    "headline": "Temukan sistem bisnis Anda",
+    "subhead": "Beritahu nama dan industri Anda — kami lanjut di WhatsApp.",
+    "nameLabel": "Nama",
+    "namePlaceholder": "Budi Santoso",
+    "industryLabel": "Industri",
+    "loadingIndustries": "Memuat industri…",
+    "selectIndustry": "Pilih industri Anda",
+    "statusLabel": "Status Bisnis",
+    "status": {
+      "running": "Sudah berjalan",
+      "planning": "Baru mau mulai"
+    },
+    "goalLabel": "Target Bisnis",
+    "goalPlaceholder": "Target 3-6 bulan ke depan — mau capai apa?",
+    "continueButton": "Lanjut di WhatsApp",
+    "openingWhatsapp": "Membuka WhatsApp…",
+    "waRunning": "Halo, saya {name} dari industri {industry}. Bisnis saya sudah berjalan.",
+    "waPlanning": "Halo, saya {name} dari industri {industry}. Saya baru mau mulai. Target: {goal}."
+  }
+  ,
+  "project": {
+    "foundationCoverage": {
+      "title": "Cakupan Fondasi",
+      "description": "Modul yang dapat digunakan kembali dari fondasi Carlsson Studio, dikombinasikan dengan logika yang dibangun untuk domain ini."
+        ,
+        "highlyPortable": "sangat portabel"
+    },
+    "futureExtensions": {
+      "title": "Kustomisasi yang Tersedia"
+    },
+    "idealFor": {
+      "title": "Apakah ini cocok untuk bisnis Anda?",
+      "description": "Fondasi ini ideal untuk:"
+    },
+    "technicalHighlights": {
+      "title": "Sorotan Teknis"
+    }
+  }
+  ,
+  "contact": {
+    "eyebrow": "Kontak",
+    "title": "Ceritakan tentang proyek Anda.",
+    "description": "Saya membalas dalam 1 hari kerja. Semakin banyak konteks yang Anda berikan, semakin berguna balasan pertama saya.",
+    "nameLabel": "Nama",
+    "emailLabel": "Email",
+    "namePlaceholder": "Budi Santoso",
+    "emailPlaceholder": "nama@usaha.com",
+    "projectTypeLabel": "Jenis Proyek",
+    "projectTypeOptions": {
+      "customSystem": "Sistem Kustom",
+      "aiFeature": "Fitur AI",
+      "consultation": "Konsultasi",
+      "other": "Lainnya"
+    },
+    "budgetLabel": "Rentang Anggaran (opsional)",
+    "budgetOptions": {
+      "none": "Tidak ada preferensi",
+      "lt1k": "< $1k",
+      "1k-5k": "$1k – $5k",
+      "5k-10k": "$5k – $10k",
+      "gt10k": "$10k+"
+    },
+    "messageLabel": "Pesan",
+    "messagePlaceholder": "Masalah apa yang ingin Anda selesaikan?",
+    "sendButton": "Kirim Pesan",
+    "aside": {
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "downloadResume": "Unduh Resume (PDF)"
+    }
+  }
+  ,
+  "studio": {
+    "howItWorks": {
+      "title": "Bagaimana Carlsson Studio Bekerja",
+      "steps": {
+        "1": { "number": "01", "title": "Discovery", "body": "Anda memberi tahu apa yang ingin dibangun, industri Anda, dan masalah yang menghambat tim Anda — melalui alur Mulai Proyek atau percakapan langsung." },
+        "2": { "number": "02", "title": "Pencocokan Fondasi", "body": "Kami memetakan kebutuhan Anda ke salah satu fondasi yang telah diuji produksi — sistem terdekat yang sudah menyelesaikan sebagian besar alur kerja Anda." },
+        "3": { "number": "03", "title": "Kustomisasi", "body": "Fondasi disesuaikan dengan operasional Anda: alur kerja, aturan, dan integrasi Anda. Tidak ada hal generik yang bertahan." },
+        "4": { "number": "04", "title": "Pengiriman & Dukungan", "body": "Kami menerapkan ke produksi, melatih tim Anda, dan bertanggung jawab untuk menjaga sistem berjalan." }
+      }
+    }
+    ,
+    "mission": {
+      "eyebrow": "Studio",
+      "headline": "Perangkat lunak harus sesuai dengan bisnis — bukan sebaliknya.",
+      "body": "Carlsson Studio membangun sistem bisnis kustom untuk pemilik dan operator yang sudah tidak lagi cocok dengan spreadsheet, alat yang terpisah, dan alur kerja manual. Setiap sistem dimulai dari cara tim Anda bekerja — dan dikirim siap produksi secara end-to-end, dengan satu orang yang bertanggung jawab atas seluruh stack."
+    },
+    "process": {
+      "title": "Proses Pengembangan",
+      "intro": "Proyek berbasis fondasi yang khas. Garis waktu berubah sesuai scope, tetapi bentuknya tetap sama.",
+      "stages": {
+        "1": { "label": "Week 0", "title": "Discovery & requirements", "body": "Pahami bisnis, alur kerja, dan bagaimana kesuksesan terlihat." },
+        "2": { "label": "Weeks 1–2", "title": "Foundation setup & data model", "body": "Menyiapkan fondasi yang cocok dan membentuk model data sesuai data Anda." },
+        "3": { "label": "Weeks 3–6", "title": "Custom modules & integrations", "body": "Membangun apa yang membuat operasi Anda unik — alur kerja, integrasi, fitur AI." },
+        "4": { "label": "Week 7", "title": "Testing & training", "body": "Data nyata, pengguna nyata, skenario nyata. Tim Anda belajar sistem sebelum peluncuran." },
+        "5": { "label": "Week 8", "title": "Deployment & handover", "body": "Deployment ke produksi, dokumentasi, dan serah terima kode sumber." },
+        "6": { "label": "Ongoing", "title": "Maintenance & support", "body": "Sistem tetap berjalan — dan terus berkembang seiring bisnis tumbuh." }
+      }
+    },
+    "technology": {
+      "title": "Teknologi",
+      "description": "Teknologi yang teruji dan andal — dipilih untuk keandalan dan pemeliharaan jangka panjang, bukan hype.",
+      "stacks": {
+        "Frontend": ["Next.js", "Nuxt", "Angular", "React", "Vue"],
+        "Backend": ["Laravel", "ASP.NET Core", "FastAPI"],
+        "Data": ["MySQL", "REST API"],
+        "AI": ["Gemini", "IBM Granite", "Python ML"],
+        "Deployment": ["Vercel", "Google Cloud Run", "Self-hosted"]
+      }
+    },
+    "faq": {
+      "title": "Pertanyaan yang Sering Diajukan",
+      "items": {
+        "1": { "q": "Berapa lama proyek berjalan?", "a": "Sebagian besar proyek berbasis fondasi rampung dalam 6–10 minggu. Memulai dari sistem yang telah diuji produksi menghilangkan berbulan-bulan kerja awal — garis waktu difokuskan pada alur kerja Anda, bukan membangun ulang layar login." },
+        "2": { "q": "Apakah saya memiliki sistemnya?", "a": "Ya. Anda menerima kode sumber, deployment, dan dokumentasi. Tidak ada kunci, tidak ada biaya lisensi pada perangkat lunak Anda sendiri." },
+        "3": { "q": "Industri saya tidak tercantum. Bisakah Anda membantu?", "a": "Kemungkinan besar bisa. Fondasi berbagi perpustakaan modul yang dapat digunakan kembali — otentikasi, peran, dashboard, pelaporan, pembayaran — yang dapat dikombinasikan menjadi sistem untuk berbagai domain bisnis." },
+        "4": { "q": "Bagaimana harga ditentukan?", "a": "Proposal dengan scope tetap. Setelah discovery Anda mendapatkan proposal tertulis dengan fondasi yang direkomendasikan, kustomisasi, garis waktu, dan harga — sebelum ada komitmen." },
+        "5": { "q": "Siapa yang memelihara sistem setelah peluncuran?", "a": "Kami, jika Anda menginginkannya. Setiap proyek mencakup periode serah terima, dan pemeliharaan serta pengembangan fitur lanjutan tersedia sebagai retainer." },
+        "6": { "q": "Di mana Carlsson Studio bekerja?", "a": "Studio perangkat lunak independen yang berbasis di Indonesia, bekerja secara remote dengan pemilik dan operator di Asia Tenggara." }
+      }
+    }
+    ,
+    "insights": {
+      "allInsights": "Semua wawasan",
+      "calloutTitle": "Mengenali bisnis Anda di sini?",
+      "calloutBody": "Dua menit pertanyaan, satu rekomendasi konkret.",
+      "readArticle": "Baca artikel",
+      "comingNext": "Segera hadir"
+    },
+    "projects": {
+      "backToSolutions": "Kembali ke Solusi",
+      "liveDemo": "Demo Langsung",
+      "github": "GitHub",
+      "noDocumentation": "Tidak ada dokumentasi.",
+      "interestedTitle": "Tertarik dengan sesuatu yang serupa?",
+      "interestedBody": "Kami dapat menyesuaikan fondasi ini untuk mencocokkan alur kerja bisnis Anda.",
+      "startFromThis": "Mulai dari fondasi ini"
+    },
+    "resume": {
+      "title": "Resume Eksekusi",
+      "description": "Representasi kemampuan teknik saya berbasis sinyal.",
+      "metrics": {
+        "projectsDelivered": "Proyek Terselesaikan",
+        "systemsBuilt": "Sistem Dibangun",
+        "executionScore": "Skor Eksekusi",
+        "typicalDeliveryCycle": "Siklus Pengiriman Tipikal"
+      }
+    },
+    "signals": {
+      "heatmap": {
+        "title": "Aktivitas Kontribusi",
+        "less": "Sedikit",
+        "more": "Banyak"
+      },
+      "livePanel": {
+        "title": "⚡ Intelijen Eksekusi Langsung",
+        "activityPulse": "Puls Aktivitas",
+        "executionVelocity": "Kecepatan Eksekusi",
+        "commits30": "Commit (30 Hari)",
+        "currentFocus": "Fokus Teknis Saat Ini"
+      },
+      "momentum": {
+        "title": "Momentum Eksekusi",
+        "trend": "Tren",
+        "consistencyScore": "Skor Konsistensi"
+      },
+      "strengths": {
+        "title": "Kekuatan Inti"
+      },
+      "badges": {
+        "title": "Lencana Kinerja"
+      },
+      "liveStatus": {
+        "title": "Status Eksekusi Langsung",
+        "activityPulse": "Puls Aktivitas",
+        "executionVelocity": "Kecepatan Eksekusi",
+        "commits30": "Commit (30 hari)",
+        "currentFocus": "Fokus Saat Ini"
+      }
+      ,
+      "leaderboard": { "title": "Papan Peringkat Proyek Teratas" },
+      "commitFeed": { "title": "Aktivitas Pengembangan Langsung", "view": "Lihat →", "justNow": "baru saja" },
+      "badges": { "title": "Lencana Kinerja" },
+      "timeline": {
+        "title": "Garis Waktu Eksekusi",
+        "signalsTracked": "{count} sinyal dilacak",
+        "complexityLabel": "Kompleksitas",
+        "executionLabel": "Eksekusi",
+        "ownershipLabel": "Kepemilikan",
+        "executionScoreLabel": "Skor Eksekusi",
+        "complexityScoreLabel": "Skor Kompleksitas",
+        "ownershipScoreLabel": "Skor Kepemilikan"
+      }
+    },
+    "timeline": {
+      "title": "Garis Waktu Eksekusi",
+      "signalsTracked": "{count} sinyal dilacak",
+      "complexityLabel": "Kompleksitas",
+      "executionLabel": "Eksekusi",
+      "ownershipLabel": "Kepemilikan",
+      "executionScoreLabel": "Skor Eksekusi",
+      "complexityScoreLabel": "Skor Kompleksitas",
+      "ownershipScoreLabel": "Skor Kepemilikan"
+    },
+    "strengths": {
+      "execution": "Eksekusi",
+      "complexity": "Kompleksitas",
+      "ownership": "Kepemilikan"
+    },
+    "leaderboard": {
+      "title": "Papan Peringkat Proyek Teratas"
+    },
+    "commitFeed": {
+      "title": "Aktivitas Pengembangan Langsung",
+      "view": "Lihat →",
+      "justNow": "baru saja"
+    },
+    "badges": {
+      "title": "Lencana Kinerja"
+    },
+    "certificates": {
+      "pdfPreviewUnavailable": "Pratinjau PDF tidak tersedia di ponsel.",
+      "downloadCertificate": "Unduh sertifikat",
+      "close": "Tutup"
+    },
+    "project": {
+      "seeCaseStudy": "Lihat Studi Kasus",
+      "liveDemo": "Demo Langsung",
+      "requestThis": "Minta ini untuk bisnis Anda"
+    },
   }
 }

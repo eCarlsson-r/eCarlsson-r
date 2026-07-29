@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { compileMDX } from "next-mdx-remote/rsc";
@@ -23,8 +24,10 @@ export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default async function ProjectPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "projects" });
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) return notFound();
@@ -58,7 +61,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <div className="mx-auto max-w-7xl px-6 py-12">
       <Link href="/projects" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition">
-        <ArrowLeft className="h-4 w-4" />Back to Solutions
+        <ArrowLeft className="h-4 w-4" />{t("backToSolutions")}
       </Link>
 
       {slides.length > 0 && (
@@ -76,13 +79,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
           <div className="flex flex-wrap items-center gap-4">
             <LinkDropdown
-              label="Live Demo"
+              label={t("liveDemo")}
               icon="demo"
               variant="primary"
               items={demoRepos.map((repo) => ({ label: repo.name, href: repo.url! }))}
             />
             <LinkDropdown
-              label="GitHub"
+              label={t("github")}
               icon="github"
               variant="outline"
               items={(project.repositories ?? []).map((repo) => ({
@@ -108,7 +111,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       <hr className="my-10 border-border" />
 
-      {mdxBody ?? <p className="text-gray-500">No documentation available.</p>}
+      {mdxBody ?? <p className="text-gray-500">{t("noDocumentation")}</p>}
 
       {caseStudy && (
         <>
@@ -120,15 +123,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       )}
 
       <div className="mt-12 rounded-2xl border border-primary/30 bg-primary/5 p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-semibold">Interested in something similar?</h2>
-        <p className="mt-3 text-muted-foreground">
-          We can customize this foundation to match your own business workflow.
-        </p>
+        <h2 className="text-2xl md:text-3xl font-semibold">{t("interestedTitle")}</h2>
+        <p className="mt-3 text-muted-foreground">{t("interestedBody")}</p>
         <Link
           href="/start-a-project"
           className="mt-6 inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary hover:opacity-80 transition-opacity"
         >
-          Start from this foundation<ArrowRight className="h-4 w-4" />
+          {t("startFromThis")}<ArrowRight className="h-4 w-4" />
         </Link>
       </div>
     </div>

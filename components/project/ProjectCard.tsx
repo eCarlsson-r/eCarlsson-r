@@ -7,6 +7,7 @@ import { Project, Repository } from "@/core/types";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import DomainBadge from "./DomainBadge";
+import { useTranslations } from "next-intl";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const router = useRouter();
@@ -16,6 +17,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   };
   const projectsDemo = project.repositories?.filter(p => p.url) ?? [];
   const openCaseStudy = () => router.push(`/projects/${project.slug}`);
+  const t = useTranslations("project");
 
   return (
     <motion.div
@@ -86,16 +88,10 @@ export default function ProjectCard({ project }: { project: Project }) {
       {/* 🔥 LINKS */}
       <div className="flex flex-wrap gap-3 my-3">
         {/* CTA */}
-        <Link
-          href={`/projects/${project.slug}`}
-          onClick={(e) => e.stopPropagation()}
-          className="p-2 text-xs md:px-4 md:py-2 md:text-sm font-label tracking-tight rounded-lg border bg-primary text-on-primary relative z-10"
-        >
-          See Case Study
-        </Link>
+        <Link href={`/projects/${project.slug}`} onClick={(e) => e.stopPropagation()} className="p-2 text-xs md:px-4 md:py-2 md:text-sm font-label tracking-tight rounded-lg border bg-primary text-on-primary relative z-10">{t("seeCaseStudy")}</Link>
         {projectsDemo.length == 1 && projectsDemo[0].url && (
           <Link href={projectsDemo[0].url} target="_blank" onClick={(e) => e.stopPropagation()} className="inline-flex items-center gap-1.5 p-2 text-xs md:px-4 md:py-2 md:text-sm font-label tracking-tight text-on-primary rounded-lg border bg-primary text-on-primary relative z-10">
-            <ExternalLink className="h-3 w-3 md:w-4 md:h-4" />Live Demo
+            <ExternalLink className="h-3 w-3 md:w-4 md:h-4" />{t("liveDemo")}
           </Link>
         )}
 
@@ -108,7 +104,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                     className="inline-flex items-center gap-1.5 p-2 text-xs md:px-4 md:py-2 md:text-sm font-label tracking-tight rounded-lg border bg-primary text-on-primary relative z-10"
                     onClick={(e) => { e.stopPropagation(); toggleDropdown(); }}
                 >
-                    <ExternalLink className="h-3 w-3 md:w-4 md:h-4" />Live Demo
+                  <ExternalLink className="h-3 w-3 md:w-4 md:h-4" />{t("liveDemo")}
                 </button>
 
                 {/* Dropdown menu */}
@@ -137,13 +133,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
 
-      <Link
-        href={`/start-a-project?industry=${encodeURIComponent(project.domain)}`}
-        onClick={(e) => e.stopPropagation()}
-        className="mt-auto inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-secondary transition relative z-10"
-      >
-        Request this for your business<ArrowRight className="h-3 w-3" />
-      </Link>
+      <Link href={`/start-a-project?industry=${encodeURIComponent(project.domain)}`} onClick={(e) => e.stopPropagation()} className="mt-auto inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-secondary transition relative z-10">{t("requestThis")}<ArrowRight className="h-3 w-3" /></Link>
     </motion.div>
   );
 }

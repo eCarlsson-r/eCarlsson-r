@@ -23,7 +23,10 @@ function getColor(count: number) {
   return "bg-green-800";
 }
 
+import { useTranslations } from "next-intl";
+
 export default function ExecutionHeatmap() {
+  const t = useTranslations("signals");
   const [data, setData] = useState<Record<string, number>>({});
 
   useEffect(() => {
@@ -36,9 +39,7 @@ export default function ExecutionHeatmap() {
 
   return (
     <section>
-      <h2 className="text-2xl font-semibold text-center text-primary mb-10">
-        Contribution Activity
-      </h2>
+      <h2 className="text-2xl font-semibold text-center text-primary mb-10">{t("heatmap.title")}</h2>
 
       <div className="overflow-x-auto">
         <div className="grid grid-cols-52 gap-1 w-max mx-auto">
@@ -58,7 +59,7 @@ export default function ExecutionHeatmap() {
       </div>
       
       <div className="flex justify-center gap-2 mt-4 text-xs text-gray-500">
-        <span>Less</span>
+      <span>{t("heatmap.less")}</span>
         <div className="flex gap-1">
           <div className="w-3 h-3 bg-gray-200" />
           <div className="w-3 h-3 bg-green-200" />
@@ -66,7 +67,7 @@ export default function ExecutionHeatmap() {
           <div className="w-3 h-3 bg-green-600" />
           <div className="w-3 h-3 bg-green-800" />
         </div>
-        <span>More</span>
+        <span>{t("heatmap.more")}</span>
       </div>
     </section>
   );

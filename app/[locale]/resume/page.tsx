@@ -5,8 +5,12 @@ import LiveExecutionStatus from "@/components/signals/LiveExecutionStatus";
 import ExecutionInsights from "@/components/signals/ExecutionInsights";
 import ExecutionBadges from "@/components/signals/ExecutionBadges";
 import ExecutionTimeline from "@/components/signals/ExecutionTimeline";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export default async function ResumePage() {
+export default async function ResumePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "resume" });
   const live = await getLiveSignals() ?? {
     activityPulse: "Inactive",
     executionVelocity: "Low",
@@ -23,10 +27,8 @@ export default async function ResumePage() {
       <div className="mx-auto max-w-6xl space-y-12 p-8 lg:px-0">
         {/* Hero */}
         <section>
-          <h1 className="text-5xl font-bold text-primary">Execution Resume</h1>
-          <p className="text-gray-600 mt-4">
-            A signal-driven representation of my engineering capability.
-          </p>
+          <h1 className="text-5xl font-bold text-primary">{t("title")}</h1>
+          <p className="text-gray-600 mt-4">{t("description")}</p>
         </section>
 
         {/* NEW: Live Intelligence */}
@@ -34,10 +36,10 @@ export default async function ResumePage() {
 
         {/* Metrics */}
         <section className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <Metric value={metrics?.projects || 0} label="Projects Delivered" />
-          <Metric value={metrics?.systemsBuilt || 0} label="Systems Built" />
-          <Metric value={metrics?.executionScore || 0} label="Execution Score" />
-          <Metric value="2 - 4 weeks" label="Typical Delivery Cycle" />
+          <Metric value={metrics?.projects || 0} label={t("metrics.projectsDelivered")} />
+          <Metric value={metrics?.systemsBuilt || 0} label={t("metrics.systemsBuilt")} />
+          <Metric value={metrics?.executionScore || 0} label={t("metrics.executionScore")} />
+          <Metric value="2 - 4 weeks" label={t("metrics.typicalDeliveryCycle")} />
         </section>
 
         {/* NEW: AI Insights */}

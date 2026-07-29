@@ -466,7 +466,8 @@ function Results({ result, contact, answers }: { result: LeadResult; contact: st
                 problem: idn,
                 feature: idn,
                 companySize: idn,
-              }
+              },
+          locale
         )
       )
     : null;

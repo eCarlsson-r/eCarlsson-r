@@ -2,13 +2,15 @@
 
 import { motion } from "motion/react";
 import { Square } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function FutureExtensions({ extensions }: { extensions: string[] }) {
+  const t = useTranslations("project");
   if (extensions.length === 0) return null;
 
   return (
     <section>
-      <h2 className="text-2xl md:text-3xl font-semibold mt-12 mb-4">Available Customizations</h2>
+      <h2 className="text-2xl md:text-3xl font-semibold mt-12 mb-4">{t("futureExtensions.title")}</h2>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {extensions.map((extension, i) => (
           <motion.div

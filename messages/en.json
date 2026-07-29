@@ -33,7 +33,10 @@
     "subtitle": "Solutions",
     "title": "Production-ready systems across business domains.",
     "description": "Every project represents a real business workflow, designed from the database to deployment. These are production systems — not UI concepts or tutorial applications.",
-    "viewAll": "View All Solutions"
+    "viewAll": "View All Solutions",
+    "noIndustry": "Don't see your industry?",
+    "weBuild": "We build custom systems for any business domain.",
+    "talkProject": "Let's talk about your project"
   },
   "startCta": {
     "title": "Start With a Proven Foundation.",
@@ -115,5 +118,300 @@
     "contactWithin": "We'll be in touch within 24 hours at <b>{contact}</b>.",
     "whatsappBtn": "Send a WhatsApp Message",
     "exploreCaseStudy": "Explore the case study"
+  }
+  ,
+  "quickMatch": {
+    "metaTitle": "Find Your Business System | Carlsson Studio",
+    "metaDescription": "Tell us your name and industry — we'll continue on WhatsApp.",
+    "headline": "Let's find your business system",
+    "subhead": "Tell us your name and industry — we'll continue on WhatsApp.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Jane Doe",
+    "industryLabel": "Industry",
+    "loadingIndustries": "Loading industries…",
+    "selectIndustry": "Select your industry",
+    "statusLabel": "Business Status",
+    "status": {
+      "running": "Already running",
+      "planning": "Planning to start"
+    },
+    "goalLabel": "Business Goal",
+    "goalPlaceholder": "Target in 3-6 months — what do you want to achieve?",
+    "continueButton": "Continue on WhatsApp",
+    "openingWhatsapp": "Opening WhatsApp…",
+    "waRunning": "Hi, I'm {name} from the {industry} industry. My business is already running.",
+    "waPlanning": "Hi, I'm {name} from the {industry} industry. I'm planning to start. Target: {goal}."
+  }
+  ,
+  "project": {
+    "foundationCoverage": {
+      "title": "Foundation Coverage",
+      "description": "Reusable modules from the Carlsson Studio foundation, combined with logic built for this domain."
+        ,
+        "highlyPortable": "highly portable"
+    },
+    "futureExtensions": {
+      "title": "Available Customizations"
+    },
+    "idealFor": {
+      "title": "Is this suitable for your business?",
+      "description": "This foundation is ideal for:"
+    },
+    "technicalHighlights": {
+      "title": "Technical Highlights"
+    }
+  }
+  ,
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Tell me about your project.",
+    "description": "I reply within 1 business day. The more context you give me, the more useful my first reply will be.",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "namePlaceholder": "Jane Doe",
+    "emailPlaceholder": "jane@company.com",
+    "projectTypeLabel": "Project Type",
+    "projectTypeOptions": {
+      "customSystem": "Custom System",
+      "aiFeature": "AI Feature",
+      "consultation": "Consultation",
+      "other": "Other"
+    },
+    "budgetLabel": "Budget Range (optional)",
+    "budgetOptions": {
+      "none": "No preference",
+      "lt1k": "< $1k",
+      "1k-5k": "$1k – $5k",
+      "5k-10k": "$5k – $10k",
+      "gt10k": "$10k+"
+    },
+    "messageLabel": "Message",
+    "messagePlaceholder": "What problem are you trying to solve?",
+    "sendButton": "Send Message",
+    "aside": {
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "downloadResume": "Download Resume (PDF)"
+    }
+  }
+  ,
+  "studio": {
+    "howItWorks": {
+      "title": "How Carlsson Studio Works",
+      "steps": {
+        "1": { "number": "01", "title": "Discovery", "body": "You tell us what you want to build, your industry, and the problems slowing your team down — through the Start a Project flow or a direct conversation." },
+        "2": { "number": "02", "title": "Foundation Match", "body": "We map your needs to one of our production-tested foundations — the closest system that already solves most of your workflow." },
+        "3": { "number": "03", "title": "Customization", "body": "The foundation is adapted to your operations: your workflows, your rules, your integrations. Nothing generic survives." },
+        "4": { "number": "04", "title": "Delivery & Support", "body": "We deploy to production, train your team, and stay accountable for keeping the system running." }
+      }
+    }
+    ,
+    "mission": {
+      "eyebrow": "Studio",
+      "headline": "Software should fit the business — not the other way around.",
+      "body": "Carlsson Studio builds custom business systems for founders and operators who have outgrown spreadsheets, disconnected tools, and manual workflows. Every system starts from how your team actually works — and ships production-ready, end-to-end, with one person accountable for the whole stack."
+    },
+    "process": {
+      "title": "Development Process",
+      "intro": "A typical foundation-based project. Timelines shift with scope, but the shape stays the same.",
+      "stages": {
+        "1": { "label": "Week 0", "title": "Discovery & requirements", "body": "Understand the business, the workflows, and what success looks like." },
+        "2": { "label": "Weeks 1–2", "title": "Foundation setup & data model", "body": "Stand up the matched foundation and shape the domain model around your data." },
+        "3": { "label": "Weeks 3–6", "title": "Custom modules & integrations", "body": "Build what makes your operation unique — workflows, integrations, AI features." },
+        "4": { "label": "Week 7", "title": "Testing & training", "body": "Real data, real users, real scenarios. Your team learns the system before launch." },
+        "5": { "label": "Week 8", "title": "Deployment & handover", "body": "Production deployment, documentation, and source code handover." },
+        "6": { "label": "Ongoing", "title": "Maintenance & support", "body": "The system keeps running — and keeps evolving as the business grows." }
+      }
+    },
+    "insights": {
+      "allInsights": "All insights",
+      "calloutTitle": "Recognize your business in this?",
+      "calloutBody": "Two minutes of questions, one concrete recommendation.",
+      "readArticle": "Read article",
+      "comingNext": "Coming next"
+    },
+    "projects": {
+      "backToSolutions": "Back to Solutions",
+      "liveDemo": "Live Demo",
+      "github": "GitHub",
+      "noDocumentation": "No documentation available.",
+      "interestedTitle": "Interested in something similar?",
+      "interestedBody": "We can customize this foundation to match your own business workflow.",
+      "startFromThis": "Start from this foundation"
+    },
+    "resume": {
+      "title": "Execution Resume",
+      "description": "A signal-driven representation of my engineering capability.",
+      "metrics": {
+        "projectsDelivered": "Projects Delivered",
+        "systemsBuilt": "Systems Built",
+        "executionScore": "Execution Score",
+        "typicalDeliveryCycle": "Typical Delivery Cycle"
+      }
+    },
+    "signals": {
+      "heatmap": {
+        "title": "Contribution Activity",
+        "less": "Less",
+        "more": "More"
+      },
+      "livePanel": {
+        "title": "⚡ Live Execution Intelligence",
+        "activityPulse": "Activity Pulse",
+        "executionVelocity": "Execution Velocity",
+        "commits30": "Commits (30 Days)",
+        "currentFocus": "Current Technical Focus"
+      },
+      "momentum": {
+        "title": "Execution Momentum",
+        "trend": "Trend",
+        "consistencyScore": "Consistency Score"
+      },
+      "strengths": {
+        "title": "Core Strengths"
+      },
+      "badges": {
+        "title": "Performance Badges"
+      },
+      "liveStatus": {
+      "certificates": {
+        "pdfPreviewUnavailable": "PDF preview is not available on mobile.",
+        "downloadCertificate": "Download certificate",
+        "close": "Close"
+      },
+      "project": {
+        "seeCaseStudy": "See Case Study",
+        "liveDemo": "Live Demo",
+        "requestThis": "Request this for your business"
+      },
+        "title": "Live Execution Status",
+        "activityPulse": "Activity Pulse",
+        "executionVelocity": "Execution Velocity",
+        "commits30": "Commits (30 days)",
+        "currentFocus": "Current Focus"
+      }
+    },
+    "technology": {
+      "title": "Technology",
+      "description": "Proven, boring-in-a-good-way technology — chosen for reliability and long-term maintainability, not hype.",
+      "stacks": {
+        "Frontend": ["Next.js", "Nuxt", "Angular", "React", "Vue"],
+        "Backend": ["Laravel", "ASP.NET Core", "FastAPI"],
+        "Data": ["MySQL", "REST API"],
+        "AI": ["Gemini", "IBM Granite", "Python ML"],
+        "Deployment": ["Vercel", "Google Cloud Run", "Self-hosted"]
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "1": { "q": "How long does a project take?", "a": "Most foundation-based projects ship in 6–10 weeks. Starting from a production-tested system removes months of groundwork — the timeline is spent on your workflows, not on rebuilding login screens." },
+        "2": { "q": "Do I own the system?", "a": "Yes. You receive the source code, the deployment, and the documentation. No lock-in, no license fees on your own software." },
+        "3": { "q": "My industry isn't listed. Can you still help?", "a": "Very likely. The foundations share a library of reusable modules — authentication, roles, dashboards, reporting, payments — that recombine into systems for any business domain." },
+        "4": { "q": "How does pricing work?", "a": "Fixed-scope proposals. After discovery you get a written proposal with the recommended foundation, the customizations, the timeline, and the price — before any commitment." },
+        "5": { "q": "Who maintains the system after launch?", "a": "We do, if you want us to. Every project includes a handover period, and ongoing maintenance and feature development are available as a retainer." },
+        "6": { "q": "Where does Carlsson Studio work from?", "a": "An independent software studio based in Indonesia, working remotely with founders and operators across Southeast Asia." }
+      }
+    }
+  }
+  ,
+  "insights": {
+    "allInsights": "All insights",
+    "title": "Notes from building business software.",
+    "description": "What we learn designing, shipping, and running production systems for founders and operators.",
+    "calloutTitle": "Recognize your business in this?",
+    "calloutBody": "Two minutes of questions, one concrete recommendation.",
+    "readArticle": "Read article",
+    "comingNext": "Coming next"
+  },
+  "projects": {
+    "backToSolutions": "Back to Solutions",
+    "liveDemo": "Live Demo",
+    "github": "GitHub",
+    "noDocumentation": "No documentation available.",
+    "interestedTitle": "Interested in something similar?",
+    "interestedBody": "We can customize this foundation to match your own business workflow.",
+    "startFromThis": "Start from this foundation"
+  },
+  "resume": {
+    "title": "Execution Resume",
+    "description": "A signal-driven representation of my engineering capability.",
+    "metrics": {
+      "projectsDelivered": "Projects Delivered",
+      "systemsBuilt": "Systems Built",
+      "executionScore": "Execution Score",
+      "typicalDeliveryCycle": "Typical Delivery Cycle"
+    }
+  },
+  "signals": {
+    "heatmap": {
+      "title": "Contribution Activity",
+      "less": "Less",
+      "more": "More"
+    },
+    "livePanel": {
+      "title": "⚡ Live Execution Intelligence",
+      "activityPulse": "Activity Pulse",
+      "executionVelocity": "Execution Velocity",
+      "commits30": "Commits (30 Days)",
+      "currentFocus": "Current Technical Focus"
+    },
+    "momentum": {
+      "title": "Execution Momentum",
+      "trend": "Trend",
+      "consistencyScore": "Consistency Score"
+    },
+    "strengths": { "title": "Core Strengths" },
+    "strengths": { "title": "Core Strengths", "execution": "Execution", "complexity": "Complexity", "ownership": "Ownership" },
+    "badges": { "title": "Performance Badges" },
+    "liveStatus": {
+      "title": "Live Execution Status",
+      "activityPulse": "Activity Pulse",
+      "executionVelocity": "Execution Velocity",
+      "commits30": "Commits (30 days)",
+      "currentFocus": "Current Focus"
+    }
+    ,
+    "leaderboard": { "title": "Top Projects Leaderboard" },
+    "commitFeed": { "title": "Live Development Activity", "view": "View →", "justNow": "just now" },
+    "badges": { "title": "Performance Badges" },
+    "timeline": {
+      "title": "Execution Timeline",
+      "signalsTracked": "{count} Signals Tracked",
+      "complexityLabel": "Complexity",
+      "executionLabel": "Execution",
+      "ownershipLabel": "Ownership",
+      "executionScoreLabel": "Execution Score",
+      "complexityScoreLabel": "Complexity Score",
+      "ownershipScoreLabel": "Ownership Score"
+    }
+  }
+  ,
+  "timeline": {
+    "title": "Execution Timeline",
+    "signalsTracked": "{count} Signals Tracked",
+    "complexityLabel": "Complexity",
+    "executionLabel": "Execution",
+    "ownershipLabel": "Ownership",
+    "executionScoreLabel": "Execution Score",
+    "complexityScoreLabel": "Complexity Score",
+    "ownershipScoreLabel": "Ownership Score"
+  },
+  "strengths": {
+    "execution": "Execution",
+    "complexity": "Complexity",
+    "ownership": "Ownership"
+  },
+  "leaderboard": {
+    "title": "Top Projects Leaderboard"
+  },
+  "commitFeed": {
+    "title": "Live Development Activity",
+    "view": "View →",
+    "justNow": "just now"
+  },
+  "badges": {
+    "title": "Performance Badges"
   }
 }

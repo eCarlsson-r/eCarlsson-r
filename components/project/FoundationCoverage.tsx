@@ -3,16 +3,16 @@
 import { motion } from "motion/react";
 import { Check } from "lucide-react";
 import { FoundationGroup } from "@/data/caseStudies";
+import { useTranslations } from "next-intl";
 
 export default function FoundationCoverage({ groups }: { groups: FoundationGroup[] }) {
+  const t = useTranslations("project");
   if (groups.length === 0) return null;
 
   return (
     <section>
-      <h2 className="text-2xl md:text-3xl font-semibold mt-12 mb-2">Foundation Coverage</h2>
-      <p className="mb-6 text-sm text-muted-foreground">
-        Reusable modules from the Carlsson Studio foundation, combined with logic built for this domain.
-      </p>
+      <h2 className="text-2xl md:text-3xl font-semibold mt-12 mb-2">{t("foundationCoverage.title")}</h2>
+      <p className="mb-6 text-sm text-muted-foreground">{t("foundationCoverage.description")}</p>
       <div className="grid gap-4 md:grid-cols-3">
         {groups.map((group, i) => (
           <motion.div
@@ -42,7 +42,7 @@ export default function FoundationCoverage({ groups }: { groups: FoundationGroup
                       {isRich && (
                         <span className="block text-xs text-muted-foreground mt-0.5">
                           {module.description}
-                          {module.portability === "high" && " — highly portable"}
+                          {module.portability === "high" && ` — ${t("foundationCoverage.highlyPortable", { default: "highly portable" })}`}
                         </span>
                       )}
                     </span>

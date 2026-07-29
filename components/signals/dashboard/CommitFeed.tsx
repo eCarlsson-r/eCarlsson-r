@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 type FeedItem = {
   repo: string;
@@ -10,67 +11,64 @@ type FeedItem = {
   url: string;
 };
 
-function formatTimeAgo(date: string) {
-  const now = new Date().getTime();
-  const past = new Date(date).getTime();
-
-  const diff = (now - past) / 1000;
-
-  if (diff < 60) return "just now";
-  if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
-  if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
-  if (diff < 604800) return `${Math.floor(diff / 86400)}d ago`;
-
-  return new Date(date).toLocaleDateString();
-}
-
-function CommitItem({ item, index }: any) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ delay: index * 0.05 }}
-      className="relative flex gap-4 items-start group"
-    >
-      {/* Dot */}
-      <div className="relative z-10">
-        <div className="w-3 h-3 rounded-full bg-blue-500 mt-2" />
-      </div>
-
-      {/* Content */}
-      <div className="flex-1 border rounded-xl p-4 
-                      bg-white dark:bg-white/5 
-                      backdrop-blur hover:shadow-lg transition">
-
-        {/* Repo */}
-        <p className="text-xs text-gray-500 mb-1">
-          {item.repo}
-        </p>
-
-        {/* Message */}
-        <p className="text-sm font-medium mb-2">
-          {item.message}
-        </p>
-
-        {/* Footer */}
-        <div className="flex justify-between items-center text-xs text-gray-400">
-          <span>{formatTimeAgo(item.date)}</span>
-
-          <a
-            href={item.url}
-            target="_blank"
-            className="opacity-0 group-hover:opacity-100 transition underline"
-          >
-            View →
-          </a>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
 export default function CommitFeed() {
+  const t = useTranslations("signals");
   const [feed, setFeed] = useState<FeedItem[]>([]);
+
+  function formatTimeAgo(date: string) {
+    const now = new Date().getTime();
+    const past = new Date(date).getTime();
+
+    const diff = (now - past) / 1000;
+
+    if (diff < 60) return t("commitFeed.justNow");
+    if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+    if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+    if (diff < 604800) return `${Math.floor(diff / 86400)}d ago`;
+
+    return new Date(date).toLocaleDateString();
+  }
+
+  function CommitItem({ item, index }: any) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ delay: index * 0.05 }}
+        className="relative flex gap-4 items-start group"
+      >
+        {/* Dot */}
+        <div className="relative z-10">
+          <div className="w-3 h-3 rounded-full bg-blue-500 mt-2" />
+        </div>
+
+        {/* Content */}
+        <div className="flex-1 border rounded-xl p-4 
+                        bg-white dark:bg-white/5 
+                        backdrop-blur hover:shadow-lg transition">
+
+          {/* Repo */}
+          <p className="text-xs text-gray-500 mb-1">{item.repo}</p>
+
+          {/* Message */}
+          <p className="text-sm font-medium mb-2">{item.message}</p>
+
+          {/* Footer */}
+          <div className="flex justify-between items-center text-xs text-gray-400">
+            <span>{formatTimeAgo(item.date)}</span>
+
+            <a
+              href={item.url}
+              target="_blank"
+              className="opacity-0 group-hover:opacity-100 transition underline"
+            >
+              {t("commitFeed.view")}
+            </a>
+          </div>
+        </div>
+      </motion.div>
+    );
+  }
 
   useEffect(() => {
     fetch("/data/commit-feed.json")
@@ -81,9 +79,7 @@ export default function CommitFeed() {
   return (
     <section>
       <div className="max-w-3xl mx-auto px-6">
-        <h2 className="text-2xl font-semibold mb-10 text-primary text-center">
-          Live Development Activity
-        </h2>
+        <h2 className="text-2xl font-semibold mb-10 text-primary text-center">{t("commitFeed.title")}</h2>
 
         <div className="relative">
           {/* Timeline line */}

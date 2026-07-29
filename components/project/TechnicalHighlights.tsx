@@ -2,13 +2,15 @@
 
 import { motion } from "motion/react";
 import { Highlight } from "@/data/caseStudies";
+import { useTranslations } from "next-intl";
 
 export default function TechnicalHighlights({ highlights }: { highlights: Highlight[] }) {
+  const t = useTranslations("project");
   if (highlights.length === 0) return null;
 
   return (
     <section>
-      <h2 className="text-2xl md:text-3xl font-semibold mt-12 mb-4">Technical Highlights</h2>
+      <h2 className="text-2xl md:text-3xl font-semibold mt-12 mb-4">{t("technicalHighlights.title")}</h2>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {highlights.map((highlight, i) => (
           <motion.div

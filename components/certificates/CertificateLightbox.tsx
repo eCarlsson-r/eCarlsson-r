@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { Download, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface Props {
   pdfUrl: string;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export default function CertificateLightbox({ pdfUrl, label, onClose }: Props) {
+  const t = useTranslations("certificates");
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -36,11 +38,7 @@ export default function CertificateLightbox({ pdfUrl, label, onClose }: Props) {
       >
         <div className="flex items-center justify-between gap-4 border-b border-gray-200 px-4 py-3">
           <p className="truncate text-sm font-medium text-gray-900">{label}</p>
-          <button
-            aria-label="Close"
-            onClick={onClose}
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-md border border-gray-200 text-gray-500 hover:text-gray-900"
-          >
+          <button aria-label={t("close")} onClick={onClose} className="grid h-9 w-9 shrink-0 place-items-center rounded-md border border-gray-200 text-gray-500 hover:text-gray-900">
             <X className="h-4 w-4" />
           </button>
         </div>
@@ -49,15 +47,13 @@ export default function CertificateLightbox({ pdfUrl, label, onClose }: Props) {
         <iframe src={pdfUrl+"#toolbar=0&navpanes=0&scrollbar=0"} title={label} className="hidden md:block h-full w-full" width="100%" height="100%" />
 
         <div className="flex h-full flex-col items-center justify-center gap-4 px-6 text-center md:hidden">
-          <p className="text-sm text-gray-600">
-            PDF preview is not available on mobile.
-          </p>
+          <p className="text-sm text-gray-600">{t("pdfPreviewUnavailable")}</p>
           <a
             href={pdfUrl}
             download
             className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-label text-on-primary"
           >
-            <Download className="h-4 w-4" />Download certificate
+            <Download className="h-4 w-4" />{t("downloadCertificate")}
           </a>
         </div>
       </div>

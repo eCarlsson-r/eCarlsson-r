@@ -2,14 +2,16 @@
 
 import { motion } from "motion/react";
 import { Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function IdealFor({ items }: { items: string[] }) {
+  const t = useTranslations("project");
   if (items.length === 0) return null;
 
   return (
     <section>
-      <h2 className="text-2xl md:text-3xl font-semibold mt-12 mb-2">Is this suitable for your business?</h2>
-      <p className="mb-6 text-sm text-muted-foreground">This foundation is ideal for:</p>
+      <h2 className="text-2xl md:text-3xl font-semibold mt-12 mb-2">{t("idealFor.title")}</h2>
+      <p className="mb-6 text-sm text-muted-foreground">{t("idealFor.description")}</p>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item, i) => (
           <motion.div
