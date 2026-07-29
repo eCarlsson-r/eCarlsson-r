@@ -37,6 +37,7 @@ function MetaCard() {
 }
 
 export default function FeaturedProjects() {
+  const t = useTranslations("featuredSolutions");
   const [activeTab, setActiveTab] = useState<Tab>("All");
 
   const filtered = activeTab === "All"

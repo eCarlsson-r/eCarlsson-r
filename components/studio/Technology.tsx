@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 
 export default function Technology() {
   const t = useTranslations("studio");
-  const stacks = Object.entries(t("technology.stacks") as Record<string, string[]>);
+  const stacks = Object.entries(t.raw("technology.stacks") as Record<string, string[]>);
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-12 md:py-16">

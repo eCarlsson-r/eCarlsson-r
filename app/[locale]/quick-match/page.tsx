@@ -18,7 +18,6 @@ export default async function LocalizedQuickMatchPage({ params }: { params: Prom
   return (
     <Suspense fallback={<div className="mx-auto max-w-3xl px-6 py-20" />}>
       {/* Client component renders the form and uses client-side translations */}
-      {/* @ts-expect-error Server -> Client component import */}
       <QuickMatchPage />
     </Suspense>
   );
