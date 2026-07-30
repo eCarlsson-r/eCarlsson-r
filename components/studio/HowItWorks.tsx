@@ -5,12 +5,6 @@ import { useTranslations } from "next-intl";
 
 export default function HowItWorks() {
   const t = useTranslations("studio");
-  const steps = [
-    t("howItWorks.steps.1"),
-    t("howItWorks.steps.2"),
-    t("howItWorks.steps.3"),
-    t("howItWorks.steps.4"),
-  ].map((s) => typeof s === "string" ? s : s);
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-12 md:py-16">

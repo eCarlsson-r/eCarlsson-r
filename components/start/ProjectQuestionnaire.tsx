@@ -40,6 +40,8 @@ interface Answers {
   features: string[];
   company: string;
   companySize: string;
+  businessStatus: "RUNNING" | "PLANNING" | "";
+  goal: string;
   name: string;
   email: string;
   phone: string;
@@ -52,6 +54,8 @@ const emptyAnswers: Answers = {
   features: [],
   company: "",
   companySize: "",
+  businessStatus: "",
+  goal: "",
   name: "",
   email: "",
   phone: "",
@@ -187,7 +191,7 @@ export default function ProjectQuestionnaire() {
       case 2: return answers.buildType !== "";
       case 3: return answers.problems.length >= 1;
       case 4: return answers.features.length >= 1;
-      case 5: return answers.companySize !== "";
+      case 5: return answers.companySize !== "" && answers.businessStatus !== "";
       case 6: {
         const email = answers.email.trim();
         const phone = answers.phone.trim();
@@ -218,6 +222,12 @@ export default function ProjectQuestionnaire() {
           buildType: answers.buildType,
           problems: answers.problems,
           features: answers.features,
+          // Step 5 gates on this, so it can't be "" here — the cast keeps the
+          // payload type honest without a redundant runtime check.
+          businessStatus: answers.businessStatus as "RUNNING" | "PLANNING",
+          ...(answers.businessStatus === "PLANNING" && answers.goal.trim()
+            ? { goal: answers.goal.trim() }
+            : {}),
           fbEventId,
           fbp: getFbp(),
           fbc: getFbc(),
@@ -347,6 +357,35 @@ export default function ProjectQuestionnaire() {
                 ))}
               </div>
             </div>
+            <div>
+              <span className="mb-2 block text-sm font-medium">{t("businessStatusLabel")}</span>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <Option
+                  label={t("businessStatusRunning")}
+                  selected={answers.businessStatus === "RUNNING"}
+                  onClick={() => set("businessStatus", "RUNNING")}
+                />
+                <Option
+                  label={t("businessStatusPlanning")}
+                  selected={answers.businessStatus === "PLANNING"}
+                  onClick={() => set("businessStatus", "PLANNING")}
+                />
+              </div>
+            </div>
+            {/* Only meaningful for a business that doesn't exist yet. */}
+            {answers.businessStatus === "PLANNING" && (
+              <label className="block">
+                <span className="mb-2 block text-sm font-medium">{t("goalLabel")} <span className="text-muted-foreground">{t("optional")}</span></span>
+                <textarea
+                  rows={3}
+                  maxLength={500}
+                  value={answers.goal}
+                  onChange={(e) => set("goal", e.target.value)}
+                  placeholder={t("goalPlaceholder")}
+                  className="w-full rounded-lg resize-none"
+                />
+              </label>
+            )}
           </div>
         )}
 

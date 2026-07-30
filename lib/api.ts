@@ -25,6 +25,12 @@ export interface LeadPayload {
   buildType: string;
   problems: string[];
   features: string[];
+  // Whether the business is already operating or still being planned — the
+  // same signal /quick-match captures. business_status is NOT NULL in the
+  // leads table, so this must always be sent.
+  businessStatus: "RUNNING" | "PLANNING";
+  // Free-text objective; only sent when businessStatus is PLANNING.
+  goal?: string;
   // Meta ad-tracking metadata — see lib/metaPixel.ts. Absent when the
   // Pixel is blocked or unconfigured; the backend treats all three as
   // optional.
