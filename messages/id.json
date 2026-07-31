@@ -20,29 +20,190 @@
     "insights": "Wawasan",
     "startProject": "Mulai Proyek",
     "copyright": "© {year} Carlsson Studio. Software Bisnis Kustom.",
-    "tagline": "Studio Software Independen yang berbasis di Indonesia."
+    "tagline": "Studio software independen yang berbasis di Indonesia."
   },
   "hero": {
     "badge": "Menerima proyek baru",
-    "headline": "Ganti spreadsheet, alat yang terpisah-pisah, dan proses manual dengan <highlight>software yang dibuat khusus untuk bisnis Anda</highlight>.",
-    "subhead": "Carlsson Studio merancang dan membangun sistem bisnis internal — mulai dari platform manajemen dan portal pelanggan hingga aplikasi berbasis AI — sesuai dengan cara kerja tim Anda yang sebenarnya.",
-    "seeSolutions": "Lihat Solusi",
+    "headline": "Pertumbuhan seharusnya tidak membuat bisnis Anda <highlight>makin sulit dijalankan</highlight>.",
+    "subhead": "Saat cabang, karyawan, dan volume transaksi bertambah, spreadsheet, obrolan WhatsApp, dan sistem yang terpisah-pisah mulai menghambat. Carlsson Studio merancang sistem operasional yang tetap mengimbangi pertumbuhan bisnis Anda.",
+    "seeCaseStudies": "Lihat Studi Kasus",
     "startProject": "Mulai Proyek"
+  },
+  "symptoms": {
+    "title": "Terdengar familiar?",
+    "intro": "Masalah operasional jarang muncul tiba-tiba. Biasanya berawal dari hambatan kecil yang makin terasa setiap kali Anda buka cabang baru.",
+    "items": {
+      "1": "Tiap cabang akhirnya punya cara kerja sendiri-sendiri",
+      "2": "Laporan baru sampai setelah keputusan terlanjur diambil",
+      "3": "Stok di sistem jarang cocok dengan barang di rak",
+      "4": "Masih ada yang menggabungkan file Excel manual tiap bulan",
+      "5": "Manajer menunggu persetujuan Anda untuk hal rutin",
+      "6": "Pelanggan mendapat pengalaman berbeda di tiap lokasi",
+      "7": "Setiap cabang baru membuat operasional makin rumit",
+      "8": "Bisnis belum bisa berjalan seminggu penuh tanpa Anda"
+    },
+    "closing": "Kalau beberapa poin terasa familiar, masalahnya biasanya bukan kurang kerja keras — tapi cara kerjanya sudah tidak sepadan lagi dengan ukuran bisnis Anda."
+  },
+  "outcomes": {
+    "title": "Dari operasional berantakan ke operasional terkendali.",
+    "intro": "Yang berubah ketika cara Anda beroperasi dirancang, bukan sekadar berjalan apa adanya.",
+    "items": {
+      "1": {
+        "title": "Pekerjaan manual berkurang",
+        "body": "Data cukup diinput sekali lalu mengalir ke tempat yang membutuhkan, bukan diketik ulang di tiga tempat."
+      },
+      "2": {
+        "title": "Satu standar di semua cabang",
+        "body": "Proses yang sama di mana pun, baik Anda punya dua cabang maupun dua puluh."
+      },
+      "3": {
+        "title": "Visibilitas selagi masih berguna",
+        "body": "Lihat penjualan, stok, dan performa saat terjadi — bukan setelah tutup bulan."
+      },
+      "4": {
+        "title": "Ketergantungan pada pemilik berkurang",
+        "body": "Keputusan rutin mengikuti aturan yang bisa dijalankan tim tanpa menunggu Anda."
+      },
+      "5": {
+        "title": "Satu sumber data bisnis",
+        "body": "Penjualan, stok, karyawan, dan pelanggan dalam satu tempat dengan angka yang konsisten."
+      },
+      "6": {
+        "title": "Keputusan berdasarkan data",
+        "body": "Angka yang bisa langsung ditindaklanjuti, bukan perkiraan yang dirakit semalam sebelumnya."
+      }
+    }
+  },
+  "industries": {
+    "title": "Dibangun untuk bisnis dengan operasional kompleks.",
+    "intro": "Pengalaman terkuat kami ada di bisnis dengan operasional nyata — banyak lokasi, stok fisik, jadwal, dan karyawan yang bekerja shift. Kami juga mengerjakan bidang lain; ini sekadar area yang paling sering kami tangani.",
+    "items": {
+      "1": "Retail",
+      "2": "Restoran",
+      "3": "Distributor",
+      "4": "Klinik",
+      "5": "Spa & Wellness",
+      "6": "Properti",
+      "7": "Manufaktur"
+    }
+  },
+  "whyCustom": {
+    "title": "Tidak semua masalah bisnis perlu diselesaikan dengan software khusus.",
+    "intro": "Banyak operasional yang sebenarnya sudah jalan baik dengan tools yang ada. Membangun sistem khusus menambah biaya dan tanggung jawab, jadi sebaiknya hanya dilakukan kalau memang tidak bisa dihindari.",
+    "conditionsTitle": "Software khusus biasanya sepadan ketika:",
+    "conditions": {
+      "1": {
+        "title": "Software jadi sudah tidak lagi cocok",
+        "body": "Anda mulai bekerja mengakali software, bukan dibantu olehnya — ekspor manual, spreadsheet tambahan, aturan yang cuma ada di kepala seseorang."
+      },
+      "2": {
+        "title": "Operasional jadi terpecah-pecah",
+        "body": "Data yang sama diinput di beberapa tempat, dan sampai akhir minggu tidak ada dua tempat yang angkanya cocok."
+      },
+      "3": {
+        "title": "Beberapa divisi butuh satu sumber data",
+        "body": "Penjualan, stok, keuangan, dan operasional masing-masing benar menurut sistemnya sendiri — artinya bisnis tidak punya satu jawaban."
+      },
+      "4": {
+        "title": "Pertumbuhan membuat operasional makin rumit",
+        "body": "Setiap cabang, lini produk, atau pola shift baru menambah kerja koordinasi yang tidak tertangani tools yang ada."
+      }
+    },
+    "closing1": "Tugas kami bukan menjual software.",
+    "closing2": "Tugas kami merekomendasikan solusi operasional yang tepat."
+  },
+  "projectsFail": {
+    "title": "Kenapa banyak proyek software gagal.",
+    "intro": "Sebagian besar sistem yang gagal sebenarnya dikerjakan dengan benar. Kegagalannya terjadi lebih awal dari kodingnya — di keputusan sebelum pembangunan dimulai.",
+    "mistakesTitle": "Kesalahan yang sering terjadi",
+    "avoidTitle": "Cara kami menghindarinya",
+    "items": {
+      "1": {
+        "mistake": "Membangun software sebelum memahami alur kerja",
+        "avoid": "Kami memetakan cara kerja yang berjalan sekarang sebelum mengusulkan apa pun untuk dibangun."
+      },
+      "2": {
+        "mistake": "Mengotomatiskan proses yang memang sudah bermasalah",
+        "avoid": "Proses yang bermasalah dibenahi dulu. Mengotomatiskannya hanya membuat masalahnya berjalan lebih cepat."
+      },
+      "3": {
+        "mistake": "Memilih teknologi sebelum menentukan tujuan bisnis",
+        "avoid": "Tujuannya disepakati lebih dulu. Teknologi dipilih setelahnya, untuk melayani tujuan itu."
+      },
+      "4": {
+        "mistake": "Menganggap software sebagai solusi, bukan operasionalnya",
+        "avoid": "Sistem hanya satu bagian dari jawabannya. Peran, aturan, dan serah terima pekerjaan dirancang bersamaan."
+      }
+    }
+  },
+  "approach": {
+    "title": "Cara kami bekerja.",
+    "intro": "Tujuh langkah, masing-masing ada untuk menghilangkan satu risiko sebelum risikonya jadi mahal.",
+    "whyLabel": "Kenapa langkah ini ada",
+    "steps": {
+      "1": {
+        "title": "Memahami operasional",
+        "why": "Supaya sistem dirancang mengikuti cara bisnis Anda menghasilkan uang — bukan mengikuti daftar fitur."
+      },
+      "2": {
+        "title": "Memetakan alur kerja saat ini",
+        "why": "Menuliskan cara kerja yang berjalan sekarang memunculkan langkah, pengecualian, dan tambalan manual yang biasanya tidak terpikir untuk disebut."
+      },
+      "3": {
+        "title": "Merancang alur kerja yang lebih baik",
+        "why": "Perbaikannya disepakati di atas kertas dulu, saat berubah pikiran cuma butuh satu diskusi, bukan bangun ulang."
+      },
+      "4": {
+        "title": "Prototipe",
+        "why": "Anda melihat dan mencoba alurnya sebelum dibangun, jadi salah paham ketahuan selagi masih murah diperbaiki."
+      },
+      "5": {
+        "title": "Pengembangan",
+        "why": "Dikerjakan bertahap di atas fondasi yang sudah teruji, jadi kemajuannya terlihat — bukan sekadar dijanjikan."
+      },
+      "6": {
+        "title": "Deployment",
+        "why": "Data nyata, pengguna nyata, peralihan yang direncanakan — tim Anda dilatih sebelum cara lama dimatikan."
+      },
+      "7": {
+        "title": "Perbaikan berkelanjutan",
+        "why": "Operasional terus berubah. Sistemnya ikut disesuaikan, bukan dibiarkan pelan-pelan ditinggalkan."
+      }
+    }
+  },
+  "fit": {
+    "title": "Kami paling cocok bekerja dengan siapa.",
+    "intro": "Jujur soal ini sejak awal menghemat banyak waktu untuk kedua pihak.",
+    "goodTitle": "Kami biasanya partner yang tepat kalau:",
+    "good": {
+      "1": "Bisnis Anda sudah tidak cukup dikelola dengan spreadsheet",
+      "2": "Anda mengelola beberapa tim atau lokasi",
+      "3": "Pekerjaan manual mulai memperlambat pertumbuhan",
+      "4": "Software yang ada tidak sesuai dengan cara kerja Anda sebenarnya",
+      "5": "Anda ingin sistem operasional untuk jangka panjang"
+    },
+    "badTitle": "Kami mungkin bukan pilihan terbaik kalau:",
+    "bad": {
+      "1": "Anda hanya butuh landing page",
+      "2": "Anda hanya butuh website profil perusahaan",
+      "3": "Sudah ada produk SaaS siap pakai yang menyelesaikan masalah Anda"
+    },
+    "closing": "Kalau yang cocok justru daftar kedua, kami akan bilang apa adanya — dan mengarahkan Anda ke tempat yang lebih berguna."
   },
   "featuredSolutions": {
     "subtitle": "Solusi",
-    "title": "Sistem siap produksi di berbagai bidang bisnis.",
-    "description": "Setiap proyek mewakili alur kerja bisnis nyata, dirancang dari database hingga deployment. Ini sistem produksi yang sesungguhnya — bukan konsep UI atau aplikasi tutorial.",
+    "title": "Sistem yang sudah menjalankan operasional nyata.",
+    "description": "Setiap sistem berawal dari satu masalah operasional — stok yang tidak pernah cocok, jadwal yang diatur lewat telepon, payroll yang butuh berhari-hari untuk ditutup. Semuanya sudah berjalan dan dipakai setiap hari.",
     "viewAll": "Lihat Semua Solusi",
     "noIndustry": "Tidak melihat industri Anda?",
     "weBuild": "Kami membangun sistem kustom untuk berbagai bidang bisnis.",
     "talkProject": "Mari bicarakan proyek Anda"
   },
   "startCta": {
-    "title": "Mulai dari Fondasi yang Sudah Teruji.",
-    "line1": "Kami tidak memulai setiap proyek dari nol.",
-    "line2": "Kami mulai dari sistem bisnis yang sudah teruji di lapangan — lalu menyesuaikannya dengan operasional Anda.",
-    "button": "Mulai Proyek"
+    "title": "Mari pahami operasional Anda dulu.",
+    "line1": "Belum tahu harus mulai dari mana? Mulai dari obrolan saja.",
+    "line2": "Kami bantu Anda menilai apakah software khusus memang solusi yang tepat — dan akan bilang kalau ternyata bukan.",
+    "button": "Mulai Obrolan"
   },
   "socialProof": {
     "heading": "Dibangun Lewat Tantangan Nyata",
@@ -164,7 +325,45 @@
     },
     "seeCaseStudy": "Lihat studi kasus lengkap",
     "liveDemo": "Demo Langsung",
-    "requestThis": "Minta ini untuk bisnis Anda"
+    "requestThis": "Minta ini untuk bisnis Anda",
+    "copy": {
+      "payroll-system": {
+        "description": "Payroll yang dulu butuh berhari-hari kerja spreadsheet kini selesai sekali proses, dengan aturan pajak dan BPJS yang diterapkan sama setiap bulan.",
+        "outcome": "Tutup payroll bulanan dari berhari-hari jadi hitungan menit, dengan jejak di balik setiap angka."
+      },
+      "quoteplot-agent": {
+        "description": "Menjawab pertanyaan soal posisi pasar dengan bahasa sehari-hari, jadi riset tidak lagi menunggu satu orang yang paham.",
+        "outcome": "Keputusan yang tadinya tertahan riset manual kini langsung dapat jawaban."
+      },
+      "restaurant-ecosystem": {
+        "description": "Satu sistem untuk pesanan, dapur, dan reservasi, supaya data lantai, dapur, dan pembukuan tidak lagi berbeda-beda.",
+        "outcome": "Pemilik melihat penjualan dan permintaan tiap outlet setiap hari, dan menyiapkan stok sebelum akhir pekan — bukan sesudahnya."
+      },
+      "insurance-portal": {
+        "description": "Polis, klaim, dan data nasabah dalam satu tempat, sehingga agen mana pun bisa menjawab tanpa mencari-cari berkas.",
+        "outcome": "Pertanyaan soal perpanjangan dan status klaim terjawab di telepon pertama, bukan keesokan harinya."
+      },
+      "carlsson-studio": {
+        "description": "Mengubah obrolan bisnis menjadi titik awal yang jelas, supaya proyek dimulai dari sistem yang sudah teruji, bukan dari halaman kosong.",
+        "outcome": "Pemilik bisnis pulang dengan rekomendasi dan ruang lingkup yang konkret dalam satu sesi, bukan setelah berminggu-minggu rapat."
+      },
+      "spa-ecosystem": {
+        "description": "Booking, jadwal terapis, dan pembayaran dalam satu tempat untuk semua cabang, jadi tidak ada slot yang terjual dua kali.",
+        "outcome": "Bentrok jadwal dan kerugian akibat no-show berkurang, dan semua cabang bisa diatur dari jadwal yang sama."
+      },
+      "property-management": {
+        "description": "Sewa, penyewa, dan perawatan tercatat di satu tempat, jadi tidak ada lagi yang bergantung pada ingatan file mana.",
+        "outcome": "Perpanjangan dan tunggakan terlihat sebelum jadi kerugian. Top 100 · Google Gen AI Academy APAC."
+      },
+      "human-design": {
+        "description": "Menghasilkan laporan klien otomatis dari data chart, menggantikan analisis yang dulu ditulis manual satu per satu.",
+        "outcome": "Laporan yang tadinya butuh berjam-jam per klien kini langsung siap. Top 30 · Nusantara Elevate AI Talent Challenge."
+      },
+      "commerce-ecosystem": {
+        "description": "Penjualan toko dan pesanan online memakai stok yang sama, jadi angka di sistem sesuai dengan barang di rak.",
+        "outcome": "Tidak ada lagi barang terjual dua kali antar channel, dan tanpa potongan komisi di setiap pesanan."
+      }
+    }
   },
   "contact": {
     "eyebrow": "Kontak",
@@ -200,31 +399,6 @@
     }
   },
   "studio": {
-    "howItWorks": {
-      "title": "Bagaimana Carlsson Studio Bekerja",
-      "steps": {
-        "1": {
-          "number": "01",
-          "title": "Discovery",
-          "body": "Anda memberi tahu apa yang ingin dibangun, industri Anda, dan masalah yang menghambat tim Anda — melalui alur Mulai Proyek atau percakapan langsung."
-        },
-        "2": {
-          "number": "02",
-          "title": "Pencocokan Fondasi",
-          "body": "Kami memetakan kebutuhan Anda ke salah satu fondasi yang telah diuji produksi — sistem terdekat yang sudah menyelesaikan sebagian besar alur kerja Anda."
-        },
-        "3": {
-          "number": "03",
-          "title": "Kustomisasi",
-          "body": "Fondasi disesuaikan dengan operasional Anda: alur kerja, aturan, dan integrasi Anda. Tidak ada hal generik yang bertahan."
-        },
-        "4": {
-          "number": "04",
-          "title": "Pengiriman & Dukungan",
-          "body": "Kami menerapkan ke produksi, melatih tim Anda, dan bertanggung jawab untuk menjaga sistem berjalan."
-        }
-      }
-    },
     "mission": {
       "eyebrow": "Studio",
       "headline": "Perangkat lunak harus sesuai dengan bisnis — bukan sebaliknya.",

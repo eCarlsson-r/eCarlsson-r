@@ -28,9 +28,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ locale
   const { locale, slug } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "projects" });
+  const tCopy = await getTranslations({ locale, namespace: "project" });
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) return notFound();
+
+  // Same business-outcome line the cards use, so the detail page opens on the
+  // result rather than on a technical summary. Falls back to the data file.
+  const outcomeKey = `copy.${project.slug}.outcome` as const;
+  const outcome = tCopy.has(outcomeKey) ? tCopy(outcomeKey) : project.outcome;
 
   const architecture = architectures[project.slug];
   const caseStudy = caseStudies[project.slug];
@@ -75,7 +81,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ locale
         <div className="flex flex-wrap justify-between w-full mt-4 gap-4">
           <div>
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight">{project.title}</h1>
-            <p className="text-sm font-medium text-primary">{project.outcome}</p>
+            <p className="text-sm font-medium text-primary">{outcome}</p>
           </div>
           <div className="flex flex-wrap items-center gap-4">
             <LinkDropdown
@@ -113,12 +119,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ locale
 
       {mdxBody ?? <p className="text-gray-500">{t("noDocumentation")}</p>}
 
+      {/* Business value first, technology last: what it could do for you and
+          whether it fits, then the modules and the technical detail. */}
       {caseStudy && (
         <>
-          <TechnicalHighlights highlights={caseStudy.highlights} />
           <FutureExtensions extensions={caseStudy.extensions} />
-          <FoundationCoverage groups={caseStudy.foundation} />
           <IdealFor items={caseStudy.idealFor} />
+          <FoundationCoverage groups={caseStudy.foundation} />
+          <TechnicalHighlights highlights={caseStudy.highlights} />
         </>
       )}
 

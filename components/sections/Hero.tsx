@@ -48,18 +48,19 @@ export default function Hero() {
           transition={{ delay: 0.4 }}
           className="flex justify-center gap-4 flex-wrap mt-10"
         >
+          {/* Start a Project is the primary action; case studies support it. */}
           <Link
-            href="/projects"
-            className="group inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary transition-opacity duration-200"
+            href="/start-a-project"
+            className="group inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary transition-opacity duration-200 hover:opacity-90"
           >
-            {t("seeSolutions")}<ArrowRight />
+            {t("startProject")}<ArrowRight />
           </Link>
 
           <Link
-            href="/start-a-project"
+            href="/projects"
             className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label border border-primary hover:border-secondary transition-opacity duration-200"
           >
-            <MessageSquare />{t("startProject")}
+            <MessageSquare />{t("seeCaseStudies")}
           </Link>
         </motion.div>
 

@@ -18,10 +18,11 @@ export default function StartProjectCTA() {
         <h2 className="text-3xl md:text-4xl font-headline font-bold tracking-tight text-primary">
           {t("title")}
         </h2>
-        <p className="mt-4 text-lg text-muted-foreground">
+        {/* line1 lowers the commitment, line2 explains what the conversation is for. */}
+        <p className="mt-4 text-lg font-medium">
           {t("line1")}
         </p>
-        <p className="text-lg text-muted-foreground">
+        <p className="mt-2 text-lg text-muted-foreground">
           {t("line2")}
         </p>
         <Link

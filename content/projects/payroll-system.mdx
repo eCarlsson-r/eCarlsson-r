@@ -1,10 +1,18 @@
-## Problem
+## Business Situation
 
-An HR team was spending days every month calculating payroll in spreadsheets — applying Indonesian PPh 21 income tax rules, BPJS contributions, and UMR minimum-wage compliance by hand. The process was error-prone, impossible to audit, and had to be redone whenever a rule or salary component changed.
+An HR team running monthly payroll under Indonesian statutory rules — PPh 21 income tax, BPJS contributions, and UMR minimum-wage floors — with employee data, salary components, and the rules themselves maintained in spreadsheets.
+
+## Operational Challenge
+
+Every run meant applying those rules by hand. The calculation took days, and it could not be audited afterwards because the working was formulas rather than records. Any change to a statutory rule or a salary component meant redoing the month, and the close date depended on one or two specific people being available.
 
 ## Solution
 
-Payroll Agent automates payroll calculation, tax compliance, and salary disbursement. Employee data, salary components, and statutory rules live in one system; a pipeline of four specialized agents validates inputs, computes PPh 21, BPJS, and UMR-compliant salaries, and produces disbursement-ready output — a full payroll run in about 13 seconds instead of days.
+Payroll Agent automates payroll calculation, tax compliance, and salary disbursement. Employee data, salary components, and statutory rules live in one system. A pipeline of four specialized agents validates inputs, computes PPh 21, BPJS, and UMR-compliant salaries, and produces disbursement-ready output.
+
+## Business Impact
+
+A full payroll run completes in about 13 seconds instead of days. Every figure has a record behind it, so a question about a payslip is answered by looking it up rather than by rebuilding the calculation. Rule changes are applied once, centrally, instead of being re-entered across a spreadsheet.
 
 ## Workflow
 

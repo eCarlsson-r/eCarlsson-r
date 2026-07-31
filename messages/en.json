@@ -24,25 +24,186 @@
   },
   "hero": {
     "badge": "Available for new projects",
-    "headline": "Replace spreadsheets, disconnected tools, and manual workflows with <highlight>software built specifically for your business</highlight>.",
-    "subhead": "Carlsson Studio designs and develops internal business systems — from management platforms and customer portals to AI-powered applications — based on how your team actually works.",
-    "seeSolutions": "See Solutions",
+    "headline": "Growth shouldn't make your business <highlight>harder to run</highlight>.",
+    "subhead": "As you add branches, staff and volume, the spreadsheets, WhatsApp threads and disconnected tools that once worked start holding you back. Carlsson Studio designs operational systems that keep up as your business grows.",
+    "seeCaseStudies": "See Case Studies",
     "startProject": "Start a Project"
+  },
+  "symptoms": {
+    "title": "Does this sound familiar?",
+    "intro": "Operational problems rarely announce themselves. They show up as small frictions that get heavier with every branch you open.",
+    "items": {
+      "1": "Each branch has drifted into its own way of working",
+      "2": "Reports arrive after the decision has already been made",
+      "3": "Stock in the system rarely matches stock on the shelf",
+      "4": "Someone still merges Excel files by hand every month",
+      "5": "Managers wait on you to approve routine decisions",
+      "6": "Customers get a different experience at each location",
+      "7": "Every new branch makes operations harder, not easier",
+      "8": "The business can't run a full week without you in it"
+    },
+    "closing": "If several of these look familiar, the constraint usually isn't effort. It's that the work has outgrown the way it's organised."
+  },
+  "outcomes": {
+    "title": "From operational chaos to operational clarity.",
+    "intro": "What changes when the way you operate is designed rather than improvised.",
+    "items": {
+      "1": {
+        "title": "Less manual work",
+        "body": "Data is entered once and flows where it's needed, instead of being re-typed into three places."
+      },
+      "2": {
+        "title": "One standard across branches",
+        "body": "The same process everywhere, whether you run two locations or twenty."
+      },
+      "3": {
+        "title": "Visibility while it still matters",
+        "body": "See sales, stock and performance as they happen — not when the month closes."
+      },
+      "4": {
+        "title": "Less dependence on the owner",
+        "body": "Routine decisions follow rules your team can apply without waiting for you."
+      },
+      "5": {
+        "title": "One source of business data",
+        "body": "Sales, inventory, staff and customers in one place that agrees with itself."
+      },
+      "6": {
+        "title": "Decisions based on facts",
+        "body": "Numbers you can act on, instead of estimates assembled by hand the night before."
+      }
+    }
+  },
+  "industries": {
+    "title": "Built for operationally complex businesses.",
+    "intro": "Our strongest experience is with businesses that run real operations — multiple locations, physical stock, schedules and staff on shift. We work outside these industries too; this is simply where we've done the most.",
+    "items": {
+      "1": "Retail",
+      "2": "Restaurant",
+      "3": "Distributor",
+      "4": "Clinic",
+      "5": "Spa & Wellness",
+      "6": "Property",
+      "7": "Manufacturing"
+    }
+  },
+  "whyCustom": {
+    "title": "Not every business problem should be solved with custom software.",
+    "intro": "Plenty of operations run perfectly well on tools they already own. Building something custom adds cost and responsibility, so it should only happen when there is a reason it can't be avoided.",
+    "conditionsTitle": "Custom software is usually worth it when:",
+    "conditions": {
+      "1": {
+        "title": "Off-the-shelf tools no longer fit",
+        "body": "You've started working around your software instead of with it — exports, side spreadsheets, rules that live in someone's head."
+      },
+      "2": {
+        "title": "Operations have become fragmented",
+        "body": "The same information is entered in several places, and no two of them agree by the end of the week."
+      },
+      "3": {
+        "title": "Several departments need one source of truth",
+        "body": "Sales, stock, finance and operations are each right in their own system, which means the business has no single answer."
+      },
+      "4": {
+        "title": "Scaling is creating operational complexity",
+        "body": "Every new branch, product line or shift pattern adds coordination work that no existing tool absorbs."
+      }
+    },
+    "closing1": "Our job isn't to sell software.",
+    "closing2": "Our job is to recommend the right operational solution."
+  },
+  "projectsFail": {
+    "title": "Why many software projects fail.",
+    "intro": "Most failed systems were built competently. They failed earlier than the code — in what was decided before anyone started building.",
+    "mistakesTitle": "Common mistakes",
+    "avoidTitle": "How we avoid them",
+    "items": {
+      "1": {
+        "mistake": "Building software before understanding workflows",
+        "avoid": "We map how the work runs today before proposing anything to build."
+      },
+      "2": {
+        "mistake": "Automating a broken process",
+        "avoid": "A process that doesn't work gets fixed first. Automating it only makes the problem faster."
+      },
+      "3": {
+        "mistake": "Choosing technology before defining the business goal",
+        "avoid": "The goal is agreed first. The stack is chosen afterwards, to serve it."
+      },
+      "4": {
+        "mistake": "Treating software as the solution instead of operations",
+        "avoid": "The system is one part of the answer. Roles, rules and handovers are designed alongside it."
+      }
+    }
+  },
+  "approach": {
+    "title": "How we work.",
+    "intro": "Seven steps, each there to remove a specific risk before it becomes expensive.",
+    "whyLabel": "Why this step",
+    "steps": {
+      "1": {
+        "title": "Understand operations",
+        "why": "So the system is designed around how your business actually earns money — not around a feature list."
+      },
+      "2": {
+        "title": "Map the current workflow",
+        "why": "Writing down how the work runs today exposes the steps, exceptions and manual fixes nobody thinks to mention."
+      },
+      "3": {
+        "title": "Design a better workflow",
+        "why": "The improvement is agreed on paper first, where changing your mind costs a conversation instead of a rebuild."
+      },
+      "4": {
+        "title": "Prototype",
+        "why": "You see and use the workflow before it's built, so misunderstandings surface while they're still cheap to fix."
+      },
+      "5": {
+        "title": "Develop",
+        "why": "Built in working increments on proven foundations, so progress is visible instead of promised."
+      },
+      "6": {
+        "title": "Deploy",
+        "why": "Real data, real users, a planned cutover — your team is trained before the old way is switched off."
+      },
+      "7": {
+        "title": "Continuous improvement",
+        "why": "Operations keep changing. The system is adjusted as they do, instead of slowly drifting out of use."
+      }
+    }
+  },
+  "fit": {
+    "title": "Who we work best with.",
+    "intro": "Being honest about this early saves both sides a great deal of time.",
+    "goodTitle": "We are usually the right partner if:",
+    "good": {
+      "1": "Your business has outgrown spreadsheets",
+      "2": "You manage multiple teams or locations",
+      "3": "Manual work is slowing your growth",
+      "4": "Existing software doesn't fit how you actually work",
+      "5": "You want an operational system for the long term"
+    },
+    "badTitle": "We may not be the best fit if:",
+    "bad": {
+      "1": "You only need a landing page",
+      "2": "You only need a company profile website",
+      "3": "A ready-made SaaS product already solves your problem"
+    },
+    "closing": "If the second list describes you, we'll say so — and point you somewhere more useful."
   },
   "featuredSolutions": {
     "subtitle": "Solutions",
-    "title": "Production-ready systems across business domains.",
-    "description": "Every project represents a real business workflow, designed from the database to deployment. These are production systems — not UI concepts or tutorial applications.",
+    "title": "Systems already running real operations.",
+    "description": "Each one began with a specific operational problem — stock that never matched, schedules run over the phone, payroll that took days to close. Every system here is live and in daily use.",
     "viewAll": "View All Solutions",
     "noIndustry": "Don't see your industry?",
     "weBuild": "We build custom systems for any business domain.",
     "talkProject": "Let's talk about your project"
   },
   "startCta": {
-    "title": "Start With a Proven Foundation.",
-    "line1": "We don't start every project from scratch.",
-    "line2": "We start from battle-tested business systems — then customize them for your operations.",
-    "button": "Start a Project"
+    "title": "Let's understand your operations first.",
+    "line1": "Not sure where to begin? Start with a conversation.",
+    "line2": "We'll help you work out whether custom software is actually the right solution — and say so if it isn't.",
+    "button": "Start a Conversation"
   },
   "socialProof": {
     "heading": "Built Through Real Challenges",
@@ -123,8 +284,7 @@
     "contactWithin": "We'll be in touch within 24 hours at <b>{contact}</b>.",
     "whatsappBtn": "Send a WhatsApp Message",
     "exploreCaseStudy": "Explore the case study"
-  }
-  ,
+  },
   "quickMatch": {
     "metaTitle": "Find Your Business System | Carlsson Studio",
     "metaDescription": "Tell us your name and industry — we'll continue on WhatsApp.",
@@ -146,8 +306,7 @@
     "openingWhatsapp": "Opening WhatsApp…",
     "waRunning": "Hi, I'm {name} from the {industry} industry. My business is already running.",
     "waPlanning": "Hi, I'm {name} from the {industry} industry. I'm planning to start. Target: {goal}."
-  }
-  ,
+  },
   "project": {
     "foundationCoverage": {
       "title": "Foundation Coverage",
@@ -166,9 +325,46 @@
     },
     "seeCaseStudy": "See the full case study",
     "liveDemo": "Live Demo",
-    "requestThis": "Request this for your business"
-  }
-  ,
+    "requestThis": "Request this for your business",
+    "copy": {
+      "payroll-system": {
+        "description": "Payroll that used to take days of spreadsheet work now closes in a single pass, with tax and BPJS rules applied the same way every month.",
+        "outcome": "Month-end payroll closes in minutes instead of days, with a record behind every number."
+      },
+      "quoteplot-agent": {
+        "description": "Answers questions about market positions in plain language, so research no longer waits on one specialist being available.",
+        "outcome": "Decisions that used to sit behind manual research get an answer on the spot."
+      },
+      "restaurant-ecosystem": {
+        "description": "One system for orders, kitchen and reservations, so the floor, the kitchen and the books stop disagreeing with each other.",
+        "outcome": "Owners see sales and demand per outlet daily, and plan stock before the weekend instead of after it."
+      },
+      "insurance-portal": {
+        "description": "Policies, claims and client records in one place, so any agent can answer a client without hunting through files.",
+        "outcome": "Renewal and claim questions are answered on the first call, not the next day."
+      },
+      "carlsson-studio": {
+        "description": "Turns a business conversation into a scoped starting point, so a project begins from proven systems rather than a blank page.",
+        "outcome": "Owners leave with a concrete recommendation and scope in one sitting, not after weeks of meetings."
+      },
+      "spa-ecosystem": {
+        "description": "Bookings, therapist schedules and payments in one place across every branch, so no slot is ever sold twice.",
+        "outcome": "Double-bookings and no-show losses drop, and any branch can be staffed from the same schedule."
+      },
+      "property-management": {
+        "description": "Leases, tenants and maintenance tracked in one place, so nothing depends on remembering which spreadsheet it was in.",
+        "outcome": "Renewals and arrears surface before they cost money. Top 100 · Google Gen AI Academy APAC."
+      },
+      "human-design": {
+        "description": "Produces client reports automatically from chart data, replacing an analysis a practitioner used to write by hand.",
+        "outcome": "Reports that took hours per client are ready immediately. Top 30 · Nusantara Elevate AI Talent Challenge."
+      },
+      "commerce-ecosystem": {
+        "description": "Store sales and online orders draw on the same stock, so what the system says is what is actually on the shelf.",
+        "outcome": "No more double-selling across channels, and no commission taken out of each order."
+      }
+    }
+  },
   "contact": {
     "eyebrow": "Contact",
     "title": "Tell me about your project.",
@@ -201,19 +397,8 @@
       "github": "GitHub",
       "downloadResume": "Download Resume (PDF)"
     }
-  }
-  ,
+  },
   "studio": {
-    "howItWorks": {
-      "title": "How Carlsson Studio Works",
-      "steps": {
-        "1": { "number": "01", "title": "Discovery", "body": "You tell us what you want to build, your industry, and the problems slowing your team down — through the Start a Project flow or a direct conversation." },
-        "2": { "number": "02", "title": "Foundation Match", "body": "We map your needs to one of our production-tested foundations — the closest system that already solves most of your workflow." },
-        "3": { "number": "03", "title": "Customization", "body": "The foundation is adapted to your operations: your workflows, your rules, your integrations. Nothing generic survives." },
-        "4": { "number": "04", "title": "Delivery & Support", "body": "We deploy to production, train your team, and stay accountable for keeping the system running." }
-      }
-    }
-    ,
     "mission": {
       "eyebrow": "Studio",
       "headline": "Software should fit the business — not the other way around.",
@@ -223,12 +408,36 @@
       "title": "Development Process",
       "intro": "A typical foundation-based project. Timelines shift with scope, but the shape stays the same.",
       "stages": {
-        "1": { "label": "Week 0", "title": "Discovery & requirements", "body": "Understand the business, the workflows, and what success looks like." },
-        "2": { "label": "Weeks 1–2", "title": "Foundation setup & data model", "body": "Stand up the matched foundation and shape the domain model around your data." },
-        "3": { "label": "Weeks 3–6", "title": "Custom modules & integrations", "body": "Build what makes your operation unique — workflows, integrations, AI features." },
-        "4": { "label": "Week 7", "title": "Testing & training", "body": "Real data, real users, real scenarios. Your team learns the system before launch." },
-        "5": { "label": "Week 8", "title": "Deployment & handover", "body": "Production deployment, documentation, and source code handover." },
-        "6": { "label": "Ongoing", "title": "Maintenance & support", "body": "The system keeps running — and keeps evolving as the business grows." }
+        "1": {
+          "label": "Week 0",
+          "title": "Discovery & requirements",
+          "body": "Understand the business, the workflows, and what success looks like."
+        },
+        "2": {
+          "label": "Weeks 1–2",
+          "title": "Foundation setup & data model",
+          "body": "Stand up the matched foundation and shape the domain model around your data."
+        },
+        "3": {
+          "label": "Weeks 3–6",
+          "title": "Custom modules & integrations",
+          "body": "Build what makes your operation unique — workflows, integrations, AI features."
+        },
+        "4": {
+          "label": "Week 7",
+          "title": "Testing & training",
+          "body": "Real data, real users, real scenarios. Your team learns the system before launch."
+        },
+        "5": {
+          "label": "Week 8",
+          "title": "Deployment & handover",
+          "body": "Production deployment, documentation, and source code handover."
+        },
+        "6": {
+          "label": "Ongoing",
+          "title": "Maintenance & support",
+          "body": "The system keeps running — and keeps evolving as the business grows."
+        }
       }
     },
     "insights": {
@@ -282,16 +491,16 @@
         "title": "Performance Badges"
       },
       "liveStatus": {
-      "certificates": {
-        "pdfPreviewUnavailable": "PDF preview is not available on mobile.",
-        "downloadCertificate": "Download certificate",
-        "close": "Close"
-      },
-      "project": {
-        "seeCaseStudy": "See Case Study",
-        "liveDemo": "Live Demo",
-        "requestThis": "Request this for your business"
-      },
+        "certificates": {
+          "pdfPreviewUnavailable": "PDF preview is not available on mobile.",
+          "downloadCertificate": "Download certificate",
+          "close": "Close"
+        },
+        "project": {
+          "seeCaseStudy": "See Case Study",
+          "liveDemo": "Live Demo",
+          "requestThis": "Request this for your business"
+        },
         "title": "Live Execution Status",
         "activityPulse": "Activity Pulse",
         "executionVelocity": "Execution Velocity",
@@ -303,26 +512,64 @@
       "title": "Technology",
       "description": "Proven, boring-in-a-good-way technology — chosen for reliability and long-term maintainability, not hype.",
       "stacks": {
-        "Frontend": ["Next.js", "Nuxt", "Angular", "React", "Vue"],
-        "Backend": ["Laravel", "ASP.NET Core", "FastAPI"],
-        "Data": ["MySQL", "REST API"],
-        "AI": ["Gemini", "IBM Granite", "Python ML"],
-        "Deployment": ["Vercel", "Google Cloud Run", "Self-hosted"]
+        "Frontend": [
+          "Next.js",
+          "Nuxt",
+          "Angular",
+          "React",
+          "Vue"
+        ],
+        "Backend": [
+          "Laravel",
+          "ASP.NET Core",
+          "FastAPI"
+        ],
+        "Data": [
+          "MySQL",
+          "REST API"
+        ],
+        "AI": [
+          "Gemini",
+          "IBM Granite",
+          "Python ML"
+        ],
+        "Deployment": [
+          "Vercel",
+          "Google Cloud Run",
+          "Self-hosted"
+        ]
       }
     },
     "faq": {
       "title": "Frequently Asked Questions",
       "items": {
-        "1": { "q": "How long does a project take?", "a": "Most foundation-based projects ship in 6–10 weeks. Starting from a production-tested system removes months of groundwork — the timeline is spent on your workflows, not on rebuilding login screens." },
-        "2": { "q": "Do I own the system?", "a": "Yes. You receive the source code, the deployment, and the documentation. No lock-in, no license fees on your own software." },
-        "3": { "q": "My industry isn't listed. Can you still help?", "a": "Very likely. The foundations share a library of reusable modules — authentication, roles, dashboards, reporting, payments — that recombine into systems for any business domain." },
-        "4": { "q": "How does pricing work?", "a": "Fixed-scope proposals. After discovery you get a written proposal with the recommended foundation, the customizations, the timeline, and the price — before any commitment." },
-        "5": { "q": "Who maintains the system after launch?", "a": "We do, if you want us to. Every project includes a handover period, and ongoing maintenance and feature development are available as a retainer." },
-        "6": { "q": "Where does Carlsson Studio work from?", "a": "An independent software studio based in Indonesia, working remotely with founders and operators across Southeast Asia." }
+        "1": {
+          "q": "How long does a project take?",
+          "a": "Most foundation-based projects ship in 6–10 weeks. Starting from a production-tested system removes months of groundwork — the timeline is spent on your workflows, not on rebuilding login screens."
+        },
+        "2": {
+          "q": "Do I own the system?",
+          "a": "Yes. You receive the source code, the deployment, and the documentation. No lock-in, no license fees on your own software."
+        },
+        "3": {
+          "q": "My industry isn't listed. Can you still help?",
+          "a": "Very likely. The foundations share a library of reusable modules — authentication, roles, dashboards, reporting, payments — that recombine into systems for any business domain."
+        },
+        "4": {
+          "q": "How does pricing work?",
+          "a": "Fixed-scope proposals. After discovery you get a written proposal with the recommended foundation, the customizations, the timeline, and the price — before any commitment."
+        },
+        "5": {
+          "q": "Who maintains the system after launch?",
+          "a": "We do, if you want us to. Every project includes a handover period, and ongoing maintenance and feature development are available as a retainer."
+        },
+        "6": {
+          "q": "Where does Carlsson Studio work from?",
+          "a": "An independent software studio based in Indonesia, working remotely with founders and operators across Southeast Asia."
+        }
       }
     }
-  }
-  ,
+  },
   "insights": {
     "allInsights": "All insights",
     "title": "Notes from building business software.",
@@ -369,18 +616,30 @@
       "trend": "Trend",
       "consistencyScore": "Consistency Score"
     },
-    "strengths": { "title": "Core Strengths", "execution": "Execution", "complexity": "Complexity", "ownership": "Ownership" },
-    "badges": { "title": "Performance Badges" },
+    "strengths": {
+      "title": "Core Strengths",
+      "execution": "Execution",
+      "complexity": "Complexity",
+      "ownership": "Ownership"
+    },
+    "badges": {
+      "title": "Performance Badges"
+    },
     "liveStatus": {
       "title": "Live Execution Status",
       "activityPulse": "Activity Pulse",
       "executionVelocity": "Execution Velocity",
       "commits30": "Commits (30 days)",
       "currentFocus": "Current Focus"
-    }
-    ,
-    "leaderboard": { "title": "Top Projects Leaderboard" },
-    "commitFeed": { "title": "Live Development Activity", "view": "View →", "justNow": "just now" },
+    },
+    "leaderboard": {
+      "title": "Top Projects Leaderboard"
+    },
+    "commitFeed": {
+      "title": "Live Development Activity",
+      "view": "View →",
+      "justNow": "just now"
+    },
     "timeline": {
       "title": "Execution Timeline",
       "signalsTracked": "{count} Signals Tracked",
@@ -391,8 +650,7 @@
       "complexityScoreLabel": "Complexity Score",
       "ownershipScoreLabel": "Ownership Score"
     }
-  }
-  ,
+  },
   "timeline": {
     "title": "Execution Timeline",
     "signalsTracked": "{count} Signals Tracked",

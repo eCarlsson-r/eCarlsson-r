@@ -1,5 +1,5 @@
 import Mission from "@/components/studio/Mission";
-import HowItWorks from "@/components/studio/HowItWorks";
+import OurApproach from "@/components/sections/OurApproach";
 import Technology from "@/components/studio/Technology";
 import Process from "@/components/studio/Process";
 import Faq from "@/components/studio/Faq";
@@ -19,7 +19,8 @@ export default function AboutPage() {
       <Mission />
       <About />
       <TrustBar />
-      <HowItWorks />
+      {/* Replaced the generic four-step agency process with the risk-framed one. */}
+      <OurApproach />
       <ProvenFoundation />
       <Technology />
       <Process />

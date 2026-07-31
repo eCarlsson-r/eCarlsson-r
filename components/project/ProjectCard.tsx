@@ -19,6 +19,16 @@ export default function ProjectCard({ project }: { project: Project }) {
   const openCaseStudy = () => router.push(`/projects/${project.slug}`);
   const t = useTranslations("project");
 
+  // Card copy lives in the message catalogs so it reads as a business result in
+  // both locales. Falls back to the data file for any project not yet written up.
+  const copyKey = `copy.${project.slug}` as const;
+  const description = t.has(`${copyKey}.description`)
+    ? t(`${copyKey}.description`)
+    : project.description;
+  const outcome = t.has(`${copyKey}.outcome`)
+    ? t(`${copyKey}.outcome`)
+    : project.outcome;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -62,12 +72,12 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       {/* Description */}
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 relative z-10">
-        {project.description}
+        {description}
       </p>
 
       {/* Outcome stat */}
       <p className="text-xs text-muted-foreground mb-4 relative z-10">
-        {project.outcome}
+        {outcome}
       </p>
 
       {/* 🔥 TECH STACK */}

@@ -1,10 +1,18 @@
-## Problem
+## Business Situation
 
-Independent retailers were running their business on disconnected tools: a cash register or spreadsheet for in-store sales, a marketplace storefront that charged commission on every order, and manual stock counts to keep the two in sync. Inventory drifted apart daily — products sold out online while sitting on shelves, and in-store sales never reached the online catalog. Every marketplace sale also gave away margin in commission fees.
+An independent retailer selling through two channels at once — a cash register or spreadsheet at the counter, and a marketplace storefront online — with a single pool of physical stock serving both.
+
+## Operational Challenge
+
+The two channels never agreed. Inventory drifted apart daily: products sold out online while sitting on the shelf, and in-store sales never reached the online catalog. Keeping them aligned meant manual stock counts. Every marketplace order also gave away margin in commission, on sales the business had generated itself.
 
 ## Solution
 
-CommerceSystem replaces that patchwork with one integrated retail platform: a central Laravel API that owns products, stock, and transactions, an Angular POS for in-store cashier operations, and a Next.js storefront the business owns outright — no marketplace, no commission. Every sale, whether at the counter or online, updates the same inventory in real time.
+CommerceSystem replaces that patchwork with one retail platform: a central service that owns products, stock, and transactions, a POS for in-store cashier operations, and a storefront the business owns outright — no marketplace, no commission. Every sale, whether at the counter or online, updates the same inventory in real time.
+
+## Business Impact
+
+What the system says is on the shelf is what is on the shelf, so double-selling across channels stops being possible rather than merely less frequent. The margin previously paid as marketplace commission stays with the business, and a new sales channel can be added without introducing a second stock count.
 
 ## Workflow
 
