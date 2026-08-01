@@ -13,7 +13,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = [
     { href: "/projects", label: t("solutions") },
-    { href: "/about", label: t("studio") },
+    { href: "/insights", label: t("insights") },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);

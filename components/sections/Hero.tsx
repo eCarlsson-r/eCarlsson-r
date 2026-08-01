@@ -38,7 +38,9 @@ export default function Hero() {
           transition={{ delay: 0.2 }}
           className="text-lg text-on-surface-variant leading-relaxed max-w-5xl mx-auto mb-8"
         >
-          <p>{t("subhead")}</p>
+          <p>{t.rich("subhead", {
+            br: () => <br />
+          })}</p>
         </motion.div>
 
         {/* CTA Buttons */}

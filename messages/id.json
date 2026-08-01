@@ -4,9 +4,9 @@
     "description": "Sistem bisnis kustom yang dibangun end-to-end — POS, CRM, ERP, AI agent, dan tools internal untuk pemilik dan operator bisnis di Asia Tenggara."
   },
   "nav": {
-    "solutions": "Solusi",
-    "studio": "Studio",
-    "startProject": "Mulai Proyek",
+    "solutions": "Sistem",
+    "insights": "Wawasan",
+    "startProject": "Mulai Penilaian",
     "toggleMenu": "Buka/tutup menu navigasi",
     "switchToDark": "Beralih ke mode gelap",
     "switchToLight": "Beralih ke mode terang",
@@ -15,19 +15,16 @@
     "switchToIndonesian": "Ganti ke Bahasa Indonesia"
   },
   "footer": {
-    "solutions": "Solusi",
-    "studio": "Studio",
-    "insights": "Wawasan",
-    "startProject": "Mulai Proyek",
+    "startProject": "Mulai Penilaian",
     "copyright": "© {year} Carlsson Studio. Software Bisnis Kustom.",
     "tagline": "Studio software independen yang berbasis di Indonesia."
   },
   "hero": {
-    "badge": "Menerima proyek baru",
+    "badge": "Untuk bisnis yang sedang berkembang dengan operasional rumit",
     "headline": "Pertumbuhan seharusnya tidak membuat bisnis Anda <highlight>makin sulit dijalankan</highlight>.",
-    "subhead": "Saat cabang, karyawan, dan volume transaksi bertambah, spreadsheet, obrolan WhatsApp, dan sistem yang terpisah-pisah mulai menghambat. Carlsson Studio merancang sistem operasional yang tetap mengimbangi pertumbuhan bisnis Anda.",
-    "seeCaseStudies": "Lihat Studi Kasus",
-    "startProject": "Mulai Proyek"
+    "subhead": "Carlsson Studio membantu bisnis yang sedang berkembang mengganti spreadsheet, tools yang terpisah, dan alur kerja manual dengan software siap produksi yang dibangun berdasarkan cara kerja sebenarnya. <br></br><br></br>Dibangun melewati tantangan operasional nyata.<br></br>Dirancang untuk bisnis yang butuh alur kerja sistematis.",
+    "seeCaseStudies": "Lihat Sistem",
+    "startProject": "Mulai Penilaian"
   },
   "symptoms": {
     "title": "Terdengar familiar?",
@@ -191,10 +188,10 @@
     "closing": "Kalau yang cocok justru daftar kedua, kami akan bilang apa adanya — dan mengarahkan Anda ke tempat yang lebih berguna."
   },
   "featuredSolutions": {
-    "subtitle": "Solusi",
+    "subtitle": "Sistem",
     "title": "Sistem yang sudah menjalankan operasional nyata.",
     "description": "Setiap sistem berawal dari satu masalah operasional — stok yang tidak pernah cocok, jadwal yang diatur lewat telepon, payroll yang butuh berhari-hari untuk ditutup. Semuanya sudah berjalan dan dipakai setiap hari.",
-    "viewAll": "Lihat Semua Solusi",
+    "viewAll": "Lihat Semua Sistem",
     "noIndustry": "Tidak melihat industri Anda?",
     "weBuild": "Kami membangun sistem kustom untuk berbagai bidang bisnis.",
     "talkProject": "Mari bicarakan proyek Anda"
@@ -448,7 +445,7 @@
       "comingNext": "Segera hadir"
     },
     "projects": {
-      "backToSolutions": "Kembali ke Solusi",
+      "backToSolutions": "Kembali ke Sistem",
       "liveDemo": "Demo Langsung",
       "github": "GitHub",
       "noDocumentation": "Tidak ada dokumentasi.",
@@ -580,98 +577,12 @@
     "comingNext": "Coming next"
   },
   "projects": {
-    "backToSolutions": "Back to Solutions",
+    "backToSolutions": "Kembali ke Sistem",
     "liveDemo": "Live Demo",
     "github": "GitHub",
-    "noDocumentation": "No documentation available.",
-    "interestedTitle": "Interested in something similar?",
+    "noDocumentation": "Dokumentasi tidak tersedia.",
+    "interestedTitle": "Tertarik dengan sesuatu yang serupa?",
     "interestedBody": "We can customize this foundation to match your own business workflow.",
-    "startFromThis": "Start from this foundation"
-  },
-  "resume": {
-    "title": "Execution Resume",
-    "description": "A signal-driven representation of my engineering capability.",
-    "metrics": {
-      "projectsDelivered": "Projects Delivered",
-      "systemsBuilt": "Systems Built",
-      "executionScore": "Execution Score",
-      "typicalDeliveryCycle": "Typical Delivery Cycle"
-    }
-  },
-  "signals": {
-    "heatmap": {
-      "title": "Contribution Activity",
-      "less": "Less",
-      "more": "More"
-    },
-    "livePanel": {
-      "title": "⚡ Live Execution Intelligence",
-      "activityPulse": "Activity Pulse",
-      "executionVelocity": "Execution Velocity",
-      "commits30": "Commits (30 Days)",
-      "currentFocus": "Current Technical Focus"
-    },
-    "momentum": {
-      "title": "Execution Momentum",
-      "trend": "Trend",
-      "consistencyScore": "Consistency Score"
-    },
-    "strengths": {
-      "title": "Core Strengths",
-      "execution": "Execution",
-      "complexity": "Complexity",
-      "ownership": "Ownership"
-    },
-    "badges": {
-      "title": "Performance Badges"
-    },
-    "liveStatus": {
-      "title": "Live Execution Status",
-      "activityPulse": "Activity Pulse",
-      "executionVelocity": "Execution Velocity",
-      "commits30": "Commits (30 days)",
-      "currentFocus": "Current Focus"
-    },
-    "leaderboard": {
-      "title": "Top Projects Leaderboard"
-    },
-    "commitFeed": {
-      "title": "Live Development Activity",
-      "view": "View →",
-      "justNow": "just now"
-    },
-    "timeline": {
-      "title": "Execution Timeline",
-      "signalsTracked": "{count} Signals Tracked",
-      "complexityLabel": "Complexity",
-      "executionLabel": "Execution",
-      "ownershipLabel": "Ownership",
-      "executionScoreLabel": "Execution Score",
-      "complexityScoreLabel": "Complexity Score",
-      "ownershipScoreLabel": "Ownership Score"
-    }
-  },
-  "timeline": {
-    "title": "Execution Timeline",
-    "signalsTracked": "{count} Signals Tracked",
-    "complexityLabel": "Complexity",
-    "executionLabel": "Execution",
-    "ownershipLabel": "Ownership",
-    "executionScoreLabel": "Execution Score",
-    "complexityScoreLabel": "Complexity Score",
-    "ownershipScoreLabel": "Ownership Score"
-  },
-  "strengths": {
-    "execution": "Execution",
-    "complexity": "Complexity",
-    "ownership": "Ownership"
-  },
-  "leaderboard": {
-    "title": "Top Projects Leaderboard"
-  },
-  "commitFeed": {
-    "title": "Live Development Activity",
-    "view": "View →",
-    "justNow": "just now"
+    "startFromThis": "Mulai dari sistem ini"
   }
 }

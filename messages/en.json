@@ -4,8 +4,8 @@
     "description": "Custom business systems built end-to-end — POS, CRM, ERP, AI agents, and internal tools for founders and operators across Southeast Asia."
   },
   "nav": {
-    "solutions": "Solutions",
-    "studio": "Studio",
+    "solutions": "Systems",
+    "insights": "Insights",
     "startProject": "Start a Project",
     "toggleMenu": "Toggle navigation menu",
     "switchToDark": "Switch to dark mode",
@@ -15,19 +15,16 @@
     "switchToIndonesian": "Switch to Indonesian"
   },
   "footer": {
-    "solutions": "Solutions",
-    "studio": "Studio",
-    "insights": "Insights",
-    "startProject": "Start a Project",
+    "startProject": "Start Assessment",
     "copyright": "© {year} Carlsson Studio. Custom Business Software.",
     "tagline": "Independent Software Studio based in Indonesia."
   },
   "hero": {
-    "badge": "Available for new projects",
+    "badge": "For growing businesses with operational complexity",
     "headline": "Growth shouldn't make your business <highlight>harder to run</highlight>.",
-    "subhead": "As you add branches, staff and volume, the spreadsheets, WhatsApp threads and disconnected tools that once worked start holding you back. Carlsson Studio designs operational systems that keep up as your business grows.",
-    "seeCaseStudies": "See Case Studies",
-    "startProject": "Start a Project"
+    "subhead": "Carlsson Studio helps growing businesses replace spreadsheets, disconnected tools, and manual workflows with production-ready software built around how they actually operate. <br></br><br></br>Built through real operational challenges.<br></br>Designed for businesses that have outgrown manual workflows.",
+    "seeCaseStudies": "View Systems",
+    "startProject": "Start Assessment"
   },
   "symptoms": {
     "title": "Does this sound familiar?",
@@ -191,10 +188,10 @@
     "closing": "If the second list describes you, we'll say so — and point you somewhere more useful."
   },
   "featuredSolutions": {
-    "subtitle": "Solutions",
+    "subtitle": "Systems",
     "title": "Systems already running real operations.",
     "description": "Each one began with a specific operational problem — stock that never matched, schedules run over the phone, payroll that took days to close. Every system here is live and in daily use.",
-    "viewAll": "View All Solutions",
+    "viewAll": "View All Systems",
     "noIndustry": "Don't see your industry?",
     "weBuild": "We build custom systems for any business domain.",
     "talkProject": "Let's talk about your project"
@@ -448,7 +445,7 @@
       "comingNext": "Coming next"
     },
     "projects": {
-      "backToSolutions": "Back to Solutions",
+      "backToSolutions": "Back to Systems",
       "liveDemo": "Live Demo",
       "github": "GitHub",
       "noDocumentation": "No documentation available.",
@@ -580,98 +577,12 @@
     "comingNext": "Coming next"
   },
   "projects": {
-    "backToSolutions": "Back to Solutions",
+    "backToSolutions": "Back to Systems",
     "liveDemo": "Live Demo",
     "github": "GitHub",
     "noDocumentation": "No documentation available.",
     "interestedTitle": "Interested in something similar?",
     "interestedBody": "We can customize this foundation to match your own business workflow.",
     "startFromThis": "Start from this foundation"
-  },
-  "resume": {
-    "title": "Execution Resume",
-    "description": "A signal-driven representation of my engineering capability.",
-    "metrics": {
-      "projectsDelivered": "Projects Delivered",
-      "systemsBuilt": "Systems Built",
-      "executionScore": "Execution Score",
-      "typicalDeliveryCycle": "Typical Delivery Cycle"
-    }
-  },
-  "signals": {
-    "heatmap": {
-      "title": "Contribution Activity",
-      "less": "Less",
-      "more": "More"
-    },
-    "livePanel": {
-      "title": "⚡ Live Execution Intelligence",
-      "activityPulse": "Activity Pulse",
-      "executionVelocity": "Execution Velocity",
-      "commits30": "Commits (30 Days)",
-      "currentFocus": "Current Technical Focus"
-    },
-    "momentum": {
-      "title": "Execution Momentum",
-      "trend": "Trend",
-      "consistencyScore": "Consistency Score"
-    },
-    "strengths": {
-      "title": "Core Strengths",
-      "execution": "Execution",
-      "complexity": "Complexity",
-      "ownership": "Ownership"
-    },
-    "badges": {
-      "title": "Performance Badges"
-    },
-    "liveStatus": {
-      "title": "Live Execution Status",
-      "activityPulse": "Activity Pulse",
-      "executionVelocity": "Execution Velocity",
-      "commits30": "Commits (30 days)",
-      "currentFocus": "Current Focus"
-    },
-    "leaderboard": {
-      "title": "Top Projects Leaderboard"
-    },
-    "commitFeed": {
-      "title": "Live Development Activity",
-      "view": "View →",
-      "justNow": "just now"
-    },
-    "timeline": {
-      "title": "Execution Timeline",
-      "signalsTracked": "{count} Signals Tracked",
-      "complexityLabel": "Complexity",
-      "executionLabel": "Execution",
-      "ownershipLabel": "Ownership",
-      "executionScoreLabel": "Execution Score",
-      "complexityScoreLabel": "Complexity Score",
-      "ownershipScoreLabel": "Ownership Score"
-    }
-  },
-  "timeline": {
-    "title": "Execution Timeline",
-    "signalsTracked": "{count} Signals Tracked",
-    "complexityLabel": "Complexity",
-    "executionLabel": "Execution",
-    "ownershipLabel": "Ownership",
-    "executionScoreLabel": "Execution Score",
-    "complexityScoreLabel": "Complexity Score",
-    "ownershipScoreLabel": "Ownership Score"
-  },
-  "strengths": {
-    "execution": "Execution",
-    "complexity": "Complexity",
-    "ownership": "Ownership"
-  },
-  "leaderboard": {
-    "title": "Top Projects Leaderboard"
-  },
-  "commitFeed": {
-    "title": "Live Development Activity",
-    "view": "View →",
-    "justNow": "just now"
   }
 }
