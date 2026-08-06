@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { motion } from "motion/react";
-import { ArrowLeft, ArrowRight, Check, MessageCircle, RotateCw, Star } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Layers3, MessageCircle, RotateCw, Sparkles, Star, Workflow } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import {
   fetchQuestionnaireConfig,
@@ -25,6 +25,7 @@ import {
   companySizeLabels,
 } from "@/lib/id/questionnaireOptions";
 import { buildLeadWhatsAppMessage, getStudioWhatsAppLink } from "@/lib/whatsapp";
+import { buildOperationalAssessment } from "@/lib/assessment-engine";
 
 const TOTAL_STEPS = 6;
 
@@ -46,6 +47,8 @@ interface Answers {
   email: string;
   phone: string;
 }
+
+type QuestionnaireView = "questionnaire" | "assessment" | "results";
 
 const emptyAnswers: Answers = {
   industry: "",
@@ -147,6 +150,8 @@ export default function ProjectQuestionnaire() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [result, setResult] = useState<LeadResult | null>(null);
+  const [view, setView] = useState<QuestionnaireView>("questionnaire");
+  const assessment = useMemo(() => buildOperationalAssessment(answers, locale), [answers, locale]);
 
   // Fetch config once (re-run on retry or locale change).
   useEffect(() => {
@@ -241,6 +246,7 @@ export default function ProjectQuestionnaire() {
         buildType: answers.buildType,
       });
       setResult(data);
+      setView("assessment");
     } catch (err: any) {
       setSubmitError(err?.message || t("submitErrorFallback"));
     } finally {
@@ -278,9 +284,20 @@ export default function ProjectQuestionnaire() {
 
   if (!config) return <Skeleton />;
 
-  if (result) {
+  if (view === "assessment" && result) {
+    return (
+      <AssessmentView
+        assessment={assessment}
+        onContinue={() => setView("results")}
+        locale={locale}
+        t={t}
+      />
+    );
+  }
+
+  if (view === "results" && result) {
     const contact = answers.email.trim() || answers.phone.trim();
-    return <Results result={result} contact={contact} answers={answers} />;
+    return <Results result={result} contact={contact} answers={answers} assessment={assessment} />;
   }
 
   return (
@@ -477,7 +494,90 @@ export default function ProjectQuestionnaire() {
   );
 }
 
-function Results({ result, contact, answers }: { result: LeadResult; contact: string; answers: Answers }) {
+function AssessmentView({
+  assessment,
+  onContinue,
+  locale,
+  t,
+}: {
+  assessment: ReturnType<typeof buildOperationalAssessment>;
+  onContinue: () => void;
+  locale: string;
+  t: ReturnType<typeof useTranslations>;
+}) {
+  return (
+    <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+      <span className="text-xs font-semibold uppercase tracking-widest text-primary">{t("assessmentEyebrow")}</span>
+      <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{t("assessmentTitle")}</h1>
+      <p className="mt-4 max-w-3xl text-lg text-muted-foreground">{t("assessmentSubtitle")}</p>
+
+      <div className="mt-8 rounded-2xl border border-gray-200 dark:border-white/10 bg-card/50 p-6 md:p-8">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">{t("readinessScoreLabel")}</p>
+            <div className="mt-3 flex items-baseline gap-3">
+              <span className="text-4xl font-bold tracking-tight">{assessment.score}</span>
+              <span className="text-xl text-muted-foreground">/ 100</span>
+            </div>
+          </div>
+          <p className="max-w-2xl text-sm text-muted-foreground">{t("readinessExplanation")}</p>
+        </div>
+      </div>
+
+      <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white/60 dark:bg-white/5 p-6">
+          <h2 className="text-xl font-semibold">{t("businessSummaryTitle")}</h2>
+          <p className="mt-4 text-muted-foreground">{assessment.summary}</p>
+        </div>
+        <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white/60 dark:bg-white/5 p-6">
+          <h2 className="text-xl font-semibold">{t("keyFindingsTitle")}</h2>
+          <div className="mt-4 space-y-3">
+            {assessment.findings.map((finding) => (
+              <div key={finding.title} className="rounded-xl border border-gray-200/70 bg-white/70 p-4 dark:border-white/10 dark:bg-white/5">
+                <h3 className="text-sm font-semibold">{finding.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{finding.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-8 rounded-2xl border border-gray-200 dark:border-white/10 bg-card/50 p-6 md:p-8">
+        <h2 className="text-xl font-semibold">{t("priorityRoadmapTitle")}</h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {assessment.priorities.map((priority) => {
+            const Icon = priority.icon === "workflow" ? Workflow : priority.icon === "layers" ? Layers3 : Sparkles;
+            return (
+              <div key={priority.title} className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white/60 dark:bg-white/5 p-5">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold">{priority.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{priority.description}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="mt-8 flex flex-wrap gap-3">
+        <button
+          type="button"
+          onClick={onContinue}
+          className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary hover:opacity-80 transition-opacity"
+        >
+          {t("assessmentCta")}
+          <ArrowRight className="h-4 w-4" />
+        </button>
+        <Link href="/projects" className="inline-flex items-center gap-2 rounded-md border border-gray-200 px-6 py-3 text-sm font-label text-foreground hover:border-primary/60 hover:text-primary dark:border-white/15">
+          {t("exploreCaseStudy")}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function Results({ result, contact, answers, assessment }: { result: LeadResult; contact: string; answers: Answers; assessment: ReturnType<typeof buildOperationalAssessment> }) {
   const locale = useLocale();
   const t = useTranslations("questionnaire");
   const [top, ...rest] = result.recommendations ?? [];
@@ -529,6 +629,7 @@ function Results({ result, contact, answers }: { result: LeadResult; contact: st
     <div className="mx-auto max-w-4xl px-6 py-16 md:py-20">
       <span className="text-xs font-semibold uppercase tracking-widest text-primary">{t("resultsEyebrow")}</span>
       <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{t("resultsTitle")}</h1>
+      <p className="mt-4 max-w-3xl text-lg text-muted-foreground">{t("resultsIntro")}</p>
 
       {/* Top match */}
       <div className="mt-8 rounded-2xl border bg-card/50 p-6 md:p-8" style={{ borderColor: topAccent ?? undefined }}>
@@ -551,6 +652,20 @@ function Results({ result, contact, answers }: { result: LeadResult; contact: st
             {t("seeCaseStudy")}<ArrowRight className="h-4 w-4" />
           </Link>
         )}
+      </div>
+
+      <div className="mt-8 rounded-2xl border border-gray-200 dark:border-white/10 bg-card/50 p-6 md:p-8">
+        <h2 className="text-xl font-semibold">{t("whyRecommendationTitle")}</h2>
+        <div className="mt-4 grid gap-3 md:grid-cols-2">
+          {assessment.recommendationBenefits.map((benefit) => (
+            <div key={benefit} className="flex items-start gap-3 rounded-xl border border-gray-200/70 bg-white/70 p-4 dark:border-white/10 dark:bg-white/5">
+              <div className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <Check className="h-4 w-4" />
+              </div>
+              <p className="text-sm text-muted-foreground">{benefit}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Runner-up matches */}
@@ -596,7 +711,7 @@ function Results({ result, contact, answers }: { result: LeadResult; contact: st
             className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-label bg-primary text-on-primary hover:opacity-80 transition-opacity"
           >
             <MessageCircle className="h-4 w-4" />
-            {t("whatsappBtn")}
+            {t("assessmentDiscussionCta")}
           </a>
         )}
         {topSlug && (
