@@ -322,9 +322,15 @@ export function buildOperationalAssessment(answers: AnswersLike, locale: string)
   const features = answers.features.filter(Boolean);
 
   const penalty =
-    problems.reduce((acc, item) => acc + (config.problemMapping[item]?.weight ?? 0), 0) +
-    features.reduce((acc, item) => acc + (config.featureMapping[item]?.weight ?? 0), 0) +
-    (config.companySizeWeight[answers.companySize] ?? 0) +
+    problems.reduce(
+      (acc, item) => acc + (config.problemMapping[item as keyof typeof config.problemMapping]?.weight ?? 0),
+      0
+    ) +
+    features.reduce(
+      (acc, item) => acc + (config.featureMapping[item as keyof typeof config.featureMapping]?.weight ?? 0),
+      0
+    ) +
+    (config.companySizeWeight[answers.companySize as keyof typeof config.companySizeWeight] ?? 0) +
     (config.businessStatusWeight[answers.businessStatus as keyof typeof config.businessStatusWeight] ?? 0);
 
   const score = Math.max(
@@ -335,8 +341,14 @@ export function buildOperationalAssessment(answers: AnswersLike, locale: string)
   const summary = config.summaryByStatus[answers.businessStatus === "RUNNING" ? "RUNNING" : "PLANNING"][lang];
 
   const findings = [
-    ...problems.slice(0, 3).map((problem) => config.problemMapping[problem]?.content[lang]).filter(Boolean),
-    ...features.slice(0, 2).map((feature) => config.featureMapping[feature]?.content[lang]).filter(Boolean),
+    ...problems
+      .slice(0, 3)
+      .map((problem) => config.problemMapping[problem as keyof typeof config.problemMapping]?.content[lang])
+      .filter(Boolean),
+    ...features
+      .slice(0, 2)
+      .map((feature) => config.featureMapping[feature as keyof typeof config.featureMapping]?.content[lang])
+      .filter(Boolean),
   ].slice(0, 3).map((entry) => ({
     title: entry.title,
     description: entry.description,
@@ -360,8 +372,14 @@ export function buildOperationalAssessment(answers: AnswersLike, locale: string)
 
   const recommendationBenefits = Array.from(
     new Set([
-      ...problems.flatMap((problem) => (config.benefitMapping[problem]?.[lang] ? [config.benefitMapping[problem][lang]] : [])),
-      ...features.flatMap((feature) => (config.benefitMapping[feature]?.[lang] ? [config.benefitMapping[feature][lang]] : [])),
+      ...problems.flatMap((problem) => {
+        const benefit = config.benefitMapping[problem as keyof typeof config.benefitMapping]?.[lang];
+        return benefit ? [benefit] : [];
+      }),
+      ...features.flatMap((feature) => {
+        const benefit = config.benefitMapping[feature as keyof typeof config.benefitMapping]?.[lang];
+        return benefit ? [benefit] : [];
+      }),
     ])
   ).slice(0, 5);
 

@@ -267,9 +267,9 @@
     "next": "Lanjut",
     "submit": "Lihat Rekomendasi Saya",
     "submitting": "Mengirim…",
-    "assessmentEyebrow": "Operational Readiness Assessment",
-    "assessmentTitle": "Operational Readiness Assessment",
-    "assessmentSubtitle": "Kami telah menganalisis jawaban Anda dan menemukan beberapa area yang berpotensi menghambat pertumbuhan bisnis.",
+    "assessmentEyebrow": "Penilaian Kesiapan Operasional",
+    "assessmentTitle": "Penilaian Kesiapan Operasional",
+    "assessmentSubtitle": "Kami menganalisis jawaban Anda dan menemukan beberapa area yang berpotensi menjadi hambatan bagi pertumbuhan bisnis Anda.",
     "readinessScoreLabel": "Skor Kesiapan Operasional",
     "readinessExplanation": "Skor ini mencerminkan kompleksitas kebutuhan Anda saat ini. Semakin banyak hambatan dan fitur yang dibutuhkan, semakin rendah kesiapan operasionalnya.",
     "businessSummaryTitle": "Ringkasan Bisnis",
@@ -418,33 +418,33 @@
       "intro": "Proyek berbasis fondasi yang khas. Garis waktu berubah sesuai scope, tetapi bentuknya tetap sama.",
       "stages": {
         "1": {
-          "label": "Week 0",
-          "title": "Discovery & requirements",
+          "label": "Minggu 0",
+          "title": "Penemuan & persyaratan",
           "body": "Pahami bisnis, alur kerja, dan bagaimana kesuksesan terlihat."
         },
         "2": {
-          "label": "Weeks 1–2",
-          "title": "Foundation setup & data model",
+          "label": "Minggu 1–2",
+          "title": "Penyiapan fondasi & model data",
           "body": "Menyiapkan fondasi yang cocok dan membentuk model data sesuai data Anda."
         },
         "3": {
-          "label": "Weeks 3–6",
-          "title": "Custom modules & integrations",
+          "label": "Minggu 3–6",
+          "title": "Modul dan integrasi kustom",
           "body": "Membangun apa yang membuat operasi Anda unik — alur kerja, integrasi, fitur AI."
         },
         "4": {
-          "label": "Week 7",
-          "title": "Testing & training",
+          "label": "Minggu 7",
+          "title": "Pengujian & pelatihan",
           "body": "Data nyata, pengguna nyata, skenario nyata. Tim Anda belajar sistem sebelum peluncuran."
         },
         "5": {
-          "label": "Week 8",
-          "title": "Deployment & handover",
+          "label": "Minggu 8",
+          "title": "Deployment & serah terima",
           "body": "Deployment ke produksi, dokumentasi, dan serah terima kode sumber."
         },
         "6": {
-          "label": "Ongoing",
-          "title": "Maintenance & support",
+          "label": "Berlangsung",
+          "title": "Pemeliharaan & dukungan",
           "body": "Sistem tetap berjalan — dan terus berkembang seiring bisnis tumbuh."
         }
       }
@@ -501,14 +501,14 @@
       },
       "liveStatus": {
         "certificates": {
-          "pdfPreviewUnavailable": "PDF preview is not available on mobile.",
-          "downloadCertificate": "Download certificate",
-          "close": "Close"
+          "pdfPreviewUnavailable": "Pratinjau PDF tidak tersedia di ponsel.",
+          "downloadCertificate": "Unduh sertifikat",
+          "close": "Tutup"
         },
         "project": {
-          "seeCaseStudy": "See Case Study",
-          "liveDemo": "Live Demo",
-          "requestThis": "Request this for your business"
+          "seeCaseStudy": "Lihat studi kasus",
+          "liveDemo": "Demo langsung",
+          "requestThis": "Minta ini untuk bisnis Anda"
         },
         "title": "Status Eksekusi Langsung",
         "activityPulse": "Puls Aktivitas",
@@ -580,21 +580,21 @@
     }
   },
   "insights": {
-    "allInsights": "All insights",
-    "title": "Notes from building business software.",
-    "description": "What we learn designing, shipping, and running production systems for founders and operators.",
-    "calloutTitle": "Recognize your business in this?",
-    "calloutBody": "Two minutes of questions, one concrete recommendation.",
-    "readArticle": "Read article",
-    "comingNext": "Coming next"
+    "allInsights": "Semua wawasan",
+    "title": "Catatan dari membangun perangkat lunak bisnis.",
+    "description": "Apa yang kami pelajari saat merancang, meluncurkan, dan menjalankan sistem produksi untuk founder dan operator.",
+    "calloutTitle": "Mengenali bisnis Anda di sini?",
+    "calloutBody": "Dua menit pertanyaan, satu rekomendasi konkret.",
+    "readArticle": "Baca artikel",
+    "comingNext": "Segera hadir"
   },
   "projects": {
     "backToSolutions": "Kembali ke Sistem",
-    "liveDemo": "Live Demo",
+    "liveDemo": "Demo Langsung",
     "github": "GitHub",
     "noDocumentation": "Dokumentasi tidak tersedia.",
     "interestedTitle": "Tertarik dengan sesuatu yang serupa?",
-    "interestedBody": "We can customize this foundation to match your own business workflow.",
+    "interestedBody": "Kami dapat menyesuaikan fondasi ini agar sesuai dengan alur kerja bisnis Anda.",
     "startFromThis": "Mulai dari sistem ini"
   }
 }
