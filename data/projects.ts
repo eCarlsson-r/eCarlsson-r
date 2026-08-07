@@ -278,7 +278,7 @@ export const projects: Project[] = [
             }
         ],
 
-        featured: false,
+        featured: true,
         year: 2026,
         mdxPath: "carlsson-studio"
     },
@@ -490,7 +490,7 @@ export const projects: Project[] = [
             }
         ],
 
-        featured: true,
+        featured: false,
         year: 2026,
         mdxPath: "commerce-system"
     }
