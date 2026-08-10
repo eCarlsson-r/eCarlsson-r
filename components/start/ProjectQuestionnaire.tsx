@@ -25,7 +25,7 @@ import {
   companySizeLabels,
 } from "@/lib/id/questionnaireOptions";
 import { buildLeadWhatsAppMessage, getStudioWhatsAppLink } from "@/lib/whatsapp";
-import { buildOperationalAssessment } from "@/lib/assessment-engine";
+import type { OperationalAssessment } from "@/lib/assessment-engine";
 
 const TOTAL_STEPS = 6;
 
@@ -151,7 +151,7 @@ export default function ProjectQuestionnaire() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [result, setResult] = useState<LeadResult | null>(null);
   const [view, setView] = useState<QuestionnaireView>("questionnaire");
-  const assessment = useMemo(() => buildOperationalAssessment(answers, locale), [answers, locale]);
+  const assessment = useMemo(() => result?.operationalAssessment ?? null, [result?.operationalAssessment]);
 
   // Fetch config once (re-run on retry or locale change).
   useEffect(() => {
@@ -247,8 +247,8 @@ export default function ProjectQuestionnaire() {
       });
       setResult(data);
       setView("assessment");
-    } catch (err: any) {
-      setSubmitError(err?.message || t("submitErrorFallback"));
+    } catch (err) {
+      if (err instanceof Error) setSubmitError(err?.message || t("submitErrorFallback"));
     } finally {
       setSubmitting(false);
     }
@@ -289,7 +289,6 @@ export default function ProjectQuestionnaire() {
       <AssessmentView
         assessment={assessment}
         onContinue={() => setView("results")}
-        locale={locale}
         t={t}
       />
     );
@@ -497,14 +496,25 @@ export default function ProjectQuestionnaire() {
 function AssessmentView({
   assessment,
   onContinue,
-  locale,
   t,
 }: {
-  assessment: ReturnType<typeof buildOperationalAssessment>;
+  assessment: OperationalAssessment | null;
   onContinue: () => void;
-  locale: string;
   t: ReturnType<typeof useTranslations>;
 }) {
+  if (!assessment) {
+    return (
+      <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+        <span className="text-xs font-semibold uppercase tracking-widest text-primary">{t("assessmentEyebrow")}</span>
+        <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{t("assessmentTitle")}</h1>
+        <p className="mt-4 max-w-3xl text-lg text-muted-foreground">{t("assessmentSubtitle")}</p>
+        <div className="mt-8 rounded-2xl border border-gray-200 dark:border-white/10 bg-card/50 p-6 md:p-8">
+          <p className="text-sm text-muted-foreground">The operational assessment is not available from the backend yet.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
       <span className="text-xs font-semibold uppercase tracking-widest text-primary">{t("assessmentEyebrow")}</span>
@@ -577,9 +587,19 @@ function AssessmentView({
   );
 }
 
-function Results({ result, contact, answers, assessment }: { result: LeadResult; contact: string; answers: Answers; assessment: ReturnType<typeof buildOperationalAssessment> }) {
+function Results({ result, contact, answers, assessment }: { result: LeadResult; contact: string; answers: Answers; assessment: OperationalAssessment | null }) {
   const locale = useLocale();
   const t = useTranslations("questionnaire");
+  if (!assessment) {
+    return (
+      <div className="mx-auto max-w-3xl px-6 py-24 text-center">
+        <h1 className="text-3xl font-bold tracking-tight">{t("thankYouTitle", { name: result.name })}</h1>
+        <p className="mt-4 text-muted-foreground">
+          {t("thankYouBody", { contact })}
+        </p>
+      </div>
+    );
+  }
   const [top, ...rest] = result.recommendations ?? [];
   const others = rest.slice(0, 2);
 

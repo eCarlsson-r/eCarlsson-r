@@ -1,3 +1,5 @@
+import type { OperationalAssessment } from "@/lib/assessment-engine";
+
 /**
  * Client for the Carlsson Studio Spring Boot API.
  * All endpoints wrap responses in a { success, message, data } envelope.
@@ -50,6 +52,7 @@ export interface LeadResult {
   id: number;
   name: string;
   recommendations: Recommendation[];
+  operationalAssessment?: OperationalAssessment;
 }
 
 interface Envelope<T> {
