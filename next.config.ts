@@ -12,12 +12,52 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/signals",
-        destination: "/insights",
+        destination: "/id/insights",
+        permanent: true,
+      },
+      {
+        source: "/:locale(id|en)/signals",
+        destination: "/:locale/insights",
         permanent: true,
       },
       {
         source: "/start",
-        destination: "/start-a-project",
+        destination: "/id/start-a-project",
+        permanent: true,
+      },
+      {
+        source: "/:locale(id|en)/start",
+        destination: "/:locale/start-a-project",
+        permanent: true,
+      },
+      {
+        source: "/biaya-pembuatan-software-kustom",
+        destination: "/id/start-a-project",
+        permanent: true,
+      },
+      {
+        source: "/:locale(id|en)/biaya-pembuatan-software-kustom",
+        destination: "/:locale/start-a-project",
+        permanent: true,
+      },
+      {
+        source: "/hubungi-kami",
+        destination: "/id/start-a-project",
+        permanent: true,
+      },
+      {
+        source: "/:locale(id|en)/hubungi-kami",
+        destination: "/:locale/start-a-project",
+        permanent: true,
+      },
+      {
+        source: "/jasa-pembuatan-software-bisnis",
+        destination: "/id/projects",
+        permanent: true,
+      },
+      {
+        source: "/:locale(id|en)/jasa-pembuatan-software-bisnis",
+        destination: "/:locale/projects",
         permanent: true,
       },
     ];

@@ -1,7 +1,6 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { motion } from "motion/react";
 import { Project, Repository } from "@/core/types";
 import { ArrowRight, ExternalLink } from "lucide-react";

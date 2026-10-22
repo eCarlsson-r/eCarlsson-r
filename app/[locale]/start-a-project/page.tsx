@@ -12,6 +12,18 @@ export async function generateMetadata({
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    alternates: {
+      canonical: `/${locale}/start-a-project`,
+      languages: {
+        id: "/id/start-a-project",
+        en: "/en/start-a-project",
+      },
+    },
+    openGraph: {
+      title: t("metaTitle"),
+      description: t("metaDescription"),
+      url: `https://carlssonstudio.com/${locale}/start-a-project`,
+    },
   };
 }
 

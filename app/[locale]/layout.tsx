@@ -20,13 +20,44 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
   return {
-    title: t("title"),
+    metadataBase: new URL("https://carlssonstudio.com"),
+    title: {
+      default: t("title"),
+      template: "%s | Carlsson Studio",
+    },
     description: t("description"),
     alternates: {
+      canonical: `/${locale}`,
       languages: {
         id: "/id",
         en: "/en",
       },
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    openGraph: {
+      type: "website",
+      locale: locale === "id" ? "id_ID" : "en_US",
+      url: `https://carlssonstudio.com/${locale}`,
+      title: t("title"),
+      description: t("description"),
+      siteName: "Carlsson Studio",
+      images: [
+        {
+          url: "/images/CarlssonStudio.png",
+          width: 1200,
+          height: 630,
+          alt: "Carlsson Studio",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: ["/images/CarlssonStudio.png"],
     },
   };
 }

@@ -1,12 +1,40 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { listInsights } from "@/lib/hooks/loadInsights";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export const metadata = {
-  title: "Insights | Carlsson Studio",
-  description: "Articles on business software, operations, and the architecture decisions behind Carlsson Studio's production systems.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const title =
+    locale === "id"
+      ? "Wawasan Arsitektur & Software Bisnis | Carlsson Studio"
+      : "Insights & Software Architecture | Carlsson Studio";
+  const description =
+    locale === "id"
+      ? "Artikel seputar arsitektur software bisnis, operasional enterprise, dan keputusan teknis di balik sistem produksi Carlsson Studio."
+      : "Articles on business software, operations, and the architecture decisions behind Carlsson Studio's production systems.";
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/${locale}/insights`,
+      languages: {
+        id: "/id/insights",
+        en: "/en/insights",
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://carlssonstudio.com/${locale}/insights`,
+    },
+  };
+}
 
 const upcoming = [
   "Choosing between custom software and SaaS",

@@ -5,7 +5,7 @@ import ProjectGroup from "../project/ProjectGroup";
 import { ProjectDomain } from "@/core/types";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
 const domains: ProjectDomain[] = [
@@ -47,7 +47,7 @@ export default function FeaturedProjects() {
   return (
     <section id="solutions" className="max-w-7xl mx-auto px-6 py-12 xl:py-24">
       <span className="text-xs font-semibold uppercase tracking-widest text-primary">{t("subtitle")}</span>
-      <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{t("title")}</h2>
+      <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{t("title")}</h1>
       <p className="mt-4 text-muted-foreground">{t("description")}</p>
 
       {/* Industry tabs — active domain tab takes its foundation's accent */}

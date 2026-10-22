@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -10,13 +10,36 @@ export function generateStaticParams() {
   return listInsights().map((i) => ({ slug: i.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
   const insight = loadInsight(slug);
   if (!insight) return {};
+  const title = `${insight.frontmatter.title} | Carlsson Studio`;
   return {
-    title: `${insight.frontmatter.title} | Carlsson Studio`,
+    title,
     description: insight.frontmatter.description,
+    alternates: {
+      canonical: `/${locale}/insights/${slug}`,
+      languages: {
+        id: `/id/insights/${slug}`,
+        en: `/en/insights/${slug}`,
+      },
+    },
+    openGraph: {
+      title,
+      description: insight.frontmatter.description,
+      type: "article",
+      url: `https://carlssonstudio.com/${locale}/insights/${slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: insight.frontmatter.description,
+    },
   };
 }
 

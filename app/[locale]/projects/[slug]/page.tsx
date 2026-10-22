@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { loadProjectMdx } from "@/lib/hooks/loadProjectMdx";
@@ -22,6 +22,54 @@ import { mdxComponents } from "@/components/mdx/mdxComponents";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+  if (!project) return {};
+
+  const tCopy = await getTranslations({ locale, namespace: "project" });
+  const copyKey = `copy.${project.slug}` as const;
+  const description = tCopy.has(`${copyKey}.description`)
+    ? tCopy(`${copyKey}.description`)
+    : project.description;
+
+  const title = project.title;
+  const image = project.slides?.[0]?.src || "/images/CarlssonStudio.png";
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/${locale}/projects/${slug}`,
+      languages: {
+        id: `/id/projects/${slug}`,
+        en: `/en/projects/${slug}`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://carlssonstudio.com/${locale}/projects/${slug}`,
+      images: [
+        {
+          url: image,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
+  };
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
